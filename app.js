@@ -4,6 +4,9 @@ const mongoose = require("mongoose");
 const db = require("./config/keys").mongoURI; 
 const bodyParser = require("body-parser");
 const passport = require("passport");
+// Add require routes here
+const users = require("./routes/api/users");
+// End add require routes here 
 
 
 if (process.env.NODE_ENV === "production") {
@@ -25,7 +28,6 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 
 // ADD BACKEND ROUTES HERE
-const users = require("./routes/api/users");
 app.use("/api/users", users);
 // ADD BACKEND ROUTES HERE
 
