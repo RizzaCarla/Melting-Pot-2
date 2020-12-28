@@ -5,6 +5,7 @@ import configureStore from "./store/store";
 import jwt_decode from "jwt-decode";
 import { setAuthToken } from "./util/session_api_util";
 import { logout } from "./actions/session_actions";
+import {fetchUser, fetchUsers} from './actions/user_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -24,6 +25,13 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     store = configureStore({});
   }
+
+  // TESTING START
+  window.getState = store.getState;
+  window.dispatch = store.dispatch;
+  window.fetchUser = fetchUser;
+  window.fetchUsers = fetchUsers
+  // TESTING END
 
   const root = document.getElementById("root");
   ReactDOM.render(<Root store={store} />, root);
