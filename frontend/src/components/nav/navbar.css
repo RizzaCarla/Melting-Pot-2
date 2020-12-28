@@ -21,6 +21,10 @@
     align-items: center;
 }
 
+.navbar-left input {
+    padding-left: 5px;
+}
+
 .navbar-right {
     display: flex;
     justify-content: space-between;
@@ -32,4 +36,6 @@
     background: none;
     border: none;
     margin-right: 11px;
+    cursor: pointer;
+    outline: 0;
 }
