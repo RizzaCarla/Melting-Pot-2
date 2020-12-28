@@ -22,6 +22,14 @@ router.get(
   }
 );
 
+// Get User
+router.get('/:id', (req, res) => {
+  User.findById(req.params.id)
+    .then(user => res.json(user))
+    .catch(err => console.log(err))
+})
+
+
 // SIGN UP USER 
 router.post('/signup', (req, res) => {
   const{errors, isValid} = validateRegisterInput(req.body);
@@ -39,7 +47,9 @@ router.post('/signup', (req, res) => {
         const newUser = new User({
           handle: req.body.handle,
           email: req.body.email,
-          password: req.body.password
+          password: req.body.password,
+          bio: req.body.bio,
+          dietaryRestrictions: req.body.dietaryRestrictions
         });
         // Change given password to a salted and encrypted password hash
         bcrypt.genSalt(10, (err, salt) => {
@@ -102,6 +112,8 @@ router.post('/login', (req, res) => {
         })
     })
 })
+
+
 
 
 router.get("/test", (req, res) => res.json({msg: "This is the users route"}));
