@@ -20,6 +20,6 @@ export const updateRecipe = (recipe) => {
     return axios.patch(`/api/recipes/${recipe.id}`, recipe)
 };
 
-export const deleteRecipe = (id) => {
-    return axios.delete(`/api/recipes/${id}`)
+export const deleteRecipe = (recipeId) => {
+    return axios.delete(`/api/recipes/${recipeId}`)
 };
