@@ -16,6 +16,7 @@ class SignupForm extends React.Component {
     this.clearedErrors = false;
   }
 
+  // Will have to refactor this as componentWillReceiveProps will be deprecated
   componentWillReceiveProps(nextProps) {
     if (nextProps.signedIn === true) {
       this.props.history.push("/login");
