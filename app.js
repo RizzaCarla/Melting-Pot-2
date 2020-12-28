@@ -4,7 +4,9 @@ const mongoose = require("mongoose");
 const db = require("./config/keys").mongoURI; 
 const bodyParser = require("body-parser");
 const passport = require("passport");
+// Add require routes here
 const users = require("./routes/api/users");
+// End add require routes here 
 
 
 if (process.env.NODE_ENV === "production") {

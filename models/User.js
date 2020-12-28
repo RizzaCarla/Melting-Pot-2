@@ -13,7 +13,19 @@ const UserSchema = new Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    bio: {
+        type: String,
+        required: true
+    },
+    photoUrl: {
+        type: String,
+        required: false
+    },
+    friends: [{type: Schema.Types.ObjectId, ref: 'users', required: false}],
+    likedRecipes:[{type: Schema.Types.ObjectId, ref: 'recipes', required: false}],
+    dietaryRestrictions: [{type: String, required: true}]
+
 }, {
   timestamps: true
 })
