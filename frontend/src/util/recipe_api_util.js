@@ -4,20 +4,20 @@ export const getRecipes = () => {
     return axios.get(`/api/recipes`)
 };
 
-export const getUserRecipes = id => {
-    return axios.get(`/api/recipes/user/${id}`)
-};
+export const getUserRecipes = userId => {
+    return axios.get(`/api/recipes/user/${userId}`)
+}; 
 
-export const getRecipe = id => {
-    return axios.get(`/api/recipes/${id}`)
-};
+export const getRecipe = recipeId => {
+    return axios.get(`/api/recipes/${recipeId}`)
+}; // this id refers to the recipes 
 
 export const createRecipe = (recipe) => {
     return axios.post(`/api/recipes`, recipe)
 };
 
 export const updateRecipe = (recipe) => {
-    return axios.patch(`/api/recipes`, recipe)
+    return axios.patch(`/api/recipes/${recipe.id}`, recipe)
 };
 
 export const deleteRecipe = (id) => {
