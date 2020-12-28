@@ -34,7 +34,14 @@ class NavBar extends React.Component {
   render() {
     return (
       <div className="NavBar">
-        <Link to="/">Home</Link>
+        <div className="navbar-left">
+          <Link to="/">Home</Link>
+          <form action="">
+            <input type="text"
+                  value=""
+                  placeholder="look for a recipe"/>
+          </form>
+        </div>
         {this.getLinks()}
       </div>
     );
