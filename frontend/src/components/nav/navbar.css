@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    text-decoration: none;
+    color: #333;
+    font-size: 20px;
+}
+
+.NavBar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #00FA9A;
+    height: 50px;
+    padding-left: 11px;
+}
+
+.navbar-left {
+    display: flex;
+    width: 280px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-left input {
+    padding-left: 5px;
+}
+
+.navbar-right {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 11px;
+    width: 150px;
+}
+
+.logout-btn {
+    background: none;
+    border: none;
+    margin-right: 11px;
+    cursor: pointer;
+    outline: 0;
+}
