@@ -5,7 +5,7 @@ import MainPage from "./home/home_page";
 import NavBarContainer from "./nav/navbar_container";
 
 
-import ProfileContainer from './profile/profile_container';
+import ProfileContainer from './profile/2.profile_container';
 import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
 

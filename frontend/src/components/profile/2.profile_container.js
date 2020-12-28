@@ -1,14 +1,16 @@
 import { connect } from 'react-redux'
-import Profile from './profile';
+import Profile from './1.profile';
 
 const mapStateToProps = (state) => {
   return {
-    currentUser: state.session.user,
+    photoUrl: this.state.photoUrl,
+
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
+
   };
 };
 

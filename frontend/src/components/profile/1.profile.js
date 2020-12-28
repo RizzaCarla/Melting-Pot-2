@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 class Profile extends React.Component {
   constructor(props) {
     super(props);
@@ -10,7 +9,7 @@ class Profile extends React.Component {
   render() {
     return (
       <div>
-        <h1>User Profile Page</h1>
+        this.props.
       </div>
     )
   }
