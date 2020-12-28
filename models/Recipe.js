@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const RecipeSchema = new Schema({
+  authorId: {
+    type: Number,
+    required: false
+  },
   name: {
     type: String,
     required: true
@@ -18,6 +22,10 @@ const RecipeSchema = new Schema({
     type: String,
     required: true
   },
+  comments: {
+    type: Array,
+    required: false
+  },
   cookingTime: {
     type: String,
     required: true
@@ -29,6 +37,14 @@ const RecipeSchema = new Schema({
   category: {
     type: String,
     required: true
+  },
+  numLikes: {
+    type: Number,
+    required: false
+  },
+  photoUrl: {
+    type: String,
+    required: false
   }
 }, {
     timestamps: true
