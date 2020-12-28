@@ -22,6 +22,13 @@ router.get(
   }
 );
 
+//Get all users 
+router.get('/', (req,res) => {
+  User.find()
+    .then(users => res.json(users))
+    .catch(err => console.log(err))
+})
+
 // Get User
 router.get('/:id', (req, res) => {
   User.findById(req.params.id)
