@@ -7,6 +7,7 @@ const passport = require("passport");
 
 // Add require routes here
 const users = require("./routes/api/users");
+const recipes = require("./routes/api/recipes");
 // End add require routes here 
 
 
@@ -31,6 +32,7 @@ require("./config/passport")(passport);
 
 // ADD BACKEND ROUTES HERE
 app.use("/api/users", users);
+app.use('/api/recipes', recipes)
 // ADD BACKEND ROUTES HERE
 
 const port = process.env.PORT || 5000;
