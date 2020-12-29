@@ -1,4 +1,5 @@
 import React from 'react'
+import ProfileShowContainer from './4.profile_show_container'
 
 class Profile extends React.Component {
   // constructor(props) {
@@ -9,7 +10,7 @@ class Profile extends React.Component {
   render() {
     return (
       <div>
-        djdsd
+        < ProfileShowContainer />
       </div>
     )
   }
