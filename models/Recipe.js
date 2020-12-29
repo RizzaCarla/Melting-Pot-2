@@ -15,11 +15,11 @@ const RecipeSchema = new Schema({
     required: true
   },
   ingredients: {
-    type: String,
+    type: Array,
     required: true
   },
   instructions: {
-    type: String,
+    type: Array,
     required: true
   },
   comments: {
@@ -31,11 +31,11 @@ const RecipeSchema = new Schema({
     required: true
   },
   difficulty: {
-    type: String,
+    type: Array,
     required: true
   },
   category: {
-    type: String,
+    type: Array,
     required: true
   },
   numLikes: {
