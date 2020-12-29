@@ -22,7 +22,7 @@ class SignupForm extends React.Component {
   // Will have to refactor this as componentWillReceiveProps will be deprecated
   componentWillReceiveProps(nextProps) {
     if (nextProps.signedIn === true) {
-      this.props.history.push("/login");
+      this.props.history.push("/profile");
     }
 
     this.setState({ errors: nextProps.errors });

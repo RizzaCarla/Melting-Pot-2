@@ -1,17 +1,14 @@
 import { connect } from 'react-redux'
-import Profile from './1.profile';
+import { withRouter } from 'react-router-dom'
+import Profile from './1.profile'
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
-    photoUrl: this.state.photoUrl,
+    users: state.entities.users,
+    user: state.entities.users[ownProps.match.params.userId]
 
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
 
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Profile);
+export default withRouter(connect(mapStateToProps, null)(Profile));
