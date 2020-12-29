@@ -9,12 +9,12 @@ import {fetchUser, fetchUsers} from './actions/user_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
-
+  
   if (localStorage.jwtToken) {
     setAuthToken(localStorage.jwtToken);
     const decodedUser = jwt_decode(localStorage.jwtToken);
     const preloadedState = {
-      session: { isAuthenticated: true, user: decodedUser },
+      session: { isAuthenticated: true, currentUser: decodedUser },
     };
     store = configureStore(preloadedState);
     const currentTime = Date.now() / 1000;
