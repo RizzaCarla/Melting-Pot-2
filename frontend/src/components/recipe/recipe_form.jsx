@@ -5,14 +5,23 @@ class RecipeForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            authorId: this.props.currentUser.id,
             name: "",
             story: "",
-            ingredients: [],
-            instructions: [],
+            ingredients: this.props.ingredients,
+            instructions: this.props.instructions,
             cookingTime: "",
             difficulty: "",
-            photoUrl: ""
+            category: ""
         }
+
+        this.handleIngredients = this.handleIngredients.bind(this);
+    }
+
+    handleIngredients(e) {
+        let prevIngredients = this.props.ingredients;
+        let newIngredient = [e.target.value];
+        this.setState({["ingredients"]: prevIngredients.concat(newIngredient)})
     }
 
     render() {
@@ -39,8 +48,14 @@ class RecipeForm extends React.Component {
                 <div className="recipe-middle">
                     <div className="ingredients">
                         <h3>Ingredients:</h3>
+                        <ul>
+                            {this.state.ingredients.map((ingredient,idx) => {
+                                return(<li key={idx}>{ingredient}</li>)
+                            })}
+                        </ul>
                         <input type="text"
-                            placeholder="write ingredients"/>
+                               placeholder="write ingredients"
+                               onChange={this.handleIngredients}/>
                     </div>
                     <div className="recipe-owner">
                         <h3>Recipe Owner:</h3>
