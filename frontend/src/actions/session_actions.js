@@ -4,7 +4,7 @@ import jwt_decode from 'jwt-decode';
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 export const RECEIVE_USER_LOGOUT = "RECEIVE_USER_LOGOUT";
-export const RECEIVE_USER_SIGNUP = "RECEIVE_USER_SIGNUP";
+
 
 // When our user is logged out, we will dispatch this action to set isAuthenticated to false
 export const logoutUser = () => ({
@@ -21,12 +21,6 @@ export const receiveErrors = errors => ({
   errors
 });
 
-export const receiveUserSignup = user => ({
-  type: RECEIVE_USER_SIGNUP,
-  user
-})
-
-
 export const signup = (user) => (dispatch) =>
   APIUtil.signup(user)
     .then((res) => {
@@ -34,7 +28,6 @@ export const signup = (user) => (dispatch) =>
       localStorage.setItem("jwtToken", token);
       APIUtil.setAuthToken(token);
       const decoded = jwt_decode(token);
-      // dispatch(receiveUserSignup(user));
       dispatch(receiveCurrentUser(decoded));
     })
     .catch((err) => {
