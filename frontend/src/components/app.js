@@ -8,6 +8,7 @@ import NavBarContainer from "./nav/navbar_container";
 import ProfileContainer from './profile/profile_container';
 import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
+import RecipeFormContainer from "./recipe/recipe_create_container";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
         <AuthRoute exact path="/signup" component={SignupFormContainer} />
 
         <ProtectedRoute exact path="/profile" component={ProfileContainer} />
+        <ProtectedRoute exact path="/recipes/new" component={RecipeFormContainer} />
 
       </Switch>
     </div>
