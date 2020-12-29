@@ -3,8 +3,8 @@ const Schema = mongoose.Schema;
 
 const RecipeSchema = new Schema({
   authorId: {
-    type: Number,
-    required: false
+    type: String,
+    required: true
   },
   name: {
     type: String,
@@ -15,11 +15,11 @@ const RecipeSchema = new Schema({
     required: true
   },
   ingredients: {
-    type: String,
+    type: Array,
     required: true
   },
   instructions: {
-    type: String,
+    type: Array,
     required: true
   },
   comments: {
@@ -31,11 +31,11 @@ const RecipeSchema = new Schema({
     required: true
   },
   difficulty: {
-    type: String,
+    type: Array,
     required: true
   },
   category: {
-    type: String,
+    type: Array,
     required: true
   },
   numLikes: {

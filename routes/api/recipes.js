@@ -2,9 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Recipe = require('../../models/Recipe');
 const User = require("../../models/User");
-// const { ObjectId } = require('mongodb');
-
-//MAKE SURE TO HAVE REGULAR ROUTES ABOVE ROUTES WITH WILDCARDS OTHER WISE YOU GET THIS BUG: UnhandledPromiseRejectionWarning: CastError: Cast to ObjectId failed for value
+const mongoose = require("mongoose");
 
 //RETRIEVE ALL RECIPES
 router.get('/', (req, res) => {
@@ -18,6 +16,7 @@ router.get('/', (req, res) => {
   })
 })
 
+// CREATE NEW RECIPE
 router.post('/new', (req, res) => {
   const newRecipe = new Recipe({
     authorId: req.body.authorId,
@@ -41,34 +40,6 @@ router.post('/new', (req, res) => {
     }
   })
 });
-
-
-// router.put('/edit/:id', (req, res) => {
-//     // Recipe.findByIdAndUpdate(req.body.id)
-//     Recipe.update({ _id: req.params.id }, req.body)
-//     .then(recipe => {
-      // recipe.authorId = req.body.authorId,
-      // recipe.name = req.body.name,
-      // recipe.story = req.body.story,
-      // recipe.ingredients = req.body.ingredients,
-      // recipe.instructions = req.body.instructions,
-      // recipe.comments = req.body.comments,
-      // recipe.cookingTime = req.body.cookingTime,
-      // recipe.difficulty = req.body.difficulty,
-      // recipe.category = req.body.category,
-      // recipe.numLikes = req.body.numLikes,
-      // recipe.photoUrl = req.body.photoUrl
-      
-      // recipe.save()
-      // .then((recipe) => {
-        // if (recipe) {
-    //       return res.json(recipe)
-    //     } else {
-    //       return res.status(400).json('Recipe was not successfully updated')
-    //     }
-    //   })
-    // })
-  // })
 
 //RETRIEVE ONE RECIPE BY ID
 router.get('/:id', (req, res) => {
@@ -94,7 +65,7 @@ router.get('user/:userId', (req, res) => {
   })
 })
 
-
+//DELETE RECIPE
 router.delete('/:id', (req, res) => {
   Recipe.findOneAndDelete(req.params.id)
   .then((recipe) => {
@@ -106,4 +77,15 @@ router.delete('/:id', (req, res) => {
   })
 })
 
+//EDIT A RECIPE
+router.patch('/edit/:id', (req, res) => {
+  mongoose.set('useFindAndModify', false);
+  Recipe.findByIdAndUpdate(req.params.id, req.body, { new: true })
+  .then((recipe) => {
+    return res.json(recipe)
+  })
+  .catch(err => res.json(err))
+})
+
 module.exports = router;
+//MAKE SURE TO HAVE REGULAR ROUTES ABOVE ROUTES WITH WILDCARDS OTHER WISE YOU GET THIS BUG: UnhandledPromiseRejectionWarning: CastError: Cast to ObjectId failed for value
