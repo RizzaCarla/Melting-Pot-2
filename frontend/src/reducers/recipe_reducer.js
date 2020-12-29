@@ -14,10 +14,10 @@ const recipeReducer = ( state = {}, action) => {
         case RECEIVE_USER_RECIPES:
             newState.user = action.recipes.data;
             return newState;
-        case RECEIVE_RECIPE: 
-            return newState;
+        case RECEIVE_RECIPE:
+            return Object.assign(newState, {[action.recipe.data._id]: action.recipe.data});
         case REMOVE_RECIPE:
-            delete newState.user[action.recipeId];
+            delete newState[action.recipeId];
             return newState;
         default:
             return state;

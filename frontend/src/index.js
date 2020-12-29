@@ -8,7 +8,7 @@ import { logout } from "./actions/session_actions";
 
 // TESTING START
 import {fetchUser, fetchUsers} from './actions/user_actions';
-import { getRecipes, getUserRecipes } from './actions/recipe_actions';
+import { getRecipes, createRecipe, deleteRecipe } from './actions/recipe_actions';
 // TESTING END
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -37,7 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
   window.fetchUsers = fetchUsers;
 
   window.getRecipes = getRecipes;
-  window.getUserRecipes = getUserRecipes;
+  window.createRecipe = createRecipe;
+  window.deleteRecipe = deleteRecipe;
   // TESTING END
 
   const root = document.getElementById("root");

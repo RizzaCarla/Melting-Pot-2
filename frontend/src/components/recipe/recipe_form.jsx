@@ -5,13 +5,14 @@ class RecipeForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            authorId: this.props.currentUser.id,
             name: "",
             story: "",
-            ingredients: [],
+            ingredients: ["hello", "my", "name"],
             instructions: [],
             cookingTime: "",
             difficulty: "",
-            photoUrl: ""
+            category: ""
         }
     }
 
@@ -39,6 +40,11 @@ class RecipeForm extends React.Component {
                 <div className="recipe-middle">
                     <div className="ingredients">
                         <h3>Ingredients:</h3>
+                        <ul>
+                            {this.state.ingredients.map(ingredient => {
+                                return(<li>{ingredient}</li>)
+                            })}
+                        </ul>
                         <input type="text"
                             placeholder="write ingredients"/>
                     </div>
