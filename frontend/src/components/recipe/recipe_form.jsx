@@ -5,7 +5,13 @@ class RecipeForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            
+            name: "",
+            story: "",
+            ingredients: [],
+            instructions: [],
+            cookingTime: "",
+            difficulty: "",
+            photoUrl: ""
         }
     }
 
@@ -20,11 +26,9 @@ class RecipeForm extends React.Component {
                     <div className="recipe-info">
                         <label>Difficulty:
                             <select>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
+                                <option value="easy">easy</option>
+                                <option value="medium">medium</option>
+                                <option value="hard">hard</option>
                             </select>
                         </label>
                         <label>Cooking Time:
@@ -50,7 +54,7 @@ class RecipeForm extends React.Component {
                                placeholder="write instructions"/>
                     </div>
                     <div className="recipe-story">
-                        <textarea cols="30" rows="10"
+                        <textarea cols="26" rows="10"
                                   placeholder="write your story about this recipe"/>
                     </div>
                 </div>
