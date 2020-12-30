@@ -9,6 +9,9 @@ const validateLoginInput = require('../../validation/login');
 const validateRegisterInput = require('../../validation/register');
 
 
+
+
+
 // private auth route
 router.get(
   "/current",
