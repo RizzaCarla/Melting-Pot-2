@@ -13,7 +13,7 @@ const photosReducer = (oldState = {}, action) => {
     case RECEIVE_PHOTO: 
       return Object.assign({}, oldState, {[action.photo.data._id]: action.photo.data})
     case DELETE_PHOTO:
-      delete nextState.song[action.photoId]
+      delete nextState[action.photoId]
       return nextState;
     default:
       return oldState;
