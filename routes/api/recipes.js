@@ -1,15 +1,14 @@
 const express = require("express");
 const router = express.Router();
 const Recipe = require('../../models/Recipe');
-const User = require("../../models/User");
 const validateRecipeInput = require('../../validation/recipes')
 const mongoose = require("mongoose");
 
 //RETRIEVE ALL RECIPES
 router.get('/', (req, res) => {
   Recipe.find()
-  .then(recipes => res.json(recipes))
-  .catch(err => res.status(404).json({ recipesNotFound: 'No recipes found.' }))
+    .then(recipes => res.json(recipes))
+    .catch(err => res.status(404).json({ recipesNotFound: 'No recipes found' }))
 })
 
 // CREATE NEW RECIPE
@@ -50,15 +49,15 @@ router.get('/:authorId', (req, res) => {
 //RETRIEVE ONE RECIPE BY ID
 router.get('/:id', (req, res) => {
   Recipe.findById(req.params.id)
-  .then(recipe => res.json(recipe))
-  .catch(err => res.status(404).json({ recipeNotFound: 'Recipe with that ID does not exist' }));
+    .then(recipe => res.json(recipe))
+    .catch(err => res.status(404).json({ recipeNotFound: 'Recipe with that ID does not exist' }));
 });
 
 //DELETE RECIPE
 router.delete('/:id', (req, res) => {
   Recipe.findOneAndDelete(req.params.id)
-  .then((recipe) => res.json('Recipe successfully deleted'))
-  .catch(err => res.status(400).json('Recipe was not successfully deleted'))
+    .then((recipe) => res.json('Recipe successfully deleted'))
+    .catch(err => res.status(400).json('Recipe was not successfully deleted'))
 })
 
 //EDIT A RECIPE
