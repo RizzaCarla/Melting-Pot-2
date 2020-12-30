@@ -1,5 +1,4 @@
 const validText = require('./valid-text');
-const validArray = require('./valid-array');
 const  Validator = require('validator')
 
 module.exports = function validateRecipeInput(data) {
@@ -9,23 +8,23 @@ module.exports = function validateRecipeInput(data) {
   data.authorId = validText(data.authorId) ? data.authorId : '';
   data.name = validText(data.name) ? data.name : '';
   data.story = validText(data.story) ? data.story : '';
-  cookingTime = validText(data.cookingTime) ? data.cookingTime : '';
-  difficulty = validText(data.difficulty) ? data.difficulty : '';
-  category = validText(data.category) ? data.category : '';
-  numLikes = validText(data.numLikes) ? data.numLikes : '';
-  photoUrl = validText(data.photoUrl) ? data.photoUrl : '';
-  
-  //VALID ARRAY
-  ingredients = validArray(data.ingredients) ? data.ingredients : '';
-  instructions = validArray(data.instructions) ? data.instructions : '';
+  data.cookingTime = validText(data.cookingTime) ? data.cookingTime : '';
+  data.difficulty = validText(data.difficulty) ? data.difficulty : '';
+  data.category = validText(data.category) ? data.category : '';
+  data.numLikes = validText(data.numLikes) ? data.numLikes : '';
+  data.photoUrl = validText(data.photoUrl) ? data.photoUrl : '';
 
   //CHECK IF THE DATA IS EMPTY
-  if (Validator.isEmpty(data.ingredients)) {
+  if (data.ingredients.length === 0) {
     errors.ingredients = 'Ingredients are required'
+  } else if (data.ingredients.length > 0 && data.ingredients === '') {
+    errors.ingredients = 'Invalid input'
   }
 
-  if (Validator.isEmpty(data.instructions)) {
+  if (data.instructions.length === 0) {
     errors.instructions = 'Instructions are required'
+  } else if (data.instructions.length > 0 && data.instructions === '') {
+    errors.instructions = 'Invalid input'
   }
 
   if (Validator.isEmpty(data.authorId)) {
@@ -38,14 +37,6 @@ module.exports = function validateRecipeInput(data) {
 
   if (Validator.isEmpty(data.story)) {
     errors.story = 'Recipe story is required'
-  }
-
-  if (Validator.isEmpty(data.ingredients)) {
-    errors.ingredients = 'Ingredients are required'
-  }
-
-  if (Validator.isEmpty(data.instructions)) {
-    errors.instructions = 'Instructions are required'
   }
 
   if (Validator.isEmpty(data.cookingTime)) {
