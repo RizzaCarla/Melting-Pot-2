@@ -81,6 +81,25 @@
     margin-bottom: 30px;
 }
 
+.ingredients li {
+    list-style: square;
+}
+
+.ingredients li:first-child {
+    margin-top: 10px;
+}
+
+.ingredients input {
+    padding-left: 5px;
+}
+
+.recipe-owner {
+    display: flex;
+    flex-direction: column;
+    margin-right: 185px;
+    /* margin-right: 210px; */
+}
+
 .recipe-owner-pic {
     background: #3f3f3f;
     width: 60px;
@@ -190,6 +209,10 @@
     color: 	#C0C0C0
 }
 
+
 .inst-form input[type="submit"]:hover {
     color:  #C0C0C0
+
+.instruction input {
+    padding-left:5px;
 }
