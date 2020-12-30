@@ -6,6 +6,7 @@ import jwt_decode from "jwt-decode";
 import { setAuthToken } from "./util/session_api_util";
 import { logout } from "./actions/session_actions";
 import {fetchUser, fetchUsers} from './actions/user_actions';
+import {fetchPhotos, fetchPhoto} from './actions/photo_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -30,7 +31,9 @@ document.addEventListener("DOMContentLoaded", () => {
   window.getState = store.getState;
   window.dispatch = store.dispatch;
   window.fetchUser = fetchUser;
-  window.fetchUsers = fetchUsers
+  window.fetchUsers = fetchUsers;
+  window.fetchPhotos = fetchPhotos;
+  window.fetchPhoto = fetchPhoto;
   // TESTING END
 
   const root = document.getElementById("root");

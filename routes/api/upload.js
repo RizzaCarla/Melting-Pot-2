@@ -20,22 +20,17 @@ AWS.config.update({
 
 // Get all photos 
 router.get("/", (req, res, next) => {
-  Photo.find(
-    {},
-    null,
-    {
-      sort: {createdAt: 1}
-    },
-    (err, photos) => {
-      if (err) {
-        return next(err);
+  Photo.find()
+    .then(photos => {
+      if (photos) {
+        return res.json(photos)
+      } else {
+        return res.status(404).json({noPhotosFound: 'No Photos Found'})
       }
-      res.status.send(photos)
-    }
-  )
+    })
 })
 
-//Get single GO data 
+//Get single Photo data 
 
 router.get("/:id", (req,res, next) => {
   Photo.findById(req.params.id, (err, go) => {
@@ -45,6 +40,7 @@ router.get("/:id", (req,res, next) => {
     res.json(go)
   })
 })
+
 
 // Route to upload file
 router.post("/upload", upload.single("file"), function(req, res) {
@@ -88,8 +84,8 @@ router.post("/upload", upload.single("file"), function(req, res) {
 })
 
 // Route to delete a photo file
-router.delete("/:id", (req, res, next) => {
-  Photo.findByIdAndRemove(req.params.id, (err, result) => {
+router.delete("/delete/:id", (req, res, next) => {
+  Photo.findOneAndDelete(req.params.id, (err, result) => {
     if (err) {
       return next(err);
     }

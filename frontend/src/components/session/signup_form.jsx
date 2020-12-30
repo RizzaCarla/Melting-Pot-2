@@ -11,6 +11,7 @@ class SignupForm extends React.Component {
       password: "",
       password2: "",
       bio: "",
+      photoId: "",
       photoUrl: "",
       photoFile: null,
       dietaryRestrictions: [],
@@ -57,7 +58,7 @@ class SignupForm extends React.Component {
     if (this.state.photoFile) {
       const data = new FormData(e.target);
       data.append("file", this.state.photoFile);
-      
+
       uploadPhoto(data).then(res => {
        
         let user = {
