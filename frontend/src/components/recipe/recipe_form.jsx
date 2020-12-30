@@ -5,7 +5,7 @@ class RecipeForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            authorId: this.props.currentUser.id,
+            authorId: this.props.currentUser._id,
             name: "",
             story: "",
             ingredients: this.props.ingredients,
@@ -14,34 +14,50 @@ class RecipeForm extends React.Component {
             difficulty: "",
             category: ""
         }
-
-        this.handleIngredients = this.handleIngredients.bind(this);
     }
 
-    handleIngredients(e) {
-        let prevIngredients = this.props.ingredients;
-        let newIngredient = [e.target.value];
-        this.setState({["ingredients"]: prevIngredients.concat(newIngredient)})
+    update(field) {
+        return e => this.setState({[field]: e.target.value})
     }
 
     render() {
+        console.log(this.state);
+        if(this.props.currentUser === undefined) {
+            return null;
+        }
         return(
             <form className="recipe-form-cont">
                 <div className="recipe-top">
                     <div className="recipe-pic-name">
                         <input type="file"/>
-                        <input type="text"/>
+                        <input type="text"
+                               onChange={this.update("name")}
+                               placeholder="Name of your recipe"/>
                     </div>
                     <div className="recipe-info">
                         <label>Difficulty:
-                            <select>
+                            <select onChange={this.update("difficulty")}>
                                 <option value="easy">easy</option>
                                 <option value="medium">medium</option>
                                 <option value="hard">hard</option>
                             </select>
                         </label>
                         <label>Cooking Time:
-                            <input type="text"/>
+                            <select onChange={this.update("cookingTime")}>
+                                <option value="half">0.5 hr</option>
+                                <option value="1hr">1 hr</option>
+                                <option value="1.5hr">1.5hr</option>
+                                <option value="2+hrs">2+ hrs</option>
+                            </select>
+                        </label>
+                        <label>Category:
+                            <select onChange={this.update("category")}>
+                                <option value="Meat">Meat</option>
+                                <option value="Vegetables">Vegetables</option>
+                                <option value="Poultry">Poultry</option>
+                                <option value="Carbs">Carbs</option>
+                                <option value="Noodle">Noodle</option>
+                            </select>
                         </label>
                     </div>
                 </div>
@@ -55,10 +71,10 @@ class RecipeForm extends React.Component {
                         </ul>
                         <input type="text"
                                placeholder="write ingredients"
-                               onChange={this.handleIngredients}/>
+                               onChange={this.handleIngredient}/>
                     </div>
                     <div className="recipe-owner">
-                        <h3>Recipe Owner:</h3>
+                        <h3>Recipe Owner: &nbsp;<span>{this.props.currentUser.handle}</span></h3>
                         <div className="recipe-owner-pic"></div>
                     </div>
                 </div>
@@ -70,6 +86,7 @@ class RecipeForm extends React.Component {
                     </div>
                     <div className="recipe-story">
                         <textarea cols="26" rows="10"
+                                  onChange={this.update("story")}
                                   placeholder="write your story about this recipe"/>
                     </div>
                 </div>
