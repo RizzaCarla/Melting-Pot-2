@@ -9,7 +9,8 @@ class Friends extends React.Component {
     render() {
         return (
             <div>
-                hi there i'm your friend
+                Friend Component
+                <br></br>
                 Friends:
                 {this.props.currentUser.friends.map((friend, i) => (
                     <div key={i}>

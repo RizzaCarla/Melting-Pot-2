@@ -64,10 +64,9 @@ class RecipeForm extends React.Component {
                     <div className="ingredients">
                         <h3>Ingredients:</h3>
                         <ul>
-                            {this.state.ingredients.map((ingredient,idx) => {
+                            {this.props.ingredients.map((ingredient,idx) => {
                                 return(<li key={idx}>{ingredient}</li>)
-                            {this.state.ingredients.map(ingredient => {
-                                return(<li>{ingredient}</li>)
+                    
                             })}
                         </ul>
                         <input type="text"

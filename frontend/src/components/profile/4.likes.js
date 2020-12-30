@@ -9,7 +9,7 @@ class Likes extends React.Component {
     render() {
         return (
             <div>
-                hi there i'm your likes component
+                Likes component
             </div>
         )
     }

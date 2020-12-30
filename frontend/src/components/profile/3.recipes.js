@@ -6,10 +6,14 @@ class Recipes extends React.Component {
 
     }
 
+    componentDidMount(){
+        this.props.getUserRecipes(this.props.currentUser._id)
+    }
+
     render() {
         return (
             <div>
-                hi there i'm your recipes component
+                {this.props.recipes.name}
             </div>
         )
     }

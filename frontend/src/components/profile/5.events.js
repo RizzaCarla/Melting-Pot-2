@@ -9,7 +9,7 @@ class Events extends React.Component {
     render() {
         return (
             <div>
-                hi there i'm your events component
+                Events Component
             </div>
         )
     }
