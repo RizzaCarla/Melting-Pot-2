@@ -45,7 +45,8 @@ class RecipeForm extends React.Component {
     }
     handleClick(e) {
         e.preventDefault();
-        this.props.createRecipe(this.state);
+        // this.props.createRecipe(this.state).then((recipe) => console.log(recipe));
+        this.props.createRecipe(this.state).then((recipe) => this.props.history.push(`/recipes/${recipe.recipe.data._id}`));
     }
     render() {
         if (this.props.currentUser === undefined) {
