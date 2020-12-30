@@ -4,7 +4,9 @@ import RecipeForm from "./recipe_form";
 
 const mapStateToProps = (state) => {
     return({
-        currentUser: state.session.user
+        currentUser: state.session.currentUser.user,
+        ingredients: [],
+        instructions: [],
     });
 };
 
