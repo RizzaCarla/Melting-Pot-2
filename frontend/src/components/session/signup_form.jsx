@@ -1,5 +1,6 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom';
+import { uploadPhoto } from '../../util/upload_api_util';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -52,6 +53,11 @@ class SignupForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    const data = new FormData(e.target);
+    data.append("file", this.state.photoFile);
+    uploadPhoto(data).then(res => console.log(res))
+
+
     let user = {
       email: this.state.email,
       handle: this.state.handle,
@@ -67,19 +73,9 @@ class SignupForm extends React.Component {
 
   handlePhotoFile(e) {
     e.preventDefault();
-    const file = e.currentTarget.files[0];
-    const fileReader = new FileReader();
-
-    fileReader.onloadend = () => {
-      this.setState({
-        photoFile: file,
-        photoUrl: fileReader.result,
-      });
-    };
-
-    if (file) {
-      fileReader.readAsDataURL(file);
-    }
+    this.setState({
+      photoFile: e.target.files[0]
+    })
   }
 
   renderErrors() {
@@ -144,7 +140,6 @@ class SignupForm extends React.Component {
               <input
                 type="file"
                 name="file"
-                // value={this.state.photoUrl}
                 onChange={this.handlePhotoFile}
               />
             </label>

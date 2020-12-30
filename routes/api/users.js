@@ -55,6 +55,7 @@ router.post('/signup', (req, res) => {
       } else {
         // user doesn't exist, save the user to database
         const newUser = new User({
+          photoUrl: req.body.photoUrl,
           handle: req.body.handle,
           email: req.body.email,
           password: req.body.password,
