@@ -41,6 +41,12 @@ router.get('/:id', (req, res) => {
 
 router.get('/edit/:id', (req, res) => {
   mongoose.set('useFindAndModify', false)
+  const { errors, isValid } = validateEventInput(req.body)
+
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
+
   Event.findByIdAndUpdate(req.params.id, req.body, { new: true })
     .then(event => res.json(event))
 })
