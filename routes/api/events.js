@@ -51,7 +51,7 @@ router.get('/edit/:id', (req, res) => {
     .then(event => res.json(event))
 })
 
-router.delete('./:id', (req, res) => {
+router.delete('/:id', (req, res) => {
   Event.findOneAndDelete(req.params.id)
     .then(event => res.json('Event successfully deleted'))
     .catch(err => res.status(404).json('Event was not successfully deleted'))
