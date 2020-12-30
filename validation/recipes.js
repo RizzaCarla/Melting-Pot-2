@@ -13,16 +13,21 @@ module.exports = function validateRecipeInput(data) {
   difficulty = validText(data.difficulty) ? data.difficulty : '';
   category = validText(data.category) ? data.category : '';
   numLikes = validText(data.numLikes) ? data.numLikes : '';
-  
   photoUrl = validText(data.photoUrl) ? data.photoUrl : '';
   
   //VALID ARRAY
   ingredients = validArray(data.ingredients) ? data.ingredients : '';
   instructions = validArray(data.instructions) ? data.instructions : '';
-  comments = validArray(data.comments) ? data.comments : '';
-
 
   //CHECK IF THE DATA IS EMPTY
+  if (Validator.isEmpty(data.ingredients)) {
+    errors.ingredients = 'Ingredients are required'
+  }
+
+  if (Validator.isEmpty(data.instructions)) {
+    errors.instructions = 'Instructions are required'
+  }
+
   if (Validator.isEmpty(data.authorId)) {
     errors.authorId = 'Author Id is required'
   }
@@ -55,8 +60,6 @@ module.exports = function validateRecipeInput(data) {
     errors.category = 'Category is required'
   }
   
-  // CHECK IF THE DATA IS 
-
   return {
     errors,
     isValid: Object.keys(errors).length === 0
