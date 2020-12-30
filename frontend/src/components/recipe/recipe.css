@@ -5,6 +5,24 @@
     color: #333;
     font-size: 20px;
     list-style: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    background: #ededed;
+}
+
+.save-recipe-btn {
+    width: 850px;
+    font-size: 20px;
+    color: #fff;
+    background: rgb(27,121, 104);
+    border-radius: 5px;
+    border: rgb(28, 121, 104) solid 1px;
+    height: 35px;
+    margin: 40px auto 20px; 
 }
 
 .recipe-form-cont {
@@ -12,7 +30,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 100px auto 0;
+    margin: 0 auto;
+    /* border: 1px black solid; */
+    width: 950px;
 }
 
 /* Top Content */
@@ -20,7 +40,7 @@
 .recipe-top {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items:flex-start;
     width: 850px;
     margin-bottom: 30px;
 }
@@ -30,9 +50,25 @@
     flex-direction: column;
 }
 
+.recipe-pic-name input[type="text"] {
+    width: 250px;
+    margin-top: 10px;
+    padding-left: 5px;
+}
+
 .recipe-info {
     display: flex;
     flex-direction: column;
+    margin-right: 85px;
+    /* border: 1px black solid; */
+}
+
+.recipe-info label {
+    margin-bottom: 10px;
+}
+
+.recipe-info label:last-child{
+    margin: 0;
 }
 
 /* Middle Content */
@@ -43,12 +79,6 @@
     justify-content: space-between;
     width: 850px;
     margin-bottom: 30px;
-    align-items: center;
-}
-
-.ingredients {
-    display: flex;
-    flex-direction: column;
 }
 
 .ingredients li {
@@ -66,6 +96,7 @@
 .recipe-owner {
     display: flex;
     flex-direction: column;
+    margin-right: 185px;
     /* margin-right: 210px; */
 }
 
@@ -78,10 +109,109 @@
 
 /* Bottom Content */
 
-.recipe-bottom {
+.ing-inst-container {
     display: flex;
-    justify-content: space-between;
     width: 850px;
+    justify-content: space-between;
+    /* border: 1px black solid; */
+    margin: 0 auto;
+}
+
+.ing-inst-container input {
+    padding-left: 5px;
+}
+
+.ing-inst-container input[type=submit] {
+    outline: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.ing-form {
+    display: flex;
+    flex-direction: column;
+    margin-right: 185px;
+}
+
+.ing-form-inputs {
+    display: flex;
+    align-items: center;
+}
+
+.ing-form input[type="submit"] {
+    font-size: 35px;
+}
+
+.ing-form input[type="submit"]:hover {
+    color: #C0C0C0
+}
+
+.ing-inst-container {
+    display: flex;
+    width: 850px;
+    justify-content: space-between;
+    /* border: 1px black solid; */
+    margin: 0 auto;
+}
+
+.ing-inst-container input {
+    padding-left: 5px;
+}
+
+.ing-inst-container input[type=submit] {
+    outline: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.ing-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-overflow: clip;
+    width: 350px;
+}
+
+.ing-form-inputs {
+    display: flex;
+    align-items: center;
+}
+
+.ing-form input[type="submit"] {
+    font-size: 35px;
+}
+
+.ing-form input[type="submit"]:hover {
+    color: #C0C0C0
+}
+
+.inst-form {
+    text-overflow: clip;
+    width: 350px;
+    margin-right: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.inst-form-inputs {
+    display: flex;
+    align-items: center;
+}
+
+.inst-form input[type="submit"] {
+    font-size: 35px;
+}
+
+.inst-form input[type="submit"]:hover {
+    color: 	#C0C0C0
+}
+
+
+.inst-form input[type="submit"]:hover {
+    color:  #C0C0C0
 }
 
 .instruction input {
