@@ -54,7 +54,7 @@ class RecipeForm extends React.Component {
         e.preventDefault();
         this.props.createRecipe(this.state);
     }
-
+    
     render() {
         console.log(this.state);
         if(this.props.currentUser === undefined) {
@@ -62,6 +62,7 @@ class RecipeForm extends React.Component {
         }
         return(
             <div className="form-container">
+                <input className="save-recipe-btn" type="submit" value="Save Recipe" onClick={this.handleClick}/>
                 <form className="recipe-form-cont">
                     <div className="recipe-top">
                         <div className="recipe-pic-name">
@@ -71,7 +72,7 @@ class RecipeForm extends React.Component {
                                 placeholder="Name of your recipe"/>
                         </div>
                         <div className="recipe-info">
-                            <label>Difficulty:
+                            <label>Difficulty:&nbsp;&nbsp;&nbsp;
                                 <select onChange={this.update("difficulty")}>
                                     <option value="" selected disabled>Please select</option>
                                     <option value="easy">easy</option>
@@ -79,7 +80,7 @@ class RecipeForm extends React.Component {
                                     <option value="hard">hard</option>
                                 </select>
                             </label>
-                            <label>Cooking Time:
+                            <label>Cooking Time:&nbsp;&nbsp;&nbsp;
                                 <select onChange={this.update("cookingTime")}>
                                     <option value="" selected disabled>Please select</option>
                                     <option value="0.5 hr">0.5 hr</option>
@@ -88,7 +89,7 @@ class RecipeForm extends React.Component {
                                     <option value="2+ hrs">2+ hrs</option>
                                 </select>
                             </label>
-                            <label>Category:
+                            <label>Category:&nbsp;&nbsp;&nbsp;
                                 <select onChange={this.update("category")}>
                                     <option value="" selected disabled>Please select</option>
                                     <option value="Meat">Meat</option>
@@ -101,44 +102,48 @@ class RecipeForm extends React.Component {
                         </div>
                     </div>
                     <div className="recipe-middle">
+                        <div className="recipe-story">
+                            <textarea cols="26" rows="10"
+                                    onChange={this.update("story")}
+                                    placeholder="write your story about this recipe"/>
+                        </div>
                         <div className="recipe-owner">
                             <h3>Recipe Owner: &nbsp;<span>{this.props.currentUser.handle}</span></h3>
                             <div className="recipe-owner-pic"></div>
                         </div>
                     </div>
                     <div className="recipe-bottom">
-                        <div className="recipe-story">
+                        {/* <div className="recipe-story">
                             <textarea cols="26" rows="10"
                                     onChange={this.update("story")}
                                     placeholder="write your story about this recipe"/>
-                        </div>
+                        </div> */}
                     </div>
-                    <input type="submit" value="Post Your Recipe" onClick={this.handleClick}/>
                 </form>
                 <div className="ing-inst-container">
                     <form className="ing-form" onSubmit={this.addIngredient}>
-                        <ul>
-                            {this.state.ingredients.map((ingredient, idx) => {
-                                return(<li key={idx}>{ingredient}</li>)
-                            })}
-                        </ul>
+                        <input type="submit" value="+"/>&nbsp;&nbsp;&nbsp;
                         <input type="text"
                             placeholder="Add ingredient"
                             value={this.state.pendingIngredient}
                             onChange={this.handleIngredient}/>
-                        <input type="submit" value="+"/>
+                            <ul>
+                                {this.state.ingredients.map((ingredient, idx) => {
+                                    return(<li key={idx}>{ingredient}</li>)
+                                })}
+                            </ul>
                     </form>
                     <form className="inst-form" onSubmit={this.addInstruction}>
+                        <input type="submit" value="+"/>&nbsp;&nbsp;&nbsp;
+                        <input type="text"
+                            placeholder="Add instruction"
+                            value={this.state.pendingInstruction}
+                            onChange={this.handleInstruction}/>
                         <ul>
                             {this.state.instructions.map((instruction, idx) => {
                                 return(<li key={idx}>{instruction}</li>)
                             })}
                         </ul>
-                        <input type="text"
-                            placeholder="Add instruction"
-                            value={this.state.pendingInstruction}
-                            onChange={this.handleInstruction}/>
-                        <input type="submit" value="+"/>
                     </form>
                 </div>
             </div>
