@@ -13,11 +13,11 @@ export const getRecipe = recipeId => {
 }; // this id refers to the recipes 
 
 export const createRecipe = (recipe) => {
-    return axios.post(`/api/recipes`, recipe)
+    return axios.post(`/api/recipes/new`, recipe)
 };
 
 export const updateRecipe = (recipe) => {
-    return axios.patch(`/api/recipes/${recipe.id}`, recipe)
+    return axios.patch(`/api/recipes/${recipe._id}`, recipe)
 };
 
 export const deleteRecipe = (recipeId) => {

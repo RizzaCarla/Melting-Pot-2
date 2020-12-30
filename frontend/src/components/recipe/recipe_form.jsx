@@ -5,11 +5,11 @@ class RecipeForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            authorId: this.props.currentUser._id,
+            authorId: this.props.currentUser.id,
             name: "",
             story: "",
-            ingredients: this.props.ingredients,
-            instructions: this.props.instructions,
+            ingredients: ["hello", "my", "name"],
+            instructions: [],
             cookingTime: "",
             difficulty: "",
             category: ""
@@ -66,6 +66,8 @@ class RecipeForm extends React.Component {
                         <ul>
                             {this.state.ingredients.map((ingredient,idx) => {
                                 return(<li key={idx}>{ingredient}</li>)
+                            {this.state.ingredients.map(ingredient => {
+                                return(<li>{ingredient}</li>)
                             })}
                         </ul>
                         <input type="text"

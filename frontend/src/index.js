@@ -5,7 +5,11 @@ import configureStore from "./store/store";
 import jwt_decode from "jwt-decode";
 import { setAuthToken } from "./util/session_api_util";
 import { logout } from "./actions/session_actions";
+
+// TESTING START
 import {fetchUser, fetchUsers} from './actions/user_actions';
+import { getRecipes, createRecipe, deleteRecipe } from './actions/recipe_actions';
+// TESTING END
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -30,7 +34,11 @@ document.addEventListener("DOMContentLoaded", () => {
   window.getState = store.getState;
   window.dispatch = store.dispatch;
   window.fetchUser = fetchUser;
-  window.fetchUsers = fetchUsers
+  window.fetchUsers = fetchUsers;
+
+  window.getRecipes = getRecipes;
+  window.createRecipe = createRecipe;
+  window.deleteRecipe = deleteRecipe;
   // TESTING END
 
   const root = document.getElementById("root");

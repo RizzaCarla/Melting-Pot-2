@@ -51,11 +51,6 @@
     flex-direction: column;
 }
 
-.ingredients ul {
-    padding-left: 20px;
-    margin-bottom: 10px;
-}
-
 .ingredients li {
     list-style: square;
 }
