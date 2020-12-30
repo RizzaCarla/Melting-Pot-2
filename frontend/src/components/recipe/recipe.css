@@ -43,6 +43,11 @@
     align-items: center;
 }
 
+.ingredients {
+    display: flex;
+    flex-direction: column;
+}
+
 .recipe-owner {
     display: flex;
     flex-direction: column;

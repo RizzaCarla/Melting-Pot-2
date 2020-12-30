@@ -2,7 +2,7 @@ import { RECEIVE_USER_LOGOUT, RECEIVE_CURRENT_USER} from '../actions/session_act
 
 const initialState = {
   isAuthenticated: false,
-  currentUserId: {}
+  currentUser: {}
 };
 
 const sessionReducer = (state = initialState, action) => {
@@ -11,12 +11,12 @@ const sessionReducer = (state = initialState, action) => {
       return {
         ...state,
         isAuthenticated: !!action.currentUser,
-        currentUserId: action.currentUser.id
+        currentUser: action.currentUser
       }
     case RECEIVE_USER_LOGOUT:
       return {
         isAuthenticated: false,
-        currentUserId: undefined
+        currentUser: undefined
       };
     default: 
       return state;
