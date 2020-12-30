@@ -31,11 +31,11 @@ const RecipeSchema = new Schema({
     required: true
   },
   difficulty: {
-    type: Array,
+    type: String,
     required: true
   },
   category: {
-    type: Array,
+    type: String,
     required: true
   },
   numLikes: {
