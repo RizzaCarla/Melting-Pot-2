@@ -9,7 +9,6 @@
 }
 
 .form-container {
-    /* border: 1px black solid; */
     display: flex;
     flex-direction: column;
     background: #ededed;
@@ -132,6 +131,44 @@
 .ing-form {
     display: flex;
     flex-direction: column;
+    margin-right: 185px;
+}
+
+.ing-form-inputs {
+    display: flex;
+    align-items: center;
+}
+
+.ing-form input[type="submit"] {
+    font-size: 35px;
+}
+
+.ing-form input[type="submit"]:hover {
+    color: #C0C0C0
+}
+
+.ing-inst-container {
+    display: flex;
+    width: 850px;
+    justify-content: space-between;
+    /* border: 1px black solid; */
+    margin: 0 auto;
+}
+
+.ing-inst-container input {
+    padding-left: 5px;
+}
+
+.ing-inst-container input[type=submit] {
+    outline: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.ing-form {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     text-overflow: clip;
     width: 350px;
@@ -171,6 +208,10 @@
 .inst-form input[type="submit"]:hover {
     color: 	#C0C0C0
 }
+
+
+.inst-form input[type="submit"]:hover {
+    color:  #C0C0C0
 
 .instruction input {
     padding-left:5px;
