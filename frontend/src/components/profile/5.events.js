@@ -1,6 +1,6 @@
 import React from 'react'
 
-class NavBar extends React.Component {
+class Events extends React.Component {
     constructor(props) {
         super(props);
 
@@ -9,10 +9,10 @@ class NavBar extends React.Component {
     render() {
         return (
             <div>
-
+                hi there i'm your events component
             </div>
         )
     }
 }
 
-export default NavBar;
+export default Events;

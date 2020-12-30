@@ -56,7 +56,6 @@ class SignupForm extends React.Component {
     this.setState({ dietaryRestrictions: options })
   }
 
-
   handleSubmit(e) {
     e.preventDefault();
     let user = {

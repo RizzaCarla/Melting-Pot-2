@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import AboutMe from './5.aboutMe'
+import Recipes from './3.recipes'
 
 const mapStateToProps = (state) => {
     return {
@@ -12,4 +12,4 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AboutMe);
+export default connect(mapStateToProps, mapDispatchToProps)(Recipes);
