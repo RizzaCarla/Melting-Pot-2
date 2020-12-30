@@ -19,7 +19,17 @@ const EventSchema = new Schema({
     required: true
   },
   startTime: {
-    tyep: String,
+    type: String,
     required: true
+  },
+  endTime: {
+    type: String,
+    required: true
+  },
+  photoUrl: {
+    type: String,
+    required: false
   }
 })
+
+module.exports = Event = mongoose.model('Event', EventSchema);
