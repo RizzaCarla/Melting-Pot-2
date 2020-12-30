@@ -1,6 +1,5 @@
 import React from 'react';
 import "./recipe.css"
-
 class RecipeForm extends React.Component {
     constructor(props) {
         super(props)
@@ -21,59 +20,48 @@ class RecipeForm extends React.Component {
         this.addInstruction = this.addInstruction.bind(this);
         this.handleClick = this.handleClick.bind(this);
     }
-
     update(field) {
-        return e => this.setState({[field]: e.target.value})
+        return e => this.setState({ [field]: e.target.value })
     }
-
     handleIngredient(e) {
         e.preventDefault();
         this.setState({ ["pendingIngredient"]: e.target.value });
     }
-
     addIngredient(e) {
         e.preventDefault();
         let newIngredients = this.state.ingredients.concat(this.state.pendingIngredient);
-        this.setState({["ingredients"]: newIngredients });
-        this.setState({["pendingIngredient"]: ""});
+        this.setState({ ["ingredients"]: newIngredients });
+        this.setState({ ["pendingIngredient"]: "" });
     }
-
     handleInstruction(e) {
         e.preventDefault();
-        this.setState({["pendingInstruction"]: e.target.value });
+        this.setState({ ["pendingInstruction"]: e.target.value });
     }
-
     addInstruction(e) {
         e.preventDefault();
         let newInstructions = this.state.instructions.concat(this.state.pendingInstruction);
-        this.setState({["instructions"]: newInstructions });
-        this.setState({["pendingInstruction"]: ""})
+        this.setState({ ["instructions"]: newInstructions });
+        this.setState({ ["pendingInstruction"]: "" })
     }
-
     handleClick(e) {
         e.preventDefault();
         this.props.createRecipe(this.state);
     }
-    
     render() {
         console.log(this.state);
-
-    render() {
-
-        if(this.props.currentUser === undefined) {
+        if (this.props.currentUser === undefined) {
             return null;
         }
-        return(
-
+        return (
             <div className="form-container">
-                <input className="save-recipe-btn" type="submit" value="Save Recipe" onClick={this.handleClick}/>
+                <input className="save-recipe-btn" type="submit" value="Save Recipe" onClick={this.handleClick} />
                 <form className="recipe-form-cont">
                     <div className="recipe-top">
                         <div className="recipe-pic-name">
-                            <input type="file"/>
+                            <input type="file" />
                             <input type="text"
                                 onChange={this.update("name")}
-                                placeholder="Name of your recipe"/>
+                                placeholder="Name of your recipe" />
                         </div>
                         <div className="recipe-info">
                             <label>Difficulty:&nbsp;&nbsp;&nbsp;
@@ -108,48 +96,13 @@ class RecipeForm extends React.Component {
                     <div className="recipe-middle">
                         <div className="recipe-story">
                             <textarea cols="26" rows="10"
-                                    onChange={this.update("story")}
-                                    placeholder="write your story about this recipe"/>
+                                onChange={this.update("story")}
+                                placeholder="write your story about this recipe" />
                         </div>
                         <div className="recipe-owner">
                             <h3>Recipe Owner: &nbsp;<span>{this.props.currentUser.handle}</span></h3>
                             <div className="recipe-owner-pic"></div>
                         </div>
-
-            <form className="recipe-form-cont">
-                <div className="recipe-top">
-                    <div className="recipe-pic-name">
-                        <input type="file"/>
-                        <input type="text"
-                               onChange={this.update("name")}
-                               placeholder="Name of your recipe"/>
-                    </div>
-                    <div className="recipe-info">
-                        <label>Difficulty:
-                            <select onChange={this.update("difficulty")}>
-                                <option value="easy">easy</option>
-                                <option value="medium">medium</option>
-                                <option value="hard">hard</option>
-                            </select>
-                        </label>
-                        <label>Cooking Time:
-                            <select onChange={this.update("cookingTime")}>
-                                <option value="half">0.5 hr</option>
-                                <option value="1hr">1 hr</option>
-                                <option value="1.5hr">1.5hr</option>
-                                <option value="2+hrs">2+ hrs</option>
-                            </select>
-                        </label>
-                        <label>Category:
-                            <select onChange={this.update("category")}>
-                                <option value="Meat">Meat</option>
-                                <option value="Vegetables">Vegetables</option>
-                                <option value="Poultry">Poultry</option>
-                                <option value="Carbs">Carbs</option>
-                                <option value="Noodle">Noodle</option>
-                            </select>
-                        </label>
-
                     </div>
                     <div className="recipe-bottom">
                         {/* <div className="recipe-story">
@@ -162,65 +115,36 @@ class RecipeForm extends React.Component {
                 <div className="ing-inst-container">
                     <form className="ing-form" onSubmit={this.addIngredient}>
                         <div className="ing-form-inputs">
-                            <input type="submit" value="+"/>&nbsp;&nbsp;&nbsp;
+                            <input type="submit" value="+" />&nbsp;&nbsp;&nbsp;
                             <input type="text"
                                 placeholder="Add ingredient"
                                 value={this.state.pendingIngredient}
-                                onChange={this.handleIngredient}/>
+                                onChange={this.handleIngredient} />
                         </div>
                         <ul>
-
                             {this.state.ingredients.map((ingredient, idx) => {
-                                return(<li key={idx}>{ingredient}</li>)
+                                return (<li key={idx}>{ingredient}</li>)
                             })}
                         </ul>
                     </form>
                     <form className="inst-form" onSubmit={this.addInstruction}>
                         <div className="inst-form-inputs">
-                            <input type="submit" value="+"/>&nbsp;&nbsp;&nbsp;
+                            <input type="submit" value="+" />&nbsp;&nbsp;&nbsp;
                             <input type="text"
                                 placeholder="Add instruction"
                                 value={this.state.pendingInstruction}
-                                onChange={this.handleInstruction}/>
+                                onChange={this.handleInstruction} />
                         </div>
                         <ul>
                             {this.state.instructions.map((instruction, idx) => {
-                                return(<li key={idx}>{instruction}</li>)
+                                return (<li key={idx}>{instruction}</li>)
                             })}
                         </ul>
                     </form>
-
-                            {this.state.ingredients.map((ingredient,idx) => {
-                                return(<li key={idx}>{ingredient}</li>)
-                            {this.state.ingredients.map(ingredient => {
-                                return(<li>{ingredient}</li>)
-                            })}
-                        </ul>
-                        <input type="text"
-                               placeholder="write ingredients"
-                               onChange={this.handleIngredient}/>
-                    </div>
-                    <div className="recipe-owner">
-                        <h3>Recipe Owner: &nbsp;<span>{this.props.currentUser.handle}</span></h3>
-                        <div className="recipe-owner-pic"></div>
-                    </div>
-                </div>
-                <div className="recipe-bottom">
-                    <div className="instruction">
-                        <h3>Instructions:</h3>
-                        <input type="text"
-                               placeholder="write instructions"/>
-                    </div>
-                    <div className="recipe-story">
-                        <textarea cols="26" rows="10"
-                                  onChange={this.update("story")}
-                                  placeholder="write your story about this recipe"/>
-                    </div>
-
                 </div>
             </div>
         )
     }
 }
-
 export default RecipeForm
+
