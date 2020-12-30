@@ -53,22 +53,39 @@ class SignupForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const data = new FormData(e.target);
-    data.append("file", this.state.photoFile);
-    uploadPhoto(data).then(res => console.log(res))
 
+    if (this.state.photoFile) {
+      const data = new FormData(e.target);
+      data.append("file", this.state.photoFile);
+      
+      uploadPhoto(data).then(res => {
+       
+        let user = {
+          email: this.state.email,
+          handle: this.state.handle,
+          bio: this.state.bio,
+          photoUrl: res.data.data.Location,
+          dietaryRestrictions: this.state.dietaryRestrictions,
+          password: this.state.password,
+          password2: this.state.password2,
+        };
+        this.props.signup(user, this.props.history);
+      })
 
-    let user = {
-      email: this.state.email,
-      handle: this.state.handle,
-      bio: this.state.bio,
-      photoUrl: this.state.photoUrl,
-      dietaryRestrictions: this.state.dietaryRestrictions,
-      password: this.state.password,
-      password2: this.state.password2,
-    };
+    } else {
 
-    this.props.signup(user, this.props.history); // WHY Pass in history?
+      let user = {
+        email: this.state.email,
+        handle: this.state.handle,
+        bio: this.state.bio,
+        photoUrl: this.state.photoUrl,
+        dietaryRestrictions: this.state.dietaryRestrictions,
+        password: this.state.password,
+        password2: this.state.password2,
+      };
+      this.props.signup(user, this.props.history); // WHY Pass in history?
+    }
+    
   }
 
   handlePhotoFile(e) {
@@ -134,12 +151,13 @@ class SignupForm extends React.Component {
               placeholder="Bio"
             />
             <br />
-
+              {/* FOR FILE UPLOAD: type="file" name="" id="" */}
             <label>
               Upload Profile Picture:
               <input
                 type="file"
-                name="file"
+                name=""
+                id=""
                 onChange={this.handlePhotoFile}
               />
             </label>
