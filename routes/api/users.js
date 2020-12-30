@@ -55,7 +55,7 @@ router.post('/signup', (req, res) => {
           handle: req.body.handle,
           email: req.body.email,
           password: req.body.password,
-          bio: req.body.bio,
+          bio: req.body.bio,    
           dietaryRestrictions: req.body.dietaryRestrictions
         });
         // Change given password to a salted and encrypted password hash
