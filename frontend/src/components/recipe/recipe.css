@@ -12,6 +12,7 @@
     /* border: 1px black solid; */
     display: flex;
     flex-direction: column;
+    background: #ededed;
 }
 
 .save-recipe-btn {
@@ -53,6 +54,7 @@
 .recipe-pic-name input[type="text"] {
     width: 250px;
     margin-top: 10px;
+    padding-left: 5px;
 }
 
 .recipe-info {
@@ -116,13 +118,23 @@
 
 .ing-form {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
     text-overflow: clip;
     width: 350px;
 }
 
+.ing-form-inputs {
+    display: flex;
+    align-items: center;
+}
+
 .ing-form input[type="submit"] {
-    font-size: 30px;
+    font-size: 35px;
+}
+
+.ing-form input[type="submit"]:hover {
+    color: #C0C0C0
 }
 
 .inst-form {
@@ -130,9 +142,19 @@
     width: 350px;
     margin-right: 40px;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.inst-form-inputs {
+    display: flex;
     align-items: center;
 }
 
 .inst-form input[type="submit"] {
-    font-size: 30px;
+    font-size: 35px;
+}
+
+.inst-form input[type="submit"]:hover {
+    color: 	#C0C0C0
 }

@@ -122,23 +122,27 @@ class RecipeForm extends React.Component {
                 </form>
                 <div className="ing-inst-container">
                     <form className="ing-form" onSubmit={this.addIngredient}>
-                        <input type="submit" value="+"/>&nbsp;&nbsp;&nbsp;
-                        <input type="text"
-                            placeholder="Add ingredient"
-                            value={this.state.pendingIngredient}
-                            onChange={this.handleIngredient}/>
-                            <ul>
-                                {this.state.ingredients.map((ingredient, idx) => {
-                                    return(<li key={idx}>{ingredient}</li>)
-                                })}
-                            </ul>
+                        <div className="ing-form-inputs">
+                            <input type="submit" value="+"/>&nbsp;&nbsp;&nbsp;
+                            <input type="text"
+                                placeholder="Add ingredient"
+                                value={this.state.pendingIngredient}
+                                onChange={this.handleIngredient}/>
+                        </div>
+                        <ul>
+                            {this.state.ingredients.map((ingredient, idx) => {
+                                return(<li key={idx}>{ingredient}</li>)
+                            })}
+                        </ul>
                     </form>
                     <form className="inst-form" onSubmit={this.addInstruction}>
-                        <input type="submit" value="+"/>&nbsp;&nbsp;&nbsp;
-                        <input type="text"
-                            placeholder="Add instruction"
-                            value={this.state.pendingInstruction}
-                            onChange={this.handleInstruction}/>
+                        <div className="inst-form-inputs">
+                            <input type="submit" value="+"/>&nbsp;&nbsp;&nbsp;
+                            <input type="text"
+                                placeholder="Add instruction"
+                                value={this.state.pendingInstruction}
+                                onChange={this.handleInstruction}/>
+                        </div>
                         <ul>
                             {this.state.instructions.map((instruction, idx) => {
                                 return(<li key={idx}>{instruction}</li>)
