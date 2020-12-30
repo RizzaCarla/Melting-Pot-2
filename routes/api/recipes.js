@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
 
 // CREATE NEW RECIPE
 router.post('/new', (req, res) => {
-  // const { errors, isValid } = validateRecipeInput(req.body)
+  const { errors, isValid } = validateRecipeInput(req.body)
   const newRecipe = new Recipe({
     authorId: req.body.authorId,
     name: req.body.name,
@@ -29,12 +29,12 @@ router.post('/new', (req, res) => {
     photoUrl: req.body.photoUrl
   })
   
-  // if (!isValid) {
-  //   return res.status(400).json(errors);
-  // }
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
   
   newRecipe.save()
-  .then(recipe => res.json(recipe))
+    .then(recipe => res.json(recipe))
 });
 
 //RETRIEVE RECIPES OF ONE USER
