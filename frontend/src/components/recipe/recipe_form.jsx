@@ -10,9 +10,12 @@ class RecipeForm extends React.Component {
             ingredients: this.props.ingredients,
             pendingIngredient: "",
             instructions: this.props.instructions,
+            comments: [],
             cookingTime: "",
             difficulty: "",
-            category: ""
+            category: "",
+            numLikes: 0,
+            photoUrl: ""
         }
         this.handleIngredient = this.handleIngredient.bind(this);
         this.addIngredient = this.addIngredient.bind(this);
@@ -45,10 +48,10 @@ class RecipeForm extends React.Component {
     }
     handleClick(e) {
         e.preventDefault();
-        this.props.createRecipe(this.state);
+        // this.props.createRecipe(this.state).then((recipe) => console.log(recipe));
+        this.props.createRecipe(this.state).then((recipe) => this.props.history.push(`/recipes/${recipe.recipe.data._id}`));
     }
     render() {
-        console.log(this.state);
         if (this.props.currentUser === undefined) {
             return null;
         }
@@ -67,9 +70,9 @@ class RecipeForm extends React.Component {
                             <label>Difficulty:&nbsp;&nbsp;&nbsp;
                                 <select onChange={this.update("difficulty")}>
                                     <option value="" selected disabled>Please select</option>
-                                    <option value="easy">easy</option>
-                                    <option value="medium">medium</option>
-                                    <option value="hard">hard</option>
+                                    <option value="easy">Easy</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="hard">Hard</option>
                                 </select>
                             </label>
                             <label>Cooking Time:&nbsp;&nbsp;&nbsp;
@@ -88,7 +91,7 @@ class RecipeForm extends React.Component {
                                     <option value="Vegetables">Vegetables</option>
                                     <option value="Poultry">Poultry</option>
                                     <option value="Carbs">Carbs</option>
-                                    <option value="Noodle">Noodle</option>
+                                    <option value="Noodle">Soup</option>
                                 </select>
                             </label>
                         </div>
@@ -97,7 +100,7 @@ class RecipeForm extends React.Component {
                         <div className="recipe-story">
                             <textarea cols="26" rows="10"
                                 onChange={this.update("story")}
-                                placeholder="write your story about this recipe" />
+                                placeholder="Write your story about this recipe" />
                         </div>
                         <div className="recipe-owner">
                             <h3>Recipe Owner: &nbsp;<span>{this.props.currentUser.handle}</span></h3>
@@ -147,4 +150,3 @@ class RecipeForm extends React.Component {
     }
 }
 export default RecipeForm
-

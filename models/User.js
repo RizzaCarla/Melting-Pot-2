@@ -18,6 +18,10 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
+    photoId: {
+        type: String,
+        required: false
+    },
     photoUrl: {
         type: String,
         required: false
