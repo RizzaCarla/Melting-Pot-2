@@ -147,4 +147,3 @@ class RecipeForm extends React.Component {
     }
 }
 export default RecipeForm
-
