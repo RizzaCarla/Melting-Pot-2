@@ -1,5 +1,7 @@
 import React from 'react';
 import "./recipe.css"
+import { uploadPhoto } from "../../util/photo_api_util";
+
 class RecipeForm extends React.Component {
   constructor(props) {
     super(props);
@@ -15,6 +17,8 @@ class RecipeForm extends React.Component {
       difficulty: "",
       category: "",
       numLikes: 0,
+      photoId: "",
+      photoFile: null,
       photoUrl: "",
     };
     this.handleIngredient = this.handleIngredient.bind(this);
@@ -22,6 +26,8 @@ class RecipeForm extends React.Component {
     this.handleInstruction = this.handleInstruction.bind(this);
     this.addInstruction = this.addInstruction.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handlePhotoFile = this.handlePhotoFile.bind(this);
+
   }
   update(field) {
     return (e) => this.setState({ [field]: e.target.value });
@@ -53,11 +59,39 @@ class RecipeForm extends React.Component {
   handleClick(e) {
     e.preventDefault();
     // this.props.createRecipe(this.state).then((recipe) => console.log(recipe));
-    this.props
-      .createRecipe(this.state)
-      .then((recipe) =>
-        this.props.history.push(`/recipes/${recipe.recipe.data._id}`)
-      );
+    if (this.state.photoFile) {
+        const data = new FormData();
+        data.append("file", this.state.photoFile);
+        
+        uploadPhoto(data).then(res => {
+            let newRecipe = {
+              authorId: this.state.authorId,
+              name: this.state.name,
+              story: this.state.story,
+              ingredients: this.state.ingredients,
+              pendingIngredient: this.state.pendingIngredient,
+              instructions: this.state.instructions,
+              comments: this.state.comments,
+              cookingTime: this.state.cookingTime,
+              difficulty: this.state.difficulty,
+              category: this.state.category,
+              numLikes: this.state.numLikes,
+              photoId: res.data.newData.photoId,
+              photoUrl: res.data.newData.Location,
+            };
+            this.props
+              .createRecipe(newRecipe)
+              .then((recipe) =>
+                this.props.history.push(`/recipes/${recipe.recipe.data._id}`)
+              );
+        })
+    } else {
+        this.props
+              .createRecipe(this.state)
+              .then((recipe) =>
+                this.props.history.push(`/recipes/${recipe.recipe.data._id}`)
+              );
+    }
   }
 
   handlePhotoFile(e) {
@@ -66,7 +100,7 @@ class RecipeForm extends React.Component {
       photoFile: e.target.files[0],
     });
   }
-  
+
   render() {
     if (this.props.currentUser === undefined) {
       return null;
@@ -79,10 +113,15 @@ class RecipeForm extends React.Component {
           value="Save Recipe"
           onClick={this.handleClick}
         />
-        <form className="recipe-form-cont">
+        <form id="recipe_form" className="recipe-form-cont">
           <div className="recipe-top">
             <div className="recipe-pic-name">
-              <input type="file" />
+              <input 
+                type="file" 
+                name=""
+                id=""
+                onChange={this.handlePhotoFile}   
+                />
               <input
                 type="text"
                 onChange={this.update("name")}
