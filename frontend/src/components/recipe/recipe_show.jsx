@@ -49,8 +49,9 @@ class RecipeShow extends React.Component {
                     <div className="recipe-owner-info">
                         <div className="recipe-show-owner">
                             <div className="owner-pic"></div>
-                            {recipe.authorId}
+                            {/* {recipe.authorId} */}
                         </div>
+                        <h4>Recipe Story:</h4>
                         {recipe.story}
                     </div>
                 </div>
