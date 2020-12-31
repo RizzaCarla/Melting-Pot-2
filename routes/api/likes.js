@@ -1,4 +1,3 @@
-
 const express = require("express");
 const mongoose = require('mongoose');
 const router = express.Router();
@@ -13,7 +12,7 @@ router.post('/new', (req, res) => {
     return res.status(404).json(errors);
   }
 
-  const newLike = new Like({
+  const newLike = new Like ({ 
     authorId: req.body.authorId,
     recipeId: req.body.recipeId
   })
