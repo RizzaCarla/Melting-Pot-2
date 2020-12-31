@@ -23,13 +23,19 @@ router.post('/new', (req, res) => {
     endTime: req.body.endTime,
     photoUrl: req.body.photoUrl
   })
-
+  
   if (!isValid) {
     return res.status(400).json(errors);
   }
-
+  
   newEvent.save()
     .then(event => res.json(event))
+})
+
+router.get('/:hostId', (req, res) => {
+  Event.find({ "hostId": req.params.hostId })
+    .then(events => res.json(events))
+    .catch(err => res.status(404).json({ userEventsNotFound: 'This user does not have any events' }))
 })
 
 //RETRIEVE ONE EVENT BY ID
@@ -55,12 +61,6 @@ router.delete('/:id', (req, res) => {
   Event.findOneAndDelete(req.params.id)
     .then(event => res.json('Event successfully deleted'))
     .catch(err => res.status(404).json('Event was not successfully deleted'))
-})
-
-router.get('/:authorId', (req, res) => {
-  Event.find({ "authorId": req.params.authorId })
-    .then(events => res.json(events))
-    .catch(err => res.status(404).json({ userEventsNotFound: 'This user does not have any events' }))
 })
 
 module.exports = router;
