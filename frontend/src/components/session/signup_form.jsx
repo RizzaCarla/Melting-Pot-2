@@ -1,8 +1,10 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom';
+import { uploadPhoto } from '../../util/photo_api_util';
 import { Link } from 'react-router-dom'
 import './css_reset.css'
 import './session_forms.css'
+
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -13,13 +15,16 @@ class SignupForm extends React.Component {
       password: "",
       password2: "",
       bio: "",
+      photoId: "",
       photoUrl: "",
+      photoFile: null,
       dietaryRestrictions: [],
       errors: {},
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.clearedErrors = false;
+    this.handlePhotoFile = this.handlePhotoFile.bind(this);
   }
 
   componentDidMount() {
@@ -44,31 +49,62 @@ class SignupForm extends React.Component {
   }
 
   handleCheckboxChange(e) {
-    const options = this.state.dietaryRestrictions
-    let index
+    const options = this.state.dietaryRestrictions;
+    let index;
     if (e.target.checked) {
-      options.push(e.target.value)
+      options.push(e.target.value);
     } else {
-      index = options.indexOf(e.target.value)
-      options.splice(index, 1)
+      index = options.indexOf(e.target.value);
+      options.splice(index, 1);
     }
 
-    this.setState({ dietaryRestrictions: options })
+    this.setState({ dietaryRestrictions: options });
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    let user = {
-      email: this.state.email,
-      handle: this.state.handle,
-      bio: this.state.bio,
-      photoUrl: this.state.photoUrl,
-      dietaryRestrictions: this.state.dietaryRestrictions,
-      password: this.state.password,
-      password2: this.state.password2,
-    };
 
-    this.props.signup(user, this.props.history); // WHY Pass in history?
+    if (this.state.photoFile) {
+      const data = new FormData(e.target);
+      data.append("file", this.state.photoFile);
+
+      uploadPhoto(data).then(res => {
+       
+        let user = {
+          email: this.state.email,
+          handle: this.state.handle,
+          bio: this.state.bio,
+          photoId: res.data.newData.photoId,
+          photoUrl: res.data.newData.Location,
+          dietaryRestrictions: this.state.dietaryRestrictions,
+          password: this.state.password,
+          password2: this.state.password2,
+        };
+        this.props.signup(user, this.props.history);
+      })
+
+    } else {
+
+      let user = {
+        email: this.state.email,
+        handle: this.state.handle,
+        bio: this.state.bio,
+        photoId: this.state.photoId,
+        photoUrl: this.state.photoUrl,
+        dietaryRestrictions: this.state.dietaryRestrictions,
+        password: this.state.password,
+        password2: this.state.password2,
+      };
+      this.props.signup(user, this.props.history); // WHY Pass in history?
+    }
+    
+  }
+
+  handlePhotoFile(e) {
+    e.preventDefault();
+    this.setState({
+      photoFile: e.target.files[0]
+    })
   }
 
   renderErrors() {
@@ -86,7 +122,6 @@ class SignupForm extends React.Component {
       <div className="form-container">
         <h1>Melting Pot</h1>
         <form onSubmit={this.handleSubmit}>
-
           <div className="form">
             <h2>Sign Up</h2>
 
@@ -140,13 +175,14 @@ class SignupForm extends React.Component {
               />
             </label>
 
-
+            {/* FOR FILE UPLOAD: type="file" name="" id="" */}
             <label>Upload Profile Picture:&nbsp;&nbsp;
               <input
                 type="file"
                 className="input-field upload-pic"
-                value={this.state.photoUrl}
-                onChange={this.update("photoUrl")}
+                name=""
+                id=""
+                onChange={this.handlePhotoFile}
               />
             </label>
 
@@ -232,7 +268,6 @@ class SignupForm extends React.Component {
 
             <input className="submit-button"  type="submit" value="Submit" />
             <div className="errors">{this.renderErrors()}</div>
-
           </div>
         </form>
 
