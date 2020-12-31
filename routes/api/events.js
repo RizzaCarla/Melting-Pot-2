@@ -39,7 +39,7 @@ router.get('/:id', (req, res) => {
     .catch(err => res.status(404).json({ eventsNotFound: 'Event with that ID does not exist'}))
 })
 
-router.get('/edit/:id', (req, res) => {
+router.patch('/edit/:id', (req, res) => {
   mongoose.set('useFindAndModify', false)
   const { errors, isValid } = validateEventInput(req.body)
 
