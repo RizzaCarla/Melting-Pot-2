@@ -1,12 +1,16 @@
 import React from 'react';
+import './recipe_edit.css';
 
 class RecipeEdit extends React.Component {
     constructor(props){
         super(props)
         this.state = this.props.recipe;
-
         this.update = this.update.bind(this);
         this.handleInstruction = this.handleInstruction.bind(this);
+        this.handleInstClick = this.handleInstClick.bind(this);
+        this.handleIngClick = this.handleIngClick.bind(this);
+        this.handleIngredient = this.handleIngredient.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount(){
@@ -15,7 +19,7 @@ class RecipeEdit extends React.Component {
 
     componentDidUpdate(){
         if(this.state === null){
-            this.setState(this.props.recipe)
+            this.setState(Object.assign(this.props.recipe, {ingIdx: "", instIdx: ""}));
         }
     }
 
@@ -23,11 +27,31 @@ class RecipeEdit extends React.Component {
         return e => this.setState({[field]: e.target.value})
     }
 
+    handleInstClick(idx) {
+        this.setState({["instIdx"]: idx});
+    }
+
     handleInstruction(e) {
         e.preventDefault();
-        console.log(e);
-        // const oldInstructions = this.state.instructions;
-        // this.setState({[instructions]: this.state.instructions[]})
+        let newInstruction = this.state.instructions;
+        newInstruction[this.state.instIdx] = e.target.value;
+        this.setState({["instructions"]: newInstruction});
+    }
+
+    handleIngClick(idx) {
+        this.setState({["ingIdx"]: idx });
+    }
+
+    handleIngredient(e) {
+        e.preventDefault();
+        let newIngredient = this.state.ingredients;
+        newIngredient[this.state.ingIdx] = e.target.value;
+        this.setState({["ingredients"]: newIngredient });
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        this.props.updateRecipe(this.state).then(() => this.props.history.push(`/recipes/${this.props.recipe._id}`));
     }
 
     render() {
@@ -78,6 +102,23 @@ class RecipeEdit extends React.Component {
                               onChange={this.update("story")}
                               placeholder="Write your story about this recipe"/>
                 </label>
+                <label>Ingredients:
+                    <ul>
+                        {this.state.ingredients.map((ingredient, idx) => {
+                            return(
+                                <li key={idx}>
+                                    <input type="text"
+                                            value={this.state.ingredients[idx]}
+                                            placeholder={ingredient}
+                                            onClick={() => this.handleIngClick(idx)}
+                                            onChange={this.handleIngredient}/>
+                                </li>
+                            )
+                        })}
+                    </ul>
+                    <input type="text"
+                           placeholder="Add more ingredient"/>
+                </label>
                 <label>Instructions:
                     <ul>
                         {this.state.instructions.map((instruction, idx) => {
@@ -86,12 +127,16 @@ class RecipeEdit extends React.Component {
                                     <input type="text"
                                             value={this.state.instructions[idx]}
                                             placeholder={instruction}
+                                            onClick={() => this.handleInstClick(idx)}
                                             onChange={this.handleInstruction}/>
                                 </li>
                             )
                         })}
                     </ul>
+                    <input type="text"
+                           placeholder="Add more instruction"/>
                 </label>
+                <button onClick={this.handleSubmit}>Update Recipe</button>
             </div>
         )
     }
