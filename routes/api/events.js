@@ -24,13 +24,19 @@ router.post('/new', (req, res) => {
     endTime: req.body.endTime,
     photoUrl: req.body.photoUrl
   })
-
+  
   if (!isValid) {
     return res.status(400).json(errors);
   }
-
+  
   newEvent.save()
     .then(event => res.json(event))
+})
+
+router.get('/:hostId', (req, res) => {
+  Event.find({ "hostId": req.params.hostId })
+    .then(events => res.json(events))
+    .catch(err => res.status(404).json({ userEventsNotFound: 'This user does not have any events' }))
 })
 
 //RETRIEVE ONE EVENT BY ID
