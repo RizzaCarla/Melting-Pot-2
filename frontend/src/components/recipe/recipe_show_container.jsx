@@ -4,7 +4,6 @@ import { getRecipes, getRecipe, getUserRecipes, updateRecipe, deleteRecipe } fro
 import RecipeShow from './recipe_show';
 
 const mapStateToProps = (state, ownProps) => {
-
     return({
         currentUser: state.session.currentUser,
         recipe: state.entities.recipes[ownProps.match.params.recipeId]

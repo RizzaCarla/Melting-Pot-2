@@ -42,9 +42,13 @@ const RecipeSchema = new Schema({
     type: Number,
     required: false
   },
+  photoId: {
+    type: String,
+    required: true
+  },
   photoUrl: {
     type: String,
-    required: false
+    required: true
   }
 }, {
     timestamps: true
