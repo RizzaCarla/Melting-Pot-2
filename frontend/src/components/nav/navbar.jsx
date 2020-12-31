@@ -15,11 +15,16 @@ class NavBar extends React.Component {
     this.logoutUser = this.logoutUser.bind(this);
     this.fetchRecipes = this.fetchRecipes.bind(this);
     this.queryList = this.queryList.bind(this);
+    this.clearState = this.clearState.bind(this);
   }
 
   logoutUser(e) {
     e.preventDefault();
     this.props.logout();
+  }
+
+  componentDidMount() {
+    document.addEventListener("click", this.clearState)
   }
 
   getLinks() {
@@ -39,44 +44,59 @@ class NavBar extends React.Component {
 
   fetchRecipes(query) {
     this.setState({["query"]: query});
-    fetch("/api/recipes/search-recipes", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ query }),
-    })
-      .then((res) => res.json())
-      .then((results) => {
-        this.setState({ ["queryResults"]: results.recipe })
-        console.log(results.recipe)
+    if (query.length !== 0) {
+      fetch("/api/recipes/search-recipes", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ query }),
       })
-      
+        .then((res) => res.json())
+        .then((results) => {
+          this.setState({ ["queryResults"]: results.recipe })
+          console.log(results.recipe)
+        })
+    }
+  }
+
+  clearState() {
+    this.setState({
+      query: "",
+      queryResults: []
+    })
   }
 
   queryList() {
+    if (this.state.query.length === 0) {
+      return null
+    }
+
     const list = this.state.queryResults.map( (item, i) => {
       return (
-        <li>
-          <div className="search-item-picture">
-
-          </div>
-        </li>
-
-        
+        <Link to={`/recipes/${item._id}`} onClick={()=>this.clearState()}>
+          <li key={i}>
+            <div className="search-item-picture">
+                <img src={item.photoUrl}></img>
+              <div className="search-item-name">
+                {item.name}
+              </div>
+            </div>
+          </li>
+        </Link>
       )
     })
     return list;
   }
 
   render() {
-    
     return (
       <div className="NavBar">
         <div className="navbar-left">
           <Link to="/">Home</Link>
 
-          <form action="">
+          {/* <form action=""> */}
+          <div className="search-parent">
             <input 
               type="text" 
               value={this.state.query}
@@ -86,7 +106,8 @@ class NavBar extends React.Component {
               <ul className="search-results">
                 {this.queryList()}
               </ul>
-          </form>
+          </div>
+          {/* </form> */}
         </div>
         {this.getLinks()}
       </div>

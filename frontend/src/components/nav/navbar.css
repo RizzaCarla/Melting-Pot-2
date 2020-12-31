@@ -39,3 +39,13 @@
     cursor: pointer;
     outline: 0;
 }
+
+.search-parent {
+    position: relative;
+    display: inline-block;
+}
+
+.search-results {
+    position: absolute;
+    background-color: green;
+}
