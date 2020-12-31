@@ -18,12 +18,12 @@ class Events extends React.Component {
         return (
             <div>
                 <ul>
-                    {/* {Object.entries(this.props.events).map((event, i) => (
-                        <li key={i}> */}
-                            {/* {event.name} */}
+                    {Object.values(this.props.events).map((event, i) => (
+                        <li key={i}> 
+                            {event.name}
                             {/* <Link to={`/event/${event._id}`}>{event.name}</Link> */}
-                        {/* </li>
-                    ))} */}
+                    </li> 
+                    ))}
                 </ul>
             </div>
         )
