@@ -1,16 +1,18 @@
 import { connect } from 'react-redux';
-import { getRecipe, updateRecipe, deleteRecipe } from '../../actions/recipe_actions';
+import { getRecipes, getRecipe, getUserRecipes, updateRecipe, deleteRecipe } from '../../actions/recipe_actions';
 import RecipeShow from './recipe_show';
 
 const mapStateToProps = (state, ownProps) => {
     return({
-        recipeId: ownProps.recipeId,
+        recipe: state.entities.recipes[ownProps.match.params.recipeId]
     });
 };
 
 const mapDispatchToProps = (dispatch) => {
     return({
+        getRecipes: () => dispatch(getRecipes()),
         getRecipe: (recipeId) => dispatch(getRecipe(recipeId)),
+        getUserRecipes: (authorId) => dispatch(getUserRecipes(authorId)),
         updateRecipe: (recipe) => dispatch(updateRecipe(recipe)),
         deleteRecipe: (recipeId) => dispatch(deleteRecipe(recipeId))
     })
