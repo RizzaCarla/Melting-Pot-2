@@ -38,7 +38,7 @@ app.use("/api/users", users);
 app.use('/api/recipes', recipes);
 app.use('/api/events', events);
 app.use('/api/likes', likes);
-app.use('/api/comments, comments');
+app.use('/api/comments', comments);
 // ADD BACKEND ROUTES HERE
 
 const port = process.env.PORT || 5000;
