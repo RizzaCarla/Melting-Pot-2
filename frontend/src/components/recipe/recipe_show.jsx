@@ -1,5 +1,6 @@
 import React from 'react';
 import './recipe_show.css';
+import { Link } from 'react-router-dom';
 
 class RecipeShow extends React.Component {
     constructor(props) {
@@ -28,6 +29,7 @@ class RecipeShow extends React.Component {
                             <li>Difficulty:&nbsp;&nbsp;{recipe.difficulty}</li>
                             <li>Cooking Time:&nbsp;&nbsp;{recipe.cookingTime}</li>
                             <li>Likes: {recipe.numLikes}</li>
+                            <Link to={`/recipes/${recipe._id}/edit`}>Edit Recipe</Link>
                         </ul>
                     </div>
                 </div>
@@ -40,7 +42,7 @@ class RecipeShow extends React.Component {
                             })}
                         </ul>
                         <h4>Instructions: </h4>
-                        <ul classname="recipe-inst-list">
+                        <ul className="recipe-inst-list">
                             {recipe.instructions.map((instruction, idx) => {
                                 return(<li key={idx}>{instruction}</li>)
                             })}
