@@ -37,9 +37,9 @@ class NavBar extends React.Component {
         <div className="navbar-left">
           <Link to="/">Home</Link>
           <form action="">
-            <input type="text"
+            {/* <input type="text"
                   value=""
-                  placeholder="look for a recipe"/>
+                  placeholder="look for a recipe"/> */}
           </form>
         </div>
         {this.getLinks()}
