@@ -10,6 +10,8 @@ const users = require("./routes/api/users");
 const recipes = require("./routes/api/recipes");
 const events = require("./routes/api/events");
 const likes = require("./routes/api/likes");
+const images = require("./routes/api/upload");
+const comments = require('./routes/api/comment');
 // End add require routes here 
 
 
@@ -32,11 +34,13 @@ app.use(bodyParser.json());
 app.use(passport.initialize());
 require("./config/passport")(passport);
 
-// ADD BACKEND ROUTES HERE
+// ADD BACKEND ROUTES HERE'
+app.use('/api/images', images)
 app.use("/api/users", users);
-app.use('/api/recipes', recipes)
-app.use('/api/events', events)
+app.use('/api/recipes', recipes);
+app.use('/api/events', events);
 app.use('/api/likes', likes);
+app.use('/api/comments', comments);
 // ADD BACKEND ROUTES HERE
 
 const port = process.env.PORT || 5000;

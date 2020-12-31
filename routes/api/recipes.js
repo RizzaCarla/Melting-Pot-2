@@ -25,6 +25,7 @@ router.post('/new', (req, res) => {
     difficulty: req.body.difficulty,
     category: req.body.category,
     numLikes: req.body.numLikes,
+    photoId: req.body.photoId,
     photoUrl: req.body.photoUrl
   })
   

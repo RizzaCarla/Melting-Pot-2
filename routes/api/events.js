@@ -36,8 +36,8 @@ router.post('/new', (req, res) => {
 //RETRIEVE ONE EVENT BY ID
 router.get('/:id', (req, res) => {
   Event.findById(req.params.id)
-    .then(events => res.json(events))
-    .catch(err => res.status(404).json({ eventsNotFound: 'Event with that ID does not exist'}))
+    .then(event => res.json(event))
+    .catch(err => res.status(404).json({ eventNotFound: 'Event with that ID does not exist'}))
 })
 
 //EDIT A EVENT
