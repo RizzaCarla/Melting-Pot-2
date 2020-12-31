@@ -6,10 +6,25 @@ class Events extends React.Component {
 
     }
 
+    componentDidMount() {
+        this.props.getEvents()
+    }
+
     render() {
+        // if (!this.props.events) {
+        //     return null
+        // }
+
         return (
             <div>
-                Events Component
+                <ul>
+                    {/* {Object.entries(this.props.events).map((event, i) => (
+                        <li key={i}> */}
+                            {/* {event.name} */}
+                            {/* <Link to={`/event/${event._id}`}>{event.name}</Link> */}
+                        {/* </li>
+                    ))} */}
+                </ul>
             </div>
         )
     }
