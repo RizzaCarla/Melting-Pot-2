@@ -1,6 +1,10 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom';
 import { uploadPhoto } from '../../util/photo_api_util';
+import { Link } from 'react-router-dom'
+import './css_reset.css'
+import './session_forms.css'
+
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -23,13 +27,18 @@ class SignupForm extends React.Component {
     this.handlePhotoFile = this.handlePhotoFile.bind(this);
   }
 
-  // Will have to refactor this as componentWillReceiveProps will be deprecated
-  componentWillReceiveProps(nextProps) {
+  componentDidMount() {
+    this.props.clearErrors()
+  }
+
+
+  // componentWillReceiveProps will be deprecated so refactored to getDerivedStateFromProps
+  static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.signedIn === true) {
       this.props.history.push("/");
     }
 
-    this.setState({ errors: nextProps.errors });
+    return({ errors: nextProps.errors });
   }
 
   update(field) {
@@ -110,141 +119,164 @@ class SignupForm extends React.Component {
 
   render() {
     return (
-      <div className="signup-form-container">
+      <div className="form-container">
+        <h1>Melting Pot</h1>
         <form onSubmit={this.handleSubmit}>
-          <div className="signup-form">
-            <br />
+          <div className="form">
+            <h2>Sign Up</h2>
 
-            <input
-              type="text"
-              value={this.state.email}
-              onChange={this.update("email")}
-              placeholder="Email"
-            />
-            <br />
+            <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email:&nbsp;&nbsp;
+              <input
+                type="text"
+                className="input-field"
+                value={this.state.email}
+                onChange={this.update("email")}
+                placeholder="Email"
+              />
+            </label>
 
-            <input
-              type="text"
-              value={this.state.handle}
-              onChange={this.update("handle")}
-              placeholder="Handle"
-            />
-            <br />
+            <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Handle:&nbsp;&nbsp;
+              <input
+                type="text"
+                className="input-field"
+                value={this.state.handle}
+                onChange={this.update("handle")}
+                placeholder="Handle"
+              />
+            </label>
 
-            <input
-              type="password"
-              value={this.state.password}
-              onChange={this.update("password")}
-              placeholder="Password"
-            />
-            <br />
+            <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Password:&nbsp;&nbsp;
+              <input
+                type="password"
+                className="input-field"
+                value={this.state.password}
+                onChange={this.update("password")}
+                placeholder="Password"
+              />
+            </label>
 
-            <input
-              type="password"
-              value={this.state.password2}
-              onChange={this.update("password2")}
-              placeholder="Confirm Password"
-            />
-            <br />
+            <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Confirm Password:&nbsp;&nbsp;
+              <input
+                type="password"
+                className="input-field"
+                value={this.state.password2}
+                onChange={this.update("password2")}
+                placeholder="Confirm Password"
+              />
+            </label>
 
-            <input
-              type="textbox"
-              value={this.state.bio}
-              onChange={this.update("bio")}
-              placeholder="Bio"
-            />
-            <br />
-              {/* FOR FILE UPLOAD: type="file" name="" id="" */}
-            <label>
-              Upload Profile Picture:
+            <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bio:&nbsp;&nbsp;
+              <input
+                type="textbox"
+                className="input-field"
+                value={this.state.bio}
+                onChange={this.update("bio")}
+                placeholder="Bio"
+              />
+            </label>
+
+            {/* FOR FILE UPLOAD: type="file" name="" id="" */}
+            <label>Upload Profile Picture:&nbsp;&nbsp;
               <input
                 type="file"
+                className="input-field upload-pic"
                 name=""
                 id=""
                 onChange={this.handlePhotoFile}
               />
             </label>
-            <br />
 
-            <span className="checkbox-container">
-              <label>
-                Vegan
-                <input
-                  type="checkbox"
-                  value="Vegan"
-                  onChange={this.handleCheckboxChange.bind(this)}
-                />
-              </label>
+            <label className="checkbox-main-container"> Dietary Restrictions: 
 
-              <label>
-                Vegetarian
-                <input
-                  type="checkbox"
-                  value="Vegetarian"
-                  onChange={this.handleCheckboxChange.bind(this)}
-                />
-              </label>
+            <div className="checkbox-container">
+            <div className="checkbox-col-1">
+                  <label>
+                      <input 
+                      type="checkbox"
+                      value="Vegan"
+                      onChange={this.handleCheckboxChange.bind(this)}
+                      />
+                      &nbsp;Vegan
+                  </label>
 
-              <label>
-                Meat Lover
-                <input
-                  type="checkbox"
-                  value="Meat Lovers"
-                  onChange={this.handleCheckboxChange.bind(this)}
-                />
-              </label>
+                  <label>
+                      <input
+                      type="checkbox"
+                      value="Vegetarian"
+                      onChange={this.handleCheckboxChange.bind(this)}
+                    />
+                    &nbsp;Vegetarian 
+                  </label>
 
-              <label>
-                Keto
-                <input
-                  type="checkbox"
-                  value="Keto"
-                  onChange={this.handleCheckboxChange.bind(this)}
-                />
-              </label>
+                  <label>
+                      <input
+                      type="checkbox"
+                      value="Meat Lovers"
+                      onChange={this.handleCheckboxChange.bind(this)}
+                    />
+                    &nbsp;Meat Lover
+                  </label>
 
-              <label>
-                Whole 30
-                <input
-                  type="checkbox"
-                  value="Whole 30"
-                  onChange={this.handleCheckboxChange.bind(this)}
-                />
-              </label>
+                  <label>
+                      <input
+                      type="checkbox"
+                      value="Keto"
+                      onChange={this.handleCheckboxChange.bind(this)}
+                    />
+                    &nbsp;Keto
+                  </label>
+            </div>
+              <div className="checkbox-col-2">
+                  <label>
+                    <input
+                      type="checkbox"
+                      value="Whole 30"
+                      onChange={this.handleCheckboxChange.bind(this)}
+                    />
+                    &nbsp;Whole 30
+                  </label>
 
-              <label>
-                Low Carb
-                <input
-                  type="checkbox"
-                  value="Low Carb"
-                  onChange={this.handleCheckboxChange.bind(this)}
-                />
-              </label>
+                  <label>
+                    <input
+                      type="checkbox"
+                      value="Low Carb"
+                      onChange={this.handleCheckboxChange.bind(this)}
+                    />
+                    &nbsp;Low Carb
+                  </label>
 
-              <label>
-                Diabetic
-                <input
-                  type="checkbox"
-                  value="Diabetic"
-                  onChange={this.handleCheckboxChange.bind(this)}
-                />
-              </label>
+                  <label>
+                    <input
+                      type="checkbox"
+                      value="Diabetic"
+                      onChange={this.handleCheckboxChange.bind(this)}
+                    />
+                    &nbsp;Diabetic
+                  </label>
 
-              <label>
-                None
-                <input
-                  type="checkbox"
-                  value="None"
-                  onChange={this.handleCheckboxChange.bind(this)}
-                />
-              </label>
-            </span>
-            <br />
+                  <label>
+                    <input
+                      type="checkbox"
+                      value="None"
+                      onChange={this.handleCheckboxChange.bind(this)}
+                    />
+                    &nbsp;None
+                  </label>
+            </div>
+            </div>
+            </label>
 
-            <input type="submit" value="Submit" />
-            {this.renderErrors()}
+            <input className="submit-button"  type="submit" value="Submit" />
+            <div className="errors">{this.renderErrors()}</div>
           </div>
         </form>
+
+            <br></br>
+            <div className="signup-option">
+              <label>Already a User?</label>
+              <br></br>
+              <Link to="/login"> <input className="signup-button input-field" type="submit" value="Login" /></Link>
+            </div>
       </div>
     );
   }
