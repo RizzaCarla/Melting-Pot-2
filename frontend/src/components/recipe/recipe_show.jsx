@@ -40,7 +40,7 @@ class RecipeShow extends React.Component {
                             })}
                         </ul>
                         <h4>Instructions: </h4>
-                        <ul classname="recipe-inst-list">
+                        <ul className="recipe-inst-list">
                             {recipe.instructions.map((instruction, idx) => {
                                 return(<li key={idx}>{instruction}</li>)
                             })}
