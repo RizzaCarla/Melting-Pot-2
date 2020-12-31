@@ -7,7 +7,7 @@ const User = require('../../models/User');
 const passport = require('passport');
 const validateLoginInput = require('../../validation/login');
 const validateRegisterInput = require('../../validation/register');
-
+const mongoose = require("mongoose");
 
 // private auth route
 router.get(
@@ -36,6 +36,12 @@ router.get('/:id', (req, res) => {
     .catch(err => console.log(err))
 })
 
+// Edit a User 
+router.patch('/edit/:id', (req, res) => {
+  mongoose.set('useFindAndModify', false);
+  User.findByIdAndUpdate(req.params.id, req.body, {new: true})
+    .then(user => res.json(user))
+})
 
 // SIGN UP USER 
 router.post('/signup', (req, res) => {
@@ -52,10 +58,12 @@ router.post('/signup', (req, res) => {
       } else {
         // user doesn't exist, save the user to database
         const newUser = new User({
+          photoId: req.body.photoId,
+          photoUrl: req.body.photoUrl,
           handle: req.body.handle,
           email: req.body.email,
           password: req.body.password,
-          bio: req.body.bio,
+          bio: req.body.bio,    
           dietaryRestrictions: req.body.dietaryRestrictions
         });
         // Change given password to a salted and encrypted password hash
@@ -119,9 +127,6 @@ router.post('/login', (req, res) => {
         })
     })
 })
-
-
-
 
 router.get("/test", (req, res) => res.json({msg: "This is the users route"}));
 module.exports = router;
