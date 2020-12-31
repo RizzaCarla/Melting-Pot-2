@@ -15,6 +15,7 @@ router.get('/', (req, res) => {
 router.post('/new', (req, res) => {
   const { errors, isValid } = validateEventInput(req.body)
   const newEvent = new Event({
+    name: req.body.name,
     hostId: req.body.hostId,
     location: req.body.location,
     description: req.body.description,
@@ -39,6 +40,7 @@ router.get('/:id', (req, res) => {
     .catch(err => res.status(404).json({ eventNotFound: 'Event with that ID does not exist'}))
 })
 
+//EDIT A EVENT
 router.patch('/edit/:id', (req, res) => {
   mongoose.set('useFindAndModify', false)
   const { errors, isValid } = validateEventInput(req.body)
@@ -51,6 +53,7 @@ router.patch('/edit/:id', (req, res) => {
     .then(event => res.json(event))
 })
 
+//DELETE EVENT
 router.delete('/:id', (req, res) => {
   Event.findOneAndDelete(req.params.id)
     .then(event => res.json('Event successfully deleted'))
