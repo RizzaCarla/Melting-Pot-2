@@ -57,4 +57,10 @@ router.delete('/:id', (req, res) => {
     .catch(err => res.status(404).json('Event was not successfully deleted'))
 })
 
+router.get('/:authorId', (req, res) => {
+  Event.find({ "authorId": req.params.authorId })
+    .then(events => res.json(events))
+    .catch(err => res.status(404).json({ userEventsNotFound: 'This user does not have any events' }))
+})
+
 module.exports = router;
