@@ -42,6 +42,10 @@ const RecipeSchema = new Schema({
     type: Number,
     required: false
   },
+  photoId: {
+    type: String,
+    required: false
+  },
   photoUrl: {
     type: String,
     required: false

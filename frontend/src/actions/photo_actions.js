@@ -29,21 +29,20 @@ export const fetchPhotos = () => dispatch => {
   return (
     PhotoAPIUtil.getPhotos()
       .then(photos => dispatch(receivePhotos(photos)))
+      .catch(err => console.log(err))
   )
 }
 
 export const fetchPhoto = (photoId) => dispatch => {
-  return (
-    PhotoAPIUtil.getPhoto(photoId)
-      .then(photo => dispatch(receivePhoto(photo)))
-  )
+  return PhotoAPIUtil.getPhoto(photoId)
+    .then((photo) => dispatch(receivePhoto(photo)))
+    .catch((err) => console.log(err));
 }
 
 export const deletePhoto = (photoId) => dispatch => {
-  return (
-    PhotoAPIUtil.deletePhoto(photoId)
-      .then(() => dispatch(removePhoto(photoId)))
-  )
+  return PhotoAPIUtil.deletePhoto(photoId)
+    .then(() => dispatch(removePhoto(photoId)))
+    .catch((err) => console.log(err));
 }
 
 
