@@ -5,18 +5,30 @@ import { Link } from 'react-router-dom';
 class RecipeShow extends React.Component {
     constructor(props) {
         super(props)
+        this.handleDelete = this.handleDelete.bind(this);
     }
 
     componentDidMount() {
         this.props.getRecipes();
     }
 
-    render(){
-        const recipe = this.props.recipe;
+    handleDelete(e) {
+        e.preventDefault();
+        this.props.deleteRecipe(this.props.recipe._id).then(this.props.history.push(`/profile`))
+    }
 
+    render(){
         if (this.props.recipe === undefined) {
             return null
         }
+        
+        const recipe = this.props.recipe;
+        const userOnlyBtns = this.props.recipe.authorId === this.props.currentUser._id ?
+            <div>
+                <Link to={`/recipes/${recipe._id}/edit`}>Edit Recipe</Link>
+                <button onClick={this.handleDelete}>Delete Recipe</button>
+            </div> : null
+
         return(
             <div className="recipe-show-container">
                 <div className="recipe-show-info">
@@ -29,7 +41,7 @@ class RecipeShow extends React.Component {
                             <li>Difficulty:&nbsp;&nbsp;{recipe.difficulty}</li>
                             <li>Cooking Time:&nbsp;&nbsp;{recipe.cookingTime}</li>
                             <li>Likes: {recipe.numLikes}</li>
-                            <Link to={`/recipes/${recipe._id}/edit`}>Edit Recipe</Link>
+                            {userOnlyBtns}
                         </ul>
                     </div>
                 </div>

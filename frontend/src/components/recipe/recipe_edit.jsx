@@ -14,6 +14,7 @@ class RecipeEdit extends React.Component {
         this.pushIngredient = this.pushIngredient.bind(this);
         this.queueInstruction = this.queueInstruction.bind(this);
         this.pushInstruction = this.pushInstruction.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -81,6 +82,11 @@ class RecipeEdit extends React.Component {
         });
     }
 
+    handleDelete(e) {
+        e.preventDefault();
+        this.props.deleteRecipe(this.props.recipe._id).then(this.props.history.push(`/profile`))
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         this.props.updateRecipe(this.state).then(() => this.props.history.push(`/recipes/${this.props.recipe._id}`));
@@ -125,9 +131,11 @@ class RecipeEdit extends React.Component {
                     </select>
                 </label>
                 <label>Likes: {recipe.numLikes}</label>
+                <button onClick={this.handleSubmit}>Save Recipe</button>
                 <label>Recipe Owner:
                     <h5>Author Name(Placeholder)</h5>
                 </label>
+                <button onClick={this.handleDelete}>Delete Recipe</button>
                 <label>Story:
                     <textarea cols="26" rows="10"
                               value={this.state.story}
@@ -172,7 +180,6 @@ class RecipeEdit extends React.Component {
                            onChange={this.queueInstruction}/>
                     <button onClick={this.pushInstruction}>+</button>
                 </label>
-                <button onClick={this.handleSubmit}>Update Recipe</button>
             </div>
         )
     }
