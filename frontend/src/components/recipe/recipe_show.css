@@ -11,12 +11,12 @@
 .recipe-show-info {
     display: flex;
     justify-content: space-between;
+    width: 600px;
 }
 
 .recipe-show-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 

@@ -25,9 +25,9 @@ class RecipeShow extends React.Component {
                     </div>
                     <div className="recipe-misc-info">
                         <ul>
-                            <li>Difficulty:&nbsp;&nbsp;&nbsp;{recipe.difficulty}</li>
-                            <li>Cooking Time:&nbsp;&nbsp;&nbsp;{recipe.cookingTime}</li>
-                            {/* <li>Shared: &nbsp;&nbsp;&nbsp;{recipe}</li> */}
+                            <li>Difficulty:&nbsp;&nbsp;{recipe.difficulty}</li>
+                            <li>Cooking Time:&nbsp;&nbsp;{recipe.cookingTime}</li>
+                            <li>Likes: {recipe.numLikes}</li>
                         </ul>
                     </div>
                 </div>
