@@ -1,4 +1,4 @@
-import * as PhotoAPIUtil from '../util/upload_api_util';
+import * as PhotoAPIUtil from '../util/photo_api_util';
 
 export const RECEIVE_PHOTOS = "RECEIVE_PHOTOS"
 export const RECEIVE_PHOTO = "RECEIVE_PHOTO"

@@ -1,6 +1,6 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom';
-import { uploadPhoto } from '../../util/upload_api_util';
+import { uploadPhoto } from '../../util/photo_api_util';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -65,7 +65,8 @@ class SignupForm extends React.Component {
           email: this.state.email,
           handle: this.state.handle,
           bio: this.state.bio,
-          photoUrl: res.data.data.Location,
+          photoId: res.data.newData.photoId,
+          photoUrl: res.data.newData.Location,
           dietaryRestrictions: this.state.dietaryRestrictions,
           password: this.state.password,
           password2: this.state.password2,
@@ -79,6 +80,7 @@ class SignupForm extends React.Component {
         email: this.state.email,
         handle: this.state.handle,
         bio: this.state.bio,
+        photoId: this.state.photoId,
         photoUrl: this.state.photoUrl,
         dietaryRestrictions: this.state.dietaryRestrictions,
         password: this.state.password,

@@ -21,3 +21,6 @@ const photosReducer = (oldState = {}, action) => {
 }
 
 export default photosReducer;
+
+
+

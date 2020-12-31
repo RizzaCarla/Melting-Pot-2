@@ -16,7 +16,7 @@ AWS.config.update({
   }
 });
 
-// console.log(AWS.config)
+
 
 // Get all photos 
 router.get("/", (req, res, next) => {
@@ -67,7 +67,8 @@ router.post("/upload", upload.single("file"), function(req, res) {
     if (err) {
       res.status(500).json({error: true, Message: err})
     } else {
-      res.send({data});
+      // res.send({data});
+      
       let newFileUploaded = {
         description: req.body.description,
         fileLink: s3FileURL + file.originalname,
@@ -79,6 +80,8 @@ router.post("/upload", upload.single("file"), function(req, res) {
           throw error
         }
       })
+      let newData = Object.assign({}, data, {photoId: photo._id})
+      res.send({ newData });
     }
   })
 })
