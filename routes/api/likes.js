@@ -13,7 +13,7 @@ router.post('/new', (req, res) => {
   }
 
   const newLike = new Like ({ 
-    authorId: req.body.authorId,
+    likerId: req.body.likerId,
     recipeId: req.body.recipeId
   })
 
