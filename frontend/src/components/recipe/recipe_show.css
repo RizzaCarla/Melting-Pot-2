@@ -4,24 +4,36 @@
     text-decoration: none;
     color: #333;
     font-size: 20px;
-    list-style: none;
+    /* list-style: none; */
     font-family: 'Roboto', sans-serif;
-}
-
-.recipe-show-info {
-    display: flex;
-    justify-content: space-between;
-    width: 600px;
 }
 
 .recipe-show-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    width: 750px;
+    margin: 0 auto;
+}
+
+.recipe-show-info {
+    display: flex;
+    justify-content: space-between;
 }
 
 .recipe-pic {
     width: 200px;
     height: 150px;
     background: black;
+}
+
+.recipe-detail-info {
+    display: flex;
+}
+
+.recipe-show-ing-inst {
+    margin-top: 30px;
+}
+
+.recipe-inst-list li {
+    list-style:upper-roman;
 }

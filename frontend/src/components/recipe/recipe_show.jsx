@@ -31,6 +31,28 @@ class RecipeShow extends React.Component {
                         </ul>
                     </div>
                 </div>
+                <div className="recipe-detail-info">
+                    <div className="recipe-show-ing-inst">
+                        <h4>Igredients:</h4>
+                        <ul className="recipe-ing-list">
+                            {recipe.ingredients.map((ingredient, idx) => {
+                                return(<li key={idx}>{ingredient}</li>)
+                            })}
+                        </ul>
+                        <h4>Instructions: </h4>
+                        <ul classname="recipe-inst-list">
+                            {recipe.instructions.map((instruction, idx) => {
+                                return(<li key={idx}>{instruction}</li>)
+                            })}
+                        </ul>
+                    </div>
+                    <div className="recipe-owner-info">
+                        <div className="recipe-owner">
+                            <div className="owner-pic"></div>
+                            
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }
