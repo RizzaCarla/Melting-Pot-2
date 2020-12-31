@@ -47,10 +47,11 @@ class RecipeShow extends React.Component {
                         </ul>
                     </div>
                     <div className="recipe-owner-info">
-                        <div className="recipe-owner">
+                        <div className="recipe-show-owner">
                             <div className="owner-pic"></div>
-                            
+                            {recipe.authorId}
                         </div>
+                        {recipe.story}
                     </div>
                 </div>
             </div>
