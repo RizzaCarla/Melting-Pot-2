@@ -10,16 +10,20 @@ class RecipeEdit extends React.Component {
         this.handleInstClick = this.handleInstClick.bind(this);
         this.handleIngClick = this.handleIngClick.bind(this);
         this.handleIngredient = this.handleIngredient.bind(this);
+        this.queueIngredient = this.queueIngredient.bind(this);
+        this.pushIngredient = this.pushIngredient.bind(this);
+        this.queueInstruction = this.queueInstruction.bind(this);
+        this.pushInstruction = this.pushInstruction.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount(){
         this.props.getUserRecipes(this.props.currentUser._id);
     }
-
+    
     componentDidUpdate(){
         if(this.state === null){
-            this.setState(Object.assign(this.props.recipe, {ingIdx: "", instIdx: ""}));
+            this.setState(Object.assign(this.props.recipe, {ingIdx: "", instIdx: "", queueIng:"", queueInst:"" }));
         }
     }
 
@@ -47,6 +51,34 @@ class RecipeEdit extends React.Component {
         let newIngredient = this.state.ingredients;
         newIngredient[this.state.ingIdx] = e.target.value;
         this.setState({["ingredients"]: newIngredient });
+    }
+
+    queueIngredient(e){
+        e.preventDefault();
+        this.setState({["queueIng"]: e.target.value})
+    }
+    
+    pushIngredient(e) {
+        e.preventDefault();
+        let pushIng = this.state.ingredients.slice()
+        pushIng = pushIng.concat(this.state.queueIng);
+        this.setState({["ingredients"]: pushIng }, () => {
+            this.setState({["queueIng"]: "" });
+        });
+    }
+
+    queueInstruction(e){
+        e.preventDefault();
+        this.setState({["queueInst"]: e.target.value})
+    }
+    
+    pushInstruction(e) {
+        e.preventDefault();
+        let pushInst = this.state.instructions.slice()
+        pushInst = pushInst.concat(this.state.queueInst);
+        this.setState({["instructions"]: pushInst }, () => {
+            this.setState({["queueInst"]: "" });
+        });
     }
 
     handleSubmit(e) {
@@ -117,7 +149,9 @@ class RecipeEdit extends React.Component {
                         })}
                     </ul>
                     <input type="text"
-                           placeholder="Add more ingredient"/>
+                           placeholder="Add more ingredient"
+                           onChange={this.queueIngredient}/>
+                    <button onClick={this.pushIngredient}>+</button>
                 </label>
                 <label>Instructions:
                     <ul>
@@ -134,7 +168,9 @@ class RecipeEdit extends React.Component {
                         })}
                     </ul>
                     <input type="text"
-                           placeholder="Add more instruction"/>
+                           placeholder="Add more instruction"
+                           onChange={this.queueInstruction}/>
+                    <button onClick={this.pushInstruction}>+</button>
                 </label>
                 <button onClick={this.handleSubmit}>Update Recipe</button>
             </div>
