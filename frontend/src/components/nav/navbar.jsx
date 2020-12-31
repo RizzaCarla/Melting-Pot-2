@@ -94,8 +94,6 @@ class NavBar extends React.Component {
       <div className="NavBar">
         <div className="navbar-left">
           <Link to="/">Home</Link>
-
-          {/* <form action=""> */}
           <div className="search-parent">
             <input 
               type="text" 
@@ -107,7 +105,6 @@ class NavBar extends React.Component {
                 {this.queryList()}
               </ul>
           </div>
-          {/* </form> */}
         </div>
         {this.getLinks()}
       </div>
