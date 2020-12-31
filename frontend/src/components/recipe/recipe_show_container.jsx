@@ -6,7 +6,7 @@ import RecipeShow from './recipe_show';
 const mapStateToProps = (state, ownProps) => {
 
     return({
-        currentUser: state.session.currentUser.user,
+        currentUser: state.session.currentUser,
         recipe: state.entities.recipes[ownProps.match.params.recipeId]
     });
 };

@@ -23,11 +23,15 @@ class RecipeShow extends React.Component {
         }
         
         const recipe = this.props.recipe;
-        const userOnlyBtns = this.props.recipe.authorId === this.props.currentUser._id ?
-            <div>
-                <Link to={`/recipes/${recipe._id}/edit`}>Edit Recipe</Link>
-                <button onClick={this.handleDelete}>Delete Recipe</button>
-            </div> : null
+
+        const userOnlyBtns = (this.props.currentUser === undefined) ? 
+                                null : (this.props.currentUser.user === undefined) ? 
+                                null : (this.props.currentUser.user._id !== recipe.authorId) ? 
+                                null :
+                                        <div>
+                                            <Link to={`/recipes/${recipe._id}/edit`}>Edit Recipe</Link>
+                                            <button onClick={this.handleDelete}>Delete Recipe</button>
+                                        </div>
 
         return(
             <div className="recipe-show-container">
