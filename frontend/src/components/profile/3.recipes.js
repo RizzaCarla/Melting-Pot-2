@@ -22,6 +22,8 @@ class Recipes extends React.Component {
                 <ul>
                     {Object.values(this.props.recipes).map((recipe, i) => (
                         <li key={i}>
+                            
+                            <Link to={`/recipes/${recipe._id}`}> <img src={recipe.photoUrl}></img></Link>
                             <Link to={`/recipes/${recipe._id}`}>{recipe.name}</Link>
                         </li>
                     ))}

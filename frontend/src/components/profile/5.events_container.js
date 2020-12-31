@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { getEvents } from '../../actions/event_actions'
+import { getEvents, getUserEvents } from '../../actions/event_actions'
 import Events from './5.events'
 
 const mapStateToProps = (state) => {
@@ -12,7 +12,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getEvents: (() => dispatch(getEvents()))
+        getEvents: (() => dispatch(getEvents())),
+        getUserEvents: ((userId) => dispatch(getUserEvents(userId)))
     };
 };
 

@@ -32,8 +32,13 @@ const EventSchema = new Schema({
   },
   photoUrl: {
     type: String,
-    required: false
-  }
+    required: true
+  },
+  photoId: {
+    type: String,
+    required: true
+  },
+
 })
 
 module.exports = Event = mongoose.model('Event', EventSchema);

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 class Events extends React.Component {
     constructor(props) {
@@ -7,7 +8,7 @@ class Events extends React.Component {
     }
 
     componentDidMount() {
-        this.props.getEvents()
+        this.props.getUserEvents(this.props.currentUser._id)
     }
 
     render() {
@@ -20,8 +21,12 @@ class Events extends React.Component {
                 <ul>
                     {Object.values(this.props.events).map((event, i) => (
                         <li key={i}> 
-                            {event.name}
-                            {/* <Link to={`/event/${event._id}`}>{event.name}</Link> */}
+                        
+                            <Link to={`/events/${event._id}`}> <img src={event.photoUrl}></img></Link>
+                            {event.date}
+                            <Link to={`/events/${event._id}`}>{event.name}</Link>
+                            <p># of people participating</p>
+                            {event.location}
                     </li> 
                     ))}
                 </ul>

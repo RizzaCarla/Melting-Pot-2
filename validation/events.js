@@ -12,6 +12,7 @@ module.exports = function validateEventInput(data) {
   data.date = validText(data.date) ? data.date : '';
   data.startTime = validText(data.startTime) ? data.startTime : '';
   data.endTime = validText(data.endTime) ? data.endTime : '';
+  data.photoId = validText(data.photoId) ? data.photoId : '';
   data.photoUrl = validText(data.photoUrl) ? data.photoUrl : '';
 
   // CHECK IF THE DATA IS EMPTY
@@ -42,6 +43,14 @@ module.exports = function validateEventInput(data) {
 
   if (Validator.isEmpty(data.endTime)) {
     errors.endTime = 'End Time is required'
+  }
+
+  if (Validator.isEmpty(data.photoId)) {
+    errors.photoId = 'Photo Id is required'
+  }
+
+  if (Validator.isEmpty(data.photoUrl)) {
+    errors.photoUrl = 'Photo URL is required'
   }
 
   return {

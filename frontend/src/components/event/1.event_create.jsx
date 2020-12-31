@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { uploadPhoto } from "../../util/photo_api_util";
 
 class EventForm extends React.Component {
     constructor(props) {
@@ -12,21 +12,66 @@ class EventForm extends React.Component {
             date: "",
             startTime: "",
             endTime: "",
-            photoUrl: ""
+            photoUrl: "",
+            photoFile: null,
+            photoId: "",
         }
 
-        this.handleClick = this.handleClick.bind(this)
-        
+        this.handleClick = this.handleClick.bind(this);
+        this.handlePhotoFile = this.handlePhotoFile.bind(this);
     }
 
     update(field) {
         return e => this.setState({ [field]: e.target.value })
     }
- 
-    handleClick(e){
+
+    handleClick(e) {
         e.preventDefault();
-        this.props.createEvent(this.state)
-            // .then((event) => this.props.history.push(`/events/${event.event.data._id}`));
+        if (this.state.photoFile) {
+            const data = new FormData();
+            data.append("file", this.state.photoFile);
+            console.log(data)
+            uploadPhoto(data).then(res => {
+                let newEvent = {
+                    name: this.state.name,
+                    hostId: this.state.hostId,
+                    location: this.state.location,
+                    description: this.state.description,
+                    date: this.state.date,
+                    startTime: this.state.startTime,
+                    endTime: this.state.startTime,
+                    photoId: res.data.newData.photoId,
+                    photoUrl: res.data.newData.Location,
+                };
+                this.props.createEvent(newEvent)
+                    .then((newEvent) =>
+                        this.props.history.push(`/events/${newEvent.event.data._id}`)
+                    );
+            })
+        } else {
+            let newEvent = {
+                name: this.state.name,
+                hostId: this.state.hostId,
+                location: this.state.location,
+                description: this.state.description,
+                date: this.state.date,
+                startTime: this.state.startTime,
+                endTime: this.state.startTime,
+                photoId: this.state.photoId,
+                photoUrl: this.state.photoUrl,
+            }
+            this.props.createEvent(newEvent)
+                .then((newEvent) =>
+                    this.props.history.push(`/events/${newEvent.event.data._id}`)
+                );
+        }
+    }
+
+    handlePhotoFile(e) {
+        e.preventDefault();
+        this.setState({
+            photoFile: e.target.files[0]
+        });
     }
 
     render() {
@@ -96,12 +141,13 @@ class EventForm extends React.Component {
                         <input
                             type="file"
                             className="photo-field"
-                            value={this.state.photoUrl}
-                            onChange={this.update('photoUrl')}
+                            name=""
+                            id=""
+                            onChange={this.handlePhotoFile}
                         />
                     </label>
 
-                    <input type="submit" value="Create Event" onClick={this.handleClick}/>
+                    <input type="submit" value="Save Event" onClick={this.handleClick}/>
 
                 </form>
             </div>
