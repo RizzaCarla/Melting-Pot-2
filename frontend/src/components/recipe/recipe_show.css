@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: #333;
+    font-size: 20px;
+    list-style: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+.recipe-show-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.recipe-show-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.recipe-pic {
+    width: 200px;
+    height: 150px;
+    background: black;
+}

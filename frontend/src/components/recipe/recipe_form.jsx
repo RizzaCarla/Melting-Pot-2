@@ -10,9 +10,12 @@ class RecipeForm extends React.Component {
             ingredients: this.props.ingredients,
             pendingIngredient: "",
             instructions: this.props.instructions,
+            comments: [],
             cookingTime: "",
             difficulty: "",
-            category: ""
+            category: "",
+            numLikes: 0,
+            photoUrl: ""
         }
         this.handleIngredient = this.handleIngredient.bind(this);
         this.addIngredient = this.addIngredient.bind(this);
