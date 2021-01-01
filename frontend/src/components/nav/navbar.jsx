@@ -74,17 +74,15 @@ class NavBar extends React.Component {
 
     const list = this.state.queryResults.map( (item, i) => {
       return (
-        <Link to={`/recipes/${item._id}`} onClick={()=>this.clearState()}>
-          <li key={i}>
+        <Link to={`/recipes/${item._id}`} onClick={() => this.clearState()}>
+          <li className="result-item" key={i}>
             <div className="search-item-picture">
-                <img src={item.photoUrl}></img>
-              <div className="search-item-name">
-                {item.name}
-              </div>
+              <img src={item.photoUrl}></img>
+              <div className="search-item-name">{item.name}</div>
             </div>
           </li>
         </Link>
-      )
+      );
     })
     return list;
   }
@@ -101,7 +99,7 @@ class NavBar extends React.Component {
               placeholder="Search Recipe Names" 
               onChange={(e) => this.fetchRecipes(e.target.value)}
               />
-              <ul className="search-results">
+              <ul className={`search-results ${this.state.query.length > 0 ? "block" : ""}`}>
                 {this.queryList()}
               </ul>
           </div>
