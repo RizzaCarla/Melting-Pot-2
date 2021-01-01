@@ -13,7 +13,7 @@ class Profile extends React.Component {
   render() {
     return (
       <div>
-        {/* {this.props.currentUser.profileUrl} */}
+        <img src={this.props.currentUser.photoUrl}></img>
         <br></br>
         {this.props.currentUser.handle}
         <br></br>

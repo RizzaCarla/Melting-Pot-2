@@ -12,7 +12,11 @@ const recipeReducer = ( state = {}, action) => {
             }
             return newState;
         case RECEIVE_USER_RECIPES:
-            newState.user = action.recipes.data;
+            let j;
+            for(j = 0; j < action.recipes.data.length; j++) {
+                newState[action.recipes.data[j]._id] = action.recipes.data[j];
+            }
+            // newState.user = action.recipes.data;
             return newState;
         case RECEIVE_RECIPE:
             return Object.assign(newState, {[action.recipe.data._id]: action.recipe.data});

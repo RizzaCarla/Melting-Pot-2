@@ -1,21 +1,38 @@
 import React from 'react';
 import './recipe_show.css';
+import { Link } from 'react-router-dom';
 
 class RecipeShow extends React.Component {
     constructor(props) {
         super(props)
+        this.handleDelete = this.handleDelete.bind(this);
     }
 
     componentDidMount() {
         this.props.getRecipes();
     }
 
-    render(){
-        const recipe = this.props.recipe;
+    handleDelete(e) {
+        e.preventDefault();
+        this.props.deleteRecipe(this.props.recipe._id).then(this.props.history.push(`/profile`))
+    }
 
+    render(){
         if (this.props.recipe === undefined) {
             return null
         }
+        
+        const recipe = this.props.recipe;
+
+        const userOnlyBtns = (this.props.currentUser === undefined) ? 
+                                null : (this.props.currentUser.user === undefined) ? 
+                                null : (this.props.currentUser.user._id !== recipe.authorId) ? 
+                                null :
+                                        <div>
+                                            <Link to={`/recipes/${recipe._id}/edit`}>Edit Recipe</Link>
+                                            <button onClick={this.handleDelete}>Delete Recipe</button>
+                                        </div>
+
         return(
             <div className="recipe-show-container">
                 <div className="recipe-show-info">
@@ -28,6 +45,7 @@ class RecipeShow extends React.Component {
                             <li>Difficulty:&nbsp;&nbsp;{recipe.difficulty}</li>
                             <li>Cooking Time:&nbsp;&nbsp;{recipe.cookingTime}</li>
                             <li>Likes: {recipe.numLikes}</li>
+                            {userOnlyBtns}
                         </ul>
                     </div>
                 </div>
@@ -40,7 +58,7 @@ class RecipeShow extends React.Component {
                             })}
                         </ul>
                         <h4>Instructions: </h4>
-                        <ul classname="recipe-inst-list">
+                        <ul className="recipe-inst-list">
                             {recipe.instructions.map((instruction, idx) => {
                                 return(<li key={idx}>{instruction}</li>)
                             })}
@@ -49,8 +67,9 @@ class RecipeShow extends React.Component {
                     <div className="recipe-owner-info">
                         <div className="recipe-show-owner">
                             <div className="owner-pic"></div>
-                            {recipe.authorId}
+                            {/* {recipe.authorId} */}
                         </div>
+                        <h4>Recipe Story:</h4>
                         {recipe.story}
                     </div>
                 </div>

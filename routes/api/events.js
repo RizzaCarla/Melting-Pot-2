@@ -15,6 +15,7 @@ router.get('/', (req, res) => {
 router.post('/new', (req, res) => {
   const { errors, isValid } = validateEventInput(req.body)
   const newEvent = new Event({
+    name: req.body.name,
     hostId: req.body.hostId,
     location: req.body.location,
     description: req.body.description,
@@ -23,13 +24,19 @@ router.post('/new', (req, res) => {
     endTime: req.body.endTime,
     photoUrl: req.body.photoUrl
   })
-
+  
   if (!isValid) {
     return res.status(400).json(errors);
   }
-
+  
   newEvent.save()
     .then(event => res.json(event))
+})
+
+router.get('/:hostId', (req, res) => {
+  Event.find({ "hostId": req.params.hostId })
+    .then(events => res.json(events))
+    .catch(err => res.status(404).json({ userEventsNotFound: 'This user does not have any events' }))
 })
 
 //RETRIEVE ONE EVENT BY ID
@@ -39,6 +46,7 @@ router.get('/:id', (req, res) => {
     .catch(err => res.status(404).json({ eventNotFound: 'Event with that ID does not exist'}))
 })
 
+//EDIT A EVENT
 router.patch('/edit/:id', (req, res) => {
   mongoose.set('useFindAndModify', false)
   const { errors, isValid } = validateEventInput(req.body)
@@ -51,6 +59,7 @@ router.patch('/edit/:id', (req, res) => {
     .then(event => res.json(event))
 })
 
+//DELETE EVENT
 router.delete('/:id', (req, res) => {
   Event.findOneAndDelete(req.params.id)
     .then(event => res.json('Event successfully deleted'))

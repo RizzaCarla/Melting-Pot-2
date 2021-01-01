@@ -35,10 +35,15 @@
     margin-top: 30px;
 }
 
+.recipe-ing-list {
+    margin-bottom: 10px;
+}
+
 .recipe-owner-info {
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 400px;
+    border: 1px black solid;
 }
 
 .recipe-show-owner {
@@ -47,5 +52,8 @@
     border-radius: 100%;
     background-color: #333;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
     flex-direction: column;
 }
