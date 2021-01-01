@@ -5,6 +5,8 @@
     font-size: 20px;
 }
 
+
+
 .NavBar{
     display: flex;
     justify-content: space-between;
@@ -12,6 +14,7 @@
     background-color: #00FA9A;
     height: 50px;
     padding-left: 11px;
+    
 }
 
 .navbar-left {
@@ -32,6 +35,12 @@
     width: 150px;
 }
 
+.right-navbar-loggedin {
+    display: flex;
+    width: 200px; 
+    justify-content: space-between;
+}
+
 .logout-btn {
     background: none;
     border: none;
@@ -47,6 +56,7 @@
 }
 
 .search-results {
+    background-color: white;
     display: none;
     position: absolute;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);

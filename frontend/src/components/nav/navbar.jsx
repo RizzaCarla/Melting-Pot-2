@@ -30,7 +30,10 @@ class NavBar extends React.Component {
   getLinks() {
     if(this.props.loggedIn) {
       return(
-        <button className="logout-btn" onClick={this.logoutUser}>Logout</button>
+        <div className="right-navbar-loggedin">
+          <Link to={`/profile`}>Your Profile</Link>
+          <button className="logout-btn" onClick={this.logoutUser}>Logout</button>
+        </div>
       )
     } else {
       return(
@@ -55,7 +58,6 @@ class NavBar extends React.Component {
         .then((res) => res.json())
         .then((results) => {
           this.setState({ ["queryResults"]: results.recipe })
-          console.log(results.recipe)
         })
     }
   }
@@ -74,7 +76,11 @@ class NavBar extends React.Component {
 
     const list = this.state.queryResults.map( (item, i) => {
       return (
-        <Link to={`/recipes/${item._id}`} onClick={() => this.clearState()}>
+        <Link
+          key={i}
+          to={`/recipes/${item._id}`}
+          onClick={() => this.clearState()}
+        >
           <li className="result-item" key={i}>
             <div className="search-item-picture">
               <img src={item.photoUrl}></img>
@@ -89,22 +95,24 @@ class NavBar extends React.Component {
 
   render() {
     return (
-      <div className="NavBar">
-        <div className="navbar-left">
-          <Link to="/">Home</Link>
-          <div className="search-parent">
-            <input 
-              type="text" 
-              value={this.state.query}
-              placeholder="Search Recipe Names" 
-              onChange={(e) => this.fetchRecipes(e.target.value)}
-              />
-              <ul className={`search-results ${this.state.query.length > 0 ? "block" : ""}`}>
-                {this.queryList()}
-              </ul>
+      <div className="navbar-parent">
+        <div className="NavBar">
+          <div className="navbar-left">
+            <Link to="/">Home</Link>
+            <div className="search-parent">
+              <input 
+                type="text" 
+                value={this.state.query}
+                placeholder="Search Recipe Names" 
+                onChange={(e) => this.fetchRecipes(e.target.value)}
+                />
+                <ul className={`search-results ${this.state.query.length > 0 ? "block" : ""}`}>
+                  {this.queryList()}
+                </ul>
+            </div>
           </div>
+          {this.getLinks()}
         </div>
-        {this.getLinks()}
       </div>
     );
   }
