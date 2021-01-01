@@ -13,6 +13,7 @@ module.exports = function validateRecipeInput(data) {
   data.category = validText(data.category) ? data.category : '';
   data.numLikes = validText(data.numLikes) ? data.numLikes : '';
   data.photoUrl = validText(data.photoUrl) ? data.photoUrl : '';
+  data.photoId = validText(data.photoId) ? data.photoId : '';
 
   //CHECK IF THE DATA IS EMPTY
   if (data.ingredients.length === 0) {
@@ -49,6 +50,14 @@ module.exports = function validateRecipeInput(data) {
 
   if (Validator.isEmpty(data.category)) {
     errors.category = 'Category is required'
+  }
+
+  if (Validator.isEmpty(data.photoUrl)) {
+    errors.photoUrl = 'PhotoUrl is required'
+  }
+
+  if (Validator.isEmpty(data.photoId)) {
+    errors.photoId = 'PhotoId is required'
   }
   
   return {
