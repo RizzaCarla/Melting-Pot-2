@@ -26,12 +26,18 @@
     background: black;
 }
 
+.recipe-pic img {
+    width: 200px;
+    height: 150px;
+}
+
 .recipe-detail-info {
     display: flex;
     justify-content: space-between;
 }
 
 .recipe-show-ing-inst {
+    width: 375px;
     margin-top: 30px;
 }
 
@@ -39,10 +45,14 @@
     margin-bottom: 10px;
 }
 
+.recipe-inst-list {
+    margin-right: 15px;
+}
+
 .recipe-owner-info {
     display: flex;
     flex-direction: column;
-    width: 400px;
+    width: 375px;
     border: 1px black solid;
 }
 
