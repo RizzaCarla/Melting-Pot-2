@@ -7,8 +7,15 @@ const Comment = require('../../models/Comment');
 // RETRIEVE ALL COMMENTS
 router.get('/', (req, res) => {
   Comment.find()
-    .then(comments => res.json(comments))
-    .catch(err => res.status(404).json({ commentsNotFound: "No comments found"}))
+  .then(comments => res.json(comments))
+  .catch(err => res.status(404).json({ commentsNotFound: "No comments found"}))
+})
+
+// DELETE COMMENT
+router.delete('/:id', (req, res) => {
+  Comment.findByIdAndDelete(req.params.id)
+    .then(comment => res.json(`Comment successfully deleted`))
+    .catch(err => res.status(404).json("Comment was not successfully deleted"))
 })
 
 // CREATE NEW COMMENT
@@ -26,6 +33,13 @@ router.post('/new', (req, res) => {
   
   newComment.save()
   .then(comment => res.json(comment))
+})
+
+// RETRIEVE COMMENTS BY RECIPEID
+router.get('/:recipeId', (req, res) => {
+  Comment.find({ "recipeId": req.params.recipeId })
+    .then(comments => {res.json(comments)})
+    .catch(err => res.status(404).json({ recipesCommentsNotFound: 'This recipe has no comments' }));
 })
 
 // RETRIEVE ONE COMMENT
@@ -48,11 +62,5 @@ router.patch('/edit/:id', (req, res) => {
     .then(comment => res.json(comment))
 })
 
-// DELETE COMMENT
-router.delete('/:id', (req, res) => {
-  Comment.findOneAndDelete(req.params.id)
-    .then(comment => res.json('Comment successfully deleted'))
-    .catch(err => res.status(404).json("Comment was not successfully deleted"))
-})
 
 module.exports = router;

@@ -130,7 +130,7 @@ class RecipeForm extends React.Component {
             </div>
             <div className="recipe-info">
               <label>
-                Difficulty:&nbsp;&nbsp;&nbsp;
+                <h3>Difficulty:</h3>
                 <select onChange={this.update("difficulty")}>
                   <option value="" selected disabled>
                     Please select
@@ -141,7 +141,7 @@ class RecipeForm extends React.Component {
                 </select>
               </label>
               <label>
-                Cooking Time:&nbsp;&nbsp;&nbsp;
+                <h3>Cooking Time:</h3>
                 <select onChange={this.update("cookingTime")}>
                   <option value="" selected disabled>
                     Please select
@@ -153,7 +153,7 @@ class RecipeForm extends React.Component {
                 </select>
               </label>
               <label>
-                Category:&nbsp;&nbsp;&nbsp;
+                <h3>Category:</h3>
                 <select onChange={this.update("category")}>
                   <option value="" selected disabled>
                     Please select
@@ -162,13 +162,14 @@ class RecipeForm extends React.Component {
                   <option value="Vegetables">Vegetables</option>
                   <option value="Poultry">Poultry</option>
                   <option value="Carbs">Carbs</option>
-                  <option value="Noodle">Soup</option>
+                  <option value="Soup">Soup</option>
                 </select>
               </label>
             </div>
           </div>
           <div className="recipe-middle">
             <div className="recipe-story">
+              <h3>Recipe Story:</h3>
               <textarea
                 cols="26"
                 rows="10"
@@ -177,18 +178,11 @@ class RecipeForm extends React.Component {
               />
             </div>
             <div className="recipe-owner">
-              <h3>
-                Recipe Owner: &nbsp;<span>{this.props.currentUser.handle}</span>
-              </h3>
-              <div className="recipe-owner-pic"></div>
+              <h3>Recipe Owner:</h3>
+                  <h5><img className="recipe-owner-pic"src={this.props.currentUser.photoUrl} alt=""/>
+                    <span>{this.props.currentUser.handle}</span>
+                  </h5>
             </div>
-          </div>
-          <div className="recipe-bottom">
-            {/* <div className="recipe-story">
-                            <textarea cols="26" rows="10"
-                                    onChange={this.update("story")}
-                                    placeholder="write your story about this recipe"/>
-                        </div> */}
           </div>
         </form>
         <div className="ing-inst-container">

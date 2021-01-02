@@ -183,9 +183,17 @@ class RecipeEdit extends React.Component {
                         );
                       })}
                     </ul>
+                    <input type="text"
+                           value={this.state.queueIng}
+                           placeholder="Add more ingredient"
+                           onChange={this.queueIngredient}/>
+                    <button onClick={this.pushIngredient}>+</button>
+                </label>
+                <label>Instructions:
                     <div className="recipe-edit-bottom-last-input">
                       <input
                         type="text"
+                        value={this.state.queueIng}
                         placeholder="Add Ingredient"
                         onChange={this.queueIngredient}
                       />
@@ -213,6 +221,7 @@ class RecipeEdit extends React.Component {
                       <input
                         className="instruction-input"
                         type="text"
+                        value={this.state.queueInst}
                         placeholder="Add Instruction"
                         onChange={this.queueInstruction}
                       />
