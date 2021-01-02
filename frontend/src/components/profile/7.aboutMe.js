@@ -12,20 +12,21 @@ class AboutMe extends React.Component {
     render() {
         return (
             <div>
-                Handle:{this.props.currentUser.handle}
-                <br></br>
-                Email:{this.props.currentUser.email}
-                <br></br>
-                Recipes Posted: 
-                <br></br>
-                Member Since:{this.memberSince()}
-                <br></br>
-                Dietary Restrictions: 
+                <div>Handle:{this.props.currentUser.handle}</div>
+
+                <div>Email:{this.props.currentUser.email}</div>
+
+                <div>Recipes Posted: {(this.props.user.recipesPosted).length}</div>
+
+                <div>Member Since:{this.memberSince()}</div>
+
+                <div>Dietary Restrictions: 
                     {this.props.currentUser.dietaryRestrictions.map((rest,i) => (
                         <div key={i}>
                             {rest}
                         </div>
                     ))}
+                </div>
 
         
             </div>

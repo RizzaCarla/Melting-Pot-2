@@ -19,8 +19,8 @@ const EventSchema = new Schema({
     required: true
   },
   date: {
-    type: String,
-    required: true
+    type: Date,
+    required: false
   },
   startTime: {
     type: String,
@@ -38,7 +38,9 @@ const EventSchema = new Schema({
     type: String,
     required: true
   },
-
+  
+  usersJoined: [{ type: Schema.Types.ObjectId, ref: 'events', required: false }],
 })
+
 
 module.exports = Event = mongoose.model('Event', EventSchema);

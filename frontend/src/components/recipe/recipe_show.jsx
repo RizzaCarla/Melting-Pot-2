@@ -1,5 +1,6 @@
 import React from 'react';
 import './recipe_show.css';
+import { Link } from 'react-router-dom';
 
 class RecipeShow extends React.Component {
     constructor(props) {
@@ -33,7 +34,7 @@ class RecipeShow extends React.Component {
                 </div>
                 <div className="recipe-detail-info">
                     <div className="recipe-show-ing-inst">
-                        <h4>Igredients:</h4>
+                        <h4>Ingredients:</h4>
                         <ul className="recipe-ing-list">
                             {recipe.ingredients.map((ingredient, idx) => {
                                 return(<li key={idx}>{ingredient}</li>)
@@ -53,7 +54,8 @@ class RecipeShow extends React.Component {
                         </div>
                         {recipe.story}
                     </div>
-                </div>
+                </div> 
+                <Link to="/profile">Go Back</Link>'
             </div>
         )
     }

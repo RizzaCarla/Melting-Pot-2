@@ -1,16 +1,18 @@
 import { connect } from 'react-redux';
-import { createEvent } from '../../actions/event_actions';
+import { createEvent, clearErrors} from '../../actions/event_actions';
 import EventForm from "./1.event_create"
 
 const mapStateToProps = (state) => {
     return ({
-        currentUser: state.session.currentUser.user
+        currentUser: state.session.currentUser.user,
+        errors: state.errors.events
     });
 };
 
 const mapDispatchToProps = (dispatch) => {
     return ({
-        createEvent: (event) => dispatch(createEvent(event))
+        createEvent: (event) => dispatch(createEvent(event)),
+        clearErrors: (() => dispatch(clearErrors()))
     });
 };
 

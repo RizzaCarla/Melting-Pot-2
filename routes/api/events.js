@@ -46,7 +46,7 @@ router.get('/:id', (req, res) => {
 router.get('/:userId', (req, res) => {
   Recipe.find({ "userId": req.params.userId })
     .then(events => {
-      console.log(events)
+      // console.log(events)
       res.json(events)
     })
     .catch(err => res.status(404).json({ userEventsNotFound: 'This user is not participating in any events' }));

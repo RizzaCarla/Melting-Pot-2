@@ -5,7 +5,10 @@ import Events from './5.events'
 const mapStateToProps = (state) => {
     return {
         currentUser: state.session.currentUser.user,
-        events: state.entities.events
+        events: state.entities.events,
+        user: state.entities.users[state.session.currentUser.user._id]
+
+
         // eventsHosted: state.entities.users.eventsHosted
     };
 };

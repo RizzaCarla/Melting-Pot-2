@@ -13,15 +13,11 @@ class Profile extends React.Component {
   render() {
     return (
       <div>
-        <img src={this.props.currentUser.photoUrl}></img>
-        <br></br>
-        {this.props.currentUser.handle}
-        <br></br>
-        {this.props.currentUser.bio}
-        <br></br>
         
-
-        < NavBarContainer />
+        <div><img src={this.props.currentUser.photoUrl}></img></div>
+        <div>{this.props.currentUser.handle}</div>
+        <div>{this.props.currentUser.bio}</div>
+        <div>< NavBarContainer /></div>
 
       </div>
     )

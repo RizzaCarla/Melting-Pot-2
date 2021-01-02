@@ -9,7 +9,7 @@ module.exports = function validateEventInput(data) {
   data.hostId = validText(data.hostId) ? data.hostId : '';
   data.location = validText(data.location) ? data.location : '';
   data.description = validText(data.description) ? data.description : '';
-  data.date = validText(data.date) ? data.date : '';
+  // data.date = validText(data.date) ? data.date : '';
   data.startTime = validText(data.startTime) ? data.startTime : '';
   data.endTime = validText(data.endTime) ? data.endTime : '';
   data.photoId = validText(data.photoId) ? data.photoId : '';
@@ -30,7 +30,7 @@ module.exports = function validateEventInput(data) {
   }
   
   if (Validator.isEmpty(data.description)) {
-    errors.description = ' is required'
+    errors.description = 'Description is required'
   }
 
   if (Validator.isEmpty(data.date)) {
