@@ -115,6 +115,7 @@
     height: 75px;
     width: 75px;
     background-color: black;
+    border: 1px solid black;
 }
 
 .recipe-edit-owner-right {
