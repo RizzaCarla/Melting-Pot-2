@@ -5,7 +5,7 @@ export const getComments = () => {
 };
 
 export const getRecipeComments = recipeId => {
-    return axios.get(`/api/recipes/${recipeId}`)
+    return axios.get(`/api/comments/${recipeId}`)
 };
 
 export const createComment = (comment) => {

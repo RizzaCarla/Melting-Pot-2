@@ -5,6 +5,8 @@ export const RECEIVE_RECIPE_COMMENTS = "RECEIVE_RECIPE_COMMENTS";
 export const RECEIVE_COMMENT = "RECEIVE_COMMENT";
 export const REMOVE_COMMENT = "REMOVE_COMMENT";
 
+// Regular action creators
+
 export const receiveAllComments = (comments) => {
     return({
         type: RECEIVE_ALL_COMMENTS,
@@ -33,4 +35,34 @@ export const removeComment = (commentId) => {
     });
 };
 
+// Thunk action reactors
 
+export const getComments = () => dispatch => {
+    return CommentApiutil.getComments()
+        .then(comments => dispatch(receiveAllComments(comments)))
+        .catch((err) => console.log(err))
+};
+
+export const getRecipeComments = (recipeId) => dispatch => {
+    return CommentApiutil.getRecipeComments(recipeId)
+        .then(comments => dispatch(receiveRecipeComments(comments)))
+        .catch((err) => console.log(err))
+};
+
+export const createComment = (comment) => dispatch => {
+    return CommentApiutil.createComment(comment)
+        .then(comment => dispatch(receiveComment(comment)))
+        .catch((err) => console.log(err))
+};
+
+export const updateComment = (comment) => dispatch => {
+    return CommentApiutil.updateComment(comment)
+        .then(comment => dispatch(receiveComment(comment)))
+        .catch((err) => console.log(err))
+};
+
+export const deleteComment = (commentId) => dispatch => {
+    return CommentApiutil.deleteComment(commentId)
+        .then(() => dispatch(removeComment(commentId)))
+        .catch((err) => console.log(err))
+};
