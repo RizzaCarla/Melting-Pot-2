@@ -1,16 +1,17 @@
 import { connect } from 'react-redux';
-import { getRecipe } from '../../actions/recipe_actions';
-import { getEvent } from '../../actions/event_actions';
-import { withRouter } from 'react-router';
+import { getRecipe, getRecipes } from '../../actions/recipe_actions';
+import { getEvent, getEvents } from '../../actions/event_actions';
 import HomePage from './home_page';
+// import { withRouter } from 'react-router';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return ({
-    recipes: state.entities.recipes[ownProps.match.params.recipeId]
+    recipes: state.entities.recipes,
+    events: state.entities.events
   })
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return ({
     getRecipes: () => dispatch(getRecipes()),
     getRecipe: (recipeId) => dispatch(getRecipe(recipeId)),
@@ -19,4 +20,4 @@ const mapDispatchToProps = dispatch => {
   })
 }
 
-export default connect(mapStateToProps)(mapDispatchToProps)(HomePage);
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
