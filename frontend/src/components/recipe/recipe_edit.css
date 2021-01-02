@@ -64,6 +64,7 @@
     border: 1px solid #e2e1e1;
     height: fit-content;
     border-radius: 10px;
+    font-family: sans-serif;
     box-shadow: 0 2px 6px 0 rgba(0,0,0,0.15);
 }
 
@@ -79,17 +80,19 @@
     font-size: 16px;
 }
 
-.recipe-edit-top-right button {
+.recipe-edit-save {
     background-color: rgba(121, 217, 207, 0.753);
     border-radius: 5px;
     width: 100px;
-    margin-left: 56px;
+    height: 25px;
+    margin-top: 5px;
+    margin-left: 15px;
     font-size: 16px;
     cursor: pointer;
     border: 1px solid gray;
 }
 
-.recipe-edit-top-right button:hover {
+.recipe-edit-save:hover {
     background-color: rgba(140, 255, 244, 0.753)
 }
 
@@ -132,7 +135,7 @@
     padding-left: 10px;
 }
 
-.recipe-edit-owner-right button {
+.recipe-edit-delete {
     margin-top: 5px;
     background-color: rgb(148, 0, 0);
     border-radius: 5px;
@@ -143,7 +146,7 @@
     cursor: pointer;
 }
 
-.recipe-edit-owner-right button:hover {
+.recipe-edit-delete:hover {
     background-color: rgb(255, 0, 0);
 }
 
@@ -197,6 +200,7 @@
 .recipe-edit-bottom-left button {
     background: transparent;
     border: none;
+    font-size: 20px;
     padding-left: 5px;
 }
 
@@ -205,7 +209,8 @@
 }
 
 .recipe-edit-bottom-right textarea {
-    font-size: 16px;
+    font-size: 14px;
+    padding-top: 5px;
     width: 426px;
     height: 331px;
     padding-left: 5px;
@@ -226,7 +231,7 @@
 }
 
 .recipe-edit-bottom-last-input input {
-    margin-left: 13px;
+    margin-left: 18px;
 }
 
 .recipe-edit-owner-label {
@@ -240,3 +245,13 @@
     
 }
 
+.recipe-edit-buttons {
+    padding-top: 5px;
+    display: flex;
+    justify-content: flex-end;
+   
+}
+
+.recipe-edit-buttons button {
+    font-family: sans-serif;
+}

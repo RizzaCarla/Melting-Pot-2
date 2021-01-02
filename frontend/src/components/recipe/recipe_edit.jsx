@@ -144,7 +144,7 @@ class RecipeEdit extends React.Component {
                     </select>
                   </label>
                   <label>
-                    Category:
+                    Category:&nbsp;&nbsp;
                     <select
                       onChange={this.update("category")}
                       value={this.state.category}
@@ -159,7 +159,7 @@ class RecipeEdit extends React.Component {
                   <label>
                     Likes: {!recipe.numLikes ? "0" : recipe.numLikes}
                   </label>
-                  <button onClick={this.handleSubmit}>Save Recipe</button>
+                  {/* <button onClick={this.handleSubmit}>Save Recipe</button> */}
                 </div>
               </div>
               <div className="recipe-edit-bottom">
@@ -179,6 +179,7 @@ class RecipeEdit extends React.Component {
                               onChange={this.handleIngredient}
                             />
                           </li>
+                          
                         );
                       })}
                     </ul>
@@ -220,7 +221,7 @@ class RecipeEdit extends React.Component {
                   </div>
                 </div>
                 <div className="recipe-edit-bottom-right">
-                  <label className="recipe-edit-owner-label">
+                  {/* <label className="recipe-edit-owner-label">
                     Recipe Owner:
                   </label>
                   <div className="recipe-edit-owner">
@@ -229,7 +230,7 @@ class RecipeEdit extends React.Component {
                       <h5>{this.props.currentUser.handle}</h5>
                       <button onClick={this.handleDelete}>Delete Recipe</button>
                     </div>
-                  </div>
+                  </div> */}
                   <label className="recipe-edit-story">Recipe Story </label>
                   <textarea
                     cols="26"
@@ -238,6 +239,20 @@ class RecipeEdit extends React.Component {
                     onChange={this.update("story")}
                     placeholder="Write your story about this recipe"
                   />
+                  <div className="recipe-edit-buttons">
+                    <button
+                      className="recipe-edit-delete"
+                      onClick={this.handleDelete}
+                    >
+                      Delete Recipe{" "}
+                    </button>
+                    <button
+                      className="recipe-edit-save"
+                      onClick={this.handleSubmit}
+                    >
+                      Save Recipe
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
