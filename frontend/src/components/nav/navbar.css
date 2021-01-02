@@ -29,8 +29,8 @@ html {
 
 .navbar-left {
     display: flex;
-    width: 280px;
-    justify-content: space-between;
+    width: 500px;
+    justify-content: flex-start;
     align-items: center;
 }
 
@@ -62,8 +62,11 @@ html {
 .search-parent {
     position: relative;
     display: inline-block;
-    
+    width: 100%;
+    padding-left: 10px;
 }
+
+
 
 .search-results {
     background-color: white;
@@ -84,7 +87,6 @@ html {
 }
 
 
-
 .search-parent input {
     outline: none;
     padding: 0;
@@ -95,22 +97,30 @@ html {
     padding-left: 5px;
 }
 
+.search-parent input[type=text] {
+    width: 200px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+.search-parent input[type=text]:focus {
+    width: 100%;
+}
+
 .search-item-name {
     display: flex;
     align-items: center;
     width: 100%;
     justify-content: center;
-    /* overflow-x: hidden; */
     overflow-wrap: normal;
 }
 
-/* .result-item {
-    padding-bottom: 20px;
-    padding-left: 10px;
-} */
-
 .search-item-picture {
     display: flex;
+}
+
+.search-item-picture img {
+    border-radius: 20px;
 }
 
 .result-item-parent {
@@ -121,4 +131,20 @@ html {
     padding-left: 10px;
     border-bottom: 1px solid #efefef;
 }
+
+.navbar-profile-pic {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    margin-right: 5px;
+    background-color: #333;
+}
+
+.right-navbar-loggedin a {
+    display: flex;
+    align-items: center;
+    border-right: 1px solid #969696;
+    width: 110px;
+}
+
 

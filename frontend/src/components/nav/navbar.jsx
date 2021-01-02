@@ -31,7 +31,7 @@ class NavBar extends React.Component {
     if(this.props.loggedIn) {
       return(
         <div className="right-navbar-loggedin">
-          <Link to={`/profile`}>Your Profile</Link>
+          <Link to={`/profile`}><img className="navbar-profile-pic" src={this.props.currentUser.photoUrl}></img>Profile</Link>
           <button className="logout-btn" onClick={this.logoutUser}>Logout</button>
         </div>
       )
