@@ -3,7 +3,7 @@
 }
 
 .recipe-edit-parent {
-    width: 1280px; 
+    width: 1000px; 
     margin-left: auto;
     margin-right: auto;
     background-color: white;
@@ -85,6 +85,7 @@
 .recipe-edit-bottom {
     display: flex;
     justify-content: space-evenly;
+    margin-top: 25px;
 }
 
 .recipe-edit-bottom-right {
@@ -93,5 +94,57 @@
 }
 
 .recipe-edit-owner {
+    display: flex;
+}
+
+.recipe-edit-owner img {
+    border-radius: 50%;
+    object-fit: cover;
+    height: 100px;
+    width: 100px;
+    background-color: black;
+}
+
+.recipe-edit-owner-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 10px;
+}
+
+.recipe-edit-owner-right button {
+    margin-top: 5px;
+    background-color: rgba(121, 217, 207, 0.753);
+    border-radius: 20px;
+    width: 140px;
+}
+
+.recipe-edit-bottom-left {
+    display: flex;
+    width: 550px;
+    justify-content: space-evenly;
+}
+
+.recipe-edit-ingredients label {
+    display: flex;
+    justify-content: center;
+}
+
+.recipe-edit-instructions label {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.recipe-edit-bottom-left li {
+    padding: 2px;
+}
+
+.recipe-edit-bottom-left button {
+    background: transparent;
+    border: none;
     
 }
+
+
