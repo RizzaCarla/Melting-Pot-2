@@ -1,9 +1,11 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { getRecipes, getRecipe, getUserRecipes, updateRecipe, deleteRecipe } from '../../actions/recipe_actions';
 import RecipeShow from './recipe_show';
 
 const mapStateToProps = (state, ownProps) => {
     return({
+        currentUser: state.session.currentUser,
         recipe: state.entities.recipes[ownProps.match.params.recipeId]
     });
 };

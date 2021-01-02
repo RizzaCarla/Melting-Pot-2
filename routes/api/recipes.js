@@ -40,10 +40,7 @@ router.post('/new', (req, res) => {
 //RETRIEVE RECIPES OF ONE USER
 router.get('/:authorId', (req, res) => {
   Recipe.find({ "authorId": req.params.authorId })
-    .then(recipes => {
-      console.log(recipes)
-      res.json(recipes)
-    })
+    .then(recipes => {res.json(recipes)})
     .catch(err => res.status(404).json({ userRecipesNotFound: 'This user does not have any recipes' }));
 })
 
@@ -72,6 +69,14 @@ router.patch('/edit/:id', (req, res) => {
 
   Recipe.findByIdAndUpdate(req.params.id, req.body, { new: true })
     .then((recipe) => res.json(recipe))
+})
+
+// Search Recipes
+router.post('/search-recipes', (req, res) => {
+  let recipePattern = new RegExp("^" + req.body.query);
+  Recipe.find({name:{$regex:recipePattern}})
+    .then(recipe => {res.json({recipe})})
+    .catch(err => console.log(err))
 })
 
 module.exports = router;

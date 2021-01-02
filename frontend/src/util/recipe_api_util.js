@@ -18,7 +18,7 @@ export const createRecipe = (recipe) => {
 };
 
 export const updateRecipe = (recipe) => {
-    return axios.patch(`/api/recipes/${recipe._id}`, recipe)
+    return axios.patch(`/api/recipes/edit/${recipe._id}`, recipe)
 };
 
 export const deleteRecipe = (recipeId) => {

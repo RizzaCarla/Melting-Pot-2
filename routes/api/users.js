@@ -74,7 +74,7 @@ router.post('/signup', (req, res) => {
             newUser.save()
               .then(user => {
                 const payload = {user};
-                jwt.sign(payload, keys.secretOrKey, {expiresIn: 3600}, (err, token) =>{
+                jwt.sign(payload, keys.secretOrKey, {expiresIn: 999999}, (err, token) =>{
                   res.json({
                     user: user,
                     success: true,
