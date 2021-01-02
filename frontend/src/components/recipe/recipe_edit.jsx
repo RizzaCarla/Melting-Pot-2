@@ -182,14 +182,14 @@ class RecipeEdit extends React.Component {
                         );
                       })}
                     </ul>
-                    <input
-                      type="text"
-                      placeholder="Add Ingredient"
-                      onChange={this.queueIngredient}
-                    />
-                    <button onClick={this.pushIngredient}>
-                      <i class="material-icons">control_point</i>
-                    </button>
+                    <div className="recipe-edit-bottom-last-input">
+                      <input
+                        type="text"
+                        placeholder="Add Ingredient"
+                        onChange={this.queueIngredient}
+                      />
+                      <button onClick={this.pushIngredient}>+</button>
+                    </div>
                   </div>
                   <div className="recipe-edit-instructions">
                     <label>Instructions: </label>
@@ -208,15 +208,15 @@ class RecipeEdit extends React.Component {
                         );
                       })}
                     </ul>
-                    <input
-                      className="instruction-input"
-                      type="text"
-                      placeholder="Add Instruction"
-                      onChange={this.queueInstruction}
-                    />
-                    <button onClick={this.pushInstruction}>
-                      <i class="material-icons">control_point</i>
-                    </button>
+                    <div className="recipe-edit-bottom-last-input">
+                      <input
+                        className="instruction-input"
+                        type="text"
+                        placeholder="Add Instruction"
+                        onChange={this.queueInstruction}
+                      />
+                      <button onClick={this.pushInstruction}>+</button>
+                    </div>
                   </div>
                 </div>
                 <div className="recipe-edit-bottom-right">
@@ -230,7 +230,7 @@ class RecipeEdit extends React.Component {
                       <button onClick={this.handleDelete}>Delete Recipe</button>
                     </div>
                   </div>
-                  <label>Recipe Story: </label>
+                  <label className="recipe-edit-story">Recipe Story: </label>
                   <textarea
                     cols="26"
                     rows="10"
