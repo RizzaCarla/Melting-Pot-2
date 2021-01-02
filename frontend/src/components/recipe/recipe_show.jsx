@@ -10,6 +10,7 @@ class RecipeShow extends React.Component {
 
     componentDidMount() {
         this.props.getRecipes();
+        this.props.fetchUsers();
     }
 
     handleDelete(e) {
@@ -18,19 +19,21 @@ class RecipeShow extends React.Component {
     }
 
     render(){
-        if (this.props.recipe === undefined) {
+        // debugger;
+        if ((this.props.recipe === undefined) || (Object.keys(this.props.authors).length === 0)) {
             return null
         }
         
         const recipe = this.props.recipe;
+        const author = this.props.authors[recipe.authorId];
 
         const userOnlyBtns = (this.props.currentUser === undefined) ? 
                                 null : (this.props.currentUser.user === undefined) ? 
                                 null : (this.props.currentUser.user._id !== recipe.authorId) ? 
                                 null :
-                                        <div>
-                                            <Link to={`/recipes/${recipe._id}/edit`}>Edit Recipe</Link>
-                                            <button onClick={this.handleDelete}>Delete Recipe</button>
+                                        <div className="user-only-btns">
+                                            <Link className="user-only-btn-edit" to={`/recipes/${recipe._id}/edit`}>Edit Recipe</Link>
+                                            <button className="user-only-btn-delete" onClick={this.handleDelete}>Delete Recipe</button>
                                         </div>
 
         return(
@@ -38,13 +41,13 @@ class RecipeShow extends React.Component {
                 <div className="recipe-show-info">
                     <div className="recipe-pic">
                         <img src={recipe.photoUrl} alt=""/>
-                        {recipe.name}
+                        <h4>{recipe.name}</h4>
                     </div>
                     <div className="recipe-misc-info">
                         <ul>
-                            <li>Difficulty:&nbsp;&nbsp;{recipe.difficulty}</li>
-                            <li>Cooking Time:&nbsp;&nbsp;{recipe.cookingTime}</li>
-                            <li>Likes: {recipe.numLikes}</li>
+                            <li><h4>Difficulty:&nbsp;&nbsp;<span>{recipe.difficulty}</span></h4></li>
+                            <li><h4>Cooking Time:&nbsp;&nbsp;<span>{recipe.cookingTime}</span></h4></li>
+                            <li><h4>Likes:&nbsp;&nbsp;<span>{recipe.numLikes === null ? 0 : recipe.numlikes}</span></h4></li>
                             {userOnlyBtns}
                         </ul>
                     </div>
@@ -64,13 +67,20 @@ class RecipeShow extends React.Component {
                             })}
                         </ul>
                     </div>
-                    <div className="recipe-owner-info">
+                    <div className="recipe-owner-story-info">
                         <div className="recipe-show-owner">
-                            <div className="owner-pic"></div>
-                            {/* {recipe.authorId} */}
+                            <div className="recipe-show-owner-personal-cont">
+                                <h3>Recipe&nbsp;Owner:</h3>
+                                <div className="recipe-show-owner-content">
+                                    <img src={author.photoUrl} alt="author-img"/>
+                                    <h4>{author.handle}</h4>
+                                </div>
+                            </div>
+                            <div className="recipe-show-owner-story-cont">
+                                <h4>Recipe Story:</h4>
+                                {recipe.story}
+                            </div>
                         </div>
-                        <h4>Recipe Story:</h4>
-                        {recipe.story}
                     </div>
                 </div>
             </div>

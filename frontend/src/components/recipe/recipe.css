@@ -146,7 +146,7 @@
 }
 
 .ing-form li {
-    list-style-type: upper-roman;
+    list-style-type: disc;
     margin-left: 55px
 }
 
@@ -173,7 +173,7 @@
 }
 
 .inst-form li {
-    list-style-type: upper-roman;
+    list-style-type: disc;
     margin-left: 55px;
 }
 
