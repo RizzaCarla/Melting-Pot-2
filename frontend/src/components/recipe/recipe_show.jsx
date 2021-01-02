@@ -2,7 +2,7 @@ import React from 'react';
 import './recipe_show.css';
 import { Link } from 'react-router-dom';
 
-import CommentShowContainer from "../comment/comment_show_container";
+import CommentShowContainer from "../comment/comment_index_container";
 
 class RecipeShow extends React.Component {
     constructor(props) {
@@ -85,7 +85,8 @@ class RecipeShow extends React.Component {
                         </div>
                     </div>
                 </div>
-                <CommentShowContainer recipe={recipe}/>
+                <CommentShowContainer recipe={recipe}
+                                      authors={this.props.authors}/>
             </div>
         )
     }

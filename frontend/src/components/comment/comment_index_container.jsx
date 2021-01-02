@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import { getComments, getRecipeComments, createComment, updateComment, deleteComment } from '../../actions/comment_actions';
-import CommentShow from "./comment_show";
+import CommentIndex from "./comment_index";
 
 const mapStateToProps = (state, ownProps) => {
     return({
-        currentUser: state.session.currentUser.user,
+        currentUser: state.session.currentUser,
         comments: Object.values(state.entities.comments),
     })
     
@@ -20,4 +20,4 @@ const mapDispatchToProps = (dispatch) => {
     })
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CommentShow);
+export default connect(mapStateToProps, mapDispatchToProps)(CommentIndex);
