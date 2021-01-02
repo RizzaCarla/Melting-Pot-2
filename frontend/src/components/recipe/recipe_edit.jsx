@@ -99,7 +99,7 @@ class RecipeEdit extends React.Component {
             return null
         }
         return(
-            <div>
+            <div className="recipe-edit-parent">
                 <label>Recipe Name:
                     <input type="text"
                         value={this.state.name}
