@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { getComments, getRecipeComments, createComment, updateComment, deleteComment } from '../../actions/comment_actions';
 import CommentIndex from "./comment_index";
+import { withRouter } from "react-router-dom";
 
 const mapStateToProps = (state, ownProps) => {
     return({
@@ -20,4 +21,4 @@ const mapDispatchToProps = (dispatch) => {
     })
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CommentIndex);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CommentIndex));

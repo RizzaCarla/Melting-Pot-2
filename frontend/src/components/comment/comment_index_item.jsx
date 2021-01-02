@@ -4,6 +4,7 @@ import "./comment.css"
 class CommentIndexItem extends React.Component {
     constructor(props){
         super(props)
+        this.handleDelete = this.handleDelete.bind(this);
     }
 
     handleDelete(id) {
@@ -11,27 +12,26 @@ class CommentIndexItem extends React.Component {
     }
 
     render() {
+        debugger;
         const comment = this.props.comment;
         const author = this.props.authors[comment.authorId];
         const deleteButton = (this.props.currentUser === undefined) || (Object.values(this.props.currentUser).length === 0) ? 
             null :
-                ((this.props.currentUser.user._id === comment.authorId) || (this.props.recipe.authorId === this.props.currentUser.user._id)) ? 
+                (this.props.currentUser.user._id === comment.authorId) ? 
                     <button onClick={() => this.handleDelete(comment._id)}>Delete</button> :
                         null;
-        // const editButton = (this.props.currenUser.user._id === comment.authorId) 
-
-        return(
-            <div className="indiv-comment">
+        const displayComment = 
                 <div className="indiv-comment-main">
                     <img src={author.photoUrl} alt=""/>
                     <div className="indiv-comment-body">
                         <p>{author.handle}&nbsp;wrote:</p>
                         {comment.body}
+                        {deleteButton}
                     </div>
                 </div>
-                <div className="indiv-comment-util-btns">
-                    {deleteButton}
-                </div>
+        return(
+            <div className="indiv-comment">
+                {displayComment}
             </div>
         )
     }

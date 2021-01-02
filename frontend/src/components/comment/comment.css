@@ -59,6 +59,7 @@
 .indiv-comment-main {
     display: flex;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 .indiv-comment-main img {

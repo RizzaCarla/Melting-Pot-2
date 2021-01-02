@@ -15,7 +15,6 @@ class CommentIndex extends React.Component {
     }
 
     componentDidMount() {
-        // debugger;
         this.props.getRecipeComments(this.props.recipe._id)
         if ((this.props.currentUser !== undefined) && (Object.keys(this.props.currentUser).length !== 0)){
             this.setState({["authorId"]: this.props.currentUser.user._id})
@@ -61,13 +60,12 @@ class CommentIndex extends React.Component {
                 <ul className="comment-section">
                     {this.props.comments.map(comment => {
                         return(
-                            <li key={comment._id}>
-                                <CommentIndexItem comment={comment}
-                                                  authors={this.props.authors}
-                                                  currentUser={this.props.currentUser}
-                                                  deleteComment={this.props.deleteComment}
-                                                  recipe={this.props.recipe}/>
-                            </li>
+                            <CommentIndexItem comment={comment}
+                                                key={comment._id}
+                                                authors={this.props.authors}
+                                                currentUser={this.props.currentUser}
+                                                deleteComment={this.props.deleteComment}
+                                                recipe={this.props.recipe}/>
                         )
                     })}
                 </ul>
