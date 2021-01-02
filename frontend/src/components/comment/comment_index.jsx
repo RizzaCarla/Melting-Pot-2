@@ -5,10 +5,28 @@ import "./comment.css"
 class CommentIndex extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {
+            body: "",
+            authorId: this.props.currentUser.user._id,
+            recipeId: this.props.recipe._id
+        }
+        this.handleComment = this.handleComment.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount() {
         this.props.getRecipeComments(this.props.recipe._id)
+    }
+
+    handleComment(e) {
+        e.preventDefault();
+        this.setState({["body"]: e.target.value});
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        this.props.createComment(this.state);
+        this.setState({["body"]: "" })
     }
 
     render() {
@@ -16,9 +34,16 @@ class CommentIndex extends React.Component {
             null :
                 <div className="comment-input-section">
                     <img src={this.props.currentUser.user.photoUrl} alt=""/>
-                    <input className="comment-input"
-                            type="text"
-                            placeholder="Write your comment here..."/>
+                    <form onSubmit={this.handleSubmit}>
+                        <input className="comment-input"
+                               type="text"
+                               value={this.state.body}
+                               placeholder="Write your comment here..."
+                               onChange={this.handleComment}/>
+                        <input className="comment-submit"
+                               type="submit"
+                               value="Send"/>
+                    </form>
                 </div>
 
         return(
