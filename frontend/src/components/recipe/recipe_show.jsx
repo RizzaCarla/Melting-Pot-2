@@ -54,7 +54,7 @@ class RecipeShow extends React.Component {
                 </div>
                 <div className="recipe-detail-info">
                     <div className="recipe-show-ing-inst">
-                        <h4>Igredients:</h4>
+                        <h4>Ingredients:</h4>
                         <ul className="recipe-ing-list">
                             {recipe.ingredients.map((ingredient, idx) => {
                                 return(<li key={idx}>{ingredient}</li>)

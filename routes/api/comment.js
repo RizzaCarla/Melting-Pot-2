@@ -28,6 +28,13 @@ router.post('/new', (req, res) => {
   .then(comment => res.json(comment))
 })
 
+// RETRIEVE COMMENTS BY RECIPEID
+router.get('/:recipeId', (req, res) => {
+  Comment.find({ "recipeId": req.params.recipeId })
+    .then(comments => {res.json(comments)})
+    .catch(err => res.status(404).json({ recipesCommentsNotFound: 'This recipe has no comments' }));
+})
+
 // RETRIEVE ONE COMMENT
 router.get('/:id', (req, res) => {
   Comment.findById(req.params.id)
