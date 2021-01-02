@@ -84,6 +84,7 @@
     margin-left: 56px;
     font-size: 16px;
     cursor: pointer;
+    border: 1px solid gray;
 }
 
 .recipe-edit-bottom {
@@ -127,8 +128,9 @@
     margin-top: 5px;
     background-color: rgba(121, 217, 207, 0.753);
     border-radius: 5px;
-    width: 140px;
+    width: 120px;
     font-size: 16px;
+    border: 1px solid gray;
     cursor: pointer;
 }
 

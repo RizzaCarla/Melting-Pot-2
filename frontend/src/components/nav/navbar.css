@@ -109,7 +109,7 @@ html {
 
 .search-item-name {
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     width: 100%;
     justify-content: center;
     overflow-wrap: normal;
@@ -118,6 +118,7 @@ html {
 
 .search-item-name li {
     font-size: 18px;
+    padding: 5px;
 }
 
 .search-item-picture {
