@@ -40,7 +40,10 @@ router.post('/new', (req, res) => {
 //RETRIEVE RECIPES OF ONE USER
 router.get('/:authorId', (req, res) => {
   Recipe.find({ "authorId": req.params.authorId })
-    .then(recipes => {res.json(recipes)})
+    .then(recipes => {
+      // console.log(recipes)
+      res.json(recipes)
+    })
     .catch(err => res.status(404).json({ userRecipesNotFound: 'This user does not have any recipes' }));
 })
 

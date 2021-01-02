@@ -8,7 +8,6 @@ class Recipes extends React.Component {
 
 
     componentDidMount(){
-        console.log(this.props.recipes)
         this.props.getUserRecipes(this.props.currentUser._id)
     }
 
@@ -19,10 +18,15 @@ class Recipes extends React.Component {
         }
         return (
             <div>
+                <div><Link to='/recipes/new'><button>Create A New Recipe</button></Link></div>
+
+
                 <ul>
                     {Object.values(this.props.recipes).map((recipe, i) => (
                         <li key={i}>
-                            <Link to={`/recipes/${recipe._id}`}>{recipe.name}</Link>
+                            
+                            <div><Link to={`/recipes/${recipe._id}`}> <img src={recipe.photoUrl}></img></Link></div>
+                            <div><Link to={`/recipes/${recipe._id}`}>{recipe.name}</Link></div>
                         </li>
                     ))}
                 </ul>
