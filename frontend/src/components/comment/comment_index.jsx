@@ -42,7 +42,7 @@ class CommentIndex extends React.Component {
                                onChange={this.handleComment}/>
                         <input className="comment-submit"
                                type="submit"
-                               value="Send"/>
+                               value="Comment"/>
                     </form>
                 </div>
 
@@ -55,7 +55,9 @@ class CommentIndex extends React.Component {
                         return(
                             <li key={comment._id}>
                                 <CommentIndexItem comment={comment}
-                                                  authors={this.props.authors}/>
+                                                  authors={this.props.authors}
+                                                  currentUser={this.props.currentUser}
+                                                  deleteComment={this.props.deleteComment}/>
                             </li>
                         )
                     })}
