@@ -113,6 +113,11 @@ html {
     width: 100%;
     justify-content: center;
     overflow-wrap: normal;
+    flex-direction: column;
+}
+
+.search-item-name li {
+    font-size: 18px;
 }
 
 .search-item-picture {
