@@ -13,7 +13,7 @@ html {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(121, 217, 207);
+    background-color: rgba(121, 217, 207, 0);
     height: 50px;
     width: 1280px;
     margin-left: auto;
@@ -22,8 +22,9 @@ html {
 }
 
 .navbar-parent {
-    background-color: rgb(121, 217, 207);
-    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.15)
+    background-color: rgba(121, 217, 207, 0.753);
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.15);
+    /* color: white; */
 }
 
 .navbar-left {
@@ -70,13 +71,18 @@ html {
     position: absolute;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
     height: 400px;
-    width: 400px;
+    width: 630px;
+    border: 1px solid #cccbcb;
+    border-radius: 5px;
 }
+
 .block {
     display: block;
 }
+
 
 
 .search-parent input {
@@ -85,15 +91,34 @@ html {
     height: 30px;
     width: 200px;
     border-radius: 4px;
-    background: lightgray;
+    background: rgb(255, 255, 255);
     padding-left: 5px;
 }
 
 .search-item-name {
     display: flex;
+    align-items: center;
+    width: 100%;
     justify-content: center;
+    /* overflow-x: hidden; */
+    overflow-wrap: normal;
 }
 
-.result-item {
-    padding-bottom: 10px;
+/* .result-item {
+    padding-bottom: 20px;
+    padding-left: 10px;
+} */
+
+.search-item-picture {
+    display: flex;
 }
+
+.result-item-parent {
+    height: 190px;
+    width: 600px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    border-bottom: 1px solid #efefef;
+}
+

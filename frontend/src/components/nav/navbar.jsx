@@ -76,18 +76,20 @@ class NavBar extends React.Component {
 
     const list = this.state.queryResults.map( (item, i) => {
       return (
-        <Link
-          key={i}
-          to={`/recipes/${item._id}`}
-          onClick={() => this.clearState()}
-        >
-          <li className="result-item" key={i}>
-            <div className="search-item-picture">
-              <img src={item.photoUrl}></img>
-              <div className="search-item-name">{item.name}</div>
-            </div>
-          </li>
-        </Link>
+        <div className="result-item-parent">
+          <Link
+            key={i}
+            to={`/recipes/${item._id}`}
+            onClick={() => this.clearState()}
+          >
+            <li className="result-item" key={i}>
+              <div className="search-item-picture">
+                <img src={item.photoUrl}></img>
+                <div className="search-item-name">{item.name}</div>
+              </div>
+            </li>
+          </Link>
+        </div>
       );
     })
     return list;
