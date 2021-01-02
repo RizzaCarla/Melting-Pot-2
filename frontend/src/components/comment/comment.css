@@ -68,6 +68,11 @@
     margin-right: 10px;
 }
 
+.indiv-comment-body {
+    display: flex;
+    flex-direction: column;
+}
+
 .indiv-comment-util-btns {
     margin-left: 70px;
 }

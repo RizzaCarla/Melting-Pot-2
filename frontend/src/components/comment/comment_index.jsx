@@ -7,7 +7,7 @@ class CommentIndex extends React.Component {
         super(props)
         this.state = {
             body: "",
-            authorId: this.props.currentUser.user._id,
+            authorId: "",
             recipeId: this.props.recipe._id
         }
         this.handleComment = this.handleComment.bind(this);
@@ -15,7 +15,11 @@ class CommentIndex extends React.Component {
     }
 
     componentDidMount() {
+        // debugger;
         this.props.getRecipeComments(this.props.recipe._id)
+        if ((this.props.currentUser !== undefined) && (Object.keys(this.props.currentUser).length !== 0)){
+            this.setState({["authorId"]: this.props.currentUser.user._id})
+        }
     }
 
     handleComment(e) {
@@ -30,10 +34,14 @@ class CommentIndex extends React.Component {
     }
 
     render() {
+        const profilePic = ((this.props.currentUser === undefined) || (Object.keys(this.props.currentUser).length === 0)) ?
+            null :
+                <img src={this.props.currentUser.user.photoUrl} alt=""/>
+
         const commentInput = this.props.currentUser === undefined ?
             null :
                 <div className="comment-input-section">
-                    <img src={this.props.currentUser.user.photoUrl} alt=""/>
+                    {profilePic}
                     <form onSubmit={this.handleSubmit}>
                         <input className="comment-input"
                                type="text"
@@ -57,7 +65,8 @@ class CommentIndex extends React.Component {
                                 <CommentIndexItem comment={comment}
                                                   authors={this.props.authors}
                                                   currentUser={this.props.currentUser}
-                                                  deleteComment={this.props.deleteComment}/>
+                                                  deleteComment={this.props.deleteComment}
+                                                  recipe={this.props.recipe}/>
                             </li>
                         )
                     })}
