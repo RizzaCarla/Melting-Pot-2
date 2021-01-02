@@ -6,11 +6,13 @@ import jwt_decode from "jwt-decode";
 import { setAuthToken } from "./util/session_api_util";
 import { logout } from "./actions/session_actions";
 
+
 // TESTING START
 import {fetchUser, fetchUsers} from './actions/user_actions';
 import {fetchPhotos, fetchPhoto, deletePhoto} from './actions/photo_actions';
 import { getRecipes, createRecipe, deleteRecipe } from './actions/recipe_actions';
 import { createComment } from './actions/comment_actions';
+
 // TESTING END
 
 
@@ -43,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.fetchPhoto = fetchPhoto;
   window.deletePhoto = deletePhoto;
 
+  window.getRecipe = getRecipe;
   window.getRecipes = getRecipes;
   window.createRecipe = createRecipe;
   window.deleteRecipe = deleteRecipe;
