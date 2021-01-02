@@ -165,7 +165,7 @@ class RecipeEdit extends React.Component {
               <div className="recipe-edit-bottom">
                 <div className="recipe-edit-bottom-left">
                   <div className="recipe-edit-ingredients">
-                    <label>Ingredients: </label>
+                    <label>Ingredients </label>
                     <ul>
                       {this.state.ingredients.map((ingredient, idx) => {
                         return (
@@ -192,7 +192,7 @@ class RecipeEdit extends React.Component {
                     </div>
                   </div>
                   <div className="recipe-edit-instructions">
-                    <label>Instructions: </label>
+                    <label>Instructions </label>
                     <ul>
                       {this.state.instructions.map((instruction, idx) => {
                         return (
@@ -230,7 +230,7 @@ class RecipeEdit extends React.Component {
                       <button onClick={this.handleDelete}>Delete Recipe</button>
                     </div>
                   </div>
-                  <label className="recipe-edit-story">Recipe Story: </label>
+                  <label className="recipe-edit-story">Recipe Story </label>
                   <textarea
                     cols="26"
                     rows="10"

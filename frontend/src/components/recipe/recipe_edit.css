@@ -27,7 +27,7 @@
 }
 
 .recipe-edit-img-parent {
-    border: 1px solid black;
+    border: 1px solid #e2e1e1;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -52,6 +52,7 @@
     flex-direction: column;
     align-items: center;
     padding-top: 5px;
+    font-family: sans-serif;
 }
 
 .recipe-edit-top-right {
@@ -63,6 +64,7 @@
     border: 1px solid #e2e1e1;
     height: fit-content;
     border-radius: 10px;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.15);
 }
 
 .recipe-edit-top-right label {
@@ -87,11 +89,16 @@
     border: 1px solid gray;
 }
 
+.recipe-edit-top-right button:hover {
+    background-color: rgba(140, 255, 244, 0.753)
+}
+
 .recipe-edit-bottom {
     display: flex;
     justify-content: space-evenly;
     margin-top: 25px;
     padding-bottom: 15px;
+    font-family: sans-serif;
 }
 
 .recipe-edit-bottom-right {
@@ -127,12 +134,17 @@
 
 .recipe-edit-owner-right button {
     margin-top: 5px;
-    background-color: rgba(121, 217, 207, 0.753);
+    background-color: rgb(148, 0, 0);
     border-radius: 5px;
     width: 120px;
+    color: white;
     font-size: 16px;
-    border: 1px solid gray;
+    border: 1px solid rgb(148, 0, 0);
     cursor: pointer;
+}
+
+.recipe-edit-owner-right button:hover {
+    background-color: rgb(255, 0, 0);
 }
 
 .recipe-edit-bottom-left {
@@ -144,6 +156,10 @@
 .recipe-edit-ingredients label {
     display: flex;
     justify-content: center;
+    border-bottom: 1px solid #e2e1e1;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    font-family: sans-serif;
 }
 
 .recipe-edit-ingredients {
@@ -157,6 +173,11 @@
 .recipe-edit-instructions label {
     display: flex;
     justify-content: center;
+    border-bottom: 1px solid #e2e1e1;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    font-family: sans-serif;
+
 }
 
 .recipe-edit-bottom-left input {
@@ -191,6 +212,8 @@
     resize: none;
     border: 1px solid #e2e1e1;
     border-radius: 5px;
+    font-family: sans-serif;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.15);
 }
 
 .recipe-edit-bottom-right textarea:focus {
@@ -203,13 +226,17 @@
 }
 
 .recipe-edit-bottom-last-input input {
-    margin-left: 17px;
+    margin-left: 13px;
 }
 
 .recipe-edit-owner-label {
-    font-size: 26px;
+    font-size: 22px;
 }
 
 .recipe-edit-story {
-    font-size: 26px;
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    
 }
+
