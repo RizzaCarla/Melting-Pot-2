@@ -3,7 +3,7 @@ import { Tabs, Tab } from '@material-ui/core'
 import HomePageContainer from '../home/home_page_container'
 
 const NavBar = () => {
-  const [selectedTab, setSelectedTab] = React.useState(0);
+  const [selectedTab, setSelectedTab] = React.useState(1);
 
   const handleChange = (event, newValue) => {
     setSelectedTab(newValue);
@@ -19,12 +19,11 @@ const NavBar = () => {
         <Tab label="Soup" />
       </Tabs>
 
-      {selectedTab === 0 && <HomePageContainer />}
-      {selectedTab === 1 && <VegetablesContainer />}
-      {selectedTab === 2 && <MeatContainer />}
-      {selectedTab === 3 && <PoultryContainer />}
-      {selectedTab === 4 && <CarbsContainer />}
-      {selectedTab === 5 && <SoupContainer />}
+      {/* {selectedTab === 0 && <VegetablesContainer />}
+      {selectedTab === 1 && <MeatContainer />}
+      {selectedTab === 2 && <PoultryContainer />}
+      {selectedTab === 3 && <CarbsContainer />}
+      {selectedTab === 4 && <SoupContainer />} */}
     </>
 
 
