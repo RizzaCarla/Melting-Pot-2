@@ -99,6 +99,11 @@ class RecipeEdit extends React.Component {
         if (this.state === null) {
             return null
         }
+        if (this.props.currentUser._id !== recipe.authorId) {
+            this.props.history.push('/')
+        }
+        console.log(this.props.currentUser._id)
+        console.log(recipe.authorId)
         return (
           <div className="recipe-edit-parent">
             <div className="recipe-edit">
@@ -170,8 +175,8 @@ class RecipeEdit extends React.Component {
                       {this.state.ingredients.map((ingredient, idx) => {
                         return (
                           <li key={idx}>
-                            <input
-                              className="ingredients-input"
+                            <textarea
+                              className="recipe-edit-textarea"
                               type="text"
                               value={this.state.ingredients[idx]}
                               placeholder={ingredient}
@@ -179,34 +184,39 @@ class RecipeEdit extends React.Component {
                               onChange={this.handleIngredient}
                             />
                           </li>
-                          
                         );
                       })}
                     </ul>
-                    <input type="text"
-                           value={this.state.queueIng}
-                           placeholder="Add more ingredient"
-                           onChange={this.queueIngredient}/>
-                    <button onClick={this.pushIngredient}>+</button>
-                {/* </label>
-                <label>Instructions:
                     <div className="recipe-edit-bottom-last-input">
-                      <input
+                      <textarea
+                        type="text"
+                        className="recipe-edit-textarea"
+                        value={this.state.queueIng}
+                        placeholder="Add ingredient"
+                        onChange={this.queueIngredient}
+                      />
+                      <button onClick={this.pushIngredient}>+</button>
+                    </div> */}
+                  </div>
+                  {/* <label>Instructions:
+                    <div className="recipe-edit-bottom-last-input">
+                      <textarea
                         type="text"
                         value={this.state.queueIng}
                         placeholder="Add Ingredient"
                         onChange={this.queueIngredient}
                       />
                       <button onClick={this.pushIngredient}>+</button>
-                    </div> */}
-                  </div>
+                    </div>
+                  </label> */}
                   <div className="recipe-edit-instructions">
                     <label>Instructions </label>
                     <ul>
                       {this.state.instructions.map((instruction, idx) => {
                         return (
                           <li key={idx}>
-                            <input
+                            <textarea
+                              className="recipe-edit-textarea"
                               type="text"
                               value={this.state.instructions[idx]}
                               placeholder={instruction}
@@ -218,7 +228,7 @@ class RecipeEdit extends React.Component {
                       })}
                     </ul>
                     <div className="recipe-edit-bottom-last-input">
-                      <input
+                      <textarea
                         className="instruction-input"
                         type="text"
                         value={this.state.queueInst}

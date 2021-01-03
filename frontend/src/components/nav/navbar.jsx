@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import "./navbar.css"
 
 
+
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
@@ -31,7 +32,7 @@ class NavBar extends React.Component {
     if(this.props.loggedIn) {
       return(
         <div className="right-navbar-loggedin">
-          <Link to={`/profile`}><img className="navbar-profile-pic" src={this.props.currentUser.photoUrl}></img>Profile</Link>
+          <Link to={`/profile`}><img className="navbar-profile-pic" src={this.props.currentUser.user.photoUrl}></img>Profile</Link>
           <button className="logout-btn" onClick={this.logoutUser}>Logout</button>
         </div>
       )
@@ -85,7 +86,6 @@ class NavBar extends React.Component {
             <li className="result-item" key={i}>
               <div className="search-item-picture">
                 <img src={item.photoUrl}></img>
-                {console.log(item)}
                 <div className="search-item-name">
                   <li>Name: {item.name}</li>
                   <li>Difficulty: {item.difficulty}</li>
@@ -97,26 +97,34 @@ class NavBar extends React.Component {
         </div>
       );
     })
+    if(list.length === 0) {
+      return <p className="query-p">No recipes by that name</p>
+    }
     return list;
   }
 
   render() {
     return (
-
       <div className="navbar-parent">
         <div className="NavBar">
           <div className="navbar-left">
-            <Link to="/">Home</Link>
+            <Link to="/">
+              <img
+                className="nav-logo"
+                src="https://meltingpot-mern.s3-us-west-1.amazonaws.com/melting_pot_logo_with_name_resized.png"
+              />
+            </Link>
             <div className="search-parent">
-              <input 
-                type="text" 
+              <input
+                type="text"
                 value={this.state.query}
-                placeholder="Search Recipe Names" 
+                placeholder="Search Recipe Names"
                 onChange={(e) => this.fetchRecipes(e.target.value)}
-                />
-                <ul className={`search-results ${this.state.query.length > 0 ? "block" : ""}`}>
-                  {this.queryList()}
-                </ul>
+              />
+              <ul
+                className={`search-results ${this.state.query.length > 0 ? "block" : "" }`}>
+                {this.queryList()}
+              </ul>
             </div>
           </div>
           {this.getLinks()}

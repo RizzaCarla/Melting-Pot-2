@@ -1,0 +1,51 @@
+#add-event-button{
+    background-color: rgb(29, 102, 85);
+    padding: 10px;
+    color: white;
+    width: 70%;
+    border-radius: 5px;
+    margin-left: 185px;
+    margin-top: 20px;
+}
+
+.event-photo{
+    padding: 20px;
+    height: 250px;
+}
+
+.event-parent{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
+    margin-top: 30px;
+
+}
+.event-parent-info{
+    display: flex;
+    flex-direction: row;
+     align-items: center;
+}
+
+.hosting-button{
+    margin-right:170px;
+    background-color: rgb(243,184,30);
+    font-size: 25px;
+    padding: 20px;
+    font-family: 'roboto', sans-serif;
+    border-radius: 5px;
+}
+
+.date{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.event-name{
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.event-name:hover{
+    color: green
+}

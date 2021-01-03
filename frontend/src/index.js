@@ -18,6 +18,7 @@ import { createComment } from './actions/comment_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
+
   
   if (localStorage.jwtToken) {
     setAuthToken(localStorage.jwtToken);
@@ -44,8 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
   window.fetchPhotos = fetchPhotos;
   window.fetchPhoto = fetchPhoto;
   window.deletePhoto = deletePhoto;
-
-  // window.getRecipe = getRecipe;
   window.getRecipes = getRecipes;
   window.createRecipe = createRecipe;
   window.deleteRecipe = deleteRecipe;

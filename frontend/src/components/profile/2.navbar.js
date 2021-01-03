@@ -1,11 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import {Tabs, Tab, AppBar} from '@material-ui/core'
+import {Tabs, Tab} from '@material-ui/core'
 import RecipesContainer from './3.recipes_container'
 import LikesContainer from './4.likes_container'
 import EventsContainer from './5.events_container'
 import FriendsContainer from './6.friends_container'
 import AboutMeContainer from './8..aboutMe_container'
+import './2.navbar.css'
 
 const NavBar = () => {
     const [selectedTab, setSelectedTab] = React.useState(0);
@@ -17,18 +17,18 @@ const NavBar = () => {
         return (
             <>
                 <Tabs value={selectedTab} onChange={handleChange} >
-                    <Tab label="My Recipes"/>
-                    <Tab label="Liked Recipes"/>
-                    <Tab label="Events" />
-                    <Tab label="Friends" />
-                    <Tab label="About" />
+                    <Tab className="tab-labels" label="My Recipes"/>
+                    <Tab className="tab-labels" label="Liked Recipes"/>
+                    <Tab className="tab-labels" label="Events" />
+                    <Tab className="tab-labels" label="Friends" />
+                    <Tab className="tab-labels" label="About" />
                 </Tabs>
 
-                {selectedTab === 0 && <RecipesContainer />}
-                {selectedTab === 1 && <LikesContainer />}
-                {selectedTab === 2 && <EventsContainer />}
-                {selectedTab === 3 && <FriendsContainer />}
-                {selectedTab === 4 && <AboutMeContainer />}
+                <div className="tab">{selectedTab === 0 && <RecipesContainer />}</div> 
+                <div className="tab">{selectedTab === 1 && <LikesContainer />} </div>
+                <div className="tab">{selectedTab === 2 && <EventsContainer />}</div>
+                <div className="tab">{selectedTab === 3 && <FriendsContainer />}</div>
+                <div className="tab">{selectedTab === 4 && <AboutMeContainer />}</div>
             </>
 
 
