@@ -50,7 +50,7 @@
 }
 
 .comment-delete-btn {
-    background: rgb(244,72,99);
+    background: rgb(148, 0, 0);
     cursor: pointer;
     border-radius: 5px;
     color: #fff;
@@ -59,10 +59,11 @@
     height: 30px;
     font-size: 16px;
     outline: 0;
+    border: 1px solid black;
 }
 
 .comment-delete-btn:hover {
-    opacity: 70%;
+    background-color: rgb(201, 0, 0);
 }
 
 .comment-section {
