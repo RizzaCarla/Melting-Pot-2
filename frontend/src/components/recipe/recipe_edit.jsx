@@ -99,6 +99,11 @@ class RecipeEdit extends React.Component {
         if (this.state === null) {
             return null
         }
+        if (this.props.currentUser._id !== recipe.authorId) {
+            this.props.history.push('/')
+        }
+        console.log(this.props.currentUser._id)
+        console.log(recipe.authorId)
         return (
           <div className="recipe-edit-parent">
             <div className="recipe-edit">
@@ -182,13 +187,18 @@ class RecipeEdit extends React.Component {
                         );
                       })}
                     </ul>
-                    <input type="text"
-                           value={this.state.queueIng}
-                           placeholder="Add more ingredient"
-                           onChange={this.queueIngredient}/>
-                    <button onClick={this.pushIngredient}>+</button>
-                </label>
-                <label>Instructions:
+                    <div className="recipe-edit-bottom-last-input">
+                      <textarea
+                        type="text"
+                        className="recipe-edit-textarea"
+                        value={this.state.queueIng}
+                        placeholder="Add ingredient"
+                        onChange={this.queueIngredient}
+                      />
+                      <button onClick={this.pushIngredient}>+</button>
+                    </div>
+                  </div>
+                  {/* <label>Instructions:
                     <div className="recipe-edit-bottom-last-input">
                       <textarea
                         type="text"
@@ -198,7 +208,7 @@ class RecipeEdit extends React.Component {
                       />
                       <button onClick={this.pushIngredient}>+</button>
                     </div>
-                  </div>
+                  </label> */}
                   <div className="recipe-edit-instructions">
                     <label>Instructions </label>
                     <ul>
@@ -206,7 +216,7 @@ class RecipeEdit extends React.Component {
                         return (
                           <li key={idx}>
                             <textarea
-                                className="recipe-edit-textarea"
+                              className="recipe-edit-textarea"
                               type="text"
                               value={this.state.instructions[idx]}
                               placeholder={instruction}

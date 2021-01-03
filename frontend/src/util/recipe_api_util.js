@@ -5,7 +5,7 @@ export const getRecipes = () => {
 };
 
 export const getUserRecipes = authorId => {
-    return axios.get(`/api/recipes/${authorId}`)
+    return axios.get(`/api/recipes/author/${authorId}`)
 }; 
 
 
