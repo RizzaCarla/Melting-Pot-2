@@ -170,8 +170,8 @@ class RecipeEdit extends React.Component {
                       {this.state.ingredients.map((ingredient, idx) => {
                         return (
                           <li key={idx}>
-                            <input
-                              className="ingredients-input"
+                            <textarea
+                              className="recipe-edit-textarea"
                               type="text"
                               value={this.state.ingredients[idx]}
                               placeholder={ingredient}
@@ -179,7 +179,6 @@ class RecipeEdit extends React.Component {
                               onChange={this.handleIngredient}
                             />
                           </li>
-                          
                         );
                       })}
                     </ul>
@@ -191,7 +190,7 @@ class RecipeEdit extends React.Component {
                 </label>
                 <label>Instructions:
                     <div className="recipe-edit-bottom-last-input">
-                      <input
+                      <textarea
                         type="text"
                         value={this.state.queueIng}
                         placeholder="Add Ingredient"
@@ -206,7 +205,8 @@ class RecipeEdit extends React.Component {
                       {this.state.instructions.map((instruction, idx) => {
                         return (
                           <li key={idx}>
-                            <input
+                            <textarea
+                                className="recipe-edit-textarea"
                               type="text"
                               value={this.state.instructions[idx]}
                               placeholder={instruction}
@@ -218,7 +218,7 @@ class RecipeEdit extends React.Component {
                       })}
                     </ul>
                     <div className="recipe-edit-bottom-last-input">
-                      <input
+                      <textarea
                         className="instruction-input"
                         type="text"
                         value={this.state.queueInst}
