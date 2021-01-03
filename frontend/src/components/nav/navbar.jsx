@@ -86,7 +86,6 @@ class NavBar extends React.Component {
             <li className="result-item" key={i}>
               <div className="search-item-picture">
                 <img src={item.photoUrl}></img>
-                {console.log(item)}
                 <div className="search-item-name">
                   <li>Name: {item.name}</li>
                   <li>Difficulty: {item.difficulty}</li>
@@ -98,6 +97,9 @@ class NavBar extends React.Component {
         </div>
       );
     })
+    if(list.length === 0) {
+      return <p className="query-p">No recipes by that name</p>
+    }
     return list;
   }
 
@@ -120,10 +122,7 @@ class NavBar extends React.Component {
                 onChange={(e) => this.fetchRecipes(e.target.value)}
               />
               <ul
-                className={`search-results ${
-                  this.state.query.length > 0 ? "block" : ""
-                }`}
-              >
+                className={`search-results ${this.state.query.length > 0 ? "block" : "" }`}>
                 {this.queryList()}
               </ul>
             </div>
