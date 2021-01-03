@@ -32,7 +32,7 @@ class NavBar extends React.Component {
     if(this.props.loggedIn) {
       return(
         <div className="right-navbar-loggedin">
-          <Link to={`/profile`}><img className="navbar-profile-pic" src={this.props.currentUser.photoUrl}></img>Profile</Link>
+          <Link to={`/profile`}><img className="navbar-profile-pic" src={this.props.currentUser.user.photoUrl}></img>Profile</Link>
           <button className="logout-btn" onClick={this.logoutUser}>Logout</button>
         </div>
       )
@@ -86,7 +86,6 @@ class NavBar extends React.Component {
             <li className="result-item" key={i}>
               <div className="search-item-picture">
                 <img src={item.photoUrl}></img>
-                {console.log(item)}
                 <div className="search-item-name">
                   <li>Name: {item.name}</li>
                   <li>Difficulty: {item.difficulty}</li>
@@ -120,10 +119,7 @@ class NavBar extends React.Component {
                 onChange={(e) => this.fetchRecipes(e.target.value)}
               />
               <ul
-                className={`search-results ${
-                  this.state.query.length > 0 ? "block" : ""
-                }`}
-              >
+                className={`search-results ${this.state.query.length > 0 ? "block" : "" }`}>
                 {this.queryList()}
               </ul>
             </div>
