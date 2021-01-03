@@ -97,6 +97,9 @@ class NavBar extends React.Component {
         </div>
       );
     })
+    if(list.length === 0) {
+      return <p className="query-p">No recipes by that name</p>
+    }
     return list;
   }
 
