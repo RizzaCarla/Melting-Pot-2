@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.fetchPhoto = fetchPhoto;
   window.deletePhoto = deletePhoto;
 
-  window.getRecipe = getRecipe;
+
   window.getRecipes = getRecipes;
   window.createRecipe = createRecipe;
   window.deleteRecipe = deleteRecipe;

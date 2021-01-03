@@ -187,7 +187,7 @@ class RecipeEdit extends React.Component {
                            placeholder="Add more ingredient"
                            onChange={this.queueIngredient}/>
                     <button onClick={this.pushIngredient}>+</button>
-                </label>
+                </div>
                 <label>Instructions:
                     <div className="recipe-edit-bottom-last-input">
                       <textarea
@@ -198,7 +198,7 @@ class RecipeEdit extends React.Component {
                       />
                       <button onClick={this.pushIngredient}>+</button>
                     </div>
-                  </div>
+                  </label>
                   <div className="recipe-edit-instructions">
                     <label>Instructions </label>
                     <ul>
