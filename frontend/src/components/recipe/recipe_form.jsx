@@ -130,40 +130,46 @@ class RecipeForm extends React.Component {
             </div>
             <div className="recipe-info">
               <label>
-                <h3>Difficulty:</h3>
-                <select onChange={this.update("difficulty")}>
-                  <option value="" selected disabled>
-                    Please select
-                  </option>
-                  <option value="Easy">Easy</option>
-                  <option value="Medium">Medium</option>
-                  <option value="Hard">Hard</option>
-                </select>
+                <div className="difficulty-option-container">
+                  <h3>Difficulty:</h3>
+                    <select onChange={this.update("difficulty")}>
+                      <option value="" selected disabled>
+                        Please select
+                      </option>
+                      <option value="Easy">Easy</option>
+                      <option value="Medium">Medium</option>
+                      <option value="Hard">Hard</option>
+                    </select>
+                </div>
               </label>
               <label>
-                <h3>Cooking Time:</h3>
-                <select onChange={this.update("cookingTime")}>
-                  <option value="" selected disabled>
-                    Please select
-                  </option>
-                  <option value="0.5 hr">0.5 hr</option>
-                  <option value="1 hr">1 hr</option>
-                  <option value="1.5 hr">1.5 hr</option>
-                  <option value="2+ hrs">2+ hrs</option>
-                </select>
+                <div className="cooking-time-option-container">
+                  <h3>Cooking Time:</h3>
+                  <select onChange={this.update("cookingTime")}>
+                    <option value="" selected disabled>
+                      Please select
+                    </option>
+                    <option value="0.5 hr">0.5 hr</option>
+                    <option value="1 hr">1 hr</option>
+                    <option value="1.5 hr">1.5 hr</option>
+                    <option value="2+ hrs">2+ hrs</option>
+                  </select>
+                </div>
               </label>
               <label>
-                <h3>Category:</h3>
-                <select onChange={this.update("category")}>
-                  <option value="" selected disabled>
-                    Please select
-                  </option>
-                  <option value="Meat">Meat</option>
-                  <option value="Vegetables">Vegetables</option>
-                  <option value="Poultry">Poultry</option>
-                  <option value="Carbs">Carbs</option>
-                  <option value="Soup">Soup</option>
-                </select>
+                <div className="category-option-container">
+                  <h3>Category:</h3>
+                  <select onChange={this.update("category")}>
+                    <option value="" selected disabled>
+                      Please select
+                    </option>
+                    <option value="Meat">Meat</option>
+                    <option value="Vegetables">Vegetables</option>
+                    <option value="Poultry">Poultry</option>
+                    <option value="Carbs">Carbs</option>
+                    <option value="Soup">Soup</option>
+                  </select>
+                </div>
               </label>
             </div>
           </div>
