@@ -1,4 +1,4 @@
-.event-create-form{
+.event-edit-form{
     margin-top:50px;
     flex-direction: column;
     width: 600px;
@@ -19,7 +19,7 @@
     
 }
 
-.input-field-event-create-container{
+.input-field-event-edit-container{
     padding:10px;
     display: flex;
     justify-content: flex-end;
@@ -27,7 +27,7 @@
     
 }
 
-.event-create-header{
+.event-edit-header{
     text-align: center;
      font-family: 'roboto', sans-serif;
 }

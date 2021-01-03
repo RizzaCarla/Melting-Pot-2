@@ -118,64 +118,69 @@ class EventForm extends React.Component {
         }
         return (
             <div>
-                <form>
-                
-                    <div>Event Name:&nbsp;&nbsp;
+         
+                <form className="event-create-form">
+                    <h1 className="event-create-header">Host An Event</h1>
+
+                    <div className="input-field-event-create-container"><label className="event-create-label">Event Name:&nbsp;&nbsp;</label>
                         <input 
                         type="text"
-                        className="input-field"
+                        className="input-field-event-create"
                         value={this.state.name}
                         onChange={this.update('name')}
                         />
                     </div>
                 
 
-                    <div>
-                        {selectedDay && <p>Day: {selectedDay.toLocaleDateString()}</p>}
-                        {!selectedDay && <p>Choose a day</p>}
-                        <DayPickerInput onDayChange={this.handleDayChange} />
+                    <div className="input-field-event-create-container">
+                        {selectedDay && <label>Day: {selectedDay.toLocaleDateString()}</label>}
+                        {!selectedDay && <label className="event-create-label">Event Date:&nbsp;&nbsp;</label>}
+                        <span className="input-field-event-create"> 
+                            <DayPickerInput  onDayChange={this.handleDayChange} />
+                        </span>
+           
                     </div>
                         
-                    <div>Start Time:&nbsp;&nbsp;
+                    <div className="input-field-event-create-container"><label className="event-create-label">Start Time:&nbsp;&nbsp;</label>
                         <input
                             type="time"
-                            className="time"
+                            className="input-field-event-create"
                             value={this.state.startTime}
                             onChange={this.update('startTime')}
                         />
                     </div>
 
-                    <div>End Time:&nbsp;&nbsp;
+                    <div className="input-field-event-create-container"><label className="event-create-label">End Time:&nbsp;&nbsp;</label>
                         <input
                             type="time"
-                            className="time"
+                            className="input-field-event-create"
                             value={this.state.endTime}
                             onChange={this.update('endTime')}
                         />
                     </div>
        
-                    <div>Location:&nbsp;&nbsp;
+                    <div className="input-field-event-create-container"><label className="event-create-label">Location:&nbsp;&nbsp;</label>
                         <input
                             type="text"
-                            className="input-field"
+                            className="input-field-event-create"
                             value={this.state.location}
                             onChange={this.update('location')}
                         />
                     </div>
            
-                    <div>Description:&nbsp;&nbsp;
+                    <div className="input-field-event-create-container"><label className="event-create-label">Description:&nbsp;&nbsp;</label>
                         <input
                             type="textbox"
-                            className="input-field"
+                            className="input-field-event-create textbox"
                             value={this.state.description}
                             onChange={this.update('description')}
                         />
                     </div>
           
-                    <div>Event Photo:&nbsp;&nbsp;
+                    <div className="input-field-event-create-container"><label className="event-create-label">Event Photo:&nbsp;&nbsp;</label>
                         <input
                             type="file"
-                            className="photo-field"
+                            className="input-field-event-create textbox"
                             name=""
                             id=""
                             onChange={this.handlePhotoFile}
@@ -185,11 +190,11 @@ class EventForm extends React.Component {
                 <div>
 
                     <div>
-                        <input type="submit" value="Save Event" onClick={this.handleClick}/>
+                        <input type="submit" className="host-event-button" value="Save Event" onClick={this.handleClick}/>
                     </div>
 
                     <div>
-                        <Link to="/profile"> <button className="back-button">Go back</button></Link> 
+                            <Link to="/profile"> <button className="go-back">Go back</button></Link> 
                     </div>
 
                 </div>

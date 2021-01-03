@@ -21,7 +21,6 @@ class RecipeShow extends React.Component {
     }
 
     render(){
-        // debugger;
         if ((this.props.recipe === undefined) || (Object.keys(this.props.authors).length === 0)) {
             return null
         }
