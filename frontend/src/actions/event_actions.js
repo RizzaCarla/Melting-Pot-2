@@ -1,9 +1,11 @@
 import * as EventApiUtil from "../util/event_api_utils"
 
 export const RECEIVE_ALL_EVENTS = "RECEIVE_ALL_EVENTS";
+export const RECEIVE_EVENT_ERRORS = 'RECEIVE_SESSION_ERRORS';
 export const RECEIVE_USER_EVENTS = "RECEIVE_USER_EVENTS";
 export const RECEIVE_EVENT = "RECEIVE_EVENT";
-export const REMOVE_EVENT = "REMOVE_EVENT"
+export const REMOVE_EVENT = "REMOVE_EVENT";
+export const CLEAR_EVENT_ERRORS = "CLEAR_EVENT_ERRORS"
 
 // Regular action creators
 
@@ -35,6 +37,15 @@ export const removeEvent = (eventId) => {
     })
 }
 
+export const receiveErrors = errors => ({
+    type: RECEIVE_EVENT_ERRORS,
+    errors
+});
+
+export const clearErrors = () => ({
+    type: CLEAR_EVENT_ERRORS,
+});
+
 // Thunk action creators
 
 export const getEvents = () => dispatch => {
@@ -58,8 +69,8 @@ export const getEvent = (eventId) => dispatch => {
 export const createEvent = (event) => dispatch => {
     return EventApiUtil.createEvent(event)
         .then(event => dispatch(receiveEvent(event)))
-        .catch((err) => console.log(err))
-};
+        .catch((err) => receiveErrors(err.response.data))
+};    
 
 export const updateEvent = (event) => dispatch => {
     return EventApiUtil.updateEvent(event)

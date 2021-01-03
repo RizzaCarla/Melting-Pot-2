@@ -18,6 +18,7 @@ import { createComment } from './actions/comment_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
+
   
   if (localStorage.jwtToken) {
     setAuthToken(localStorage.jwtToken);
