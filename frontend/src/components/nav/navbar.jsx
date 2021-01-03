@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import "./navbar.css"
 
 
+
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
@@ -102,21 +103,29 @@ class NavBar extends React.Component {
 
   render() {
     return (
-
       <div className="navbar-parent">
         <div className="NavBar">
           <div className="navbar-left">
-            <Link to="/">Home</Link>
+            <Link to="/">
+              <img
+                className="nav-logo"
+                src="https://meltingpot-mern.s3-us-west-1.amazonaws.com/melting_pot_logo_with_name_resized.png"
+              />
+            </Link>
             <div className="search-parent">
-              <input 
-                type="text" 
+              <input
+                type="text"
                 value={this.state.query}
-                placeholder="Search Recipe Names" 
+                placeholder="Search Recipe Names"
                 onChange={(e) => this.fetchRecipes(e.target.value)}
-                />
-                <ul className={`search-results ${this.state.query.length > 0 ? "block" : ""}`}>
-                  {this.queryList()}
-                </ul>
+              />
+              <ul
+                className={`search-results ${
+                  this.state.query.length > 0 ? "block" : ""
+                }`}
+              >
+                {this.queryList()}
+              </ul>
             </div>
           </div>
           {this.getLinks()}
