@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { getUserRecipes, updateRecipe, deleteRecipe } from '../../actions/recipe_actions';
+import { getUserRecipes, updateRecipe, deleteRecipe, getRecipes } from '../../actions/recipe_actions';
 import RecipeEdit from './recipe_edit';
 
 const mapStateToProps = (state, ownProps) => {
@@ -14,7 +14,8 @@ const mapDispatchToProp = (dispatch) => {
     return({
         getUserRecipes: (authorId) => dispatch(getUserRecipes(authorId)),
         updateRecipe: recipe => dispatch(updateRecipe(recipe)),
-        deleteRecipe: recipeId => dispatch(deleteRecipe(recipeId))
+        deleteRecipe: recipeId => dispatch(deleteRecipe(recipeId)),
+        getRecipes: () => dispatch(getRecipes())
     })
 }
 
