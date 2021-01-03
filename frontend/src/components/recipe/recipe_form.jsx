@@ -135,9 +135,9 @@ class RecipeForm extends React.Component {
                   <option value="" selected disabled>
                     Please select
                   </option>
-                  <option value="easy">Easy</option>
-                  <option value="medium">Medium</option>
-                  <option value="hard">Hard</option>
+                  <option value="Easy">Easy</option>
+                  <option value="Medium">Medium</option>
+                  <option value="Hard">Hard</option>
                 </select>
               </label>
               <label>
