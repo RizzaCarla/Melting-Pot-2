@@ -13,20 +13,29 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    background: #ededed;
+    background: #fff;
     height: auto;
-    width: 1000px;
+    width: 1280px;
+    margin: 0 auto;
+    margin-top: 40px;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.15);
 }
 
 .save-recipe-btn {
-    width: 850px;
+    width: 650px;
     font-size: 20px;
     color: #fff;
     background: rgb(27,121, 104);
     border-radius: 5px;
     border: rgb(28, 121, 104) solid 1px;
     height: 35px;
-    margin: 40px auto 20px; 
+    margin: 40px auto 20px;
+    cursor: pointer 
+}
+
+.save-recipe-btn:hover {
+    opacity: 70%;
 }
 
 .recipe-form-cont {
@@ -45,26 +54,87 @@
     display: flex;
     justify-content: space-between;
     align-items:flex-start;
-    width: 850px;
+    width: 650px;
     margin-bottom: 30px;
+    font-family: sans-serif;
+    font-style: 16px;
 }
 
 .recipe-pic-name {
+    height: 150px;
+    width: 300px;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px #e2e1e1 solid;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.15);
+    border-radius: 5px;
 }
 
 .recipe-pic-name input[type="text"] {
     width: 250px;
     margin-top: 10px;
     padding-left: 5px;
+    height: 30px;
+    font-size: 16px;
+    font-family: sans-serif;
 }
 
 .recipe-info {
+    height: 150px;
+    width: 300px;
     display: flex;
     flex-direction: column;
-    margin-right: 85px;
+    align-items: center;
+    justify-content: center;
+    border: 1px #e2e1e1 solid;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.15);
+    border-radius: 5px;
+
     /* border: 1px black solid; */
+}
+
+.difficulty-option-container {
+    display: flex;
+}
+
+.difficulty-option-container h3 {
+    margin-right: 15px;
+}
+
+.difficulty-option-container select {
+    font-size: 16px;
+    border-radius: 20px;
+    padding: 2px;
+}
+
+.cooking-time-option-container {
+    display: flex;
+}
+
+.cooking-time-option-container h3 {
+    margin-right: 15px;
+}
+
+.cooking-time-option-container select {
+    font-size: 16px;
+    border-radius: 20px;
+    padding: 2px;
+}
+
+.category-option-container {
+    display: flex;
+}
+
+.category-option-container h3 {
+    margin-right: 15px;
+}
+
+.category-option-container select {
+    font-size: 16px;
+    border-radius: 20px;
+    padding: 2px;
 }
 
 .recipe-info label {
@@ -80,19 +150,36 @@
 .recipe-middle {
     display: flex;
     align-items: flex-start;
-    justify-content: space-between;
-    width: 850px;
+    justify-content: center;
+    width: 650px;
     margin-bottom: 30px;
+    padding: 30px 0;
+    font-family: sans-serif;
+    font-size: 16px;
+    border: 1px #e2e1e1 solid;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.15);
+    border-radius: 5px;
+}
+
+.recipe-story {
+    margin-right: 90px;
+}
+
+.recipe-story h3 {
+    margin-bottom: 10px;
 }
 
 .recipe-story textarea {
     padding-left: 5px;
+    padding-top: 5px;
+    font-size: 16px;
+    font-family: sans-serif;
 }
 
 .recipe-owner {
     display: flex;
     flex-direction: column;
-    margin-right: 35px;
+    /* margin-right: 35px; */
 }
 
 .recipe-owner h3 {
@@ -102,10 +189,13 @@
 .recipe-owner h5 {
     display: flex;
     align-items: center;
+    font-size: 16px;
 }
 
 .recipe-owner h5 span {
     margin-left: 15px;
+    font-family: sans-serif;
+    font-size: 16px;
 }
 
 .recipe-owner-pic {
@@ -118,12 +208,17 @@
 
 .ing-inst-container {
     display: flex;
-    width: 850px;
-    justify-content: space-between;
+    width: 650px;
+    justify-content: center;
     align-items: flex-start;
-    /* border: 1px black solid; */
-    margin: 0 auto;
+    /* align-items: center; */
+    border: 1px #e2e1e1 solid;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.15);
     margin-bottom: 50px;
+    border-radius: 5px;
+    padding: 15px 0;
+    font-family: sans-serif;
+    font-size: 16px;
 }
 
 .ing-inst-container input {
@@ -137,12 +232,24 @@
     cursor: pointer;
 }
 
+.ingredient-list-form {
+    margin-left: 40px;
+}
+
+.instruction-list-form {
+    margin-left: 40px;
+}
+
 .ing-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-overflow: clip;
     width: 350px;
+}
+
+.ing-form h3 {
+    margin-left: 85px;
 }
 
 .ing-form li {
@@ -153,6 +260,23 @@
 .ing-form-inputs {
     display: flex;
     align-items: center;
+    justify-content: center;
+}
+
+.add-ingredient-input {
+    height: 30px;
+    font-family: sans-serif;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.add-instruction-input {
+    height: 30px;
+    font-family: sans-serif;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-left: 10px;
 }
 
 .ing-form input[type="submit"] {
@@ -172,6 +296,10 @@
     justify-content: center;
 }
 
+.inst-form h3 {
+    margin-left: 85px;
+}
+
 .inst-form li {
     list-style-type: disc;
     margin-left: 55px;
@@ -180,6 +308,7 @@
 .inst-form-inputs {
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .inst-form input[type="submit"] {

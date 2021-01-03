@@ -12,13 +12,12 @@ class CommentIndexItem extends React.Component {
     }
 
     render() {
-        debugger;
         const comment = this.props.comment;
         const author = this.props.authors[comment.authorId];
         const deleteButton = (this.props.currentUser === undefined) || (Object.values(this.props.currentUser).length === 0) ? 
             null :
                 (this.props.currentUser.user._id === comment.authorId) ? 
-                    <button onClick={() => this.handleDelete(comment._id)}>Delete</button> :
+                    <button className="comment-delete-btn" onClick={() => this.handleDelete(comment._id)}>Delete</button> :
                         null;
         const displayComment = 
                 <div className="indiv-comment-main">

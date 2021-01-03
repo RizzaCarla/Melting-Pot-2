@@ -194,7 +194,7 @@ class RecipeEdit extends React.Component {
                         onChange={this.queueIngredient}
                       />
                       <button onClick={this.pushIngredient}>+</button>
-                    </div>
+                    </div> */}
                   </div>
                   {/* <label>Instructions:
                     <div className="recipe-edit-bottom-last-input">

@@ -37,7 +37,7 @@ class CommentIndex extends React.Component {
             null :
                 <img src={this.props.currentUser.user.photoUrl} alt=""/>
 
-        const commentInput = this.props.currentUser === undefined ?
+        const commentInput = ((this.props.currentUser === undefined) || Object.values(this.props.currentUser).length === 0) ?
             null :
                 <div className="comment-input-section">
                     {profilePic}
