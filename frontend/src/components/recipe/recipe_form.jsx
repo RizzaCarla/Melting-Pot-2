@@ -131,40 +131,46 @@ class RecipeForm extends React.Component {
             </div>
             <div className="recipe-info">
               <label>
-                <h3>Difficulty:</h3>
-                <select onChange={this.update("difficulty")}>
-                  <option value="" selected disabled>
-                    Please select
-                  </option>
-                  <option value="easy">Easy</option>
-                  <option value="medium">Medium</option>
-                  <option value="hard">Hard</option>
-                </select>
+                <div className="difficulty-option-container">
+                  <h3>Difficulty:</h3>
+                    <select onChange={this.update("difficulty")}>
+                      <option value="" selected disabled>
+                        Please select
+                      </option>
+                      <option value="Easy">Easy</option>
+                      <option value="Medium">Medium</option>
+                      <option value="Hard">Hard</option>
+                    </select>
+                </div>
               </label>
               <label>
-                <h3>Cooking Time:</h3>
-                <select onChange={this.update("cookingTime")}>
-                  <option value="" selected disabled>
-                    Please select
-                  </option>
-                  <option value="0.5 hr">0.5 hr</option>
-                  <option value="1 hr">1 hr</option>
-                  <option value="1.5 hr">1.5 hr</option>
-                  <option value="2+ hrs">2+ hrs</option>
-                </select>
+                <div className="cooking-time-option-container">
+                  <h3>Cooking Time:</h3>
+                  <select onChange={this.update("cookingTime")}>
+                    <option value="" selected disabled>
+                      Please select
+                    </option>
+                    <option value="0.5 hr">0.5 hr</option>
+                    <option value="1 hr">1 hr</option>
+                    <option value="1.5 hr">1.5 hr</option>
+                    <option value="2+ hrs">2+ hrs</option>
+                  </select>
+                </div>
               </label>
               <label>
-                <h3>Category:</h3>
-                <select onChange={this.update("category")}>
-                  <option value="" selected disabled>
-                    Please select
-                  </option>
-                  <option value="Meat">Meat</option>
-                  <option value="Vegetables">Vegetables</option>
-                  <option value="Poultry">Poultry</option>
-                  <option value="Carbs">Carbs</option>
-                  <option value="Soup">Soup</option>
-                </select>
+                <div className="category-option-container">
+                  <h3>Category:</h3>
+                  <select onChange={this.update("category")}>
+                    <option value="" selected disabled>
+                      Please select
+                    </option>
+                    <option value="Meat">Meat</option>
+                    <option value="Vegetables">Vegetables</option>
+                    <option value="Poultry">Poultry</option>
+                    <option value="Carbs">Carbs</option>
+                    <option value="Soup">Soup</option>
+                  </select>
+                </div>
               </label>
             </div>
           </div>
@@ -188,34 +194,38 @@ class RecipeForm extends React.Component {
         </form>
         <div className="ing-inst-container">
           <form className="ing-form" onSubmit={this.addIngredient}>
+            <h3>Ingredients:</h3>
             <div className="ing-form-inputs">
               <input type="submit" value="+" />
-              &nbsp;&nbsp;&nbsp;
+              {/* &nbsp;&nbsp;&nbsp; */}
               <input
+                className="add-ingredient-input"
                 type="text"
                 placeholder="Add ingredient"
                 value={this.state.pendingIngredient}
                 onChange={this.handleIngredient}
               />
             </div>
-            <ul>
+            <ul className="ingredient-list-form">
               {this.state.ingredients.map((ingredient, idx) => {
                 return <li key={idx}>{ingredient}</li>;
               })}
             </ul>
           </form>
           <form className="inst-form" onSubmit={this.addInstruction}>
+            <h3>Instructions:</h3>
             <div className="inst-form-inputs">
               <input type="submit" value="+" />
-              &nbsp;&nbsp;&nbsp;
+              {/* &nbsp;&nbsp;&nbsp; */}
               <input
+                className="add-instruction-input"
                 type="text"
                 placeholder="Add instruction"
                 value={this.state.pendingInstruction}
                 onChange={this.handleInstruction}
               />
             </div>
-            <ul>
+            <ul className="instruction-list-form">
               {this.state.instructions.map((instruction, idx) => {
                 return <li key={idx}>{instruction}</li>;
               })}
