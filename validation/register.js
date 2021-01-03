@@ -41,6 +41,12 @@ module.exports = function validateRegisterInput(data) {
     errors.password2 = 'Passwords must match';
   }
 
+  if (data.dietaryRestrictions.length === 0) {
+    errors.dietaryRestrictions = 'Dietary Restrictions are required'
+  } else if (data.dietaryRestrictions.length > 0 && data.dietaryRestrictions === '') {
+    errors.dietaryRestrictions = 'Invalid input'
+  }
+
   return {
     errors,
     isValid: Object.keys(errors).length === 0

@@ -19,8 +19,8 @@ const EventSchema = new Schema({
     required: true
   },
   date: {
-    type: String,
-    required: true
+    type: Date,
+    required: false
   },
   startTime: {
     type: String,
@@ -32,8 +32,15 @@ const EventSchema = new Schema({
   },
   photoUrl: {
     type: String,
-    required: false
-  }
+    required: true
+  },
+  photoId: {
+    type: String,
+    required: true
+  },
+  
+  usersJoined: [{ type: Schema.Types.ObjectId, ref: 'events', required: false }],
 })
+
 
 module.exports = Event = mongoose.model('Event', EventSchema);

@@ -75,6 +75,7 @@ router.patch('/edit/:id', (req, res) => {
 // Search Recipes
 router.post('/search-recipes', (req, res) => {
   let recipePattern = new RegExp("^" + req.body.query);
+  
   Recipe.find({name:{$regex:recipePattern}})
     .then(recipe => {res.json({recipe})})
     .catch(err => console.log(err))

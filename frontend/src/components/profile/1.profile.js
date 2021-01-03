@@ -1,5 +1,6 @@
 import React from 'react'
 import NavBarContainer from './2.navbar_container'
+import "./1.profile.css"
 
 class Profile extends React.Component {
   constructor(props) {
@@ -12,16 +13,15 @@ class Profile extends React.Component {
   }
   render() {
     return (
-      <div>
-        <img src={this.props.currentUser.photoUrl}></img>
-        <br></br>
-        {this.props.currentUser.handle}
-        <br></br>
-        {this.props.currentUser.bio}
-        <br></br>
-        
+      <div className="profile-container">
 
-        < NavBarContainer />
+        <div className="profile-pic-container">
+          <div><img className="profile-picture" src={this.props.currentUser.photoUrl}></img></div>
+        </div>
+
+        <div className="profile-handle">{this.props.currentUser.handle}</div>
+        <div className="profile-bio">{this.props.currentUser.bio}</div>
+        <div className="navbar-profile">< NavBarContainer /></div>
 
       </div>
     )

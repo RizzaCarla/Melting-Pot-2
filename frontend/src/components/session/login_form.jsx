@@ -56,7 +56,7 @@ class LoginForm extends React.Component {
   
   render() {
     return (
-        <div className="form-container"> 
+        <div className="form-container-session"> 
           <h1>Melting Pot</h1>
           
           <form onSubmit={this.handleSubmit}>
@@ -64,7 +64,7 @@ class LoginForm extends React.Component {
             <div className="form">
               <h2>Login</h2>
 
-            <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email:&nbsp;&nbsp;
+            <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email:&nbsp;&nbsp;
               <input type="text"
                 className="input-field"
                 value={this.state.email}

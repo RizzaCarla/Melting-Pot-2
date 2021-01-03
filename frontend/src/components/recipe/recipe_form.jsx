@@ -1,6 +1,7 @@
 import React from 'react';
 import "./recipe.css"
 import { uploadPhoto } from "../../util/photo_api_util";
+import { Link } from 'react-router-dom'
 
 class RecipeForm extends React.Component {
   constructor(props) {
@@ -231,6 +232,8 @@ class RecipeForm extends React.Component {
             </ul>
           </form>
         </div>
+        <br></br>
+        <Link to="/profile"><button>Go Back</button></Link>
       </div>
     );
   }
