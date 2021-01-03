@@ -56,7 +56,7 @@ router.post("/upload", upload.single("file"), function(req, res) {
   // where we want to store the file
 
   var params = {
-    Bucket: keys.AWS_BUCKET_NAME,
+    Bucket: keys.S3_BUCKET,
     Key: file.originalname,
     Body: file.buffer,
     ContentType: file.mimetype,
@@ -101,7 +101,7 @@ router.delete("/delete/:id", (req, res, next) => {
     });
 
     let params = {
-      Bucket: keys.AWS_BUCKET_NAME,
+      Bucket: keys.S3_BUCKET,
       Key: result.s3_key,
     };
 
