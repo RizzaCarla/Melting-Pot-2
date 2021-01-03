@@ -60,7 +60,6 @@ class RecipeForm extends React.Component {
   }
   handleClick(e) {
     e.preventDefault();
-    debugger
     // this.props.createRecipe(this.state).then((recipe) => console.log(recipe));
     if (this.state.photoFile) {
         const data = new FormData();
@@ -86,7 +85,8 @@ class RecipeForm extends React.Component {
               .createRecipe(newRecipe)
               .then((recipe) =>
                 this.props.history.push(`/recipes/${recipe.recipe.data._id}`)
-              );
+              )
+              .catch(err => this.renderErrors());
         })
     } else {
         this.props
@@ -110,7 +110,7 @@ class RecipeForm extends React.Component {
       <ul>
         {Object.values(this.props.errors).map((error, i) => (
           <li key={`error-${i}`}>
-            {error}
+            *{error}
           </li>
         ))}
       </ul>
@@ -129,7 +129,7 @@ class RecipeForm extends React.Component {
           value="Save Recipe"
           onClick={this.handleClick}
         />
-        {this.renderErrors()}
+        <div className="recipe-errors">{this.renderErrors()}</div>
         <form id="recipe_form" className="recipe-form-cont">
           <div className="recipe-top">
             <div className="recipe-pic-name">
