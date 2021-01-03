@@ -28,7 +28,6 @@ class HomePage extends React.Component {
   }
 
   render() {
-    // const fetchUserInfoForEvent = this.fetchUserInfo();
     
     const randomRecipe = this.handleRandomRecipe();
     if (randomRecipe === undefined) {
@@ -39,12 +38,11 @@ class HomePage extends React.Component {
     if (randomEvent === undefined) {
       return null
     }
-
+    
     const fetchUserInfoForRecipe = this.fetchUserInfoForRecipe(randomRecipe.authorId);
     if (fetchUserInfoForRecipe === undefined) {
       return null
     }
-
     
     return (
       <div>
