@@ -4,6 +4,7 @@ export const RECEIVE_ALL_RECIPES = "RECEIVE_ALL_RECIPES";
 export const RECEIVE_USER_RECIPES = "RECEIVE_USER_RECIPES";
 export const RECEIVE_RECIPE = "RECEIVE_RECIPE";
 export const REMOVE_RECIPE = "REMOVE_RECIPE";
+export const CLEAR_RECIPES = "CLEAR_RECIPES"
 
 // Regular action creators
 
@@ -34,6 +35,10 @@ export const removeRecipe = (recipeId) => {
         recipeId
     })
 }
+
+export const clearRecipes = () => ({
+    type: CLEAR_RECIPES,
+});
 
 // Thunk action creators
 
