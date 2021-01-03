@@ -4,8 +4,8 @@ export const getEvents = () => {
     return axios.get(`/api/events`)
 };
 
-export const getUserEvents = authorId => {
-    return axios.get(`/api/events/${authorId}`)
+export const getUserEvents = hostId => {
+    return axios.get(`/api/events/host/${hostId}`)
 };
 
 
