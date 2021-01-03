@@ -193,34 +193,38 @@ class RecipeForm extends React.Component {
         </form>
         <div className="ing-inst-container">
           <form className="ing-form" onSubmit={this.addIngredient}>
+            <h3>Ingredients:</h3>
             <div className="ing-form-inputs">
               <input type="submit" value="+" />
-              &nbsp;&nbsp;&nbsp;
+              {/* &nbsp;&nbsp;&nbsp; */}
               <input
+                className="add-ingredient-input"
                 type="text"
                 placeholder="Add ingredient"
                 value={this.state.pendingIngredient}
                 onChange={this.handleIngredient}
               />
             </div>
-            <ul>
+            <ul className="ingredient-list-form">
               {this.state.ingredients.map((ingredient, idx) => {
                 return <li key={idx}>{ingredient}</li>;
               })}
             </ul>
           </form>
           <form className="inst-form" onSubmit={this.addInstruction}>
+            <h3>Instructions:</h3>
             <div className="inst-form-inputs">
               <input type="submit" value="+" />
-              &nbsp;&nbsp;&nbsp;
+              {/* &nbsp;&nbsp;&nbsp; */}
               <input
+                className="add-instruction-input"
                 type="text"
                 placeholder="Add instruction"
                 value={this.state.pendingInstruction}
                 onChange={this.handleInstruction}
               />
             </div>
-            <ul>
+            <ul className="instruction-list-form">
               {this.state.instructions.map((instruction, idx) => {
                 return <li key={idx}>{instruction}</li>;
               })}
