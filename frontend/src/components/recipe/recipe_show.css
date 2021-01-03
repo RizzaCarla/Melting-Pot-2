@@ -16,10 +16,13 @@
     width: 1280px;
     margin: 0 auto;
     /* border: 1px black solid; */
-    background: #efefef;
+    background: #fff;
     margin-top: 40px;
     padding-top: 30px;
     padding-bottom: 30px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.15);
 }
 
 .recipe-show-info {
@@ -30,6 +33,17 @@
 
 .recipe-misc-info {
     margin-left: 50px;
+    border: 1px #e2e1e1 solid;
+    font-family: sans-serif;
+    font-size: 20px;
+    width: 375px;
+    height: 343px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.15);
+    border-radius: 10px;
 }
 
 .recipe-misc-info li {
@@ -41,6 +55,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
 }
 
 .user-only-btn-edit {
@@ -48,25 +63,36 @@
     align-items: center;
     justify-content: center;
     background: rgb(0, 121, 125);
-    border: 3px #333 solid;
-    border-style: outset;
+    border: 1px #333 solid;
     color: #fff;
     border-radius: 5px;
     text-align: center;
     width: 125px;
     height: 30px;
     margin-bottom: 15px;
+    font-size: 15px;
+}
+
+.user-only-btn-edit:hover {
+    background-color: rgb(2, 169, 175)
 }
 
 .user-only-btn-delete {
-    background: rgb(0, 121, 125);
-    border: 3px #333 solid;
-    border-style: outset;
+    background: rgb(148, 0, 0);
+    border: 1px #333 solid;
     color: #fff;
     text-align: center;
     border-radius: 5px;
-    width: 125px;
-    height: 30px;
+    width: 127.22px;
+    height: 32.22px;
+    font-family: sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    outline: 0;
+}
+
+.user-only-btn-delete:hover {
+    background-color: rgb(201, 0, 0);
 }
 
 .recipe-pic {
@@ -77,32 +103,49 @@
 
 .recipe-pic img {
     width: 300px;
-    height: 200px;
-    border: 1px black solid;
-    padding: 10px 10px 0 10px;
+    height: 300px;
+    border: 1px #e2e1e1 solid;
+    border-radius: 10px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    padding: 15px 15px 0 15px;
     background: #fff;
     border-bottom: 0;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.15);
 }
 
 .recipe-pic h4 {
+    font-family: sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 320px;
+    width: 330px;
     height: 30px;
-    border: 1px black solid;
+    border: 1px #e2e1e1 solid;
+    border-radius: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
     background: #fff;
     border-top: 0;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.15);
 }
 
 .recipe-detail-info {
     display: flex;
     justify-content: space-between;
+    width: 750px;
+    margin-bottom: 20px;
 }
 
 .recipe-show-ing-inst {
-    width: 375px;
+    width: 300px;
     margin-top: 30px;
+    padding: 15px;
+    font-family: sans-serif;
+    font-size: 16px;
+    border: 1px #e2e1e1 solid;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.15);
+    border-radius: 10px;
 }
 
 .recipe-show-ing-inst h4{
@@ -132,8 +175,14 @@
 .recipe-owner-story-info {
     display: flex;
     flex-direction: column;
-    width: 375px;
+    width: 336px;
     margin-top: 30px;
+    font-family: sans-serif;
+    font-size: 16px;
+    border: 1px #e2e1e1 solid;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.15);
+    padding: 15px;
+    border-radius: 10px
     /* border: 1px black solid; */
 }
 
