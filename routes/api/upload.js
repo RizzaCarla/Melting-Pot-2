@@ -62,6 +62,7 @@ router.post("/upload", upload.single("file"), function(req, res) {
     ContentType: file.mimetype,
     ACL: "public-read"
   };
+  
 
   s3bucket.upload(params, function(err, data) {
     if (err) {

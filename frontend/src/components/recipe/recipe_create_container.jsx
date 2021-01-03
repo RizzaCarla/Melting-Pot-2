@@ -8,6 +8,7 @@ const mapStateToProps = (state) => {
         currentUser: state.session.currentUser.user,
         ingredients: [],
         instructions: [],
+        errors: state.errors.recipes
     });
 };
 

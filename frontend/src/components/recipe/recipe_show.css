@@ -74,11 +74,11 @@
 }
 
 .user-only-btn-edit:hover {
-    opacity: 70%;
+    background-color: rgb(2, 169, 175)
 }
 
 .user-only-btn-delete {
-    background: rgb(0, 121, 125);
+    background: rgb(148, 0, 0);
     border: 1px #333 solid;
     color: #fff;
     text-align: center;
@@ -89,11 +89,10 @@
     font-size: 16px;
     cursor: pointer;
     outline: 0;
-    background: rgb(244,72,99);
 }
 
 .user-only-btn-delete:hover {
-    opacity: 70%;
+    background-color: rgb(201, 0, 0);
 }
 
 .recipe-pic {
@@ -113,6 +112,7 @@
     background: #fff;
     border-bottom: 0;
     box-shadow: 0 2px 6px 0 rgba(0,0,0,0.15);
+    object-fit: cover;
 }
 
 .recipe-pic h4 {

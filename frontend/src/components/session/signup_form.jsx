@@ -67,7 +67,6 @@ class SignupForm extends React.Component {
     if (this.state.photoFile) {
       const data = new FormData(e.target);
       data.append("file", this.state.photoFile);
-      console.log(data)
       uploadPhoto(data).then(res => {
        
         let user = {
