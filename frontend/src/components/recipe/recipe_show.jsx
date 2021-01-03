@@ -87,7 +87,7 @@ class RecipeShow extends React.Component {
                 </div> 
                 <CommentShowContainer recipe={recipe}
                                       authors={this.props.authors}/>
-                <Link to="/profile">Go Back</Link>'
+                <Link to="/profile">Go Back</Link>
             </div>
         )
     }

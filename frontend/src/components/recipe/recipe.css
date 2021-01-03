@@ -211,7 +211,6 @@
     width: 650px;
     justify-content: center;
     align-items: flex-start;
-    /* align-items: center; */
     border: 1px #e2e1e1 solid;
     box-shadow: 0 2px 6px 0 rgba(0,0,0,0.15);
     margin-bottom: 50px;
@@ -219,6 +218,7 @@
     padding: 15px 0;
     font-family: sans-serif;
     font-size: 16px;
+    margin: 0 auto;
 }
 
 .ing-inst-container input {

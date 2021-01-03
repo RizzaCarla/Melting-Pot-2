@@ -113,6 +113,7 @@
     background: #fff;
     border-bottom: 0;
     box-shadow: 0 2px 6px 0 rgba(0,0,0,0.15);
+    object-fit: cover;
 }
 
 .recipe-pic h4 {
