@@ -1,13 +1,15 @@
 import { connect } from 'react-redux';
 import { getRecipe, getRecipes } from '../../actions/recipe_actions';
 import { getEvent, getEvents } from '../../actions/event_actions';
+import { fetchUsers, fetchUser } from '../../actions/user_actions';
 import HomePage from './home_page';
 // import { withRouter } from 'react-router';
 
 const mapStateToProps = (state) => {
   return ({
     recipes: state.entities.recipes,
-    events: state.entities.events
+    events: state.entities.events,
+    users: state.entities.users
   })
 }
 
@@ -16,7 +18,9 @@ const mapDispatchToProps = (dispatch) => {
     getRecipes: () => dispatch(getRecipes()),
     getRecipe: (recipeId) => dispatch(getRecipe(recipeId)),
     getEvents: () => dispatch(getEvents()),
-    getEvent: (eventId) => dispatch(getEvent(eventId))
+    getEvent: (eventId) => dispatch(getEvent(eventId)),
+    fetchUsers: () => dispatch(fetchUsers()),
+    fetchUser: (userId) => dispatch(fetchUser(userId))
   })
 }
 
