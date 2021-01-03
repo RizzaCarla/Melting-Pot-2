@@ -15,6 +15,7 @@ router.get('/', (req, res) => {
 router.post('/new', (req, res) => {
   const { errors, isValid } = validateEventInput(req.body)
   const newEvent = new Event({
+  
     name: req.body.name,
     hostId: req.body.hostId,
     location: req.body.location,
@@ -22,7 +23,8 @@ router.post('/new', (req, res) => {
     date: req.body.date,
     startTime: req.body.startTime,
     endTime: req.body.endTime,
-    photoUrl: req.body.photoUrl
+    photoUrl: req.body.photoUrl,
+    photoId: req.body.photoId,
   })
   
   if (!isValid) {
@@ -45,6 +47,17 @@ router.get('/:id', (req, res) => {
     .then(event => res.json(event))
     .catch(err => res.status(404).json({ eventNotFound: 'Event with that ID does not exist'}))
 })
+
+//RETRIEVE EVENTS OF ONE USER
+router.get('/:userId', (req, res) => {
+  Recipe.find({ "userId": req.params.userId })
+    .then(events => {
+      // console.log(events)
+      res.json(events)
+    })
+    .catch(err => res.status(404).json({ userEventsNotFound: 'This user is not participating in any events' }));
+})
+
 
 //EDIT A EVENT
 router.patch('/edit/:id', (req, res) => {

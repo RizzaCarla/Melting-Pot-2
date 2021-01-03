@@ -1,8 +1,8 @@
 * {
     margin: 0;
     text-decoration: none;
-    color: #333;
-    font-size: 20px;
+    /* color: #333; */
+    /* font-size: 20px; */
 }
 
 html {
@@ -18,11 +18,18 @@ html {
     width: 1280px;
     margin-left: auto;
     margin-right: auto;
-    box-shadow: 0 2px 6px -6px rgba(0,0,0,0.15)
+    box-shadow: 0 2px 6px -6px rgba(0,0,0,0.15);
+    font-size: 16px;
+    font-family: sans-serif;
+}
+
+.nav-logo {
+    height: 50px;
+    width: 204px;
 }
 
 .navbar-parent {
-    background-color: rgba(121, 217, 207, 0.753);
+    background-color: #ef5d5d;
     box-shadow: 0 2px 6px 0 rgba(0,0,0,0.15);
     /* color: white; */
 }
@@ -32,10 +39,21 @@ html {
     width: 500px;
     justify-content: flex-start;
     align-items: center;
+    
+}
+
+.NavBar a {
+    color: black;
+}
+
+.NavBar a:hover {
+    color: rgb(100, 100, 100);
 }
 
 .navbar-left input {
     padding-left: 5px;
+    font-family: sans-serif;
+    font-size: 13px;
 }
 
 .navbar-right {
@@ -57,6 +75,11 @@ html {
     margin-right: 11px;
     cursor: pointer;
     outline: 0;
+    font-size: 16px;
+}
+
+.logout-btn:hover {
+    color: rgb(100, 100, 100);
 }
 
 .search-parent {
@@ -76,10 +99,17 @@ html {
     z-index: 1;
     overflow-y: auto;
     overflow-x: hidden;
-    height: 400px;
-    width: 630px;
+    height: fit-content;
+    max-height: 400px;
+    width:fit-content;
+    max-width: 630px;
     border: 1px solid #cccbcb;
     border-radius: 5px;
+}
+
+.query-p {
+    font-size: 16px;
+    padding: 10px;
 }
 
 .block {
@@ -95,6 +125,7 @@ html {
     border-radius: 4px;
     background: rgb(255, 255, 255);
     padding-left: 5px;
+    border: 1px solid black;
 }
 
 .search-parent input[type=text] {
@@ -128,6 +159,9 @@ html {
 .search-item-picture img {
     border-radius: 20px;
     border: 1px solid black;
+    width: 276px;
+    height: 186px;
+    
 }
 
 .result-item-parent {
@@ -150,7 +184,7 @@ html {
 .right-navbar-loggedin a {
     display: flex;
     align-items: center;
-    border-right: 1px solid #969696;
+    border-right: 1px solid #000000;
     width: 110px;
 }
 

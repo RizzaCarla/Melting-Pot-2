@@ -99,6 +99,11 @@ class RecipeEdit extends React.Component {
         if (this.state === null) {
             return null
         }
+        if (this.props.currentUser._id !== recipe.authorId) {
+            this.props.history.push('/')
+        }
+        console.log(this.props.currentUser._id)
+        console.log(recipe.authorId)
         return (
           <div className="recipe-edit-parent">
             <div className="recipe-edit">
@@ -144,7 +149,7 @@ class RecipeEdit extends React.Component {
                     </select>
                   </label>
                   <label>
-                    Category:
+                    Category:&nbsp;&nbsp;
                     <select
                       onChange={this.update("category")}
                       value={this.state.category}
@@ -159,19 +164,19 @@ class RecipeEdit extends React.Component {
                   <label>
                     Likes: {!recipe.numLikes ? "0" : recipe.numLikes}
                   </label>
-                  <button onClick={this.handleSubmit}>Save Recipe</button>
+                  {/* <button onClick={this.handleSubmit}>Save Recipe</button> */}
                 </div>
               </div>
               <div className="recipe-edit-bottom">
                 <div className="recipe-edit-bottom-left">
                   <div className="recipe-edit-ingredients">
-                    <label>Ingredients: </label>
+                    <label>Ingredients </label>
                     <ul>
                       {this.state.ingredients.map((ingredient, idx) => {
                         return (
                           <li key={idx}>
-                            <input
-                              className="ingredients-input"
+                            <textarea
+                              className="recipe-edit-textarea"
                               type="text"
                               value={this.state.ingredients[idx]}
                               placeholder={ingredient}
@@ -183,21 +188,35 @@ class RecipeEdit extends React.Component {
                       })}
                     </ul>
                     <div className="recipe-edit-bottom-last-input">
-                      <input
+                      <textarea
                         type="text"
-                        placeholder="Add Ingredient"
+                        className="recipe-edit-textarea"
+                        value={this.state.queueIng}
+                        placeholder="Add ingredient"
                         onChange={this.queueIngredient}
                       />
                       <button onClick={this.pushIngredient}>+</button>
                     </div>
                   </div>
+                  {/* <label>Instructions:
+                    <div className="recipe-edit-bottom-last-input">
+                      <textarea
+                        type="text"
+                        value={this.state.queueIng}
+                        placeholder="Add Ingredient"
+                        onChange={this.queueIngredient}
+                      />
+                      <button onClick={this.pushIngredient}>+</button>
+                    </div>
+                  </label> */}
                   <div className="recipe-edit-instructions">
-                    <label>Instructions: </label>
+                    <label>Instructions </label>
                     <ul>
                       {this.state.instructions.map((instruction, idx) => {
                         return (
                           <li key={idx}>
-                            <input
+                            <textarea
+                              className="recipe-edit-textarea"
                               type="text"
                               value={this.state.instructions[idx]}
                               placeholder={instruction}
@@ -209,9 +228,10 @@ class RecipeEdit extends React.Component {
                       })}
                     </ul>
                     <div className="recipe-edit-bottom-last-input">
-                      <input
+                      <textarea
                         className="instruction-input"
                         type="text"
+                        value={this.state.queueInst}
                         placeholder="Add Instruction"
                         onChange={this.queueInstruction}
                       />
@@ -220,7 +240,7 @@ class RecipeEdit extends React.Component {
                   </div>
                 </div>
                 <div className="recipe-edit-bottom-right">
-                  <label className="recipe-edit-owner-label">
+                  {/* <label className="recipe-edit-owner-label">
                     Recipe Owner:
                   </label>
                   <div className="recipe-edit-owner">
@@ -229,8 +249,8 @@ class RecipeEdit extends React.Component {
                       <h5>{this.props.currentUser.handle}</h5>
                       <button onClick={this.handleDelete}>Delete Recipe</button>
                     </div>
-                  </div>
-                  <label className="recipe-edit-story">Recipe Story: </label>
+                  </div> */}
+                  <label className="recipe-edit-story">Recipe Story </label>
                   <textarea
                     cols="26"
                     rows="10"
@@ -238,6 +258,20 @@ class RecipeEdit extends React.Component {
                     onChange={this.update("story")}
                     placeholder="Write your story about this recipe"
                   />
+                  <div className="recipe-edit-buttons">
+                    <button
+                      className="recipe-edit-delete"
+                      onClick={this.handleDelete}
+                    >
+                      Delete Recipe{" "}
+                    </button>
+                    <button
+                      className="recipe-edit-save"
+                      onClick={this.handleSubmit}
+                    >
+                      Save Recipe
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

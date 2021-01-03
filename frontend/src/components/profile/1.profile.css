@@ -1,0 +1,49 @@
+.navbar-profile{
+    margin-left: 260px;
+}
+
+.profile-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profile-picture{
+   
+    border-radius: 50%;
+    height: 295px;
+    width: 315px;
+    margin-left: 460px;
+    padding: 20px;
+
+}
+
+.profile-pic-container{
+    margin-top: 50px;
+    background-color: rgb(134,181,231);
+    height:275px;
+}
+
+.profile-handle{
+    padding: 20px;
+    border-top: 1px solid black;
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+    font-family: 'roboto', sans-serif;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.profile-bio{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid black;
+    padding-bottom: 20px;
+    font-family: 'roboto', sans-serif;
+    font-size: 20px;
+}

@@ -119,13 +119,14 @@ class SignupForm extends React.Component {
 
   render() {
     return (
-      <div className="form-container">
+      <div className="form-container-session-sign">
         <h1>Melting Pot</h1>
         <form onSubmit={this.handleSubmit}>
           <div className="form">
             <h2>Sign Up</h2>
 
-            <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email:&nbsp;&nbsp;
+          <div className="signup-inputs">
+            <label>Email:&nbsp;
               <input
                 type="text"
                 className="input-field"
@@ -135,7 +136,7 @@ class SignupForm extends React.Component {
               />
             </label>
 
-            <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Handle:&nbsp;&nbsp;
+            <label>Handle:&nbsp;
               <input
                 type="text"
                 className="input-field"
@@ -145,7 +146,7 @@ class SignupForm extends React.Component {
               />
             </label>
 
-            <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Password:&nbsp;&nbsp;
+            <label>Password:&nbsp;
               <input
                 type="password"
                 className="input-field"
@@ -155,7 +156,7 @@ class SignupForm extends React.Component {
               />
             </label>
 
-            <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Confirm Password:&nbsp;&nbsp;
+            <label>Confirm Password:&nbsp;
               <input
                 type="password"
                 className="input-field"
@@ -165,7 +166,7 @@ class SignupForm extends React.Component {
               />
             </label>
 
-            <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bio:&nbsp;&nbsp;
+            <label>Bio:&nbsp;
               <input
                 type="textbox"
                 className="input-field"
@@ -175,8 +176,7 @@ class SignupForm extends React.Component {
               />
             </label>
 
-            {/* FOR FILE UPLOAD: type="file" name="" id="" */}
-            <label>Upload Profile Picture:&nbsp;&nbsp;
+            <label >Upload Profile Picture:&nbsp;
               <input
                 type="file"
                 className="input-field upload-pic"
@@ -185,84 +185,90 @@ class SignupForm extends React.Component {
                 onChange={this.handlePhotoFile}
               />
             </label>
+          </div>
 
-            <label className="checkbox-main-container"> Dietary Restrictions: 
 
-            <div className="checkbox-container">
-            <div className="checkbox-col-1">
-                  <label>
-                      <input 
-                      type="checkbox"
-                      value="Vegan"
-                      onChange={this.handleCheckboxChange.bind(this)}
-                      />
-                      &nbsp;Vegan
-                  </label>
 
-                  <label>
-                      <input
-                      type="checkbox"
-                      value="Vegetarian"
-                      onChange={this.handleCheckboxChange.bind(this)}
-                    />
-                    &nbsp;Vegetarian 
-                  </label>
+            <label className="checkbox-main-container"> 
+            <div classname="dietary-title">Dietary Restrictions:</div>
+     
+            <div>
+                <div className="checkbox-container">
+                <div className="checkbox-col-1">
+                      <label>
+                          <input 
+                          type="checkbox"
+                          value="Vegan"
+                          onChange={this.handleCheckboxChange.bind(this)}
+                          />
+                          &nbsp;Vegan
+                      </label>
 
-                  <label>
-                      <input
-                      type="checkbox"
-                      value="Meat Lovers"
-                      onChange={this.handleCheckboxChange.bind(this)}
-                    />
-                    &nbsp;Meat Lover
-                  </label>
+                      <label>
+                          <input
+                          type="checkbox"
+                          value="Vegetarian"
+                          onChange={this.handleCheckboxChange.bind(this)}
+                        />
+                        &nbsp;Vegetarian 
+                      </label>
 
-                  <label>
-                      <input
-                      type="checkbox"
-                      value="Keto"
-                      onChange={this.handleCheckboxChange.bind(this)}
-                    />
-                    &nbsp;Keto
-                  </label>
-            </div>
-              <div className="checkbox-col-2">
-                  <label>
-                    <input
-                      type="checkbox"
-                      value="Whole 30"
-                      onChange={this.handleCheckboxChange.bind(this)}
-                    />
-                    &nbsp;Whole 30
-                  </label>
+                      <label>
+                          <input
+                          type="checkbox"
+                          value="Meat Lovers"
+                          onChange={this.handleCheckboxChange.bind(this)}
+                        />
+                        &nbsp;Meat Lover
+                      </label>
 
-                  <label>
-                    <input
-                      type="checkbox"
-                      value="Low Carb"
-                      onChange={this.handleCheckboxChange.bind(this)}
-                    />
-                    &nbsp;Low Carb
-                  </label>
+                      <label>
+                          <input
+                          type="checkbox"
+                          value="Keto"
+                          onChange={this.handleCheckboxChange.bind(this)}
+                        />
+                        &nbsp;Keto
+                      </label>
+                </div>
+                  <div className="checkbox-col-2">
+                      <label>
+                        <input
+                          type="checkbox"
+                          value="Whole 30"
+                          onChange={this.handleCheckboxChange.bind(this)}
+                        />
+                        &nbsp;Whole 30
+                      </label>
 
-                  <label>
-                    <input
-                      type="checkbox"
-                      value="Diabetic"
-                      onChange={this.handleCheckboxChange.bind(this)}
-                    />
-                    &nbsp;Diabetic
-                  </label>
+                      <label>
+                        <input
+                          type="checkbox"
+                          value="Low Carb"
+                          onChange={this.handleCheckboxChange.bind(this)}
+                        />
+                        &nbsp;Low Carb
+                      </label>
 
-                  <label>
-                    <input
-                      type="checkbox"
-                      value="None"
-                      onChange={this.handleCheckboxChange.bind(this)}
-                    />
-                    &nbsp;None
-                  </label>
-            </div>
+                      <label>
+                        <input
+                          type="checkbox"
+                          value="Diabetic"
+                          onChange={this.handleCheckboxChange.bind(this)}
+                        />
+                        &nbsp;Diabetic
+                      </label>
+
+                      <label>
+                        <input
+                          type="checkbox"
+                          value="None"
+                          onChange={this.handleCheckboxChange.bind(this)}
+                        />
+                        &nbsp;None
+                      </label>
+                      </div>
+                </div>
             </div>
             </label>
 
@@ -275,7 +281,7 @@ class SignupForm extends React.Component {
             <div className="signup-option">
               <label>Already a User?</label>
               <br></br>
-              <Link to="/login"> <input className="signup-button input-field" type="submit" value="Login" /></Link>
+              <Link to="/login"> <input className="login-button input-field" type="submit" value="Login" /></Link>
             </div>
       </div>
     );

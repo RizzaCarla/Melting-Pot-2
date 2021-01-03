@@ -40,8 +40,8 @@ router.post('/new', (req, res) => {
 //RETRIEVE ONE RECIPE BY ID
 router.get('/:id', (req, res) => {
   Recipe.findById(req.params.id)
-  .then(recipe => res.json(recipe))
-  .catch(err => res.status(404).json({ recipeNotFound: 'Recipe with that ID does not exist' }));
+    .then(recipe => res.json(recipe))
+    .catch(err => res.status(404).json({ recipeNotFound: 'Recipe with that ID does not exist' }));
 });
 
 //RETRIEVE RECIPES OF ONE USER
@@ -51,6 +51,10 @@ router.get('/author/:authorId', (req, res) => {
     .catch(err => res.status(404).json({ userRecipesNotFound: 'This user does not have any recipes' }));
 })
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 //DELETE RECIPE
 router.delete('/:id', (req, res) => {
   Recipe.findOneAndDelete(req.params.id)
@@ -74,6 +78,7 @@ router.patch('/edit/:id', (req, res) => {
 // Search Recipes
 router.post('/search-recipes', (req, res) => {
   let recipePattern = new RegExp("^" + req.body.query);
+  
   Recipe.find({name:{$regex:recipePattern}})
     .then(recipe => {res.json({recipe})})
     .catch(err => console.log(err))
