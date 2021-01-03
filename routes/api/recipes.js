@@ -37,19 +37,19 @@ router.post('/new', (req, res) => {
     .then(recipe => res.json(recipe))
 });
 
+//RETRIEVE ONE RECIPE BY ID
+router.get('/:id', (req, res) => {
+  Recipe.findById(req.params.id)
+  .then(recipe => res.json(recipe))
+  .catch(err => res.status(404).json({ recipeNotFound: 'Recipe with that ID does not exist' }));
+});
+
 //RETRIEVE RECIPES OF ONE USER
-router.get('/:authorId', (req, res) => {
+router.get('/author/:authorId', (req, res) => {
   Recipe.find({ "authorId": req.params.authorId })
     .then(recipes => {res.json(recipes)})
     .catch(err => res.status(404).json({ userRecipesNotFound: 'This user does not have any recipes' }));
 })
-
-//RETRIEVE ONE RECIPE BY ID
-router.get('/:id', (req, res) => {
-  Recipe.findById(req.params.id)
-    .then(recipe => res.json(recipe))
-    .catch(err => res.status(404).json({ recipeNotFound: 'Recipe with that ID does not exist' }));
-});
 
 //DELETE RECIPE
 router.delete('/:id', (req, res) => {
