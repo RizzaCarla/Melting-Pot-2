@@ -51,10 +51,6 @@ router.get('/author/:authorId', (req, res) => {
     .catch(err => res.status(404).json({ userRecipesNotFound: 'This user does not have any recipes' }));
 })
 
-<<<<<<< HEAD
-=======
-
->>>>>>> master
 //DELETE RECIPE
 router.delete('/:id', (req, res) => {
   Recipe.findOneAndDelete(req.params.id)
