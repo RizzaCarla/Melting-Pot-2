@@ -53,7 +53,7 @@ router.get('/author/:authorId', (req, res) => {
 
 //DELETE RECIPE
 router.delete('/:id', (req, res) => {
-  Recipe.findOneAndDelete(req.params.id)
+  Recipe.findByIdAndDelete(req.params.id)
     .then((recipe) => res.json('Recipe successfully deleted'))
     .catch(err => res.status(400).json('Recipe was not successfully deleted'))
 })

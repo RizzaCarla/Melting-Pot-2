@@ -64,7 +64,7 @@ router.patch('/edit/:id', (req, res) => {
 
 //DELETE EVENT
 router.delete('/:id', (req, res) => {
-  Event.findOneAndDelete(req.params.id)
+  Event.findByIdAndDelete(req.params.id)
     .then(event => res.json('Event successfully deleted'))
     .catch(err => res.status(404).json('Event was not successfully deleted'))
 })
