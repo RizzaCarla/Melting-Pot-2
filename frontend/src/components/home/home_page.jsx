@@ -68,32 +68,41 @@ class HomePage extends React.Component {
         {/* <CategoryNavBarContainer /> */}
         <div className='trending-recipes'>
 
-          <div className='home-page-header'>
+          <div className='home-page-header-recipe'>
             <h1>Trending Recipes</h1>
             <Link to={`/recipes/${randomRecipe._id}`}>
-              <button className='home-page-buttons'>View Full Recipe</button>
+              <button className='home-page-button-recipe'>View Full Recipe</button>
             </Link>
+            <hr></hr>
           </div>
-          <h1>{randomRecipe.name}</h1>
-          <img src={randomRecipe.photoUrl} className='home-page-images'></img>
-          <div className='home-page-recipe-author'>
+
+          <div className='home-page-middle-container'>
+            <h1 className='recipe-name'>{randomRecipe.name}</h1>
+            <img src={randomRecipe.photoUrl} className='home-page-recipe-images'></img>
+          </div>
+
+          <div className='home-page-recipe-bottom-container'>
             <img src={fetchUserInfoForRecipe.photoUrl} className='home-page-author-image'></img>
-            <h1>{fetchUserInfoForRecipe.handle}</h1>
+            <div className='home-page-recipe-bottom-description'>
+              <h1>{fetchUserInfoForRecipe.handle}</h1>
+              <p>"{randomRecipe.story}"</p>
+            </div>
           </div>
         </div>
 
         <div className='trending-events'>
-          <div className='home-page-header'>
+          <div className='home-page-header-event'>
             <h1>Trending Event</h1>
             <Link to={`/events/${randomEvent._id}`}>
-              <button className='home-page-buttons'>View Full Event</button>
+              <button className='home-page-button-event'>View Full Event</button>
             </Link>
+            <hr></hr>
           </div>
 
           <div className='home-page-event-details-box'>
-            <img src={randomEvent.photoUrl} className="home-page-images"></img>
+            <img src={randomEvent.photoUrl} className="home-page-event-images"></img>
             <div className='home-page-event-details'>
-              <h1>{randomEvent.name}</h1>
+              <h1 className='home-page-event-name'>{randomEvent.name}</h1>
               <h1>Date: {randomEvent.date}</h1>
               <h1>Start Time: {randomEvent.startTime}</h1>
               <h1>End Time: {randomEvent.endTime}</h1>
@@ -101,7 +110,7 @@ class HomePage extends React.Component {
               <h1>Location: {randomEvent.location}</h1>
               <h1>Description: {randomEvent.description}</h1>
             </div>
-            <div>{handleParticipateButton}</div>
+            <div className='home-page-event-button'>{handleParticipateButton}</div>
           </div>
         </div>
 
