@@ -6,31 +6,33 @@ export const RECEIVE_RECIPE = "RECEIVE_RECIPE";
 export const REMOVE_RECIPE = "REMOVE_RECIPE";
 export const RECEIVE_RECIPE_ERRORS = "RECEIVE_RECIPE_ERRORS";
 export const CLEAR_RECIPE_ERRORS = "CLEAR_RECIPE_ERRORS";
+export const CLEAR_RECIPE = "CLEAR_RECIPE";
+
 // Regular action creators
 
 export const receiveAllRecipes = (recipes) => {
     return ({
-      type: RECEIVE_ALL_RECIPES,
-      recipes
+        type: RECEIVE_ALL_RECIPES,
+        recipes
     });
 };
 
 export const receiveUserRecipes = (recipes) => {
     return ({
-      type: RECEIVE_USER_RECIPES,
-      recipes
+        type: RECEIVE_USER_RECIPES,
+        recipes
     });
 };
 
 export const receiveRecipe = (recipe) => {
     return ({
-      type: RECEIVE_RECIPE,
-      recipe
+        type: RECEIVE_RECIPE,
+        recipe
     });
 };
 
 export const removeRecipe = (recipeId) => {
-    return({
+    return ({
         type: REMOVE_RECIPE,
         recipeId
     })
@@ -43,6 +45,10 @@ export const receiveErrors = errors => ({
 
 export const clearErrors = () => ({
     type: CLEAR_RECIPE_ERRORS
+})
+
+export const clearRecipes = () => ({
+    type: CLEAR_RECIPE
 })
 
 // Thunk action creators
@@ -88,4 +94,3 @@ export const deleteRecipe = (recipeId) => dispatch => {
         .then(() => dispatch(removeRecipe(recipeId)))
         .catch((err) => console.log(err))
 };
-

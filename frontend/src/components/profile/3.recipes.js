@@ -9,16 +9,16 @@ class Recipes extends React.Component {
 
 
     componentDidMount(){
+        this.props.clearRecipes()
         this.props.getUserRecipes(this.props.currentUser._id)
     }
 
-    
-    render() {
-        
+    render() {     
         if (!this.props.recipes) {
             return null
         }
         return(
+
             <div>
                 <br></br>
                 <div className="button-container"><Link to='/recipes/new'><button id="add-recipe-button">Add A Recipe</button></Link></div>
