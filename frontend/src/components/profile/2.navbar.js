@@ -15,21 +15,22 @@ const NavBar = () => {
     };
 
         return (
-            <>
-                <Tabs value={selectedTab} onChange={handleChange} >
+            <div>
+
+                <Tabs className="tab-header"value={selectedTab} onChange={handleChange} >
                     <Tab className="tab-labels" label="My Recipes"/>
-                    <Tab className="tab-labels" label="Liked Recipes"/>
+                    {/* <Tab className="tab-labels" label="Liked Recipes"/> */}
                     <Tab className="tab-labels" label="Events" />
-                    <Tab className="tab-labels" label="Friends" />
+                    {/* <Tab className="tab-labels" label="Friends" /> */}
                     <Tab className="tab-labels" label="About" />
                 </Tabs>
 
                 <div className="tab">{selectedTab === 0 && <RecipesContainer />}</div> 
-                <div className="tab">{selectedTab === 1 && <LikesContainer />} </div>
-                <div className="tab">{selectedTab === 2 && <EventsContainer />}</div>
-                <div className="tab">{selectedTab === 3 && <FriendsContainer />}</div>
-                <div className="tab">{selectedTab === 4 && <AboutMeContainer />}</div>
-            </>
+                {/* <div className="tab">{selectedTab === 1 && <LikesContainer />} </div> */}
+                <div className="tab">{selectedTab === 1 && <EventsContainer />}</div>
+                {/* <div className="tab">{selectedTab === 3 && <FriendsContainer />}</div> */}
+                <div className="tab">{selectedTab === 2 && <AboutMeContainer />}</div>
+            </div>
 
 
         )
