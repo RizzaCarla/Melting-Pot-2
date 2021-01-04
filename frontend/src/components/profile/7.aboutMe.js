@@ -3,6 +3,10 @@ import './7.aboutMe.css'
 
 class AboutMe extends React.Component {
 
+    componentDidMount() {
+        this.props.getUserRecipes(this.props.currentUser._id)
+    }
+
     memberSince(){
         const createdAt = this.props.currentUser.createdAt;
         const arr = createdAt.split('')
@@ -17,7 +21,8 @@ class AboutMe extends React.Component {
 
                 <div className="about">Email:&nbsp;{this.props.currentUser.email}</div>
 
-                <div className="about">Recipes Posted:&nbsp;{(this.props.user.recipesPosted).length}</div>
+                {/* <div className="about">Recipes Posted:&nbsp;{(this.props.user.recipesPosted).length}</div> */}
+                <div className="about">Recipes Posted:&nbsp;{(this.props.numRecipes)}</div>
 
                 <div className="about">Member Since:&nbsp;{this.memberSince()}</div>
 
