@@ -38,7 +38,7 @@ class EditEvent extends React.Component {
         .then(() => 
             this.props.history.push(`/events/${this.props.event._id}`)
         )
-            .catch(err => this.renderErrors());
+        .catch(err => this.renderErrors());
     }
 
     renderErrors() {
