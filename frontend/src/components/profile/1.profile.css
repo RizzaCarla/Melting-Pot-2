@@ -18,12 +18,17 @@
     width: 315px;
     margin-left: 460px;
     padding: 20px;
+    object-fit: cover;
+}
+
+.profile-pic-div {
+    background: linear-gradient(17deg, rgba(237,83,83,1) 0%, rgba(255,217,79,1) 20%, rgba(237,83,83,1) 50%, rgba(255,217,79,1) 75%, rgba(237,83,83,1) 100%);
 
 }
 
 .profile-pic-container{
     margin-top: 50px;
-    background-color: rgb(134,181,231);
+    background-color: #ef5d5d;
     height:275px;
 }
 
