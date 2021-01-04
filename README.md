@@ -13,7 +13,16 @@
 
 # Overview
 
-Melting Pot is a social cooking application intended to create a network where users can look up recipes, share recipes, and schedule cooking times with others. 
+Melting Pot is a social cooking application intended to create a network where users can look up recipes, share recipes, and schedule cooking times with others.
+
+**Homepage**
+![](docs/home.png)
+
+**Recipe Page**
+![](docs/recipe%20show.png)
+
+**Event Index**
+![](docs/Events%20index.png)
 
 ## Features
 
