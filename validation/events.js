@@ -9,7 +9,7 @@ module.exports = function validateEventInput(data) {
   data.hostId = validText(data.hostId) ? data.hostId : '';
   data.location = validText(data.location) ? data.location : '';
   data.description = validText(data.description) ? data.description : '';
-  // data.date = validText(data.date) ? data.date : '';
+  data.date = validText(data.date) ? data.date : '';
   data.startTime = validText(data.startTime) ? data.startTime : '';
   data.endTime = validText(data.endTime) ? data.endTime : '';
   data.photoId = validText(data.photoId) ? data.photoId : '';
@@ -43,10 +43,6 @@ module.exports = function validateEventInput(data) {
 
   if (Validator.isEmpty(data.endTime)) {
     errors.endTime = 'End Time is required'
-  }
-
-  if (Validator.isEmpty(data.photoId)) {
-    errors.photoId = 'Photo Id is required'
   }
 
   if (Validator.isEmpty(data.photoUrl)) {
