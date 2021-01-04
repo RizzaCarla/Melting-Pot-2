@@ -35,12 +35,6 @@ router.post('/new', (req, res) => {
     .then(event => res.json(event))
 })
 
-router.get('/:hostId', (req, res) => {
-  Event.find({ "hostId": req.params.hostId })
-    .then(events => res.json(events))
-    .catch(err => res.status(404).json({ userEventsNotFound: 'This user does not have any events' }))
-})
-
 //RETRIEVE ONE EVENT BY ID
 router.get('/:id', (req, res) => {
   Event.findById(req.params.id)
@@ -49,15 +43,11 @@ router.get('/:id', (req, res) => {
 })
 
 //RETRIEVE EVENTS OF ONE USER
-router.get('/:userId', (req, res) => {
-  Recipe.find({ "userId": req.params.userId })
-    .then(events => {
-      // console.log(events)
-      res.json(events)
-    })
-    .catch(err => res.status(404).json({ userEventsNotFound: 'This user is not participating in any events' }));
+router.get('/host/:hostId', (req, res) => {
+  Event.find({ "hostId": req.params.hostId })
+  .then(events => res.json(events))
+  .catch(err => res.status(404).json({ userEventsNotFound: 'This user does not have any events' }))
 })
-
 
 //EDIT A EVENT
 router.patch('/edit/:id', (req, res) => {
@@ -74,7 +64,7 @@ router.patch('/edit/:id', (req, res) => {
 
 //DELETE EVENT
 router.delete('/:id', (req, res) => {
-  Event.findOneAndDelete(req.params.id)
+  Event.findByIdAndDelete(req.params.id)
     .then(event => res.json('Event successfully deleted'))
     .catch(err => res.status(404).json('Event was not successfully deleted'))
 })
