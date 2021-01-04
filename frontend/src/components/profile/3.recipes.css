@@ -5,6 +5,7 @@
     width: 70%;
     border-radius: 5px;
     margin-left: 185px;
+    cursor: pointer;
 }
 
 
@@ -13,15 +14,18 @@
     padding-bottom: 10px;
     width:350px;
     height:350px;
+    object-fit: cover;
 }
 
 .recipe-name{
-    /* margin-left: 90px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-family: 'roboto', sans-serif;
     font-weight: bolder;
-    font-size: 15px;
-    display:flex;
-    justify-content: center;
+    font-size: 16px;
+    padding-bottom: 13px;
+    color: black;
 }
 
 .single-recipe-container{

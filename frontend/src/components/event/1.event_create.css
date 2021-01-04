@@ -48,6 +48,7 @@
     color:black;
     width: 400px;
     margin-left: 105px;
+    cursor: pointer;
 }
 
 .go-back:hover{
@@ -64,4 +65,5 @@
     border-radius: 5px;
     font-size:15px;
     margin-left: 105px;
+    cursor: pointer;
 }

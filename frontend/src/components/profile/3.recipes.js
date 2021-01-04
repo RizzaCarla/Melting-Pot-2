@@ -29,7 +29,7 @@ class Recipes extends React.Component {
                                 <div className="single-recipe-container">
 
                                 <div><Link to={`/recipes/${recipe._id}`}> <img className="recipe-profile-photo" src={recipe.photoUrl}></img></Link></div>
-                                <div className="recipe-name"><Link to={`/recipes/${recipe._id}`}>{recipe.name}</Link></div>
+                                <div><Link className="recipe-name" to={`/recipes/${recipe._id}`}>{recipe.name}</Link></div>
                                 </div>
                                 <br></br>
                             </div>
