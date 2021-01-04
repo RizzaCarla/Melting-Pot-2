@@ -15,7 +15,8 @@ class CommentIndex extends React.Component {
     }
 
     componentDidMount() {
-        this.props.getRecipeComments(this.props.recipe._id)
+        this.props.clearComments();
+        this.props.getRecipeComments(this.props.recipe._id);
         if ((this.props.currentUser !== undefined) && (Object.keys(this.props.currentUser).length !== 0)){
             this.setState({["authorId"]: this.props.currentUser.user._id})
         }
