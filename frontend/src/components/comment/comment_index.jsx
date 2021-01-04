@@ -21,6 +21,18 @@ class CommentIndex extends React.Component {
         }
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        if(this.props.recipe !== prevProps.recipe) {
+            this.props.clearComments();
+            this.props.getRecipeComments(this.props.recipe._id);
+        } 
+        // debugger;
+        // if(this.props.comments[0].recipeId !== this.props.recipe._id) {
+        //     this.props.getRecipeComments(this.props.recipe._id)
+        // }
+        // this.props.getRecipeComments(this.props.recipe._id);
+    }
+
     handleComment(e) {
         e.preventDefault();
         this.setState({["body"]: e.target.value});
