@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import EventShow from '../event/2.event_show';
 import './5.events.css'
 
 class Events extends React.Component {
@@ -47,7 +46,7 @@ class Events extends React.Component {
                                             </div>
                                         </div>
 
-                                            <div className="hosting-button">Hosting</div>
+                                        <div className="hosting-button">Hosting</div>
                                 </div>
 
 
