@@ -10,8 +10,9 @@
 
 .event-index-photo{
     padding: 20px;
-    height: 250px;
-    object-fit: fill;
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
 
 }
 
