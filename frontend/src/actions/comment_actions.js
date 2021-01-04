@@ -4,6 +4,7 @@ export const RECEIVE_ALL_COMMENTS = "RECEIVE_ALL_COMMENTS";
 export const RECEIVE_RECIPE_COMMENTS = "RECEIVE_RECIPE_COMMENTS";
 export const RECEIVE_COMMENT = "RECEIVE_COMMENT";
 export const REMOVE_COMMENT = "REMOVE_COMMENT";
+export const CLEAR_COMMENTS = "CLEAR COMMENTS";
 
 // Regular action creators
 
@@ -34,6 +35,12 @@ export const removeComment = (commentId) => {
         commentId
     });
 };
+
+export const clearComments = () => {
+    return({
+        type: CLEAR_COMMENTS
+    })
+}
 
 // Thunk action reactors
 

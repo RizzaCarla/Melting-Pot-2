@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getComments, getRecipeComments, createComment, updateComment, deleteComment } from '../../actions/comment_actions';
+import { getComments, getRecipeComments, createComment, updateComment, deleteComment, clearComments } from '../../actions/comment_actions';
 import CommentIndex from "./comment_index";
 import { withRouter } from "react-router-dom";
 
@@ -18,6 +18,7 @@ const mapDispatchToProps = (dispatch) => {
         createComment: (comment) => dispatch(createComment(comment)),
         updateComment: (comment) => dispatch(updateComment(comment)),
         deleteComment: (commentId) => dispatch(deleteComment(commentId)),
+        clearComments: () => dispatch(clearComments())
     })
 }
 

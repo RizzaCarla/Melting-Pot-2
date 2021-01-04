@@ -15,10 +15,23 @@ class CommentIndex extends React.Component {
     }
 
     componentDidMount() {
-        this.props.getRecipeComments(this.props.recipe._id)
+        this.props.clearComments();
+        this.props.getRecipeComments(this.props.recipe._id);
         if ((this.props.currentUser !== undefined) && (Object.keys(this.props.currentUser).length !== 0)){
             this.setState({["authorId"]: this.props.currentUser.user._id})
         }
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if(this.props.recipe !== prevProps.recipe) {
+            this.props.clearComments();
+            this.props.getRecipeComments(this.props.recipe._id);
+        } 
+        // debugger;
+        // if(this.props.comments[0].recipeId !== this.props.recipe._id) {
+        //     this.props.getRecipeComments(this.props.recipe._id)
+        // }
+        // this.props.getRecipeComments(this.props.recipe._id);
     }
 
     handleComment(e) {
