@@ -89,7 +89,7 @@ router.post("/upload", upload.single("file"), function(req, res) {
 
 // Route to delete a photo file
 router.delete("/delete/:id", (req, res, next) => {
-  Photo.findOneAndDelete(req.params.id, (err, result) => {
+  Photo.findByIdAndDelete(req.params.id, (err, result) => {
     if (err) {
       return next(err);
     }
