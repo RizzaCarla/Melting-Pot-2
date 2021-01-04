@@ -81,8 +81,9 @@
 }
 
 .recipe-edit-save {
-    background-color: rgba(121, 217, 207, 0.753);
+    background-color: rgba(0, 121, 125);
     border-radius: 5px;
+    color: white;
     width: 100px;
     height: 25px;
     margin-top: 5px;
@@ -93,7 +94,7 @@
 }
 
 .recipe-edit-save:hover {
-    background-color: rgba(140, 255, 244, 0.753)
+    background-color: rgb(2, 169, 175)
 }
 
 .recipe-edit-bottom {
@@ -147,7 +148,7 @@
 }
 
 .recipe-edit-delete:hover {
-    background-color: rgb(255, 0, 0);
+    background-color: rgb(201, 0, 0);
 }
 
 .recipe-edit-bottom-left {

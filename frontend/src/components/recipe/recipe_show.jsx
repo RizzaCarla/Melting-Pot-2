@@ -21,7 +21,6 @@ class RecipeShow extends React.Component {
     }
 
     render(){
-        // debugger;
         if ((this.props.recipe === undefined) || (Object.keys(this.props.authors).length === 0)) {
             return null
         }
@@ -85,7 +84,7 @@ class RecipeShow extends React.Component {
                         </div>
                     </div>
                 </div> 
-                <CommentShowContainer recipe={recipe}
+                <CommentShowContainer recipe={recipe} 
                                       authors={this.props.authors}/>
                 <Link to="/profile">Go Back</Link>
             </div>

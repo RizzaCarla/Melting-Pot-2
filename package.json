@@ -37,6 +37,9 @@
     "react-nice-dates": "^3.0.7",
     "validator": "^13.5.2"
   },
+  "engines": {
+    "node": "10.x"
+  },
   "devDependencies": {
     "nodemon": "^2.0.6"
   }

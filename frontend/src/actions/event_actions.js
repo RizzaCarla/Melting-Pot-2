@@ -1,7 +1,7 @@
 import * as EventApiUtil from "../util/event_api_utils"
 
 export const RECEIVE_ALL_EVENTS = "RECEIVE_ALL_EVENTS";
-export const RECEIVE_EVENT_ERRORS = 'RECEIVE_SESSION_ERRORS';
+export const RECEIVE_EVENT_ERRORS = 'RECEIVE_EVENT_ERRORS';
 export const RECEIVE_USER_EVENTS = "RECEIVE_USER_EVENTS";
 export const RECEIVE_EVENT = "RECEIVE_EVENT";
 export const REMOVE_EVENT = "REMOVE_EVENT";
@@ -69,7 +69,7 @@ export const getEvent = (eventId) => dispatch => {
 export const createEvent = (event) => dispatch => {
     return EventApiUtil.createEvent(event)
         .then(event => dispatch(receiveEvent(event)))
-        .catch((err) => receiveErrors(err.response.data))
+        .catch((err) => dispatch(receiveErrors(err.response.data)))
 };    
 
 export const updateEvent = (event) => dispatch => {

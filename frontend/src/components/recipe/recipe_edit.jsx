@@ -102,8 +102,6 @@ class RecipeEdit extends React.Component {
         if (this.props.currentUser._id !== recipe.authorId) {
             this.props.history.push('/')
         }
-        console.log(this.props.currentUser._id)
-        console.log(recipe.authorId)
         return (
           <div className="recipe-edit-parent">
             <div className="recipe-edit">
@@ -192,11 +190,11 @@ class RecipeEdit extends React.Component {
                         type="text"
                         className="recipe-edit-textarea"
                         value={this.state.queueIng}
-                        placeholder="Add ingredient"
+                        placeholder="Add Ingredient"
                         onChange={this.queueIngredient}
                       />
                       <button onClick={this.pushIngredient}>+</button>
-                    </div>
+                    </div> 
                   </div>
                   {/* <label>Instructions:
                     <div className="recipe-edit-bottom-last-input">
