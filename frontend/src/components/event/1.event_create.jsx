@@ -25,7 +25,7 @@ class EventForm extends React.Component {
         this.handleClick = this.handleClick.bind(this);
         this.handlePhotoFile = this.handlePhotoFile.bind(this);
         this.renderErrors = this.renderErrors.bind(this);
-        this.handleDayChange = this.handleDayChange.bind(this)
+        this.handleDayChange = this.handleDayChange.bind(this);
 
     }
 
@@ -69,7 +69,8 @@ class EventForm extends React.Component {
                 this.props.createEvent(newEvent)
                     .then((newEvent) =>
                         this.props.history.push(`/events/${newEvent.event.data._id}`)
-                    );
+                    )
+                    .catch(err => this.renderErrors());
             })
         } else {
             let newEvent = {
@@ -86,7 +87,8 @@ class EventForm extends React.Component {
             this.props.createEvent(newEvent)
                 .then((newEvent) =>
                     this.props.history.push(`/events/${newEvent.event.data._id}`)
-                );
+                )
+                .catch(err => this.renderErrors());
         }
     }
 
@@ -100,13 +102,13 @@ class EventForm extends React.Component {
     renderErrors() {
         return (
             <ul>
-                {Object.keys(this.state.errors).map((error, i) => (
+                {Object.values(this.props.errors).map((error, i) => (
                     <li key={`error-${i}`}>
-                        {this.state.errors[error]}
+                        *{error}
                     </li>
                 ))}
             </ul>
-        );
+        )
     }
 
 

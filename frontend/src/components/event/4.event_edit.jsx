@@ -12,7 +12,7 @@ class EditEvent extends React.Component {
 
         this.update = this.update.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-
+        this.renderErrors = this.renderErrors.bind(this);
         this.handleDayChange = this.handleDayChange.bind(this)
     }
 
@@ -34,8 +34,25 @@ class EditEvent extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.updateEvent(this.state).then(() => this.props.history.push(`/events/${this.props.event._id}`));
+        this.props.updateEvent(this.state)
+        .then(() => 
+            this.props.history.push(`/events/${this.props.event._id}`)
+        )
+            .catch(err => this.renderErrors());
     }
+
+    renderErrors() {
+        return (
+            <ul>
+                {Object.values(this.props.errors).map((error, i) => (
+                    <li key={`error-${i}`}>
+                        *{error}
+                    </li>
+                ))}
+            </ul>
+        )
+    }
+
 
     render() {
         const event = this.props.event
@@ -107,6 +124,7 @@ class EditEvent extends React.Component {
                     <div>
                         <Link to="/profile"> <button className="go-back">Go back</button></Link>
                     </div>
+                    <div className="errors">{this.renderErrors()}</div>
                 </form>
             </div>
         )
