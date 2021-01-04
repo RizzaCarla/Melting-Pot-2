@@ -31,6 +31,11 @@ class RecipeForm extends React.Component {
     this.renderErrors = this.renderErrors.bind(this);
 
   }
+
+  componentDidMount() {
+    this.props.clearErrors();
+  }
+
   update(field) {
     return (e) => this.setState({ [field]: e.target.value });
   }
@@ -248,8 +253,9 @@ class RecipeForm extends React.Component {
             </ul>
           </form>
         </div>
-        <br></br>
-        <Link to="/profile"><button>Go Back</button></Link>
+        <div className="go-back-container">
+          <Link to="/profile"><button className="recipe-create-go-back-btn">Go Back</button></Link>
+        </div>
       </div>
     );
   }
