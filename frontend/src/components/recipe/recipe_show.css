@@ -217,6 +217,7 @@
     width: 60px;
     height: 60px;
     border-radius: 100%;
+    object-fit: cover;
 }
 
 .recipe-show-owner-story-cont h4 {

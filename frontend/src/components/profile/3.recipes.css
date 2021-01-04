@@ -16,10 +16,12 @@
 }
 
 .recipe-name{
-    margin-left: 90px;
+    /* margin-left: 90px; */
     font-family: 'roboto', sans-serif;
     font-weight: bolder;
     font-size: 15px;
+    display:flex;
+    justify-content: center;
 }
 
 .single-recipe-container{
