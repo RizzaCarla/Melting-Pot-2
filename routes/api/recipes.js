@@ -71,24 +71,6 @@ router.patch('/edit/:id', (req, res) => {
     .then((recipe) => res.json(recipe))
 })
 
-// Search Recipes
-// router.post('/search-recipes', (req, res) => {
-//   // let recipePattern = new RegExp("^" + req.body.query);
-//   let recipePattern = new RegExp(req.body.query)
-//   let queries = [];
-  
-//   queries.push(Recipe.find({name:{$regex:recipePattern}})
-//     .exec()
-//   )
-  
-//   queries.push(Recipe.find({category: {$regex: recipePattern}})
-//     .exec()
-//   )
-
-//   Promise.all(queries).then(results => res.json(results))
-// })
-
-
 router.post("/search-recipes", (req, res) => {
   let recipePattern = new RegExp("^" + req.body.query, "i");
   
@@ -98,8 +80,6 @@ router.post("/search-recipes", (req, res) => {
     })
     .catch((err) => console.log(err));
 });
-
-
 
 module.exports = router;
 //MAKE SURE TO HAVE REGULAR ROUTES ABOVE ROUTES WITH WILDCARDS OTHER WISE YOU GET THIS BUG: UnhandledPromiseRejectionWarning: CastError: Cast to ObjectId failed for value

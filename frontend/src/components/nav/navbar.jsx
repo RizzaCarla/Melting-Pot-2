@@ -90,9 +90,16 @@ class NavBar extends React.Component {
               <div className="search-item-picture">
                 <img src={item.photoUrl}></img>
                 <div className="search-item-name">
-                  <li>Name: {item.name}</li>
-                  <li>Difficulty: {item.difficulty}</li>
-                  <li>Likes: {!item.numLikes ? "0" : item.numLikes}</li>
+                  <li>
+                    <span id="result-1">Name:</span> {item.name}
+                  </li>
+                  <li>
+                    <span id="result-1">Difficulty: </span> {item.difficulty}
+                  </li>
+                  <li>
+                    <span id="result-1">Likes: </span>
+                    {!item.numLikes ? "0" : item.numLikes}
+                  </li>
                 </div>
               </div>
             </li>
