@@ -35,7 +35,7 @@
 }
 
 .save-recipe-btn:hover {
-    opacity: 70%;
+    background-color: rgb(2, 169, 175)
 }
 
 .recipe-errors {
