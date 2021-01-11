@@ -1,10 +1,21 @@
-import { RECEIVE_ALL_RECIPES, RECEIVE_USER_RECIPES, RECEIVE_RECIPE, REMOVE_RECIPE , CLEAR_RECIPE} from "../actions/recipe_actions";
+import { RECEIVE_ALL_RECIPES_USING_CATEGORY,
+         RECEIVE_ALL_RECIPES, 
+         RECEIVE_USER_RECIPES, 
+         RECEIVE_RECIPE, 
+         REMOVE_RECIPE , 
+         CLEAR_RECIPE} from "../actions/recipe_actions";
 
 const recipeReducer = (state = {}, action) => {
     Object.freeze(state);
     let newState = Object.assign({}, state);
 
     switch (action.type) {
+        case RECEIVE_ALL_RECIPES_USING_CATEGORY:
+            let r;
+            for (r = 0; r < action.recipes.data.length; r++) {
+                newState[action.recipes.data[r]._id] = action.recipes.data[r];
+            }
+            return newState;
         case RECEIVE_ALL_RECIPES:
             let i;
             for (i = 0; i < action.recipes.data.length; i++) {

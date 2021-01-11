@@ -3,11 +3,13 @@ import Vegetables from './2.vegetables'
 
 const mapStateToProps = (state) => {
   return {
+    recipes: state.entities.recipes
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    
   };
 };
 

@@ -69,7 +69,7 @@ export const getRecipes = () => dispatch => {
 };
 
 export const getRecipeUsingCategory = (categoryName) => dispatch => {
-    return RecipeApiUtil.getRecipeUsingCategory(categoryName)
+    return RecipeApiUtil.getRecipeCategory(categoryName)
         .then(recipes => dispatch(receiveAllRecipesUsingCategory(recipes)))
         .catch(err => console.log(err))
 }

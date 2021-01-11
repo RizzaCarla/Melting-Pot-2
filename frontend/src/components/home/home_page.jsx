@@ -41,6 +41,22 @@ class HomePage extends React.Component {
     }
   }
 
+  handleViewEventButton(randomEventId) {
+    if (this.props.currentUser !== {}) {
+      return (
+        <Link to={'/login'}>
+          <button className='home-page-button-event'>View Full Event</button>
+        </Link>
+      )
+    } else {
+      return (
+        <Link to={`/events/${randomEventId}`}>
+          <button className='home-page-button-event'>View Full Event</button>
+        </Link>
+      )
+    }
+  }
+
   render() {
     
     const randomRecipe = this.handleRandomRecipe();
@@ -62,6 +78,13 @@ class HomePage extends React.Component {
     if (handleParticipateButton === undefined) {
       return null
     }
+    
+    
+        console.log(randomEvent._id)
+    const handleViewEventButton = this.handleViewEventButton(randomEvent._id);
+    // if (handleViewEventButton === undefined) {
+    //   return null
+    // }
     
     return (
       <div className='home-page-container'>
@@ -93,9 +116,7 @@ class HomePage extends React.Component {
         <div className='trending-events'>
           <div className='home-page-header-event'>
             <h1>Trending Event</h1>
-            <Link to={`/events/${randomEvent._id}`}>
-              <button className='home-page-button-event'>View Full Event</button>
-            </Link>
+            <div>{handleViewEventButton}</div>
             <hr></hr>
           </div>
 

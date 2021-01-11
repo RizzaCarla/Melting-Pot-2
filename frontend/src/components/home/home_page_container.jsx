@@ -7,7 +7,7 @@ import HomePage from './home_page';
 
 const mapStateToProps = (state) => {
   return ({
-    currentUser: state.session.currentUser.user,
+    currentUser: state.session.currentUser,
     recipes: state.entities.recipes,
     events: state.entities.events,
     users: state.entities.users
