@@ -46,7 +46,7 @@
 }
 
 .comment-submit:hover {
-    opacity: 70%;
+    background-color: rgb(2, 169, 175)
 }
 
 .comment-delete-btn {
