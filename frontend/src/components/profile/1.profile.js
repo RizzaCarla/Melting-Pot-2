@@ -16,7 +16,7 @@ class Profile extends React.Component {
       <div className="profile-container">
 
         <div className="profile-pic-container">
-          <div><img className="profile-picture" src={this.props.currentUser.photoUrl}></img></div>
+          <div className="profile-pic-div"><img className="profile-picture" src={this.props.currentUser.photoUrl}></img></div>
         </div>
 
         <div className="profile-handle">{this.props.currentUser.handle}</div>

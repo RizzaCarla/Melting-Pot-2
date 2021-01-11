@@ -75,7 +75,7 @@ export const createEvent = (event) => dispatch => {
 export const updateEvent = (event) => dispatch => {
     return EventApiUtil.updateEvent(event)
         .then(event => dispatch(receiveEvent(event)))
-        .catch((err) => console.log(err))
+        .catch((err) => dispatch(receiveErrors(err.response.data)))
 };
 
 export const deleteEvent = (eventId) => dispatch => {

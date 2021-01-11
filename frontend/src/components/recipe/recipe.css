@@ -35,7 +35,7 @@
 }
 
 .save-recipe-btn:hover {
-    opacity: 70%;
+    background-color: rgb(2, 169, 175)
 }
 
 .recipe-errors {
@@ -341,3 +341,23 @@
     color:  #C0C0C0
 }
 
+.go-back-container {
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.recipe-create-go-back-btn {
+    font-size:15px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color:  rgb(151, 179, 138);
+    color:black;
+    width: 400px;
+    cursor: pointer;
+}
+
+.recipe-create-go-back-btn:hover {
+    background-color: rgb(121, 163, 94);
+    color:white;
+}

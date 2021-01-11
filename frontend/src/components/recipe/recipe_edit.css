@@ -234,12 +234,13 @@
 }
 
 .recipe-edit-bottom-last-input textarea {
-    margin-left: 6px;
+    margin-left: 17px;
     height: 32px;
-    width: 177px;
+    width: 155px;
     border: 1px solid black;
     border-radius: 5px;
     padding: 5px;
+    font-family:sans-serif;
 }
 
 
@@ -270,4 +271,5 @@
     border: 1px solid black;
     border-radius: 5px;
     padding: 5px;
+    font-family:sans-serif;
 }

@@ -33,7 +33,7 @@ class EventShow extends React.Component {
                 <div className="event-photo-container"><img className="event-photo-show" src={this.props.event.photoUrl} /></div>            
                 
                 <div className="event-info-show">
-                    <div>< label id="event-label">Event Name:&nbsp;</label>{this.props.event.name} </div>            
+                    <div><label id="event-label">Event Name:&nbsp;</label>{this.props.event.name} </div>            
                     <div> <label id="event-label">Date:&nbsp;</label>{ Object.values(this.props.event.date).slice(5, 10).concat('-',Object.values(this.props.event.date).slice(0,4)) }</div>        
                     <div> <label id="event-label">From:&nbsp;</label>{this.props.event.startTime} to {this.props.event.endTime}</div>        
                     <div><label id="event-label">Location or Link:&nbsp;</label>{this.props.event.location}</div>      

@@ -48,7 +48,7 @@ class RecipeShow extends React.Component {
                         <ul>
                             <li><h4>Difficulty:&nbsp;&nbsp;<span>{recipe.difficulty}</span></h4></li>
                             <li><h4>Cooking Time:&nbsp;&nbsp;<span>{recipe.cookingTime}</span></h4></li>
-                            <li><h4>Likes:&nbsp;&nbsp;<span>{recipe.numLikes === null ? 0 : recipe.numlikes}</span></h4></li>
+                            {/* <li><h4>Likes:&nbsp;&nbsp;<span>{recipe.numLikes === null ? 0 : recipe.numlikes}</span></h4></li> */} {/*// TODO comment this back in after figuring out how to implement likes in WK16*/}
                             {userOnlyBtns}
                         </ul>
                     </div>
@@ -86,7 +86,7 @@ class RecipeShow extends React.Component {
                 </div> 
                 <CommentShowContainer recipe={recipe} 
                                       authors={this.props.authors}/>
-                <Link to="/profile">Go Back</Link>
+                <Link className="recipe-show-go-back-btn-text" to="/profile"><button className="recipe-show-go-back-btn">Go Back</button></Link>
             </div>
         )
     }
