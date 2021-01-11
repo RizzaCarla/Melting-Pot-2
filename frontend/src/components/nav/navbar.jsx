@@ -60,6 +60,8 @@ class NavBar extends React.Component {
         .then((res) => res.json())
         .then((results) => {
           this.setState({ ["queryResults"]: results.recipe })
+          // this.setState({ ["queryResults"]: results});
+
         })
     }
   }
