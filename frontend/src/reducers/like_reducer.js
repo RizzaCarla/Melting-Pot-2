@@ -12,8 +12,8 @@ const likeReducer = (state = {}, action) => {
             }
             return newState;
         case RECEIVE_LIKE:
-            return Object.assign(newState, { [action.like.data._id]: action.recipe.data });
-        case REMOVE_RECIPE:
+            return Object.assign(newState, { [action.like.data._id]: action.like.data });
+        case REMOVE_LIKE:
             delete newState[action.likeId];
             return newState;
         default:

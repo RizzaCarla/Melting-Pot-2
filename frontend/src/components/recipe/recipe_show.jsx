@@ -7,7 +7,12 @@ import CommentShowContainer from "../comment/comment_index_container";
 class RecipeShow extends React.Component {
     constructor(props) {
         super(props)
+        // this.state = {
+            // likerId: "",
+            // recipeId: ""
+        // }
         this.handleDelete = this.handleDelete.bind(this);
+        this.handleLike = this.handleLike.bind(this);
     }
 
     componentDidMount() {
@@ -18,6 +23,15 @@ class RecipeShow extends React.Component {
     handleDelete(e) {
         e.preventDefault();
         this.props.deleteRecipe(this.props.recipe._id).then(this.props.history.push(`/profile`))
+    }
+
+    handleLike(e) {
+        debugger;
+        e.preventDefault();
+        // this.setState({["likerId"]: this.props.currentUser.user._id});
+        // this.setState({["recipeId"]: this.props.recipe._id});
+        this.props.createLike({"likerId": this.props.currentUser.user._id,
+                                "recipeId": this.props.recipe._id});
     }
 
     render(){
@@ -36,6 +50,12 @@ class RecipeShow extends React.Component {
                                             <Link className="user-only-btn-edit" to={`/recipes/${recipe._id}/edit`}>Edit Recipe</Link>
                                             <button className="user-only-btn-delete" onClick={this.handleDelete}>Delete Recipe</button>
                                         </div>
+        
+        const likeBtn = (this.props.currentUser === undefined) ?
+            null : (this.props.currentUser.user === undefined) ?
+            null : (this.props.currentUser.user._id === recipe.authorId) ?
+            null : <button className="like-btn" onClick={this.handleLike}>Like</button>
+
 
         return(
             <div className="recipe-show-container">
@@ -48,7 +68,8 @@ class RecipeShow extends React.Component {
                         <ul>
                             <li><h4>Difficulty:&nbsp;&nbsp;<span>{recipe.difficulty}</span></h4></li>
                             <li><h4>Cooking Time:&nbsp;&nbsp;<span>{recipe.cookingTime}</span></h4></li>
-                            {/* <li><h4>Likes:&nbsp;&nbsp;<span>{recipe.numLikes === null ? 0 : recipe.numlikes}</span></h4></li> */} {/*// TODO comment this back in after figuring out how to implement likes in WK16*/}
+                            <li><h4>Likes:&nbsp;&nbsp;{this.props.likes.length}</h4></li>
+                            {likeBtn}
                             {userOnlyBtns}
                         </ul>
                     </div>
