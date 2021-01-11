@@ -29,28 +29,16 @@ class HomePage extends React.Component {
     return this.props.users[recipeOwnerId]
   }
 
-  handleParticipateButton(eventId) {
-    if (this.props.currentUser !== {}) {
-      // if (this.props.users[this.props.currentUser._id].eventsParticipating.includes("ff16ef488117e1e9e7aa850")) {
-      //   return ('Participating')
-      // } else {
-      return <button className='home-page-join-button'>Join</button>
-      // }
-    } else if (this.props.currentUser === {}) {
-      return <button className="home-page-register-button">Register to Join</button>
-    }
-  }
-
   handleViewEventButton(randomEventId) {
     if (this.props.currentUser !== {}) {
       return (
-        <Link to={'/login'}>
+        <Link to={`/events/${randomEventId}`}>
           <button className='home-page-button-event'>View Full Event</button>
         </Link>
       )
-    } else {
+    } else if (this.props.currentUser === {}) {
       return (
-        <Link to={`/events/${randomEventId}`}>
+        <Link to={'/login'}>
           <button className='home-page-button-event'>View Full Event</button>
         </Link>
       )
@@ -58,6 +46,8 @@ class HomePage extends React.Component {
   }
 
   render() {
+
+    console.log(this.props.currentUser)
     
     const randomRecipe = this.handleRandomRecipe();
     if (randomRecipe === undefined) {
@@ -73,14 +63,7 @@ class HomePage extends React.Component {
     if (fetchUserInfoForRecipe === undefined) {
       return null
     }
-    
-    const handleParticipateButton = this.handleParticipateButton(randomEvent._id);
-    if (handleParticipateButton === undefined) {
-      return null
-    }
-    
-    
-        console.log(randomEvent._id)
+
     const handleViewEventButton = this.handleViewEventButton(randomEvent._id);
     // if (handleViewEventButton === undefined) {
     //   return null
@@ -124,14 +107,12 @@ class HomePage extends React.Component {
             <img src={randomEvent.photoUrl} className="home-page-event-images"></img>
             <div className='home-page-event-details'>
               <h1 className='home-page-event-name'>{randomEvent.name}</h1>
-              <h1>Date: {randomEvent.date}</h1>
-              <h1>Start Time: {randomEvent.startTime}</h1>
-              <h1>End Time: {randomEvent.endTime}</h1>
-              <h1># of Participants: {randomEvent.usersJoined.length}</h1>
-              <h1>Location: {randomEvent.location}</h1>
-              <h1>Description: {randomEvent.description}</h1>
+              {/* <div className="date-index"> Date:&nbsp;<span id="event-index-info">{Object.values(event.date).slice(0, 10)}</span></div>  */}
+              <h1>Date:&nbsp;<span id="event-info">{randomEvent.date.slice(0, 10)}</span></h1>
+              <h1>Start Time:&nbsp;<span id="event-info">{randomEvent.startTime}</span></h1>
+              <h1>End Time:&nbsp;<span id="event-info">{randomEvent.endTime}</span></h1>
+              <h1># of Participants:&nbsp;<span id="event-info">{randomEvent.usersJoined.length}</span></h1>
             </div>
-            <div className='home-page-event-button'>{handleParticipateButton}</div>
           </div>
         </div>
 
