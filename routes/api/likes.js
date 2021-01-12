@@ -34,6 +34,13 @@ router.patch('/edit/:id', (req, res) => {
     .then(like => res.json(like))
 })
 
+// RETRIEVE ALL LIKES (Added by Kevin)
+router.get('/', (req, res) => {
+  Like.find()
+    .then(likes => res.json(likes))
+    .catch(err => res.status(404).json({ likesNotFound: "No likes found" }))
+})
+
 // RETRIEVE LIKES OF ONE RECIPE (Added by Kevin)
 router.get(`/recipe/:recipeId`, (req, res) => {
   Like.find({ "recipeId": req.params.recipeId })

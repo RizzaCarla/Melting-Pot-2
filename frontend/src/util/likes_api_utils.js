@@ -1,5 +1,9 @@
 import axios from 'axios';
 
+export const getLikes = () => {
+    return axios.get('/api/likes/')
+}
+
 export const getRecipeLikes = recipeId => {
     return axios.get(`/api/likes/recipe/${recipeId}`)
 }

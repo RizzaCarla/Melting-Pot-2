@@ -7,10 +7,6 @@ import CommentShowContainer from "../comment/comment_index_container";
 class RecipeShow extends React.Component {
     constructor(props) {
         super(props)
-        // this.state = {
-            // likerId: "",
-            // recipeId: ""
-        // }
         this.handleDelete = this.handleDelete.bind(this);
         this.handleLike = this.handleLike.bind(this);
     }
@@ -18,6 +14,7 @@ class RecipeShow extends React.Component {
     componentDidMount() {
         this.props.getRecipes();
         this.props.fetchUsers();
+        this.props.getRecipeLikes(this.props.recipeId);
     }
 
     handleDelete(e) {
@@ -28,8 +25,6 @@ class RecipeShow extends React.Component {
     handleLike(e) {
         debugger;
         e.preventDefault();
-        // this.setState({["likerId"]: this.props.currentUser.user._id});
-        // this.setState({["recipeId"]: this.props.recipe._id});
         this.props.createLike({"likerId": this.props.currentUser.user._id,
                                 "recipeId": this.props.recipe._id});
     }
