@@ -13,14 +13,17 @@ class RecipeShow extends React.Component {
     }
 
     componentDidMount() {
-        this.props.getRecipes();
         this.props.fetchUsers();
+        this.props.getRecipes();
+        this.props.clearLikes();
         this.props.getRecipeLikes(this.props.recipeId);
     }
 
     componentDidUpdate(prevProps) {
         if (prevProps.recipeId !== this.props.recipeId) {
             this.props.clearLikes();
+            this.props.getRecipeLikes(this.props.recipeId);
+        } else {
             this.props.getRecipeLikes(this.props.recipeId);
         }
     }
