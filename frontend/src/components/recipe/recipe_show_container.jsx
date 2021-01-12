@@ -12,7 +12,7 @@ const mapStateToProps = (state, ownProps) => {
         recipe: recipe,
         authors: state.entities.users,
         recipeId: ownProps.match.params.recipeId,
-        likes: Object.keys(state.entities.likes)
+        likes: state.entities.likes
     });
 };
 

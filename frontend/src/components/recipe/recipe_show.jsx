@@ -9,6 +9,7 @@ class RecipeShow extends React.Component {
         super(props)
         this.handleDelete = this.handleDelete.bind(this);
         this.handleLike = this.handleLike.bind(this);
+        this.handleUnlike = this.handleUnlike.bind(this);
     }
 
     componentDidMount() {
@@ -17,16 +18,27 @@ class RecipeShow extends React.Component {
         this.props.getRecipeLikes(this.props.recipeId);
     }
 
+    componentDidUpdate(prevProps) {
+        if (prevProps.recipeId !== this.props.recipeId) {
+            this.props.clearLikes();
+            this.props.getRecipeLikes(this.props.recipeId);
+        }
+    }
+
     handleDelete(e) {
         e.preventDefault();
         this.props.deleteRecipe(this.props.recipe._id).then(this.props.history.push(`/profile`))
     }
 
     handleLike(e) {
-        debugger;
         e.preventDefault();
         this.props.createLike({"likerId": this.props.currentUser.user._id,
                                 "recipeId": this.props.recipe._id});
+    }
+
+    handleUnlike(authorId) {
+        const likeId = this.props.likes[authorId]._id;
+        this.props.deleteLike(likeId);
     }
 
     render(){
@@ -36,6 +48,9 @@ class RecipeShow extends React.Component {
         
         const recipe = this.props.recipe;
         const author = this.props.authors[recipe.authorId];
+
+        const likes = this.props.likes;
+        const peopleLiked = Object.keys(this.props.likes);
 
         const userOnlyBtns = (this.props.currentUser === undefined) ? 
                                 null : (this.props.currentUser.user === undefined) ? 
@@ -49,7 +64,9 @@ class RecipeShow extends React.Component {
         const likeBtn = (this.props.currentUser === undefined) ?
             null : (this.props.currentUser.user === undefined) ?
             null : (this.props.currentUser.user._id === recipe.authorId) ?
-            null : <button className="like-btn" onClick={this.handleLike}>Like</button>
+            null : (peopleLiked.includes(this.props.currentUser.user._id)) ?
+            <button className="unlike-btn" onClick={this.handleUnlike(this.props.currentUser.user._id)}>Unlike</button> :
+            <button className="like-btn" onClick={this.handleLike}>Like</button>
 
 
         return(
@@ -63,7 +80,7 @@ class RecipeShow extends React.Component {
                         <ul>
                             <li><h4>Difficulty:&nbsp;&nbsp;<span>{recipe.difficulty}</span></h4></li>
                             <li><h4>Cooking Time:&nbsp;&nbsp;<span>{recipe.cookingTime}</span></h4></li>
-                            <li><h4>Likes:&nbsp;&nbsp;{this.props.likes.length}</h4></li>
+                            <li><h4>Likes:&nbsp;&nbsp;{peopleLiked.length}</h4></li>
                             {likeBtn}
                             {userOnlyBtns}
                         </ul>
