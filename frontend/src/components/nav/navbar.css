@@ -5,6 +5,7 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+
 html {
     background-color:rgb(252, 247, 241)
    
@@ -104,7 +105,8 @@ html {
     height: fit-content;
     max-height: 400px;
     width:fit-content;
-    max-width: 342px;
+    width: 343px;
+    max-width: 350px;
     border: 1px solid #cccbcb;
     border-radius: 5px;
 }
