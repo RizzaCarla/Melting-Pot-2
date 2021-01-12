@@ -13,6 +13,7 @@ import RecipeFormContainer from "./recipe/recipe_create_container";
 import RecipeShowContainer from "./recipe/recipe_show_container";
 import RecipeEditContainer from "./recipe/recipe_edit_container";
 import EventIndexContainer from './event/3.event_index_container';
+import Footer from './footer/footer'
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
         <Route exact path="/" component={HomePageContainer} />
 
       </Switch>
+      <Footer />
     </div>
   )
 };
