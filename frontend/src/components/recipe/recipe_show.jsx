@@ -20,10 +20,9 @@ class RecipeShow extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (prevProps.recipeId !== this.props.recipeId) {
+        if ((prevProps.recipeId !== this.props.recipeId)) {
             this.props.clearLikes();
-            this.props.getRecipeLikes(this.props.recipeId);
-        } else {
+            this.props.getRecipe(this.props.recipeId);
             this.props.getRecipeLikes(this.props.recipeId);
         }
     }
@@ -36,12 +35,13 @@ class RecipeShow extends React.Component {
     handleLike(e) {
         e.preventDefault();
         this.props.createLike({"likerId": this.props.currentUser.user._id,
-                                "recipeId": this.props.recipe._id});
+                                "recipeId": this.props.recipe._id})
+        this.props.getRecipeLikes(this.props.recipeId);
     }
 
-    handleUnlike(authorId) {
-        const likeId = this.props.likes[authorId]._id;
+    handleUnlike(likeId) {
         this.props.deleteLike(likeId);
+        this.props.getRecipeLikes(this.props.recipeId);
     }
 
     render(){
@@ -52,8 +52,20 @@ class RecipeShow extends React.Component {
         const recipe = this.props.recipe;
         const author = this.props.authors[recipe.authorId];
 
-        const likes = this.props.likes;
-        const peopleLiked = Object.keys(this.props.likes);
+        // Sorting through Likes = Starts Here
+        const likes = Object.values(this.props.likes);
+        const likeIds = Object.keys(this.props.likes);
+        let peopleLiked = [];
+        let i;
+        for(i = 0; i < likes.length; i++) {
+            peopleLiked.push(likes[i].likerId)
+        }
+        let idx = (this.props.currentUser === undefined) ? 
+                    null : (Object.values(this.props.currentUser).length === 0) ? 
+                    null :
+                    peopleLiked.indexOf(this.props.currentUser.user._id);
+        let likeId = (likeIds[idx]);
+        // Sorting through Likes - Ends Here
 
         const userOnlyBtns = (this.props.currentUser === undefined) ? 
                                 null : (this.props.currentUser.user === undefined) ? 
@@ -68,8 +80,14 @@ class RecipeShow extends React.Component {
             null : (this.props.currentUser.user === undefined) ?
             null : (this.props.currentUser.user._id === recipe.authorId) ?
             null : (peopleLiked.includes(this.props.currentUser.user._id)) ?
-            <button className="unlike-btn" onClick={this.handleUnlike(this.props.currentUser.user._id)}>Unlike</button> :
-            <button className="like-btn" onClick={this.handleLike}>Like</button>
+                <button className="unlike-btn" 
+                        onClick={() => this.handleUnlike(likeId)}>
+                        Unlike
+                </button> :
+                <button className="like-btn" 
+                        onClick={this.handleLike}>
+                        Like
+                </button>
 
 
         return(

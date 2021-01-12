@@ -14,7 +14,7 @@ const likeReducer = (state = {}, action) => {
         case RECEIVE_RECIPE_LIKES:
             let i;
             for(i = 0; i < action.likes.data.length; i++) {
-                newState[action.likes.data[i].likerId] = action.likes.data[i];
+                newState[action.likes.data[i]._id] = action.likes.data[i];
             }
             return newState;
         case RECEIVE_LIKE:
