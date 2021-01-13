@@ -1,5 +1,6 @@
 import React from 'react';
 import './recipe_show.css';
+import './like.css'
 import { Link } from 'react-router-dom';
 
 import CommentShowContainer from "../comment/comment_index_container";
@@ -80,11 +81,11 @@ class RecipeShow extends React.Component {
             null : (this.props.currentUser.user === undefined) ?
             null : (this.props.currentUser.user._id === recipe.authorId) ?
             null : (peopleLiked.includes(this.props.currentUser.user._id)) ?
-                <button className="unlike-btn" 
+                <button className="like-btns" 
                         onClick={() => this.handleUnlike(likeId)}>
                         Unlike
                 </button> :
-                <button className="like-btn" 
+                <button className="like-btns" 
                         onClick={this.handleLike}>
                         Like
                 </button>
