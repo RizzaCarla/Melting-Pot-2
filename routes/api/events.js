@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const router = express.Router();
 const validateEventInput = require('../../validation/events');
 const Event = require('../../models/Event');
+const User = require('../../models/User')
 
 //RETRIEVE ALL EVENTS
 router.get('/', (req, res) => {
@@ -68,5 +69,6 @@ router.delete('/:id', (req, res) => {
     .then(event => res.json('Event successfully deleted'))
     .catch(err => res.status(404).json('Event was not successfully deleted'))
 })
+
 
 module.exports = router;

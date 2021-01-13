@@ -38,9 +38,9 @@ const EventSchema = new Schema({
     type: String,
     required: true
   },
-  
   usersJoined: [{ type: Schema.Types.ObjectId, ref: 'events', required: false }],
 })
+
 
 
 module.exports = Event = mongoose.model('Event', EventSchema);

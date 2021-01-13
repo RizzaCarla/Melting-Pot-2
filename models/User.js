@@ -33,9 +33,10 @@ const UserSchema = new Schema({
     recipesPosted: [{ type: Schema.Types.ObjectId, ref: 'users', required: false }],
     eventsParticipating: [{ type: Schema.Types.ObjectId, ref: 'users', required: false }],
 
-
 }, {
   timestamps: true
 })
+
+
 
 module.exports = User = mongoose.model('User', UserSchema);

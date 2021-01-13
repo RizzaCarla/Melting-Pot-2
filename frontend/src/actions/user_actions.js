@@ -37,3 +37,14 @@ export const updateUser = userId => dispatch => {
       .then(user => dispatch(receiveUser(user)))
   )
 }
+
+
+export const join = (event) => (dispatch) =>
+  UserAPIUtil.join(event)
+    .then((user) => dispatch(receiveUser(user.data)))
+    .catch((err) => console.log(err))
+
+export const unjoin = (event) => (dispatch) =>
+  UserAPIUtil.unjoin(event)
+    .then((user) => dispatch(receiveUser(user.data)))
+    .catch((err) => console.log(err))

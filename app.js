@@ -7,6 +7,7 @@ const passport = require("passport");
 
 // Add require routes here
 const users = require("./routes/api/users");
+const joins = require("./routes/api/joins");
 const recipes = require("./routes/api/recipes");
 const events = require("./routes/api/events");
 const likes = require("./routes/api/likes");
@@ -40,6 +41,7 @@ app.use("/api/users", users);
 app.use('/api/recipes', recipes);
 app.use('/api/events', events);
 app.use('/api/likes', likes);
+app.use('/api/joins', joins);
 app.use('/api/comments', comments);
 // ADD BACKEND ROUTES HERE
 

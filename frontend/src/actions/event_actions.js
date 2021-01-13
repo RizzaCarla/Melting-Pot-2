@@ -6,6 +6,8 @@ export const RECEIVE_USER_EVENTS = "RECEIVE_USER_EVENTS";
 export const RECEIVE_EVENT = "RECEIVE_EVENT";
 export const REMOVE_EVENT = "REMOVE_EVENT";
 export const CLEAR_EVENT_ERRORS = "CLEAR_EVENT_ERRORS"
+export const JOIN = "JOIN"
+export const UNJOIN = "UNJOIN"
 
 // Regular action creators
 
@@ -54,8 +56,8 @@ export const getEvents = () => dispatch => {
         .catch((err) => console.log(err))
 };
 
-export const getUserEvents = (eventId) => dispatch => {
-    return EventApiUtil.getUserEvents(eventId)
+export const getUserEvents = (userId) => dispatch => {
+    return EventApiUtil.getUserEvents(userId)
         .then(events => dispatch(receiveUserEvents(events)))
         .catch((err) => console.log(err))
 };
@@ -83,4 +85,5 @@ export const deleteEvent = (eventId) => dispatch => {
         .then(() => dispatch(removeEvent(eventId)))
         .catch((err) => console.log(err))
 };
+
 

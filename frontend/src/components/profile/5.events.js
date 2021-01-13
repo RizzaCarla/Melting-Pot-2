@@ -39,7 +39,7 @@ class Events extends React.Component {
                                             <div>
                                                 <div className="date">{ Object.values(event.date).slice(5, 10).concat('-' ,Object.values(event.date).slice(0,4))}</div>
                                                 <div><Link className="event-name" to={`/events/${event._id}`}>{event.name}</Link></div>
-                                                <div className="date"># of people participating: &nbsp;{ event.usersJoined.length }</div>
+                                                <div className="date">Participating: &nbsp;{ event.usersJoined.length }</div>
                                                 <div className="date">Location:&nbsp;{event.location}</div>
                                                 <div className="date">Hosted by:&nbsp;{this.props.users[event.hostId].handle}</div>
 
