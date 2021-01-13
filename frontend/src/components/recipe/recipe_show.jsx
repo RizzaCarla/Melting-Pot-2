@@ -1,5 +1,6 @@
 import React from 'react';
 import './recipe_show.css';
+import './like.css'
 import { Link } from 'react-router-dom';
 
 
@@ -10,16 +11,40 @@ class RecipeShow extends React.Component {
     constructor(props) {
         super(props)
         this.handleDelete = this.handleDelete.bind(this);
+        this.handleLike = this.handleLike.bind(this);
+        this.handleUnlike = this.handleUnlike.bind(this);
     }
 
     componentDidMount() {
-        this.props.getRecipes();
         this.props.fetchUsers();
+        this.props.getRecipes();
+        this.props.clearLikes();
+        this.props.getRecipeLikes(this.props.recipeId);
+    }
+
+    componentDidUpdate(prevProps) {
+        if ((prevProps.recipeId !== this.props.recipeId)) {
+            this.props.clearLikes();
+            this.props.getRecipe(this.props.recipeId);
+            this.props.getRecipeLikes(this.props.recipeId);
+        }
     }
 
     handleDelete(e) {
         e.preventDefault();
         this.props.deleteRecipe(this.props.recipe._id).then(this.props.history.push(`/profile`))
+    }
+
+    handleLike(e) {
+        e.preventDefault();
+        this.props.createLike({"likerId": this.props.currentUser.user._id,
+                                "recipeId": this.props.recipe._id})
+        this.props.getRecipeLikes(this.props.recipeId);
+    }
+
+    handleUnlike(likeId) {
+        this.props.deleteLike(likeId);
+        this.props.getRecipeLikes(this.props.recipeId);
     }
 
     render(){
@@ -29,6 +54,21 @@ class RecipeShow extends React.Component {
         const recipe = this.props.recipe;
         const author = this.props.authors[recipe.authorId];
 
+        // Sorting through Likes = Starts Here
+        const likes = Object.values(this.props.likes);
+        const likeIds = Object.keys(this.props.likes);
+        let peopleLiked = [];
+        let i;
+        for(i = 0; i < likes.length; i++) {
+            peopleLiked.push(likes[i].likerId)
+        }
+        let idx = (this.props.currentUser === undefined) ? 
+                    null : (Object.values(this.props.currentUser).length === 0) ? 
+                    null :
+                    peopleLiked.indexOf(this.props.currentUser.user._id);
+        let likeId = (likeIds[idx]);
+        // Sorting through Likes - Ends Here
+
         const userOnlyBtns = (this.props.currentUser === undefined) ? 
                                 null : (this.props.currentUser.user === undefined) ? 
                                 null : (this.props.currentUser.user._id !== recipe.authorId) ? 
@@ -37,30 +77,37 @@ class RecipeShow extends React.Component {
                                             <Link className="user-only-btn-edit" to={`/recipes/${recipe._id}/edit`}>Edit Recipe</Link>
                                             <button className="user-only-btn-delete" onClick={this.handleDelete}>Delete Recipe</button>
                                         </div>
+        
+        const likeBtn = (this.props.currentUser === undefined) ?
+            null : (this.props.currentUser.user === undefined) ?
+            null : (this.props.currentUser.user._id === recipe.authorId) ?
+            null : (peopleLiked.includes(this.props.currentUser.user._id)) ?
+                <button className="like-btns" 
+                        onClick={() => this.handleUnlike(likeId)}>
+                        Unlike
+                </button> :
+                <button className="like-btns" 
+                        onClick={this.handleLike}>
+                        Like
+                </button>
 
-        return (
-          <div className="recipe-show-container">
-            <div className="recipe-show-info">
-              <div className="recipe-pic">
-                <img src={recipe.photoUrl} alt="" />
-                <h4>{recipe.name}</h4>
-              </div>
-              <div className="recipe-misc-info">
-                <ul>
-                  <li>
-                    <h4>
-                      Difficulty:&nbsp;&nbsp;<span>{recipe.difficulty}</span>
-                    </h4>
-                  </li>
-                  <li>
-                    <h4>
-                      Cooking Time:&nbsp;&nbsp;<span>{recipe.cookingTime}</span>
-                    </h4>
-                  </li>
-                  {/* <li><h4>Likes:&nbsp;&nbsp;<span>{recipe.numLikes === null ? 0 : recipe.numlikes}</span></h4></li> */}{" "}
-                  {/*// TODO comment this back in after figuring out how to implement likes in WK16*/}
-                  {userOnlyBtns}
-                </ul>
+
+
+        return(
+            <div className="recipe-show-container">
+                <div className="recipe-show-info">
+                    <div className="recipe-pic">
+                        <img src={recipe.photoUrl} alt=""/>
+                        <h4>{recipe.name}</h4>
+                    </div>
+                    <div className="recipe-misc-info">
+                        <ul>
+                            <li><h4>Difficulty:&nbsp;&nbsp;<span>{recipe.difficulty}</span></h4></li>
+                            <li><h4>Cooking Time:&nbsp;&nbsp;<span>{recipe.cookingTime}</span></h4></li>
+                            <li><h4>Likes:&nbsp;&nbsp;{peopleLiked.length}</h4></li>
+                            {likeBtn}
+                            {userOnlyBtns}
+                        </ul>
               </div>
             </div>
             <div className="recipe-detail-info">
