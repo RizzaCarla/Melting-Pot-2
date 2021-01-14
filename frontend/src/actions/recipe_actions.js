@@ -1,5 +1,6 @@
 import * as RecipeApiUtil from "../util/recipe_api_util";
 
+export const RECEIVE_ALL_RECIPES_USING_CATEGORY = 'RECEIVE_ALL_RECIPES_USING_CATEGORY'
 export const RECEIVE_ALL_RECIPES = "RECEIVE_ALL_RECIPES";
 export const RECEIVE_USER_RECIPES = "RECEIVE_USER_RECIPES";
 export const RECEIVE_RECIPE = "RECEIVE_RECIPE";
@@ -9,6 +10,13 @@ export const CLEAR_RECIPE_ERRORS = "CLEAR_RECIPE_ERRORS";
 export const CLEAR_RECIPE = "CLEAR_RECIPE";
 
 // Regular action creators
+
+export const receiveAllRecipesUsingCategory = (recipes) => {
+    return ({
+        type: RECEIVE_ALL_RECIPES_USING_CATEGORY,
+        recipes
+    })
+}
 
 export const receiveAllRecipes = (recipes) => {
     return ({
@@ -53,11 +61,18 @@ export const clearRecipes = () => ({
 
 // Thunk action creators
 
+
 export const getRecipes = () => dispatch => {
     return RecipeApiUtil.getRecipes()
-        .then(recipes => dispatch(receiveAllRecipes(recipes)))
-        .catch((err) => console.log(err))
+    .then(recipes => dispatch(receiveAllRecipes(recipes)))
+    .catch((err) => console.log(err))
 };
+
+export const getRecipeUsingCategory = (categoryName) => dispatch => {
+    return RecipeApiUtil.getRecipeCategory(categoryName)
+        .then(recipes => dispatch(receiveAllRecipesUsingCategory(recipes)))
+        .catch(err => console.log(err))
+}
 
 export const getUserRecipes = (userId) => dispatch => {
     return RecipeApiUtil.getUserRecipes(userId)

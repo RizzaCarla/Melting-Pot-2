@@ -147,7 +147,8 @@ class RecipeForm extends React.Component {
               <input
                 type="text"
                 onChange={this.update("name")}
-                placeholder="Name of your recipe"
+                placeholder="Name of your recipe (max 26 characters)"
+                maxLength="26"
               />
             </div>
             <div className="recipe-info">
