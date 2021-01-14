@@ -9,8 +9,8 @@ class EventIndex extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchUsers();
-        this.props.getEvents();
+        this.props.fetchUsers().then(() => this.props.getEvents());
+        
     }
 
     // update(event) {
@@ -22,7 +22,8 @@ class EventIndex extends React.Component {
         if (!this.props.events) {
             return null
         }
-
+       
+        // debugger;
         return (
                 <div className="index-events-container">
                     <div className="index-header"><h1 className="index-title">All Events</h1></div>
