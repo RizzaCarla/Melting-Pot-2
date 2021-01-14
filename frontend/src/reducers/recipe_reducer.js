@@ -1,4 +1,8 @@
-import { RECEIVE_ALL_RECIPES, RECEIVE_USER_RECIPES, RECEIVE_RECIPE, REMOVE_RECIPE , CLEAR_RECIPE} from "../actions/recipe_actions";
+import { RECEIVE_ALL_RECIPES, 
+         RECEIVE_USER_RECIPES, 
+         RECEIVE_RECIPE, 
+         REMOVE_RECIPE , 
+         CLEAR_RECIPE} from "../actions/recipe_actions";
 
 const recipeReducer = (state = {}, action) => {
     Object.freeze(state);

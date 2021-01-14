@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import NavBar from './1.navbar'
+import CategoryNavBar from './1.category_navbar'
 
 const mapStateToProps = (state) => {
   return {
@@ -11,4 +11,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
+export default connect(mapStateToProps, mapDispatchToProps)(CategoryNavBar);
