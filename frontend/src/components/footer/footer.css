@@ -1,4 +1,25 @@
 
+
+.main-app-div {
+  min-height: 100%;
+  margin-bottom: -30px;
+}
+.main-app-div:after {
+  content: "";
+  display: block;
+}
+
+
+
+.footer, .main-app-div:after {
+  height: 30px;
+}
+
+.footer-list-div {
+  height: 100%;
+  width: 100%;
+}
+
 .footer-list {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -8,10 +29,14 @@
   justify-content: space-evenly;
   font-family: sans-serif;
   font-size: 14px;
-  /* left: 0; */
+  left: 0;
   bottom: 0;
+  right: 0;
 }
 
 .footer-list a {
   color: #ef5d5d;
 }
+
+
+
