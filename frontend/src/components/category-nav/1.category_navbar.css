@@ -6,3 +6,62 @@
 .tab-header{
     margin-left: 140px;
 }
+
+.MuiTabs-flexContainer {
+    margin: 20px;
+    margin-bottom: 0px;
+}
+
+.category-navbar-component {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.category-recipe {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    width: 1280px;
+    justify-content: center;
+    align-items: center;
+}
+
+.category-recipe-list {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    padding: 15px;
+    border-radius: 10px;
+    width: 300px;
+    margin: 25px;
+
+    background: white;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.15);
+}
+
+.category-recipe-photo {
+    display: flex;
+    align-self: center;
+
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+}
+
+.category-recipe-name {
+    font-size: 18px;
+    padding: 15px;
+    padding-bottom: 0px;
+    
+    font-weight: bold;
+    text-align: center;
+
+}
+
+.category-recipe-photo-container {
+    width: 50%;
+}
