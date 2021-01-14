@@ -1,0 +1,14 @@
+.meat-recipe {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.meat-recipe-photo {
+  height: 100px;
+  width: 100px;
+}
+
+.meat-recipe-name {
+  font-size: 18px;
+}
