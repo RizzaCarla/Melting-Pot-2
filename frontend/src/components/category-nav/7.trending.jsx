@@ -3,8 +3,14 @@ import { Link } from 'react-router-dom';
 import './7.trending.css';
 
 class Trending extends React.Component {
+  // constructor(props) {
+  //   super(props);
+  //   this.state = { randomRecipe: [] }
+  //   this.handleRandomRecipe = this.handleRandomRecipe.bind(this);
+  // }
 
   componentDidMount() {
+    // console.log('you are currently getting recipes')
     this.props.getRecipes();
     this.props.getEvents();
     this.props.fetchUsers();
@@ -14,6 +20,9 @@ class Trending extends React.Component {
     const randomNumber = Math.floor(Math.random() * (Object.values(this.props.recipes).length))
     const recipeIds = Object.keys(this.props.recipes);
     const randomId = recipeIds[randomNumber]
+    // const randomRecipe = this.state.randomRecipe.slice()
+    // randomRecipe.push(this.props.recipes[randomId])
+    // this.setState({ ['randomRecipe']: randomRecipe })
     return (this.props.recipes[randomId])
   }
 
