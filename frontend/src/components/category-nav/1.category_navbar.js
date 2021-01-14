@@ -5,7 +5,8 @@ import MeatContainer from './3.meat_container'
 import PoultryContainer from './4.poultry_container'
 import CarbsContainer from './5.carbs_container'
 import SoupContainer from './6.soup_container'
-import TrendingContainer from '../home/trending_container'
+import TrendingContainer from './7.trending_container'
+import './1.category_navbar.css'
 
 
 const CategoryNavBar = () => {
@@ -16,7 +17,7 @@ const CategoryNavBar = () => {
   };
 
   return (
-    <div>
+    <div className="category-navbar-component">
       <Tabs value={selectedTab} onChange={handleChange} >
         <Tab label="Trending" />
         <Tab label="Vegetables" />
