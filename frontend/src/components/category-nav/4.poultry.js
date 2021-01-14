@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 class Poultry extends React.Component {
   constructor(props) {
@@ -10,20 +11,22 @@ class Poultry extends React.Component {
   }
 
   render() {
-    if (!this.props.recipes) {
+    if (!this.props.categoryRecipes) {
       return null
     }
     return (
-      <div>
-        {Object.values(this.props.recipes).map((categoryRecipe, i) => (
-          <ul>
-            <li>
-              <img src={categoryRecipe.photoUrl}></img>
-            </li>
-            <li>
-              {categoryRecipe.name}
-            </li>
-          </ul>
+      <div className="category-recipe">
+        {Object.values(this.props.categoryRecipes).map((categoryRecipe, i) => (
+          <Link to={`/recipes/${categoryRecipe._id}`}>
+            <ul className="category-recipe-list">
+              <li className="category-recipe-photo-container">
+                <img className="category-recipe-photo" src={categoryRecipe.photoUrl}></img>
+              </li>
+              <li className="category-recipe-name">
+                {categoryRecipe.name}
+              </li>
+            </ul>
+          </Link>
         ))}
       </div>
     )
