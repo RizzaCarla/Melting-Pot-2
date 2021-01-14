@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getRecipeUsingCategory: () => dispatch(getRecipeUsingCategory())
+    getRecipeUsingCategory: (categoryName) => dispatch(getRecipeUsingCategory(categoryName))
   };
 };
 

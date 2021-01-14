@@ -3,7 +3,6 @@ import Meat from './3.meat'
 import { getRecipeUsingCategory } from '../../actions/recipe_actions'
 
 const mapStateToProps = (state) => {
-  console.log(state)
   return {
     categoryRecipes: state.entities.categoryRecipes
   };
