@@ -12,6 +12,7 @@ import {fetchUser, fetchUsers} from './actions/user_actions';
 import {fetchPhotos, fetchPhoto, deletePhoto} from './actions/photo_actions';
 import { getRecipes, createRecipe, deleteRecipe, getRecipeUsingCategory } from './actions/recipe_actions';
 import { createComment } from './actions/comment_actions';
+import { getAllLikes, createLike } from "./actions/like_actions";
 
 // TESTING END
 
@@ -52,6 +53,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.createComment = createComment;
 
+  window.getAllLikes = getAllLikes;
+  window.createLike = createLike;
   // TESTING END
 
   const root = document.getElementById("root");
