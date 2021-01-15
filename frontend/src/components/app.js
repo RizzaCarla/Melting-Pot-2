@@ -1,6 +1,7 @@
 import React from "react";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import { Route, Switch } from "react-router-dom";
+import Modal from './modal/modal';
 import HomePageContainer from "./home/home_page_container";
 import NavBarContainer from "./nav/navbar_container";
 import ProfileContainer from './profile/1.profile_container';
@@ -15,16 +16,18 @@ import RecipeEditContainer from "./recipe/recipe_edit_container";
 import EventIndexContainer from './event/3.event_index_container';
 import Footer from './footer/footer'
 
+
 const App = () => {
   return (
     <div className="main-app-div">
+      <Modal />
       <NavBarContainer />
       <Switch>
         <ProtectedRoute exact path="/recipes/new" component={RecipeFormContainer} />
         <ProtectedRoute exact path="/events/new" component={EventContainer} />
-        <ProtectedRoute exact path="/events/:eventId" component={EventShowContainer} />
-        <Route exact path="/events" component={EventIndexContainer} />
+        <Route exact path="/events/:eventId" component={EventShowContainer} />
         <Route exact path="/recipes/:recipeId" component={RecipeShowContainer} />
+        <Route exact path="/events" component={EventIndexContainer} />
         <ProtectedRoute exact path="/events/:eventId/edit" component={EventEditContainer} />
         <ProtectedRoute exact path="/profile" component={ProfileContainer} />
         <ProtectedRoute exact path="/recipes/:recipeId/edit" component={RecipeEditContainer} />

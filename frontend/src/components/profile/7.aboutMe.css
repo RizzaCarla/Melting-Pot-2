@@ -3,12 +3,15 @@
     flex-direction: column;
     justify-content: center;
     padding: 70px;  
-    margin-left: 330px;
+ 
+    margin-left: 310px;
     margin-right:310px;
     font-family: 'roboto', sans-serif;
-    border: 1px dashed black;
+    /* border: 1px dashed black; */
     margin-top:50px;
     text-indent: 50px;
+    background: white;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.15);
 }
 
 .about{

@@ -1,19 +1,19 @@
-import { RECEIVE_EVENT_ERRORS, RECEIVE_EVENT, CLEAR_EVENT_ERRORS } from '../actions/event_actions';
+import { RECEIVE_JOIN_ERRORS, RECEIVE_JOIN, CLEAR_JOIN_ERRORS } from '../actions/join_actions';
 
 const _nullErrors = [];
 
-const EventErrorsReducer = (state = _nullErrors, action) => {
+const JoinErrorsReducer = (state = _nullErrors, action) => {
     Object.freeze(state);
     switch (action.type) {
-        case RECEIVE_EVENT_ERRORS:
+        case RECEIVE_JOIN_ERRORS:
             return action.errors;
-        case RECEIVE_EVENT:
+        case RECEIVE_JOIN:
             return _nullErrors;
-        case CLEAR_EVENT_ERRORS:
+        case CLEAR_JOIN_ERRORS:
             return [];
         default:
             return state;
     }
 };
 
-export default EventErrorsReducer;
+export default JoinErrorsReducer;

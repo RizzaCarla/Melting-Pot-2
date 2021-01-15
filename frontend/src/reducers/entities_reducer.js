@@ -4,8 +4,9 @@ import photosReducer from './photo_reducer';
 import recipes from "./recipe_reducer";
 import eventsReducer from './events_reducer';
 import comments from "./comment_reducer";
+import joinsReducer from "./joins_reducer"
+import likes from "./like_reducer"
 import categoryRecipeReducer from './category_recipe_reducer'
-import likes from "./like_reducer";
 
 const entitiesReducer = combineReducers({
   users: usersReducer,
@@ -13,6 +14,7 @@ const entitiesReducer = combineReducers({
   recipes,
   events: eventsReducer,
   comments,
+  joins: joinsReducer,
   categoryRecipes: categoryRecipeReducer,
   likes
 })

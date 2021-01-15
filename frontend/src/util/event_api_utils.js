@@ -24,3 +24,4 @@ export const updateEvent = (event) => {
 export const deleteEvent = (eventId) => {
     return axios.delete(`/api/events/${eventId}`)
 };
+

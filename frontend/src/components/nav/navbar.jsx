@@ -28,6 +28,8 @@ class NavBar extends React.Component {
     document.addEventListener("click", this.clearState)
   }
 
+
+
   getLinks() {
     if(this.props.loggedIn) {
       return(
@@ -40,7 +42,8 @@ class NavBar extends React.Component {
     } else {
       return(
         <div className="navbar-right">
-          <Link to="/login">Login</Link>
+          <Link to={`/events`}>&nbsp;&nbsp;Events&nbsp;&nbsp;</Link>&nbsp;&nbsp;
+          <Link to="/login">Login</Link>&nbsp;&nbsp;
           <Link to="/signup">Signup</Link>
         </div>
       )

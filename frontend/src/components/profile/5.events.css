@@ -1,52 +1,53 @@
 #add-event-button{
-    background-color: rgb(29, 102, 85);
+    background-color: #F3B81E;
     padding: 10px;
-    color: white;
+    color: black;
     width: 70%;
     border-radius: 5px;
     margin-left: 185px;
     margin-top: 20px;
 }
 
-.event-photo{
-    padding: 20px;
-    height: 250px;
-}
-
-.event-parent{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid black;
-    margin-top: 30px;
-    font-family:sans-serif;
-    border-radius: 10px;
-}
-.event-parent-info{
-    display: flex;
-    flex-direction: row;
-     align-items: center;
+#add-event-button:hover{
+  background-color: #dda61c;
 }
 
 .hosting-button{
     margin-right:170px;
-    background-color: rgb(243,184,30);
-    font-size: 25px;
+    background-color: rgb(29, 102, 85);
+    color: white;
     padding: 20px;
+    font-size: 16px;
     font-family: 'roboto', sans-serif;
     border-radius: 5px;
+    cursor: pointer;
 }
 
-.date{
-    font-size: 25px;
-    font-weight: bold;
+.hosting-button:hover{
+ background-color: rgb(25, 78, 66);
 }
 
-.event-name{
-    font-size: 35px;
-    font-weight: bold;
+.hosting-event-txt {
+    color:white;
 }
 
-.event-name:hover{
-    color: green
+.participating-event-txt {
+    color:black;
 }
+
+
+.participating-button {
+    margin-right:170px;
+    background-color: #F3B81E;
+    color: black;
+    padding: 20px;
+    font-size: 16px;
+    font-family: 'roboto', sans-serif;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.participating-button:hover{
+    background-color: #dda61c;
+}
+
