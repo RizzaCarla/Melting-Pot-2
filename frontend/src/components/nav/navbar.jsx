@@ -97,8 +97,8 @@ class NavBar extends React.Component {
                     <span id="result-1">Difficulty: </span> {item.difficulty}
                   </li>
                   <li>
-                    <span id="result-1">Likes: </span>
-                    {!item.numLikes ? "0" : item.numLikes}
+                    <span id="result-1">Category: </span>
+                    {item.category}
                   </li>
                 </div>
               </div>

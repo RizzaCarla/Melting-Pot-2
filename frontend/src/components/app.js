@@ -17,7 +17,7 @@ import Footer from './footer/footer'
 
 const App = () => {
   return (
-    <div>
+    <div className="main-app-div">
       <NavBarContainer />
       <Switch>
         <ProtectedRoute exact path="/recipes/new" component={RecipeFormContainer} />
