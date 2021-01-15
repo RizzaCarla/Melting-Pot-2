@@ -27,11 +27,6 @@ class EventShow extends React.Component {
         this.props.getJoins()
     }
 
-    // componentDidUpdate(prevProps) {
-    //     if (prevProps.event._id !== this.props.event._id) {
-    //         this.props.getJoins()
-    //     }
-    // }
 
     handleJoin(e) {
         e.preventDefault();
@@ -45,15 +40,6 @@ class EventShow extends React.Component {
         this.setState({ clicked: false })
     }
 
-//     handleLogin(event) {
-//     event.preventDefault();
-
-//     try {
-//         await this.props.currentUser
-//     } catch (e) {
-//         this.props.history.goBack
-//     }
-// }
 
     handleEventShowRendering(){
         if (this.props.loggedIn && this.props.event){
@@ -67,8 +53,6 @@ class EventShow extends React.Component {
                         <div> <label id="event-label">From:</label>{this.props.event.startTime} to {this.props.event.endTime}</div>
                         <div><label id="event-label">Location or Link:</label>{this.props.event.location}</div>
                         <div><label id="event-label">Description:</label>{this.props.event.description}</div>
-                    </div>
-                </div>
                 <div className="buttons">
                     {(this.props.currentUser.user._id === this.props.event.hostId) ?
                         <div>
@@ -77,10 +61,12 @@ class EventShow extends React.Component {
                             <div><button className="delete-show-event-button" onClick={this.handleClick}><RiDeleteBin5Line />&nbsp;Delete Event</button></div>
                         </div> :
                         <div>
-                            {this.props.joinedEvent ? <button onClick={this.handleDelete} className="event-index-participating-button">Unjoin</button> :
-                                    <button className="join-button" onClick={this.handleJoin}>Join</button>}
+                                {this.props.joinedEvent ? <button onClick={this.handleDelete} className="unjoin-show-event-button">Unjoin</button> :
+                                    <button className="join-show-event-button" onClick={this.handleJoin}>Join</button>}
                             <div><button onClick={this.props.history.goBack} className="goback-show-event-button"><BiArrowBack />&nbsp;Go back</button></div>
                         </div>}
+                </div>
+                    </div>
                 </div>
             </div>
             )
@@ -91,14 +77,12 @@ class EventShow extends React.Component {
                     <div className="event-photo-container"><img className="event-photo-show" src={this.props.event.photoUrl} /></div>
                     <div className="event-info-show">
                         <div><label id="event-label">Event Name:</label>{this.props.event.name} </div>
-                        <div><label id="event-label">Description:</label>{this.props.event.description}</div>
-                            <Link to={'/login'} onClick={this.handleLogin} className="event-index-login-first">Sign in to see full details</Link>
-                    </div>
-                </div>
+                            <div><label id="event-label">Description:</label> < span id="event-label-des">{this.props.event.description}</span></div>
+                            <Link to={{ pathname:`/login`, state:{ redirectLink: `/events/${this.props.event._id}` } }}  onClick={this.handleLogin} className="event-index-login-first">Sign in to see full details</Link>
                 <div className="buttons">
-    
-                    <button onClick={this.props.history.goBack} className="goback-show-event-button"><BiArrowBack />&nbsp;Go back</button>
-                       
+                    <button onClick={this.props.history.goBack} className="goback-show-event-button"><BiArrowBack />&nbsp;Go back</button>       
+                </div>
+                    </div>
                 </div>
             </div>
         )}

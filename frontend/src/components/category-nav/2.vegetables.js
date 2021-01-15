@@ -13,7 +13,8 @@ class Vegetable extends React.Component {
     }
     return (
       <div className="category-recipe">
-        {Object.values(this.props.categoryRecipes).map((categoryRecipe, i) => (
+        {Object.values(this.props.categoryRecipes).map((categoryRecipe) => (
+          <li key={categoryRecipe._id}>
           <Link to={`/recipes/${categoryRecipe._id}`}>
             <ul className="category-recipe-list">
               <li className="category-recipe-photo-container">
@@ -24,6 +25,7 @@ class Vegetable extends React.Component {
               </li>
             </ul>
           </Link>
+          </li>
         ))}
       </div>
     )

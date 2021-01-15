@@ -30,9 +30,15 @@
 
 #event-label{
     padding: 20px;
+    padding-left: 0px;
     font-family: 'roboto', sans-serif;
     font-weight: bolder;
     font-size: 25px;
+
+}
+
+#event-label-des{
+    overflow-wrap: break-word;
 }
 
 .delete-show-event-button{
@@ -82,22 +88,17 @@
     cursor: pointer;
 }
 
-.buttons{
-    margin-left: 210px;
-}
-
 .event-index-login-first{
     text-align: center;
     justify-content: center;
     margin-top:30px;
     background-color: rgb(223, 164, 115);
     color: black;
-    padding: 20px;
-    font-size: 20px;
-    font-family: 'roboto', sans-serif;
-    border-radius: 5px;
+    font-size: 16px;
     cursor: pointer;
-     width: 250px;
+     width: 230px;
+     padding: 10px;
+     border: 1px solid black;
 }
 
 .event-index-login-first:hover{
@@ -120,5 +121,37 @@
 }
 
 .hosting-text{
+    color: white;
+}
+
+
+.join-show-event-button{
+    margin-top:10px;
+    padding: 10px;
+    background-color: #F3B81E;
+    color:black;
+    width: 250px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.join-show-event-button:hover{
+    background-color: #dda61c;
+    color: black;
+}
+
+
+.unjoin-show-event-button{
+    margin-top:10px;
+    padding: 10px;
+    background-color:  rgb(124, 65, 65);
+    color:white;
+    width: 250px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.unjoin-show-event-button:hover{
+    background-color: rgb(97, 37, 37);
     color: white;
 }

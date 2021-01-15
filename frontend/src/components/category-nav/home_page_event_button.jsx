@@ -29,36 +29,43 @@ class HomePageEventButton extends React.Component {
     handleParticipateButton() {
         if (!this.props.auth) {
             return(
-            <div>
-                <button className='home-page-event-button' onClick={() => this.props.openModal('LogIn')}>Sign in to Join</button>
+                <div className="event-button">
+                <button className="signintojoin-button" onClick={() => this.props.openModal('LogIn')}>Sign in to Join</button>
             </div>
             )
         } else {
             return(
-                <div className='home-page-event-button' >
+                <div className="event-button">
                 {this.props.joinedEvent ? <button onClick={this.handleDelete} className="unjoin-button">Unjoin</button> :
                     this.props.currentUser.user._id === this.props.event.hostId ? <label className="hosting-button"><Link className="hosting-text" to={`/events/${this.props.event._id}`}>Hosting</Link></label> :
                     <button onClick={this.handleJoin} className="participating-button" >Join</button>}
-            </div>
+                </div>
             )
         }
     }
     render() {
         return (
+            
      
-            <div className='home-page-container'>
-                    <div className='home-page-event-details-box'>
-                        <img src={this.props.event.photoUrl} className="home-page-event-images"></img>
+            <div className='home-page-event-container'>
+                <div className='home-page-event-details-box'>
+                    <div className="event-pic-and-info">
+                        <div>
+                            <img src={this.props.event.photoUrl} className="home-page-event-images"></img>
+                        </div>
+
                         <div className='home-page-event-details'>
-                        <h1 className='home-page-event-name'>{this.props.event.name}</h1>
-                        <h1>Date: { Object.values(this.props.event.date).slice(0, 10)}</h1>
-                        <h1>From:&nbsp;<span >{this.props.event.startTime} to {this.props.event.endTime}</span></h1>
-                        <h1>End Time: {this.props.event.endTime}</h1>
-                        <h1>Partcipating: {this.props.count[this.props.event._id]}</h1>
-                        <h1>Location: {this.props.event.location}</h1>
-                        <h1>Description: {this.props.event.description}</h1>
+                            <div className='home-page-event-name'><span className="header-event-trend">{this.props.event.name}</span></div>
+                            <div><span className="event-text">Date:</span> {Object.values(this.props.event.date).slice(0, 10)}</div>
+                            <div><span className="event-text">From:</span>&nbsp;<span >{this.props.event.startTime} to {this.props.event.endTime}</span></div>
+                            <div><span className="event-text">End Time:</span> {this.props.event.endTime}</div>
+                            <div><span className="event-text">Partcipating:</span> {this.props.count[this.props.event._id]}</div>
+                            <div><span className="event-text">Location:</span> {this.props.event.location}</div>
+                            <div><span className="event-text">Description:</span> {this.props.event.description}</div>
+                        </div>
                     </div>
-                    <div className='home-page-event-button' >{this.handleParticipateButton()}</div>
+                    
+                    <div> {this.handleParticipateButton()}</div>
                 </div>
             </div>
           

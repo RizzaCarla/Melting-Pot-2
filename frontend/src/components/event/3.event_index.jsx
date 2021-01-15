@@ -23,7 +23,7 @@ class EventIndex extends React.Component {
        if (this.props.loggedIn) {
             return (
                 <div className="index-events-container">
-                    <div className="index-header"><h1 className="index-title">All Events</h1></div>
+                    <div id="index-header"><h1 className="index-title">All Events</h1></div>
                     <div className="hosting-events">
                         <ul>
                             {Object.values(this.props.events).map((event, i) => (

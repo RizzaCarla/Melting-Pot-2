@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import './7.trending.css';
+import HomePageEventContainer from './home_page_event_button_container'
 
 class Trending extends React.Component {
   // constructor(props) {
@@ -71,10 +72,7 @@ class Trending extends React.Component {
     }
 
     const handleViewEventButton = this.handleViewEventButton(randomEvent._id);
-    // if (handleViewEventButton === undefined) {
-    //   return null
-    // }
-
+ 
     return (
       <div className='home-page-container'>
         <div className='trending-recipes'>
@@ -103,23 +101,14 @@ class Trending extends React.Component {
         </div>
 
         <div className='trending-events'>
-          <div className='home-page-header-event'>
-            <h1>Trending Event</h1>
-            <div>{handleViewEventButton}</div>
+          <div className='home-page-header-recipe'>
+            <h1>Upcoming Events</h1>
+            <Link to={`/events/${randomEvent._id}`}>
+              <button className='home-page-button-recipe'>View Full Event</button>
+            </Link>
             <hr></hr>
           </div>
-
-          <div className='home-page-event-details-box'>
-            <img src={randomEvent.photoUrl} className="home-page-event-images"></img>
-            <div className='home-page-event-details'>
-              <h1 className='home-page-event-name'>{randomEvent.name}</h1>
-              {/* <div className="date-index"> Date:&nbsp;<span id="event-index-info">{Object.values(event.date).slice(0, 10)}</span></div>  */}
-              <h1>Date:&nbsp;<span id="event-info">{randomEvent.date.slice(0, 10)}</span></h1>
-              <h1>Start Time:&nbsp;<span id="event-info">{randomEvent.startTime}</span></h1>
-              <h1>End Time:&nbsp;<span id="event-info">{randomEvent.endTime}</span></h1>
-              <h1># of Participants:&nbsp;<span id="event-info">{randomEvent.usersJoined.length}</span></h1>
-            </div>
-          </div>
+            < HomePageEventContainer event={randomEvent}/>
         </div>
       </div>
     );

@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 import '../session/css_reset.css'
 import '../session/session_forms.css'
+import { RiCloseLine } from 'react-icons/ri'
 
 class HomePageModalLogin extends React.Component {
     constructor(props) {
@@ -50,11 +51,12 @@ class HomePageModalLogin extends React.Component {
     render() {
         return (
             <div className="form-container-session">
+            <div id="close-x-modal"  onClick={this.props.closeModal}><RiCloseLine /></div>
                 <h1>Melting Pot</h1>
 
                 <form onSubmit={this.handleSubmit}>
 
-                    <div className="form">
+            <div className="form" id="form-signin">
                         <h2>Login</h2>
 
                         <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email:&nbsp;&nbsp;

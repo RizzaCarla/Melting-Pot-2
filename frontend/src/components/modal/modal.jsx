@@ -1,7 +1,7 @@
 import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
-import HomePageModalLoginContainer from '../home/home_page_modal_login_container'
+import HomePageModalLoginContainer from '../category-nav/home_page_modal_login_container'
 
 class Modal extends React.Component {
     constructor(props) {
