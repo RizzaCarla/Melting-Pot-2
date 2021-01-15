@@ -50,47 +50,59 @@ class LoginForm extends React.Component {
   
   render() {
     return (
-        <div className="form-container-session"> 
-          <h1>Melting Pot</h1>
-          
-          <form onSubmit={this.handleSubmit}>
-            
-            <div className="form">
-              <h2>Login</h2>
+      <div className="form-container-session">
+        <h1>Melting Pot</h1>
 
-            <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email:&nbsp;&nbsp;
-              <input type="text"
+        <form onSubmit={this.handleSubmit}>
+          <div className="form">
+            <h2>Login</h2>
+
+            <label>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email:&nbsp;&nbsp;
+              <input
+                type="text"
                 className="input-field"
                 value={this.state.email}
-                onChange={this.update('email')}
+                onChange={this.update("email")}
                 placeholder="Email"
               />
-              </label>
+            </label>
 
-            <label>Password:&nbsp;&nbsp;
-              <input type="password"
+            <label>
+              Password:&nbsp;&nbsp;
+              <input
+                type="password"
                 className="input-field"
                 value={this.state.password}
-                onChange={this.update('password')}
+                onChange={this.update("password")}
                 placeholder="Password"
               />
             </label>
 
-
-            <input className="submit-button input-field" type="submit" value="Login"/>
-              <div className="errors">{this.renderErrors()}</div>
-            </div>
-          </form>
-
-          <br></br>
-          <div className="signup-option">
-            <label>Not a User?</label>
-            <br></br>
-            <Link to="/signup"> <input className="signup-button input-field" type="submit" value="Sign Up" /></Link> 
+            <input
+              className="submit-button input-field"
+              type="submit"
+              value="Login"
+            />
+            <div className="errors">{this.renderErrors()}</div>
           </div>
+        </form>
 
+        <br></br>
+        <div className="signup-option">
+          <label>Not a User?</label>
+          <br></br>
+          <Link to="/signup">
+            {" "}
+            <input
+              className="signup-button input-field"
+              type="submit"
+              value="Sign Up"
+            />
+          </Link>
         </div>
-
+        
+      </div>
     );
   }
 }

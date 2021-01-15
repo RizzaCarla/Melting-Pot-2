@@ -17,9 +17,12 @@
     margin-top:120px;
     background: white;
     box-shadow: 0 2px 6px 0 rgba(0,0,0,0.15);
-  margin-bottom: 300px;
+    margin-bottom: 300px;
 
-
+/* 
+    width: 69%;
+    height: 450px;
+    margin-top:120px; */
 }
 
 h1{
@@ -126,6 +129,7 @@ h2{
 .form-container-session-sign {
     margin-left: 30%;
     margin-right: 30%;
+    /* margin-left: 15%; */
     display:flex;
     align-items: center;
     flex-direction: column;
@@ -137,6 +141,9 @@ h2{
     box-shadow: 0 2px 6px 0 rgba(0,0,0,0.15);
     margin-bottom: 300px;
 
+    /* width: 69%;
+    height: 450px; */
+    /* margin-top: 250px */
 }
 
 .login-button{
@@ -171,4 +178,9 @@ h2{
 
 .dietary-title{
     margin-right: 50px;
+}
+
+.login-space-div {
+    width: 500px;
+    height: 500px;
 }

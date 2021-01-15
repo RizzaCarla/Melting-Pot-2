@@ -24,3 +24,7 @@ export const updateRecipe = (recipe) => {
 export const deleteRecipe = (recipeId) => {
     return axios.delete(`/api/recipes/${recipeId}`)
 };
+
+export const getRecipeCategory = (categoryName) => {
+    return axios.get(`/api/recipes/category/${categoryName}`)
+}

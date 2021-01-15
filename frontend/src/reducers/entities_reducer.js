@@ -6,6 +6,7 @@ import eventsReducer from './events_reducer';
 import comments from "./comment_reducer";
 import joinsReducer from "./joins_reducer"
 import likes from "./like_reducer"
+import categoryRecipeReducer from './category_recipe_reducer'
 
 const entitiesReducer = combineReducers({
   users: usersReducer,
@@ -14,6 +15,7 @@ const entitiesReducer = combineReducers({
   events: eventsReducer,
   comments,
   joins: joinsReducer,
+  categoryRecipes: categoryRecipeReducer,
   likes
 })
 

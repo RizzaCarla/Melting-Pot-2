@@ -10,7 +10,7 @@ import { logout } from "./actions/session_actions";
 // TESTING START
 import {fetchUser, fetchUsers} from './actions/user_actions';
 import {fetchPhotos, fetchPhoto, deletePhoto} from './actions/photo_actions';
-import { getRecipes, createRecipe, deleteRecipe } from './actions/recipe_actions';
+import { getRecipes, createRecipe, deleteRecipe, getRecipeUsingCategory } from './actions/recipe_actions';
 import { createComment } from './actions/comment_actions';
 import { getAllLikes, createLike } from "./actions/like_actions";
 
@@ -49,6 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.getRecipes = getRecipes;
   window.createRecipe = createRecipe;
   window.deleteRecipe = deleteRecipe;
+  window.getRecipeUsingCategory = getRecipeUsingCategory;
 
   window.createComment = createComment;
 
