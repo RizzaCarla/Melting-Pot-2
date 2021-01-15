@@ -2,6 +2,7 @@ import React from 'react'
 import CategoryNavBarContainer from '../category-nav/1.navbar_container'
 import { Link } from 'react-router-dom';
 import './home_page.css';
+import HomePageEventButtonContainer from './home_page_event_button_container';
 
 class HomePage extends React.Component {
 
@@ -9,6 +10,8 @@ class HomePage extends React.Component {
     this.props.getRecipes();
     this.props.getEvents();
     this.props.fetchUsers();
+    // this.handleParticipateButton = this.handleParticipateButton.bind(this)
+
   }
   
   handleRandomRecipe() {
@@ -29,17 +32,19 @@ class HomePage extends React.Component {
     return this.props.users[recipeOwnerId]
   }
 
-  handleParticipateButton(eventId) {
-    if (this.props.currentUser !== {}) {
-      // if (this.props.users[this.props.currentUser._id].eventsParticipating.includes("ff16ef488117e1e9e7aa850")) {
-      //   return ('Participating')
-      // } else {
-      return <button className='home-page-join-button'>Join</button>
-      // }
-    } else if (this.props.currentUser === {}) {
-      return <button className="home-page-register-button">Register to Join</button>
-    }
-  }
+
+  // handleParticipateButton(e) {
+  //     e.preventDefault();
+  //     if (!this.props.currentUser.user) {
+  //       this.props.openModal('LogIn')
+  //     } else {
+  //       <div>
+  //         {this.props.joinedEvent2 ? <button onClick={this.handleDelete} className="unjoin-button">Unjoin</button> :
+  //           this.props.currentUser.user._id === this.props.event.hostId ? <label className="hosting-button"><Link className="hosting-text" to={`/events/${this.props.event._id}`}>Hosting</Link></label> :
+  //             <button onClick={this.handleJoin} className="participating-button" >Join</button>}
+  //       </div>
+  //     }
+  // }
 
   render() {
     
@@ -52,14 +57,10 @@ class HomePage extends React.Component {
     if (randomEvent === undefined) {
       return null
     }
+    console.log(randomEvent._id)
     
     const fetchUserInfoForRecipe = this.fetchUserInfoForRecipe(randomRecipe.authorId);
     if (fetchUserInfoForRecipe === undefined) {
-      return null
-    }
-    
-    const handleParticipateButton = this.handleParticipateButton(randomEvent._id);
-    if (handleParticipateButton === undefined) {
       return null
     }
     
@@ -99,19 +100,11 @@ class HomePage extends React.Component {
             <hr></hr>
           </div>
 
-          <div className='home-page-event-details-box'>
-            <img src={randomEvent.photoUrl} className="home-page-event-images"></img>
-            <div className='home-page-event-details'>
-              <h1 className='home-page-event-name'>{randomEvent.name}</h1>
-              <h1>Date: {randomEvent.date}</h1>
-              <h1>Start Time: {randomEvent.startTime}</h1>
-              <h1>End Time: {randomEvent.endTime}</h1>
-              <h1># of Participants: {randomEvent.usersJoined.length}</h1>
-              <h1>Location: {randomEvent.location}</h1>
-              <h1>Description: {randomEvent.description}</h1>
-            </div>
-            <div className='home-page-event-button'>{handleParticipateButton}</div>
-          </div>
+         
+            < HomePageEventButtonContainer event={randomEvent} />
+          
+
+         
         </div>
 
       </div>

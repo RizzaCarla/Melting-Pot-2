@@ -3,8 +3,7 @@ const mongoose = require('mongoose');
 const router = express.Router();
 const validateJoinInput = require('../../validation/joins');
 const Join = require('../../models/Join');
-const Event = require('../../models/Event')
-const User = require('../../models/User')
+
 
 //RETRIEVE ALL JOINS
 router.get('/', (req, res) => {
@@ -51,7 +50,7 @@ router.patch('/edit/:id', (req, res) => {
         .then(join => res.json(join))
 })
 
-//DELETE EVENT
+//DELETE JOIN
 router.delete('/:id', (req, res) => {
     Join.findByIdAndDelete(req.params.id)
         .then(join => res.json('Join successfully deleted'))

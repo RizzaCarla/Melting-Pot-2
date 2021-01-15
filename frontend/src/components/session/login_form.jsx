@@ -9,6 +9,7 @@ class LoginForm extends React.Component {
     super(props);
 
     this.state = {
+
       email: '',
       password: '',
       errors: {}
@@ -21,14 +22,6 @@ class LoginForm extends React.Component {
     this.props.clearErrors()
   }
 
- // componentWillReceiveProps will be deprecated so refactored to getDerivedStateFromProps
-  static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.currentUser === true) {
-      this.props.history.push('/profile')
-    }
-    return {errors: nextProps.errors}
-  }
-
   update(field) {
     return e => this.setState({[field]: e.currentTarget.value});
   }
@@ -39,7 +32,8 @@ class LoginForm extends React.Component {
       email: this.state.email,
       password: this.state.password
     };
-    this.props.login(user);
+    this.props.login(user)
+      .then(() => this.props.history.push(this.props.redirectLink))
   }
 
   renderErrors() {

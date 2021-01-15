@@ -1,10 +1,18 @@
 import { connect } from 'react-redux'
 import { login, clearErrors} from '../../actions/session_actions';
 import LoginForm from './login_form';
+import{withRouter} from 'react-router-dom'
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
+  console.log(ownProps)
+  let redirectLink = '/profile'
+  if (ownProps.location.state !== undefined){
+    redirectLink = ownProps.location.state.redirectLink
+  }
+
   return {
-    errors: state.errors.session
+    errors: state.errors.session,
+    redirectLink: redirectLink
   };
 };
 
@@ -15,4 +23,4 @@ const mapDispatchToProps = dispatch => {
   }
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(LoginForm);
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(LoginForm));

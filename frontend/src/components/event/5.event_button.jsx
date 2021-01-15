@@ -11,12 +11,12 @@ class EventButton extends React.Component {
     }
 
     componentDidMount(){
-        this.props.getJoins(this.props.event._id)
+        this.props.getJoins()
     }
 
     componentDidUpdate(prevProps) {
         if( prevProps.event._id !== this.props.event._id) {
-            this.props.getJoins(this.props.event._id)
+            this.props.getJoins()
         }
     }
 
@@ -28,19 +28,17 @@ class EventButton extends React.Component {
 
     handleDelete(e){
         e.preventDefault();
-        this.props.deleteJoin(this.props.joins[this.props.event._id]._id)
+        this.props.deleteJoin(this.props.joinedEvent._id)
         this.setState({ clicked: false })
     }
 
     render() {
-     
+        
         return (
-            
             <div >
-                {this.props.joins[this.props.event._id] && this.props.joins[this.props.event._id].joinerId === this.props.currentUser._id ? 
-                    <button onClick={this.handleDelete} className="event-index-participating-button">Unjoin</button> : 
-                this.props.currentUser._id === this.props.event.hostId ? <label className="event-index-participating-button">Hosting</label> :
-                <button onClick={this.handleJoin} className="event-index-join-button" >Join</button>}
+                { this.props.joinedEvent ? <button onClick={this.handleDelete} className="unjoin-button">Unjoin</button> : 
+                    this.props.currentUser._id === this.props.event.hostId ? <label className="hosting-button"><Link className="hosting-text"to={`/events/${this.props.event._id}`}>Hosting</Link></label> :
+                        <button onClick={this.handleJoin} className="participating-button" >Join</button>}
             </div>     
        
         )
