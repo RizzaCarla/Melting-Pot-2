@@ -23,7 +23,6 @@ class EventIndex extends React.Component {
             return null
         }
        
-        // debugger;
         return (
                 <div className="index-events-container">
                     <div className="index-header"><h1 className="index-title">All Events</h1></div>
