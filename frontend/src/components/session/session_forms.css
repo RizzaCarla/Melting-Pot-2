@@ -12,17 +12,12 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    width: 30%;
+    width: 600px;
     height: 700px;
     margin-top:120px;
     background: white;
     box-shadow: 0 2px 6px 0 rgba(0,0,0,0.15);
     margin-bottom: 300px;
-
-/* 
-    width: 69%;
-    height: 450px;
-    margin-top:120px; */
 }
 
 h1{
