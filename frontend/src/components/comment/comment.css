@@ -43,6 +43,7 @@
     border-style: outset;
     cursor: pointer;
     outline: 0;
+    border: none;
 }
 
 .comment-submit:hover {
@@ -60,6 +61,7 @@
     font-size: 16px;
     outline: 0;
     border: 1px solid black;
+    border: none;
 }
 
 .comment-delete-btn:hover {
