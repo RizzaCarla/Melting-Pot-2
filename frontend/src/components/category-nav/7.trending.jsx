@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import './7.trending.css';
-import HomePageEventContainer from './home_page_event_button_container'
+import HomePageEventContainer from './home_page_event_container'
 
 class Trending extends React.Component {
   // constructor(props) {
