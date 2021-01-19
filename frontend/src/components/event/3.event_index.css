@@ -1,3 +1,7 @@
+* {
+    outline: none;
+}
+
 .index-events-container{
     display: flex;
     justify-content: center;
@@ -11,28 +15,28 @@
 }
 
 .event-index-photo{
-    padding: 20px;
     height: 300px;
     width: 300px;
     object-fit: cover;
-
+    padding-right: 20px;
 }
 
 .event-index-parent{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* border: 1px solid black; */
     margin-top: 30px;
     border-radius: 4px;
     background: white;
     box-shadow: 0 2px 6px 0 rgba(0,0,0,0.15);
+    width: 1280px;
 }
 .event-index-parent-info{
     display: flex;
     flex-direction: row;
-     align-items: center;
-
+    align-items: flex-start;
+    padding: 30px;
+    width: 95.5%;
 }
 
 
@@ -58,27 +62,81 @@
 
 #index-header{
     background-color: orange;
-    /* padding: 10px; */
-    margin-top: 20px;
+    border-radius: 5px;
+    margin-top: 40px;
+    margin-bottom: 15px;
     color: black;
 }
-.unjoin-button{
-    margin-right:170px;
-    background-color: rgb(124, 65, 65);
+
+.index-unjoin-button {
+    background: rgb(148, 0, 0);
+    padding: 10px 50px;
     color: white;
-    padding: 20px;
-    font-size: 16px;
-    font-family: 'roboto', sans-serif;
+    font-weight: bold;
+    border: none;
+    font-size: 20px;
     border-radius: 5px;
-    cursor: pointer;
 }
-.unjoin-button:hover{
-    background-color: rgb(73, 48, 48);
+
+.index-unjoin-button:active, .index-unjoin-button:focus, .index-unjoin-button:hover  {
+    border: none;
+}
+
+.index-participating-button {
+    background: #00797d;
+    padding: 10px 58px;
+    color: white;
+    font-weight: bold;
+    border: none;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.index-hosting-button {
+    background: rgb(29, 102, 85);
+    padding: 10px 45px;
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    border-radius: 5px;
 }
 
 .index-title{
     text-align: center;
     font-size: 20px;
     font-family: sans-serif;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.event-index-button-container {
+    display: flex;
+    justify-content: flex-end;
+    align-self: flex-start;
+    align-items: flex-end;
+
+}
+
+.event-index-description-list {
+    width: 760px;
+}
+
+.event-index-description-list-nonuser {
+    width: 600px;
+}
+
+.index-signin-button {
+    background: rgb(29, 102, 85);
+    padding: 10px 45px;
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    position: relative;
+    left: 80px;
+    border-radius: 5px;
+}
+
+.index-signin-text {
+    color: white;
 }
 
