@@ -45,7 +45,7 @@
 .go-back{
     margin-top:10px;
     font-size:15px;
-    padding: 5px;
+    padding: 10px;
     border-radius: 5px;
     background-color:  rgb(151, 179, 138);
     color:black;
@@ -61,7 +61,7 @@
 .host-event-button{
     margin-top:20px;
     background-color: rgb(29, 102, 85);
-    padding: 7px;
+    padding: 10px;
     color: white;
     width: 400px;
     border-radius: 5px;

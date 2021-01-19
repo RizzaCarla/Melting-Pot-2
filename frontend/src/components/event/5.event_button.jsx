@@ -36,9 +36,9 @@ class EventButton extends React.Component {
         
         return (
             <div >
-                { this.props.joinedEvent ? <button onClick={this.handleDelete} className="unjoin-button">Unjoin</button> : 
-                    this.props.currentUser._id === this.props.event.hostId ? <label className="hosting-button"><Link className="hosting-text"to={`/events/${this.props.event._id}`}>Hosting</Link></label> :
-                        <button onClick={this.handleJoin} className="participating-button" >Join</button>}
+                { this.props.joinedEvent ? <button onClick={this.handleDelete} className="index-unjoin-button">Unjoin</button> : 
+                    this.props.currentUser._id === this.props.event.hostId ? <div className="index-hosting-button"><Link className="hosting-text" to={`/events/${this.props.event._id}`}>Hosting</Link></div> :
+                        <button onClick={this.handleJoin} className="index-participating-button" >Join</button>}
             </div>     
        
         )

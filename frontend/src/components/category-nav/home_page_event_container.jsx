@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { getEvent, getEvents } from '../../actions/event_actions';
 import { fetchUsers, fetchUser } from '../../actions/user_actions';
-import HomePageEventButton from './home_page_event_button';
+import HomePageEvent from './home_page_event';
 import { closeModal, openModal } from '../../actions/modal_actions'
 import { countSelector } from '../../reducers/joins_selectors'
 import { createJoin, deleteJoin, getJoins, getEventJoins } from '../../actions/join_actions'
@@ -35,4 +35,4 @@ const mapDispatchToProps = (dispatch) => {
     })
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomePageEventButton);
+export default connect(mapStateToProps, mapDispatchToProps)(HomePageEvent);

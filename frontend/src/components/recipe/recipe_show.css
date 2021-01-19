@@ -56,6 +56,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    border: none;
 }
 
 .user-only-btn-edit {
@@ -71,10 +72,11 @@
     height: 30px;
     margin-bottom: 15px;
     font-size: 15px;
+    border: none;
 }
 
 .user-only-btn-edit:hover {
-    background-color: rgb(2, 169, 175)
+    background-color: rgb(2, 169, 175);
 }
 
 .user-only-btn-delete {
@@ -89,6 +91,7 @@
     font-size: 16px;
     cursor: pointer;
     outline: 0;
+    border: none;
 }
 
 .user-only-btn-delete:hover {
@@ -229,12 +232,13 @@
     justify-content: center;
     align-items: center;
     font-size:15px;
-    padding: 5px;
+    padding: 10px;
     border-radius: 5px;
     background-color:  rgb(151, 179, 138);
     color:black;
     width: 400px;
     cursor: pointer;
+    border: none;
 }
 
 .recipe-show-go-back-btn:hover {
