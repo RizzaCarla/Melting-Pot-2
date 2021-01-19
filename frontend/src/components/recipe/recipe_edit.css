@@ -82,7 +82,7 @@
 
 .recipe-edit-save {
     background-color: rgba(0, 121, 125);
-    border-radius: 5px;
+    border-radius: 4px;
     color: white;
     width: 100px;
     height: 25px;
@@ -90,7 +90,7 @@
     margin-left: 15px;
     font-size: 16px;
     cursor: pointer;
-    border: 1px solid gray;
+    border: none;
 }
 
 .recipe-edit-save:hover {
@@ -139,12 +139,13 @@
 .recipe-edit-delete {
     margin-top: 5px;
     background-color: rgb(148, 0, 0);
-    border-radius: 5px;
+    border-radius: 4px;
     width: 120px;
     color: white;
     font-size: 16px;
     border: 1px solid rgb(148, 0, 0);
     cursor: pointer;
+    border: none;
 }
 
 .recipe-edit-delete:hover {
