@@ -35,7 +35,7 @@ class Events extends React.Component {
                                             <div >
                                                 <div><Link to={`/events/${event._id}`}> <img className="event-index-photo" src={event.photoUrl}></img></Link></div>
                                             </div>
-                                            <div>
+                                            <div className='event-index-description-list'>
                                                 <div className="date-index">Date:&nbsp;<span id="event-index-info">{Object.values(event.date).slice(5, 10).concat('-', Object.values(event.date).slice(0, 4))}</span></div>
                                                 <div className="date-index">Event Name:&nbsp;<Link id="event-name" to={`/events/${event._id}`}>{event.name}</Link></div>
                                                 <div className="date-index">Partcipating:&nbsp;<span className="event-index-info">{this.props.count[event._id]}</span></div>
@@ -43,8 +43,8 @@ class Events extends React.Component {
                                                 <div className="date-index">Location:&nbsp;<span id="event-index-info">{event.location}</span></div>
                                                 <div className="date-index">Hosted by:&nbsp;<span id="event-index-info">{this.props.users[event.hostId].handle}</span></div>
                                             </div>
+                                            <div className="index-hosting-button"><Link className="hosting-event-txt" to={`/events/${event._id}`}>Hosting</Link></div>
                                         </div>
-                                                <div className="hosting-button"><Link className="hosting-event-txt" to={`/events/${event._id}`}>Hosting</Link></div>
                                     </div>
 
                                 </li>      
@@ -63,7 +63,7 @@ class Events extends React.Component {
                                             <div >
                                                 <div><Link to={`/events/${event._id}`}> <img className="event-index-photo" src={event.photoUrl}></img></Link></div>
                                             </div>
-                                            <div>
+                                            <div className='event-index-description-list'>
                                                 <div className="date-index">Date:&nbsp;<span id="event-index-info">{Object.values(event.date).slice(5, 10).concat('-', Object.values(event.date).slice(0, 4))}</span></div>
                                                 <div className="date-index">Event Name:&nbsp;<Link id="event-name" to={`/events/${event._id}`}>{event.name}</Link></div>
                                                 <div className="date-index">Partcipating:&nbsp;<span className="event-index-info">{this.props.count[event._id]}</span></div>
@@ -71,8 +71,8 @@ class Events extends React.Component {
                                                 <div className="date-index">Location:&nbsp;<span id="event-index-info">{event.location}</span></div>
                                                 <div className="date-index">Hosted by:&nbsp;<span id="event-index-info">{this.props.users[event.hostId].handle}</span></div>
                                             </div>
+                                            <div className="index-participating-button"><Link className="participating-event-txt"to={`/events/${event._id}`}>Participating</Link></div>
                                         </div>
-                                        <div className="participating-button"><Link className="participating-event-txt"to={`/events/${event._id}`}>Participating</Link></div>
                                     </div>
 
                                 </li>           
