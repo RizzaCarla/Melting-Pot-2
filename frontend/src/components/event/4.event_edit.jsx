@@ -18,10 +18,15 @@ class EditEvent extends React.Component {
 
     componentDidMount() {
         this.props.getEvents();
-        this.props.getUserEvents(this.props.currentUser._id);
+        // this.props.getEvent(this.props.currentUser._id);
         this.props.clearErrors()
     }
 
+    // componentDidUpdate(prevProps){
+    //     if (prevProps.events !== this.props.events){
+    //         this.props.getEvents()
+    //     }
+    // }
 
     handleDayChange(day) {
         this.setState({ date: day });
@@ -52,7 +57,6 @@ class EditEvent extends React.Component {
             </ul>
         )
     }
-
 
     render() {
         const event = this.props.event

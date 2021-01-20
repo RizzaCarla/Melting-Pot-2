@@ -1,3 +1,8 @@
+* {
+    outline: none;
+    font-family: sans-serif;
+}
+
 .event-create-form{
     margin-top:50px;
     flex-direction: column;
@@ -46,15 +51,15 @@
     font-size:15px;
     padding: 5px;
     border-radius: 5px;
-    background-color:  rgb(151, 179, 138);
     color:black;
     width: 400px;
     margin-left: 105px;
     cursor: pointer;
+    background-color: rgb(121, 163, 94);
 }
 
 .go-back:hover{
-    background-color: rgb(121, 163, 94);
+    background-color:  rgb(151, 179, 138);
     color:white;
 }
 
@@ -68,4 +73,8 @@
     font-size:15px;
     margin-left: 105px;
     cursor: pointer;
+}
+
+.host-event-button:hover{
+    background: rgb(30, 144, 117)
 }

@@ -1,3 +1,8 @@
+* {
+    outline: none;
+    font-family: sans-serif;
+}
+
 #add-event-button{
     background-color: #F3B81E;
     padding: 10px;
@@ -7,10 +12,11 @@
     margin-left: 185px;
     margin-top: 20px;
     border: none;
+    cursor: pointer;
 }
 
 #add-event-button:hover{
-  background-color: #dda61c;
+  background-color: rgb(250, 198, 68);
 }
 
 .hosting-button{
@@ -25,7 +31,7 @@
 }
 
 .hosting-button:hover{
- background-color: rgb(25, 78, 66);
+ background-color: rgb(30, 144, 117);
 }
 
 .hosting-event-txt {
@@ -36,19 +42,4 @@
     color:white;
 }
 
-
-.participating-button {
-    margin-right:170px;
-    background-color: #F3B81E;
-    color: white;
-    padding: 20px;
-    font-size: 16px;
-    font-family: 'roboto', sans-serif;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.participating-button:hover{
-    background-color: #dda61c;
-}
 

@@ -22,7 +22,7 @@
 }
 
 .profile-pic-div {
-    background: rgb(34,193,195);
+    background-color: rgb(34,193,195);
     background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
 
 }
@@ -52,4 +52,9 @@
     padding-bottom: 20px;
     font-family: 'roboto', sans-serif;
     font-size: 20px;
+}
+
+* {
+    outline: none;
+    font-family: sans-serif;
 }

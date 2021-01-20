@@ -1,5 +1,6 @@
 * {
     outline: none;
+    font-family: sans-serif;
 }
 
 .index-events-container{
@@ -27,7 +28,7 @@
     align-items: center;
     margin-top: 30px;
     border-radius: 4px;
-    background: white;
+    background-color: white;
     box-shadow: 0 2px 6px 0 rgba(0,0,0,0.15);
     width: 1280px;
 }
@@ -61,52 +62,67 @@
 }
 
 #index-header{
-    background-color: orange;
-    border-radius: 5px;
+    background-color: #ef5d5d;
     margin-top: 40px;
     margin-bottom: 15px;
     color: black;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.15);
+    padding: 15px;
+    border-radius: 4px;
 }
 
 .index-unjoin-button {
-    background: rgb(148, 0, 0);
+    background-color: rgb(148, 0, 0);
     padding: 10px 50px;
     color: white;
     font-weight: bold;
     border: none;
     font-size: 20px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .index-unjoin-button:active, .index-unjoin-button:focus, .index-unjoin-button:hover  {
     border: none;
+    background-color: rgb(201, 0, 0);
 }
 
 .index-participating-button {
-    background: #00797d;
+    background-color: #00797d;
     padding: 10px 58px;
     color: white;
     font-weight: bold;
     border: none;
     font-size: 20px;
     border-radius: 5px;
+    cursor: pointer;
+}
+
+.index-participating-button:hover {
+    background-color:rgb(2, 169, 175);
 }
 
 .index-hosting-button {
-    background: rgb(29, 102, 85);
+    background-color: rgb(29, 102, 85);
     padding: 10px 45px;
     font-weight: bold;
     font-size: 20px;
     color: white;
     border-radius: 5px;
+    cursor: pointer;
+}
+
+.index-hosting-button:hover {
+    background-color: rgb(30, 144, 117);
 }
 
 .index-title{
     text-align: center;
-    font-size: 20px;
+    font-size: 50px;
     font-family: sans-serif;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding: 20px;
+    color: #ffce53;
+    font-weight: bolder;
 }
 
 .event-index-button-container {
@@ -114,6 +130,7 @@
     justify-content: flex-end;
     align-self: flex-start;
     align-items: flex-end;
+    cursor: pointer;
 
 }
 
@@ -126,14 +143,19 @@
 }
 
 .index-signin-button {
-    background: rgb(29, 102, 85);
+    background-color: rgb(29, 102, 85);
     padding: 10px 45px;
     font-weight: bold;
     font-size: 20px;
     color: white;
     position: relative;
-    left: 80px;
+    left: 85px;
     border-radius: 5px;
+    cursor: pointer;
+}
+
+.index-signin-button:hover {
+    background-color:rgb(30, 144, 117);
 }
 
 .index-signin-text {
