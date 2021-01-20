@@ -30,14 +30,8 @@ class EventIndex extends React.Component {
                     <div id="index-header"><h1 className="index-title">All Events</h1></div>
                     <div className="hosting-events">
                         <ul>
-<<<<<<< HEAD
-                            {console.log(this.props.events)}
-                            {Object.values(this.props.events).map((event, i) => (
-                                <li key={i}>
-=======
                             {Object.values(this.props.events).map((event ) => (
                                 <li key={event._id}>
->>>>>>> 2bd08c2032eaa6b6808321a7b1601d09b666b1ba
 
                                     <div className="event-index-parent">
                                         <div className="event-index-parent-info">
