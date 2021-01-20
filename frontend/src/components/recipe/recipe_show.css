@@ -2,10 +2,7 @@
     margin: 0;
     padding: 0;
     text-decoration: none;
-    /* color: #333; */
-    /* font-size: 20px; */
-    /* list-style: none; */
-    /* font-family: 'Roboto', sans-serif; */
+    font-family: sans-serif;
 }
 
 .recipe-show-container {
@@ -15,7 +12,6 @@
     align-items: center;
     width: 1280px;
     margin: 0 auto;
-    /* border: 1px black solid; */
     background: #fff;
     margin-top: 40px;
     padding-top: 30px;
@@ -63,7 +59,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgb(0, 121, 125);
+    background-color: rgb(0, 121, 125);
     border: 1px #333 solid;
     color: #fff;
     border-radius: 5px;
@@ -80,7 +76,7 @@
 }
 
 .user-only-btn-delete {
-    background: rgb(148, 0, 0);
+    background-color: rgb(148, 0, 0);
     border: 1px #333 solid;
     color: #fff;
     text-align: center;
@@ -112,7 +108,7 @@
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     padding: 15px 15px 0 15px;
-    background: #fff;
+    background-color: #fff;
     border-bottom: 0;
     box-shadow: 0 2px 6px 0 rgba(0,0,0,0.15);
     object-fit: cover;
@@ -129,7 +125,7 @@
     border-radius: 10px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-    background: #fff;
+    background-color: #fff;
     border-top: 0;
     box-shadow: 0 2px 6px 0 rgba(0,0,0,0.15);
 }
@@ -234,15 +230,15 @@
     font-size:15px;
     padding: 10px;
     border-radius: 5px;
-    background-color:  rgb(151, 179, 138);
     color:black;
     width: 400px;
     cursor: pointer;
     border: none;
+    background-color: rgb(121, 163, 94);
 }
 
 .recipe-show-go-back-btn:hover {
-    background-color: rgb(121, 163, 94);
+    background-color:  rgb(151, 179, 138);
     color: #fff;
 }
 

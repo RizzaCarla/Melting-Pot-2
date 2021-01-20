@@ -1,5 +1,7 @@
 * {
     margin: 0;
+    outline: none;
+    font-family: sans-serif;
 }
 
 .recipe-edit-parent {

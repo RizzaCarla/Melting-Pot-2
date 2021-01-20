@@ -7,3 +7,8 @@
   padding: 35px;
 
   }
+
+  * {
+    outline: none;
+    font-family: sans-serif;
+}
