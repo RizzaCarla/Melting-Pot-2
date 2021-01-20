@@ -1,3 +1,8 @@
+* {
+    outline: none;
+    font-family: sans-serif;
+}
+
 .comment-container {
     width: 750px;
     font-family: sans-serif;

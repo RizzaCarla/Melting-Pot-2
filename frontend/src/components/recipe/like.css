@@ -1,3 +1,9 @@
+
+* {
+    outline: none;
+    font-family: sans-serif;
+}
+
 .like-btns {
     font-family: sans-serif;
     font-size: 16px;

@@ -11,7 +11,7 @@
 }
 
 #add-recipe-button:hover{
-    background-color: #dda61c;
+    background-color: rgb(250, 198, 68);
 }
 
 .recipe-profile-photo{
@@ -52,4 +52,9 @@
 .recipe-list {
     padding: 10px;
        
+}
+
+* {
+    outline: none;
+    font-family: sans-serif;
 }

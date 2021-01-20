@@ -1,3 +1,8 @@
+* {
+    outline: none;
+    font-family: sans-serif;
+}
+
 .page{
     display:flex;
     align-items: center;
@@ -57,16 +62,17 @@ h2{
 .submit-button{
     background-color: rgb(29, 102, 85);
     color: white;
-    padding: 10px;
+    padding: 8px;
     text-align: center;
     font-size: 20px;
     margin-top: 25px;
     cursor:pointer;
     border: none;
+    border-radius: 4px;
 }
 
 .submit-button:hover{
-    background-color: rgb(19, 80, 66);
+    background-color: rgb(30, 144, 117);
 }
 .signup-option{
     display: flex;
@@ -79,7 +85,7 @@ h2{
     background-color:rgb(255, 183, 0);
     color: black;
     padding: 7px;
-    padding: 13px 200px;
+    padding: 10px 200px;
     border-radius: 4px;
     font-size: 13px;
     border: none;
@@ -89,7 +95,7 @@ h2{
 }
 
 .signup-button:hover{
-    background-color:rgb(243, 184, 30);
+    background-color:rgb(250, 198, 68);
 }
 
 .checkbox-container{
@@ -143,18 +149,19 @@ h2{
 .login-button{
     background-color:rgb(255, 183, 0);
     color: black;
-    padding: 15px 100px;
+    padding: 10px 100px;
     text-align: center;
     font-size: 13px;
     border: none;
     width: 600px;
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
+    border-radius: 4px;
     cursor: pointer;
 }
 
 .login-button:hover{
-      background-color:rgb(243, 184, 30);
+      background-color:rgb(250, 198, 68);
 }
 
 .signup-inputs{

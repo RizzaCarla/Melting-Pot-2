@@ -53,3 +53,8 @@
     font-family: 'roboto', sans-serif;
     font-size: 20px;
 }
+
+* {
+    outline: none;
+    font-family: sans-serif;
+}

@@ -1,3 +1,8 @@
+* {
+    outline: none;
+    font-family: sans-serif;
+}
+
 .event-show-container{
     margin-top:20px;
     display: flex;
@@ -51,18 +56,18 @@
     font-family: 'roboto', sans-serif;
     border-radius: 5px;
     cursor: pointer;
-     width: 250px;
+    width: 250px;
+}
+
+.goback-show-event-button:hover{
+    background-color:  rgb(151, 179, 138);
+    color:white;
 }
 
 .delete-show-event-button:hover{
     background-color: rgb(201, 0, 0);
 }
 
-
-.goback-show-event-button:hover{
-    background-color: rgb(121, 163, 94);
-    color:white;
-}
 
 .edit-show-event-button{
     margin-top:10px;
@@ -73,7 +78,7 @@
     font-family: 'roboto', sans-serif;
     border-radius: 5px;
     cursor: pointer;
-     width: 250px;
+    width: 250px;
 }
 .edit-show-event-button:hover{
     background-color: rgb(2, 169, 175);
@@ -81,7 +86,7 @@
 .goback-show-event-button{
     margin-top:10px;
     padding: 10px;
-    background-color:  rgb(151, 179, 138);
+    background-color: rgb(121, 163, 94);
     color:black;
     width: 250px;
     font-size: 16px;

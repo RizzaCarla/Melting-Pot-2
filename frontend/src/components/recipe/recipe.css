@@ -5,7 +5,7 @@
     /* color: #333; */
     /* font-size: 20px; */
     list-style: none;
-    /* font-family: 'Roboto', sans-serif; */
+    font-family: sans-serif;
 }
 
 .form-container {
@@ -351,13 +351,13 @@
     font-size:15px;
     padding: 5px;
     border-radius: 5px;
-    background-color:  rgb(151, 179, 138);
+    background-color: rgb(121, 163, 94);
     color:black;
     width: 400px;
     cursor: pointer;
 }
 
 .recipe-create-go-back-btn:hover {
-    background-color: rgb(121, 163, 94);
+    background-color:  rgb(151, 179, 138);
     color:white;
 }
