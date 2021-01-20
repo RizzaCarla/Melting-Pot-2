@@ -9,16 +9,27 @@ class Footer extends React.Component {
           <ul className="footer-list">
             Developed by:
             <li>
-              <a href="https://github.com/ChristopherJose707">Christopher Jose</a>
+              <a href="https://github.com/ChristopherJose707" target="_blank">
+                Christopher Jose
+              </a>
             </li>
             <li>
-              <a href="https://github.com/RizzaCarla">Rizza Marzo</a>
+              <a href="https://github.com/RizzaCarla" target="_blank">
+                Rizza Marzo
+              </a>
             </li>
             <li>
-              <a href="https://github.com/SanYung">San Yung</a>
+              <a href="https://github.com/SanYung" target="_blank">
+                San Yung
+              </a>
             </li>
             <li>
-              <a href="https://github.com/kevinpark02">Kevin Park</a>
+              <a href="https://github.com/kevinpark02" target="_blank">
+                Kevin Park
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/ChristopherJose707/Melting-Pot" target="_blank">Github Repo</a>
             </li>
           </ul>
         </div>

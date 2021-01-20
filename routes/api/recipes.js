@@ -79,14 +79,15 @@ router.patch('/edit/:id', (req, res) => {
 })
 
 router.post("/search-recipes", (req, res) => {
-  let recipePattern = new RegExp("^" + req.body.query, "i");
-  
+  let recipePattern = new RegExp(req.body.query, "i");
+
   Recipe.find({ name: { $regex: recipePattern } })
     .then((recipe) => {
       res.json({ recipe });
     })
     .catch((err) => console.log(err));
 });
+
 
 module.exports = router;
 //MAKE SURE TO HAVE REGULAR ROUTES ABOVE ROUTES WITH WILDCARDS OTHER WISE YOU GET THIS BUG: UnhandledPromiseRejectionWarning: CastError: Cast to ObjectId failed for value
