@@ -6,6 +6,7 @@ import { fetchUsers} from '../../actions/user_actions'
 import { countSelector } from '../../reducers/joins_selectors'
 
 const mapStateToProps = (state) => {
+    
     return ({
         currentUser: state.session.currentUser,
         events: state.entities.events,
