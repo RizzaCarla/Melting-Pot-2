@@ -59,7 +59,6 @@ class EditEvent extends React.Component {
     }
 
     render() {
-        // debugger
         const event = this.props.event
         const { selectedDay } = this.state
         if (this.state === null) {
