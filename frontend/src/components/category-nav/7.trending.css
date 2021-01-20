@@ -144,6 +144,7 @@
   .trending-event-button{
     display: flex;
     align-items: center;
+    cursor: pointer;
   }
 
   .event-pic-and-info{
@@ -197,6 +198,14 @@
     cursor: pointer;
   }
 
+  .home-page-button-recipe:hover{
+      background-color:rgb(218, 164, 28);
+  }
+
+   .home-page-button-event:hover{
+      background-color:rgb(218, 164, 28);
+  }
+
 
   .modal-background {
     position: fixed;
@@ -232,7 +241,7 @@
   }
 
   .signintojoin-button:hover{
-    background-color: rgb(29, 102, 85);
+    background-color: rgb(28, 85, 72);
     color:white;
   }
 
@@ -262,6 +271,7 @@
     font-weight: bold;
     border: none;
     font-size: 15px;
+    cursor: pointer;
   }
 
   .trending-unjoin-button:active, .trending-unjoin-button:focus, .trending-unjoin-button:hover  {
@@ -275,6 +285,7 @@
     font-weight: bold;
     border: none;
     font-size: 15px;
+    cursor: pointer;
   }
 
   .trending-hosting-button {
@@ -284,4 +295,5 @@
     font-size: 15px;
     color: black;
     line-height: 2px;
+    cursor: pointer;
   }
