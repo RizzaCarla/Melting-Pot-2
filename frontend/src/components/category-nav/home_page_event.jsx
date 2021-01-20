@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import './7.trending.css'
 
 class HomePageEventButton extends React.Component {
     constructor(props){
@@ -29,16 +30,16 @@ class HomePageEventButton extends React.Component {
     handleParticipateButton() {
         if (!this.props.auth) {
             return(
-                <div className="event-button">
-                <button className="signintojoin-button" onClick={() => this.props.openModal('LogIn')}>Sign in to Join</button>
+                <div className="trending-event-button">
+                <button className="signintojoin-button" onClick={() => this.props.openModal('LogIn')}>Login to Join</button>
             </div>
             )
         } else {
             return(
-                <div className="event-button">
-                {this.props.joinedEvent ? <button onClick={this.handleDelete} className="unjoin-button">Unjoin</button> :
-                    this.props.currentUser.user._id === this.props.event.hostId ? <label className="hosting-button"><Link className="hosting-text" to={`/events/${this.props.event._id}`}>Hosting</Link></label> :
-                    <button onClick={this.handleJoin} className="participating-button" >Join</button>}
+                <div className="trending-event-button">
+                {this.props.joinedEvent ? <button onClick={this.handleDelete} className="trending-unjoin-button">Unjoin</button> :
+                    this.props.currentUser.user._id === this.props.event.hostId ? <label className="trending-hosting-button"><Link className="hosting-text" to={`/events/${this.props.event._id}`}>Hosting</Link></label> :
+                    <button onClick={this.handleJoin} className="trending-participating-button" >Join</button>}
                 </div>
             )
         }
@@ -47,7 +48,7 @@ class HomePageEventButton extends React.Component {
         return (
             
      
-            <div className='home-page-event-container'>
+            // <div className='home-page-event-container'>
                 <div className='home-page-event-details-box'>
                     <div className="event-pic-and-info">
                         <div>
@@ -63,11 +64,11 @@ class HomePageEventButton extends React.Component {
                             <div><span className="event-text">Location:</span> {this.props.event.location}</div>
                             <div><span className="event-text">Description:</span> {this.props.event.description}</div>
                         </div>
+                        <div className='trending-event-button-container'> {this.handleParticipateButton()}</div>
                     </div>
                     
-                    <div> {this.handleParticipateButton()}</div>
                 </div>
-            </div>
+            // </div>
           
         );
     }

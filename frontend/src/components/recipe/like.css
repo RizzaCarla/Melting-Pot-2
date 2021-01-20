@@ -7,10 +7,10 @@
     color: rgb(255,220, 103);
     background: rgb(241, 86,96);
     cursor: pointer;
-    border-radius: 10px;
+    border-radius: 4px;
     outline: 0;
 }
 
 .like-btns:hover {
-    background: rgb(255,13,100);
+    background: rgb(230, 32, 105);
 }

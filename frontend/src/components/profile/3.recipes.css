@@ -6,6 +6,8 @@
     border-radius: 5px;
     margin-left: 185px;
     cursor: pointer;
+    border: none;
+    font-size: 15px;
 }
 
 #add-recipe-button:hover{

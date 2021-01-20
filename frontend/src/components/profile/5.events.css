@@ -1,3 +1,7 @@
+*{
+    font-family: sans-serif;
+}
+
 #add-event-button{
     background-color: #F3B81E;
     padding: 10px;
@@ -6,6 +10,8 @@
     border-radius: 5px;
     margin-left: 185px;
     margin-top: 20px;
+    border: none;
+    cursor: pointer;
 }
 
 #add-event-button:hover{
@@ -32,14 +38,14 @@
 }
 
 .participating-event-txt {
-    color:black;
+    color:white;
 }
 
 
 .participating-button {
     margin-right:170px;
     background-color: #F3B81E;
-    color: black;
+    color: white;
     padding: 20px;
     font-size: 16px;
     font-family: 'roboto', sans-serif;
