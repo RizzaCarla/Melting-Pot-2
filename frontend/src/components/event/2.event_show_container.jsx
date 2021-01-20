@@ -14,8 +14,7 @@ const mapStateToProps = (state, ownProps) => {
         joinedEvent: joinSelector2(state, ownProps.match.params.eventId),
         joins: state.entities.joins,
         events: state.entities.events,
-        loggedIn: state.session.isAuthenticated,
-
+        loggedIn: state.session.isAuthenticated
     });
 };
 
