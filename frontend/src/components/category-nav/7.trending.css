@@ -198,6 +198,14 @@
     cursor: pointer;
   }
 
+  .home-page-button-recipe:hover{
+      background-color:rgb(218, 164, 28);
+  }
+
+   .home-page-button-event:hover{
+      background-color:rgb(218, 164, 28);
+  }
+
 
   .modal-background {
     position: fixed;
@@ -233,7 +241,7 @@
   }
 
   .signintojoin-button:hover{
-    background-color: rgb(29, 102, 85);
+    background-color: rgb(28, 85, 72);
     color:white;
   }
 
