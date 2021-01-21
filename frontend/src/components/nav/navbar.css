@@ -6,9 +6,9 @@
     font-family: sans-serif;
 }
 
-
 html {
     background-color:rgb(252, 247, 241);
+    width: auto;
 }
 
 .NavBar{
@@ -28,13 +28,15 @@ html {
 .nav-logo {
     height: 50px;
     width: 204px;
+    margin-left: 18px;
 }
 
 .navbar-parent {
     background-color: #ef5d5d;
     box-shadow: 0 2px 6px 0 rgba(0,0,0,0.15);
     min-width: 1280px;
-    
+    display: flex;
+    flex-direction: row;
 }
 
 .navbar-left {
@@ -43,6 +45,13 @@ html {
     justify-content: flex-start;
     align-items: center;
     
+}
+
+NavBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .NavBar a {
@@ -62,14 +71,26 @@ html {
 .navbar-right {
     display: flex;
     justify-content: space-between;
-    margin-right: 11px;
-    width: 150px;
+    margin-right: 40px;
+    width: 170px;
+}
+
+.navbar-right a {
+    display: flex;
+    align-items: center;
+    border-right: 1px solid #000000;
+    width: 110px;
+}
+
+.navbar-right a:last-child {
+    border-right: none;
 }
 
 .right-navbar-loggedin {
     display: flex;
     width: 200px; 
     justify-content: space-between;
+    margin-right: 50px;
 }
 
 .logout-btn {
@@ -196,4 +217,8 @@ html {
 #result-1 {
     color: gray;
     font-size: 12px;
+}
+
+.navbar-signup-button {
+    border-right: none;
 }
