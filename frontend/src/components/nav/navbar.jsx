@@ -43,8 +43,10 @@ class NavBar extends React.Component {
       return(
         <div className="navbar-right">
           <Link to={`/events`}>&nbsp;&nbsp;Events&nbsp;&nbsp;</Link>&nbsp;&nbsp;
-          <Link to="/login">Login</Link>&nbsp;&nbsp;
-          <Link to="/signup">Signup</Link>
+          <Link to="/login">Login&nbsp;&nbsp;</Link>&nbsp;&nbsp;
+          <div className='navbar-signup-button'>
+            <Link to="/signup">Signup</Link>
+          </div>
         </div>
       )
     }

@@ -15,6 +15,7 @@ class LoginForm extends React.Component {
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+    this.handleDemoLogin = this.handleDemoLogin.bind(this);
   }
 
   componentDidMount() {
@@ -31,6 +32,16 @@ class LoginForm extends React.Component {
       email: this.state.email,
       password: this.state.password
     };
+    this.props.login(user)
+      .then(() => this.props.history.push(this.props.redirectLink))
+  }
+
+  handleDemoLogin(e) {
+    e.preventDefault();
+    let user = {
+      email: 'DemoUser@gmail.com',
+      password: 'DemoUser'
+    }
     this.props.login(user)
       .then(() => this.props.history.push(this.props.redirectLink))
   }
@@ -57,7 +68,7 @@ class LoginForm extends React.Component {
             <h2>Login</h2>
 
             <label>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email:&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email:&nbsp;&nbsp;
               <input
                 type="text"
                 className="input-field"
@@ -83,6 +94,7 @@ class LoginForm extends React.Component {
               type="submit"
               value="Login"
             />
+            <button className="login-demo-button" onClick={this.handleDemoLogin}>Demo Login</button>
             <div className="errors">{this.renderErrors()}</div>
           </div>
         </form>
