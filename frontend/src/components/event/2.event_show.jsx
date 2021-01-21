@@ -78,7 +78,7 @@ class EventShow extends React.Component {
                     <div className="event-info-show">
                         <div><label id="event-label">Event Name:</label>{this.props.event.name} </div>
                             <div><label id="event-label">Description:</label> < span id="event-label-des">{this.props.event.description}</span></div>
-                            <Link to={{ pathname:`/login`, state:{ redirectLink: `/events/${this.props.event._id}` } }}  onClick={this.handleLogin} className="event-index-login-first">Sign in to see full details</Link>
+                            <Link to={{ pathname: `/login`, state: { redirectLink: `/events/${this.props.event._id}` } }} onClick = {() => this.props.openModal('LogIn')} className="event-index-login-first">Sign in to see full details</Link>
                 <div className="buttons">
                     <button onClick={this.props.history.goBack} className="goback-show-event-button"><BiArrowBack />&nbsp;Go back</button>       
                 </div>

@@ -20,6 +20,20 @@
     margin-bottom: 300px;
 }
 
+.form-container-session-modal{
+    margin-left: 35%;
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 600px;
+    height: 700px;
+    margin-top:80px;
+    background: white;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.15);
+    margin-bottom: 300px;
+}
+
 h1{
     font-size: 30px;
     padding: 25px;
@@ -43,8 +57,19 @@ h2{
     font-size: 21px;
     font-family: 'Roboto', sans-serif;
     border: rgb(250, 245, 245) solid 5px;
-  
+}
 
+.form-modal{
+    display:flex;
+    flex-direction: column;
+    border-radius: 3px;
+    padding: 30px;
+    margin-bottom: 100px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 21px;
+    font-family: 'Roboto', sans-serif;
+    border: rgb(250, 245, 245) solid 5px;
 }
 
 .input-field{
@@ -177,4 +202,10 @@ h2{
 .login-space-div {
     width: 500px;
     height: 500px;
+}
+
+.session-errors{
+    padding: 5px;
+    color:red;
+    font-size: 11px;
 }

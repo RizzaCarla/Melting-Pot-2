@@ -1,18 +1,12 @@
 import { connect } from 'react-redux'
 import { login, clearErrors } from '../../actions/session_actions';
-import HomePageModalLogin from './home_page_modal_login';
+import EventModalLogin from './6.event_modal_login';
 import { withRouter } from 'react-router-dom'
-import { closeModal } from '../../actions/modal_actions' 
+import { closeModal } from '../../actions/modal_actions'
 
-const mapStateToProps = (state, ownProps) => {
-    console.log(ownProps)
-        let redirectLink = '/'
-     if(ownProps.location.state !== undefined){
-        redirectLink = ownProps.location.state.redirectLink
-    }
+const mapStateToProps = (state) => {
     return {
         errors: state.errors.session,
-        redirectLink: redirectLink,
         isAuthenticated: state.session.isAuthenticated,
     };
 };
@@ -25,4 +19,6 @@ const mapDispatchToProps = dispatch => {
     }
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HomePageModalLogin));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(EventModalLogin));
+
+

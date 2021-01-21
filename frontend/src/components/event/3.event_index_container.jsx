@@ -4,6 +4,7 @@ import { createJoin, deleteJoin, getJoins, getEventJoins} from '../../actions/jo
 import { getEvents, getUserEvents, updateEvent, } from '../../actions/event_actions';
 import { fetchUsers} from '../../actions/user_actions'
 import { countSelector } from '../../reducers/joins_selectors'
+import { openModal, closeModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state) => {
     return ({
@@ -21,6 +22,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProp = (dispatch) => {
     return ({
+        openModal: (modal) => dispatch(openModal(modal)),
+        closeModal: () => dispatch(closeModal()),
         fetchUsers: () => dispatch(fetchUsers()),
         getEvents: () => dispatch(getEvents()),
         getUserEvents: ((userId) => dispatch(getUserEvents(userId))),

@@ -78,7 +78,7 @@ class EventIndex extends React.Component {
                                                 {/* <div className="date-index">Location:&nbsp;<span id="event-index-info">{event.location}</span></div> */}
                                                 {/* <div className="date-index">Hosted by:&nbsp;<span id="event-index-info">{this.props.users[event.hostId].handle}</span></div> */}
                                             </div>
-                                            <div className="index-signin-button"> <Link to={{ pathname: `/login`, state: { redirectLink: `/events/${event._id}` } }} className="index-signin-text" onClick={this.handleClick}>Login to Join</Link> </div>
+                                            <div className="index-signin-button"> <span className="index-signin-text" onClick={() => this.props.openModal('eventLogIn')}>Login to Join</span> </div>
                                         </div>
 
                                     </div>
