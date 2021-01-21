@@ -25,6 +25,7 @@ class SignupForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.clearedErrors = false;
     this.handlePhotoFile = this.handlePhotoFile.bind(this);
+    this.handleDemoLogin = this.handleDemoLogin.bind(this);
   }
 
   componentDidMount() {
@@ -104,6 +105,17 @@ class SignupForm extends React.Component {
     this.setState({
       photoFile: e.target.files[0]
     })
+  }
+
+
+  handleDemoLogin(e) {
+    e.preventDefault();
+    let user = {
+      email: 'DemoUser@gmail.com',
+      password: 'DemoUser'
+    }
+    this.props.login(user)
+      .then(() => this.props.history.push(this.props.redirectLink))
   }
 
   renderErrors() {
@@ -272,6 +284,7 @@ class SignupForm extends React.Component {
             </label>
 
             <input className="submit-button"  type="submit" value="Submit" />
+            <button className="login-demo-button" onClick={this.handleDemoLogin}>Demo Login</button>
             <div className="errors">{this.renderErrors()}</div>
           </div>
         </form>
