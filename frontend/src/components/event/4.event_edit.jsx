@@ -64,6 +64,7 @@ class EditEvent extends React.Component {
         if (this.state === null) {
             return null
         }
+        
         return (
             <div>
                 <form className="event-edit-form">

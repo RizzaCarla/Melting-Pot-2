@@ -1,3 +1,8 @@
+* {
+    outline: none;
+    font-family: sans-serif;
+}
+
 .event-edit-form{
     margin-top:50px;
     flex-direction: column;
@@ -7,7 +12,7 @@
 
     padding: 50px;
     justify-content: center;
-    background: white;
+    background-color: white;
     box-shadow: 0 2px 6px 0 rgba(0,0,0,0.15);
     margin-bottom: 120px;
 }
@@ -47,14 +52,14 @@
     font-size:15px;
     padding: 10px;
     border-radius: 5px;
-    background-color:  rgb(151, 179, 138);
     color:black;
+    background-color: rgb(121, 163, 94);;
     width: 400px;
     margin-left: 105px;
 }
 
 .go-back:hover{
-    background-color: rgb(121, 163, 94);
+    background-color:  rgb(151, 179, 138);
     color:white;
 }
 
@@ -70,5 +75,5 @@
 }
 
 .host-event-button:hover{
-    background-color: rgb(35, 78, 68);
+    background-color: rgb(30, 144, 117);
 }

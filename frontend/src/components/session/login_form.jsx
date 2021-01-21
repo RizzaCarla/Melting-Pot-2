@@ -1,7 +1,6 @@
 import React from 'react'
 import {withRouter} from 'react-router-dom';
 import { Link } from 'react-router-dom'
-import './css_reset.css'
 import './session_forms.css'
 
 class LoginForm extends React.Component {
@@ -16,6 +15,7 @@ class LoginForm extends React.Component {
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+    this.handleDemoLogin = this.handleDemoLogin.bind(this);
   }
 
   componentDidMount() {
@@ -44,6 +44,16 @@ class LoginForm extends React.Component {
 
   }
 
+  handleDemoLogin(e) {
+    e.preventDefault();
+    let user = {
+      email: 'DemoUser@gmail.com',
+      password: 'DemoUser'
+    }
+    this.props.login(user)
+      .then(() => this.props.history.push(this.props.redirectLink))
+  }
+
   renderErrors() {
     return(
       <ul>
@@ -66,7 +76,7 @@ class LoginForm extends React.Component {
             <h2>Login</h2>
 
             <label>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email:&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email:&nbsp;&nbsp;
               <input
                 type="text"
                 className="input-field"

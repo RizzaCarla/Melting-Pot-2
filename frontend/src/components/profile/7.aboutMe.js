@@ -4,7 +4,8 @@ import './7.aboutMe.css'
 class AboutMe extends React.Component {
 
     componentDidMount() {
-        this.props.getUserRecipes(this.props.currentUser._id)
+        this.props.clearRecipes();
+        this.props.getUserRecipes(this.props.currentUser._id);
     }
 
     memberSince(){

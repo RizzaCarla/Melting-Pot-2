@@ -6,3 +6,8 @@
 .tab-header{
     margin-left: 50px;
 }
+
+* {
+    outline: none;
+    font-family: sans-serif;
+}

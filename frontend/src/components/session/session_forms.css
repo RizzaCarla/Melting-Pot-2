@@ -1,3 +1,8 @@
+* {
+    outline: none;
+    font-family: sans-serif;
+}
+
 .page{
     display:flex;
     align-items: center;
@@ -5,19 +10,19 @@
     justify-content: center;
 }
 
-.form-container-session{
-
-    margin-left: 35%;
+.form-container-session {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:75px;
+    margin-bottom: 50px;
     display:flex;
-    align-items: center;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     width: 600px;
     height: 700px;
-    margin-top:120px;
-    background: white;
+    background-color: white;
     box-shadow: 0 2px 6px 0 rgba(0,0,0,0.15);
-    margin-bottom: 300px;
 }
 
 .form-container-session-modal{
@@ -54,6 +59,7 @@ h2{
     padding: 30px;
     padding-left: 30px;
     padding-right: 30px;
+    padding-bottom: 5px;
     font-size: 21px;
     font-family: 'Roboto', sans-serif;
     border: rgb(250, 245, 245) solid 5px;
@@ -82,31 +88,54 @@ h2{
 .submit-button{
     background-color: rgb(29, 102, 85);
     color: white;
-    padding: 10px;
+    padding: 8px;
     text-align: center;
     font-size: 20px;
     margin-top: 25px;
+    margin-bottom: 25px;
     cursor:pointer;
     border: none;
+    border-radius: 4px;
 }
 
 .submit-button:hover{
-    background-color: rgb(19, 80, 66);
+    background-color: rgb(30, 144, 117);
 }
+
+.login-demo-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 10px;
+    width: 100%;
+    font-size: 20px;
+    border-radius: 4px;
+    margin-bottom: 25px;
+
+    color: white;
+    background-color: #00797d;
+    cursor: pointer;
+}
+
+.login-demo-button:hover {
+    background-color: rgb(2, 169, 175);
+}
+
 .signup-option{
     display: flex;
     flex-direction: column;
     padding: 5px;
-
+    padding-top: 20px;
 }
 
 .signup-button{
     background-color:rgb(255, 183, 0);
     color: black;
     padding: 7px;
-    padding: 13px 200px;
+    padding: 10px 200px;
     border-radius: 4px;
-    font-size: 13px;
     border: none;
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
@@ -114,7 +143,7 @@ h2{
 }
 
 .signup-button:hover{
-    background-color:rgb(243, 184, 30);
+    background-color:rgb(250, 198, 68);
 }
 
 .checkbox-container{
@@ -146,40 +175,39 @@ h2{
 /* signup container */
 
 .form-container-session-sign {
-    margin-left: 30%;
-    margin-right: 30%;
-    /* margin-left: 15%; */
+    margin-right: auto;
+    margin-left: auto;
     display:flex;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
-    justify-content: center;
-    margin-top: 100px;
-    background: white;
-    padding-top: 80px;
-    padding-bottom: 80px;
+    margin-top: 75px;
+    margin-bottom: 50px;
+    background-color: white;
+    padding-top: 30px;
+    padding-bottom: 40px;
     box-shadow: 0 2px 6px 0 rgba(0,0,0,0.15);
-    margin-bottom: 300px;
 
-    /* width: 69%;
-    height: 450px; */
-    /* margin-top: 250px */
+    width: 800px;
+    height: auto;
 }
 
 .login-button{
     background-color:rgb(255, 183, 0);
     color: black;
-    padding: 15px 100px;
+    padding: 10px 100px;
     text-align: center;
     font-size: 13px;
     border: none;
     width: 600px;
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
+    border-radius: 4px;
     cursor: pointer;
 }
 
 .login-button:hover{
-      background-color:rgb(243, 184, 30);
+      background-color:rgb(250, 198, 68);
 }
 
 .signup-inputs{
@@ -190,7 +218,7 @@ h2{
 }
 
 .upload-pic {
-    width: 300x;
+    width: 163px;
     font-size:10.73px;
 }
 

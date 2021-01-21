@@ -7,6 +7,7 @@ import { countSelector } from '../../reducers/joins_selectors'
 import { openModal, closeModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state) => {
+    
     return ({
         currentUser: state.session.currentUser,
         events: state.entities.events,

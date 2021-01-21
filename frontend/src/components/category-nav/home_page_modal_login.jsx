@@ -60,7 +60,7 @@ class HomePageModalLogin extends React.Component {
             <div className="form-modal" id="form-signin">
                         <h2>Login</h2>
 
-                        <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email:&nbsp;&nbsp;
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email:&nbsp;&nbsp;
               <input type="text"
                                 className="input-field"
                                 value={this.state.email}

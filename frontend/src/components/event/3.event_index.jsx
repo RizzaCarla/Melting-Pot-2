@@ -41,7 +41,7 @@ class EventIndex extends React.Component {
                                             <div className='event-index-description-list'>
                                                 <div className="date-index">Date:&nbsp;<span id="event-index-info">{Object.values(event.date).slice(0, 10)}</span></div>
                                                 <div className="date-index">Event Name:&nbsp;<Link id="event-name" to={`/events/${event._id}`}>{event.name}</Link></div>
-                                                <div className="date-index">Partcipating:&nbsp;<span className="event-index-info">{this.props.count[event._id]}</span></div>
+                                                <div className="date-index">Participating:&nbsp;<span className="event-index-info">{this.props.count[event._id]}</span></div>
                                                 <div className="date-index">From:&nbsp;<span id="event-index-info">{event.startTime} to {event.endTime}</span></div>
                                                 <div className="date-index">Location:&nbsp;<span id="event-index-info">{event.location}</span></div>
                                                 <div className="date-index">Hosted by:&nbsp;<span id="event-index-info">{this.props.users[event.hostId].handle}</span></div>

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { getUserRecipes } from  '../../actions/recipe_actions';
+import { getUserRecipes, clearRecipes } from  '../../actions/recipe_actions';
 import AboutMe from './7.aboutMe'
 
 const mapStateToProps = (state) => {
@@ -11,9 +11,10 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-    return({
-        getUserRecipes: authorId => dispatch(getUserRecipes(authorId))
-    })
+    return {
+      getUserRecipes: (authorId) => dispatch(getUserRecipes(authorId)),
+      clearRecipes: () => dispatch(clearRecipes()),
+    };
 }
 
 

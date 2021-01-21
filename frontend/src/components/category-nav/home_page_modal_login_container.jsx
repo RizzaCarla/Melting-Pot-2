@@ -1,12 +1,12 @@
 import { connect } from 'react-redux'
 import { login, clearErrors } from '../../actions/session_actions';
 import HomePageModalLogin from './home_page_modal_login';
-import { withRouter } from 'react-router-dom'
-import { closeModal } from '../../actions/modal_actions' 
+import { closeModal } from '../../actions/modal_actions';
+import {withRouter} from 'react-router-dom'
 
 const mapStateToProps = (state, ownProps) => {
-    console.log(ownProps)
-        let redirectLink = '/'
+
+    let redirectLink = '/'
      if(ownProps.location.state !== undefined){
         redirectLink = ownProps.location.state.redirectLink
     }
