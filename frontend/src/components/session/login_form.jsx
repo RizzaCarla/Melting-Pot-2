@@ -22,6 +22,13 @@ class LoginForm extends React.Component {
     this.props.clearErrors()
   }
 
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.isAuthenticated === false) {
+      return ({ errors: nextProps.errors });
+    }
+  }
+
+
   update(field) {
     return e => this.setState({[field]: e.currentTarget.value});
   }
@@ -32,8 +39,9 @@ class LoginForm extends React.Component {
       email: this.state.email,
       password: this.state.password
     };
-    this.props.login(user)
-      .then(() => this.props.history.push(this.props.redirectLink))
+    this.props.login(user, this.props.history)
+      // .then(() => this.props.history.push(this.props.redirectLink))
+
   }
 
   handleDemoLogin(e) {
@@ -94,8 +102,7 @@ class LoginForm extends React.Component {
               type="submit"
               value="Login"
             />
-            <button className="login-demo-button" onClick={this.handleDemoLogin}>Demo Login</button>
-            <div className="errors">{this.renderErrors()}</div>
+            <div className="session-errors">{this.renderErrors()}</div>
           </div>
         </form>
 

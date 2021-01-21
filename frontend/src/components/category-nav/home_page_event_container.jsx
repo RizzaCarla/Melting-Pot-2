@@ -8,7 +8,6 @@ import { createJoin, deleteJoin, getJoins, getEventJoins } from '../../actions/j
 import { joinSelector } from '../../reducers/joins_selectors'
 
 const mapStateToProps = (state,ownProps) => {
-    
     return ({
         currentUser: state.session.currentUser,
         events: state.entities.events,

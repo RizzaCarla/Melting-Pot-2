@@ -5,7 +5,7 @@ import '../session/css_reset.css'
 import '../session/session_forms.css'
 import { RiCloseLine } from 'react-icons/ri'
 
-class HomePageModalLogin extends React.Component {
+class EventModalLogin extends React.Component {
     constructor(props) {
         super(props)
 
@@ -33,7 +33,6 @@ class HomePageModalLogin extends React.Component {
             password: this.state.password
         };
         this.props.login(user, this.props.history)
-        .then(() => this.props.history.push(this.props.redirectLink))
             .then(this.props.closeModal())
     }
 
@@ -52,12 +51,12 @@ class HomePageModalLogin extends React.Component {
     render() {
         return (
             <div className="form-container-session-modal">
-            <div id="close-x-modal"  onClick={this.props.closeModal}><RiCloseLine /></div>
+                <div id="close-x-modal" onClick={this.props.closeModal}><RiCloseLine /></div>
                 <h1>Melting Pot</h1>
 
                 <form onSubmit={this.handleSubmit}>
 
-            <div className="form-modal" id="form-signin">
+                    <div className="form-modal" id="form-signin">
                         <h2>Login</h2>
 
                         <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email:&nbsp;&nbsp;
@@ -91,4 +90,4 @@ class HomePageModalLogin extends React.Component {
     }
 }
 
-export default HomePageModalLogin;
+export default EventModalLogin;

@@ -31,8 +31,8 @@ class HomePageEventButton extends React.Component {
         if (!this.props.auth) {
             return(
                 <div className="trending-event-button">
-                <button className="signintojoin-button" onClick={() => this.props.openModal('LogIn')}>Login to Join</button>
-            </div>
+                    <div className="signintojoin-button"> <Link to={{ pathname: `/login` , state: { redirectLink: `/events/${this.props.event._id}` } }} className="index-signin-text" onClick={() => this.props.openModal('LogIn')}>Login to Join</Link> </div>
+                </div>
             )
         } else {
             return(
@@ -65,6 +65,7 @@ class HomePageEventButton extends React.Component {
                             <div><span className="event-text">Description:</span> {this.props.event.description}</div>
                         </div>
                         <div className='trending-event-button-container'> {this.handleParticipateButton()}</div>
+
                     </div>
                     
                 </div>
