@@ -102,6 +102,12 @@ class LoginForm extends React.Component {
               type="submit"
               value="Login"
             />
+            <button
+              className="login-demo-button"
+              onClick={this.handleDemoLogin}
+            >
+              Demo Login
+            </button>
             <div className="session-errors">{this.renderErrors()}</div>
           </div>
         </form>
@@ -119,7 +125,6 @@ class LoginForm extends React.Component {
             />
           </Link>
         </div>
-        
       </div>
     );
   }

@@ -136,164 +136,181 @@ class SignupForm extends React.Component {
           <div className="form">
             <h2>Sign Up</h2>
 
-          <div className="signup-inputs">
-            <label>Email:&nbsp;
-              <input
-                type="text"
-                className="input-field"
-                value={this.state.email}
-                onChange={this.update("email")}
-                placeholder="Email"
-              />
-            </label>
+            <div className="signup-inputs">
+              <label>
+                Email:&nbsp;
+                <input
+                  type="text"
+                  className="input-field"
+                  value={this.state.email}
+                  onChange={this.update("email")}
+                  placeholder="Email"
+                />
+              </label>
 
-            <label>Handle:&nbsp;
-              <input
-                type="text"
-                className="input-field"
-                value={this.state.handle}
-                onChange={this.update("handle")}
-                placeholder="Handle"
-              />
-            </label>
+              <label>
+                Handle:&nbsp;
+                <input
+                  type="text"
+                  className="input-field"
+                  value={this.state.handle}
+                  onChange={this.update("handle")}
+                  placeholder="Handle"
+                />
+              </label>
 
-            <label>Password:&nbsp;
-              <input
-                type="password"
-                className="input-field"
-                value={this.state.password}
-                onChange={this.update("password")}
-                placeholder="Password"
-              />
-            </label>
+              <label>
+                Password:&nbsp;
+                <input
+                  type="password"
+                  className="input-field"
+                  value={this.state.password}
+                  onChange={this.update("password")}
+                  placeholder="Password"
+                />
+              </label>
 
-            <label>Confirm Password:&nbsp;
-              <input
-                type="password"
-                className="input-field"
-                value={this.state.password2}
-                onChange={this.update("password2")}
-                placeholder="Confirm Password"
-              />
-            </label>
+              <label>
+                Confirm Password:&nbsp;
+                <input
+                  type="password"
+                  className="input-field"
+                  value={this.state.password2}
+                  onChange={this.update("password2")}
+                  placeholder="Confirm Password"
+                />
+              </label>
 
-            <label>Bio:&nbsp;
-              <input
-                type="textbox"
-                className="input-field"
-                value={this.state.bio}
-                onChange={this.update("bio")}
-                placeholder="Bio"
-              />
-            </label>
+              <label>
+                Bio:&nbsp;
+                <input
+                  type="textbox"
+                  className="input-field"
+                  value={this.state.bio}
+                  onChange={this.update("bio")}
+                  placeholder="Bio"
+                />
+              </label>
 
-            <label >Upload Profile Picture:&nbsp;
-              <input
-                type="file"
-                className="input-field upload-pic"
-                name=""
-                id=""
-                onChange={this.handlePhotoFile}
-              />
-            </label>
-          </div>
-
-
-
-            <label className="checkbox-main-container"> 
-            <div classname="dietary-title">Dietary Restrictions:</div>
-     
-            <div>
-                <div className="checkbox-container">
-                <div className="checkbox-col-1">
-                      <label>
-                          <input 
-                          type="checkbox"
-                          value="Vegan"
-                          onChange={this.handleCheckboxChange.bind(this)}
-                          />
-                          &nbsp;Vegan
-                      </label>
-
-                      <label>
-                          <input
-                          type="checkbox"
-                          value="Vegetarian"
-                          onChange={this.handleCheckboxChange.bind(this)}
-                        />
-                        &nbsp;Vegetarian 
-                      </label>
-
-                      <label>
-                          <input
-                          type="checkbox"
-                          value="Meat Lovers"
-                          onChange={this.handleCheckboxChange.bind(this)}
-                        />
-                        &nbsp;Meat Lover
-                      </label>
-
-                      <label>
-                          <input
-                          type="checkbox"
-                          value="Keto"
-                          onChange={this.handleCheckboxChange.bind(this)}
-                        />
-                        &nbsp;Keto
-                      </label>
-                </div>
-                  <div className="checkbox-col-2">
-                      <label>
-                        <input
-                          type="checkbox"
-                          value="Whole 30"
-                          onChange={this.handleCheckboxChange.bind(this)}
-                        />
-                        &nbsp;Whole 30
-                      </label>
-
-                      <label>
-                        <input
-                          type="checkbox"
-                          value="Low Carb"
-                          onChange={this.handleCheckboxChange.bind(this)}
-                        />
-                        &nbsp;Low Carb
-                      </label>
-
-                      <label>
-                        <input
-                          type="checkbox"
-                          value="Diabetic"
-                          onChange={this.handleCheckboxChange.bind(this)}
-                        />
-                        &nbsp;Diabetic
-                      </label>
-
-                      <label>
-                        <input
-                          type="checkbox"
-                          value="None"
-                          onChange={this.handleCheckboxChange.bind(this)}
-                        />
-                        &nbsp;None
-                      </label>
-                      </div>
-                </div>
+              <label>
+                Upload Profile Picture:&nbsp;
+                <input
+                  type="file"
+                  className="input-field upload-pic"
+                  name=""
+                  id=""
+                  onChange={this.handlePhotoFile}
+                />
+              </label>
             </div>
+
+            <label className="checkbox-main-container">
+              <div classname="dietary-title">Dietary Restrictions:</div>
+
+              <div>
+                <div className="checkbox-container">
+                  <div className="checkbox-col-1">
+                    <label>
+                      <input
+                        type="checkbox"
+                        value="Vegan"
+                        onChange={this.handleCheckboxChange.bind(this)}
+                      />
+                      &nbsp;Vegan
+                    </label>
+
+                    <label>
+                      <input
+                        type="checkbox"
+                        value="Vegetarian"
+                        onChange={this.handleCheckboxChange.bind(this)}
+                      />
+                      &nbsp;Vegetarian
+                    </label>
+
+                    <label>
+                      <input
+                        type="checkbox"
+                        value="Meat Lovers"
+                        onChange={this.handleCheckboxChange.bind(this)}
+                      />
+                      &nbsp;Meat Lover
+                    </label>
+
+                    <label>
+                      <input
+                        type="checkbox"
+                        value="Keto"
+                        onChange={this.handleCheckboxChange.bind(this)}
+                      />
+                      &nbsp;Keto
+                    </label>
+                  </div>
+                  <div className="checkbox-col-2">
+                    <label>
+                      <input
+                        type="checkbox"
+                        value="Whole 30"
+                        onChange={this.handleCheckboxChange.bind(this)}
+                      />
+                      &nbsp;Whole 30
+                    </label>
+
+                    <label>
+                      <input
+                        type="checkbox"
+                        value="Low Carb"
+                        onChange={this.handleCheckboxChange.bind(this)}
+                      />
+                      &nbsp;Low Carb
+                    </label>
+
+                    <label>
+                      <input
+                        type="checkbox"
+                        value="Diabetic"
+                        onChange={this.handleCheckboxChange.bind(this)}
+                      />
+                      &nbsp;Diabetic
+                    </label>
+
+                    <label>
+                      <input
+                        type="checkbox"
+                        value="None"
+                        onChange={this.handleCheckboxChange.bind(this)}
+                      />
+                      &nbsp;None
+                    </label>
+                  </div>
+                </div>
+              </div>
             </label>
 
-            <input className="submit-button"  type="submit" value="Submit" />
+            <input className="submit-button" type="submit" value="Submit" />
+            <button
+              className="login-demo-button"
+              onClick={this.handleDemoLogin}
+            >
+              Demo Login
+            </button>
             <div className="session-errors">{this.renderErrors()}</div>
           </div>
         </form>
 
-            <br></br>
-            <div className="signup-option">
-              <label>Already a User?</label>
-              <br></br>
-              <Link to="/login"> <input className="login-button input-field" type="submit" value="Login" /></Link>
-            </div>
+        <br></br>
+        <div className="signup-option">
+          <label>Already a User?</label>
+          <br></br>
+          <Link to="/login">
+            {" "}
+            <input
+              className="login-button input-field"
+              type="submit"
+              value="Login"
+            />
+          </Link>
+        </div>
       </div>
     );
   }
