@@ -16,13 +16,23 @@
 Melting Pot is a social cooking application intended to create a network where users can look up recipes, share recipes, and schedule cooking times with others.
 
 **Homepage**
-![](docs/home.png)
+![](docs/new_home.png)
+
+**Profile Page**
+![](docs/profile.png)
 
 **Recipe Page**
 ![](docs/recipe%20show.png)
 
+**Add Recipe Page**
+![](docs/new_recipe.png)
+
 **Event Index**
-![](docs/Events%20index.png)
+![](docs/new_event_index.png)
+
+**Recipe Search**
+
+![](docs/search.png)
 
 ## Features
 
@@ -59,16 +69,18 @@ Melting Pot is a MERN stack application using (mongoDB, Express, React, and Node
  4. Understanding the React-Redux cycle and tracking state. An example would be making sure our show pages update with the correct info rather than the previous state. 
 
 ## Highlight
-Implementing an easy-to-use search feature came to be a great challenge. We had to come up with a way for the user to be able to search our database while simultaneously presenting the results. On the backend, we created a special 'search' POST route for the recipes that used RegExp to form a pattern with the search query and was then used with Mongoose to find a list of recipes. The feature is very literal and will have to refactored on a later date to accommodate casing and spaces. 
+Implementing an easy-to-use search feature came to be a great challenge. We had to come up with a way for the user to be able to search our database while simultaneously presenting the results. On the backend, we created a special 'search' POST route for the recipes that used RegExp to form a pattern with the search query and was then used with Mongoose to find a list of recipes. 
 
 ```
-router.post('/search-recipes', (req, res) => {
-  let recipePattern = new RegExp("^" + req.body.query);
-  
-  Recipe.find({name:{$regex:recipePattern}})
-    .then(recipe => {res.json({recipe})})
-    .catch(err => console.log(err))
-})
+router.post("/search-recipes", (req, res) => {
+  let recipePattern = new RegExp(req.body.query, "i");
+
+  Recipe.find({ name: { $regex: recipePattern } })
+    .then((recipe) => {
+      res.json({ recipe });
+    })
+    .catch((err) => console.log(err));
+});
 
 ```
 
