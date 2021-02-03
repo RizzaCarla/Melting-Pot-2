@@ -128,7 +128,7 @@ NavBar {
     width:fit-content;
     width: 343px;
     max-width: 350px;
-    border: 1px solid #cccbcb;
+    border: none;
     border-radius: 5px;
 }
 
@@ -150,7 +150,7 @@ NavBar {
     border-radius: 4px;
     background: rgb(255, 255, 255);
     padding-left: 5px;
-    border: 1px solid black;
+    border: none;
 }
 
 .search-parent input[type=text] {
@@ -184,7 +184,7 @@ NavBar {
 
 .search-item-picture img {
     border-radius: 5px;
-    border: 1px solid black;
+    border: none;
     width: 100px;
     height: 100px;
     object-fit: cover;

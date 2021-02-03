@@ -60,9 +60,7 @@ class CommentIndex extends React.Component {
                                value={this.state.body}
                                placeholder="Write your comment here..."
                                onChange={this.handleComment}/>
-                        <input className="comment-submit"
-                               type="submit"
-                               value="Comment"/>
+                        <button className="comment-submit">Comment</button>
                     </form>
                 </div>
 

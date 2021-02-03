@@ -287,30 +287,18 @@ class SignupForm extends React.Component {
               </div>
             </label>
 
-            <input className="submit-button" type="submit" value="Submit" />
-            <button
-              className="login-demo-button"
-              onClick={this.handleDemoLogin}
-            >
-              Demo Login
-            </button>
+            <button className="submit-button">Submit</button>
+            <button className="login-demo-button" onClick={this.handleDemoLogin}>Demo Login</button>
             <div className="session-errors">{this.renderErrors()}</div>
           </div>
         </form>
 
-        <br></br>
-        <div className="signup-option">
-          <label>Already a User?</label>
-          <br></br>
-          <Link to="/login">
-            {" "}
-            <input
-              className="login-button input-field"
-              type="submit"
-              value="Login"
-            />
-          </Link>
-        </div>
+            <br></br>
+            <div className="signup-option">
+              <label>Already a User?</label>
+              <br></br>
+          <Link to="/login"> <button className="login-button input-field">Login</button></Link>
+            </div>
       </div>
     );
   }

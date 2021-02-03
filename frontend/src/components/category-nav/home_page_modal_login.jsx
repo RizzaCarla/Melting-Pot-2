@@ -16,6 +16,7 @@ class HomePageModalLogin extends React.Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.renderErrors = this.renderErrors.bind(this);
+        this.handleDemoLogin = this.handleDemoLogin.bind(this);
     }
 
     componentDidMount() {
@@ -37,6 +38,16 @@ class HomePageModalLogin extends React.Component {
             .then(this.props.closeModal())
     }
 
+    handleDemoLogin(e) {
+        e.preventDefault();
+        let user = {
+            email: 'DemoUser@gmail.com',
+            password: 'DemoUser'
+        }
+        this.props.login(user)
+            .then(() => this.props.history.push(this.props.redirectLink))
+    }
+
     renderErrors() {
         return (
             <ul>
@@ -53,6 +64,8 @@ class HomePageModalLogin extends React.Component {
         return (
             <div className="form-container-session-modal">
             <div id="close-x-modal"  onClick={this.props.closeModal}><RiCloseLine /></div>
+            <div className='form-container-inner'>
+
                 <h1>Melting Pot</h1>
 
                 <form onSubmit={this.handleSubmit}>
@@ -80,9 +93,11 @@ class HomePageModalLogin extends React.Component {
 
 
                         <input className="submit-button input-field" type="submit" value="Login" />
+                        <button className="login-demo-button" onClick={this.handleDemoLogin}>Demo Login</button>
                         <div className="errors">{this.renderErrors()}</div>
                     </div>
                 </form>
+            </div>
 
                 <br></br>
             </div>

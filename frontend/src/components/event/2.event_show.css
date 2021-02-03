@@ -103,9 +103,10 @@
     color: black;
     font-size: 16px;
     cursor: pointer;
-     width: 230px;
-     padding: 10px;
-     border: 1px solid black;
+    width: 230px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
 }
 
 .event-index-login-first:hover{

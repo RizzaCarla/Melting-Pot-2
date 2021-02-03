@@ -86,8 +86,7 @@ class LoginForm extends React.Component {
               />
             </label>
 
-            <label>
-              Password:&nbsp;&nbsp;
+            <label>Password:&nbsp;&nbsp;
               <input
                 type="password"
                 className="input-field"
@@ -97,17 +96,8 @@ class LoginForm extends React.Component {
               />
             </label>
 
-            <input
-              className="submit-button input-field"
-              type="submit"
-              value="Login"
-            />
-            <button
-              className="login-demo-button"
-              onClick={this.handleDemoLogin}
-            >
-              Demo Login
-            </button>
+            <button className="submit-button input-field">Login</button>
+            <button className="login-demo-button" onClick={this.handleDemoLogin}>Demo Login</button>
             <div className="session-errors">{this.renderErrors()}</div>
           </div>
         </form>
@@ -118,11 +108,7 @@ class LoginForm extends React.Component {
           <br></br>
           <Link to="/signup">
             {" "}
-            <input
-              className="signup-button input-field"
-              type="submit"
-              value="Sign Up"
-            />
+            <button className="signup-button input-field">Sign Up</button>
           </Link>
         </div>
       </div>
