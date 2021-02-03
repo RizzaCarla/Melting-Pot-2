@@ -263,9 +263,32 @@
   }
 
   #close-x-modal{
-    margin-left: 450px;
-    margin-bottom: 100px;
-    /* margin-bottom: -200px; */
+    position: relative;
+    left: 225px;
+    font-size: 25px;
+    cursor: pointer;
+  }
+
+  .form-container-session-modal {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:0px;
+    margin-bottom: 0px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    height: 600px;
+    background-color: white;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.15);
+  }
+
+  .form-container-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
 
   .trending-unjoin-button {
