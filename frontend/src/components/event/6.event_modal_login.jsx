@@ -5,7 +5,7 @@ import '../session/css_reset.css'
 import '../session/session_forms.css'
 import { RiCloseLine } from 'react-icons/ri'
 
-class HomePageModalLogin extends React.Component {
+class EventModalLogin extends React.Component {
     constructor(props) {
         super(props)
 
@@ -16,7 +16,6 @@ class HomePageModalLogin extends React.Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.renderErrors = this.renderErrors.bind(this);
-        this.handleDemoLogin = this.handleDemoLogin.bind(this);
     }
 
     componentDidMount() {
@@ -34,18 +33,7 @@ class HomePageModalLogin extends React.Component {
             password: this.state.password
         };
         this.props.login(user, this.props.history)
-        .then(() => this.props.history.push(this.props.redirectLink))
             .then(this.props.closeModal())
-    }
-
-    handleDemoLogin(e) {
-        e.preventDefault();
-        let user = {
-            email: 'DemoUser@gmail.com',
-            password: 'DemoUser'
-        }
-        this.props.login(user)
-            .then(() => this.props.history.push(this.props.redirectLink))
     }
 
     renderErrors() {
@@ -63,14 +51,12 @@ class HomePageModalLogin extends React.Component {
     render() {
         return (
             <div className="form-container-session-modal">
-            <div id="close-x-modal"  onClick={this.props.closeModal}><RiCloseLine /></div>
-            <div className='form-container-inner'>
-
+                <div id="close-x-modal" onClick={this.props.closeModal}><RiCloseLine /></div>
                 <h1>Melting Pot</h1>
 
                 <form onSubmit={this.handleSubmit}>
 
-            <div className="form-modal" id="form-signin">
+                    <div className="form-modal" id="form-signin">
                         <h2>Login</h2>
 
                         <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email:&nbsp;&nbsp;
@@ -93,11 +79,9 @@ class HomePageModalLogin extends React.Component {
 
 
                         <input className="submit-button input-field" type="submit" value="Login" />
-                        <button className="login-demo-button" onClick={this.handleDemoLogin}>Demo Login</button>
                         <div className="errors">{this.renderErrors()}</div>
                     </div>
                 </form>
-            </div>
 
                 <br></br>
             </div>
@@ -106,4 +90,4 @@ class HomePageModalLogin extends React.Component {
     }
 }
 
-export default HomePageModalLogin;
+export default EventModalLogin;

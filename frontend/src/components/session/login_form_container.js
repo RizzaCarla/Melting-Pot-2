@@ -4,14 +4,17 @@ import LoginForm from './login_form';
 import{withRouter} from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => {
-  let redirectLink = '/profile'
-  if (ownProps.location.state !== undefined){
-    redirectLink = ownProps.location.state.redirectLink
-  }
+  
+  // console.log(ownProps)
+  // let redirectLink = '/profile'
+  // if (ownProps.location.state !== undefined){
+  //   redirectLink = ownProps.location.state.redirectLink
+  // }
 
   return {
     errors: state.errors.session,
-    redirectLink: redirectLink
+    // redirectLink: redirectLink,
+    isAuthenticated: state.session.isAuthenticated,
   };
 };
 

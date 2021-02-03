@@ -2,6 +2,7 @@ import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import HomePageModalLoginContainer from '../category-nav/home_page_modal_login_container'
+import EventLoginContainer from '../event/6.event_modal_login_container'
 
 class Modal extends React.Component {
     constructor(props) {
@@ -18,6 +19,9 @@ class Modal extends React.Component {
         switch (modal) {
             case 'LogIn':
                 component = <HomePageModalLoginContainer />;
+                break;
+            case 'eventLogIn':
+                component = <EventLoginContainer />;
                 break;
             default:
                 return null;

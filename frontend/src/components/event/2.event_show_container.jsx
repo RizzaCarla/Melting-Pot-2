@@ -4,6 +4,7 @@ import { getEvents, getEvent, updateEvent, deleteEvent } from '../../actions/eve
 import EventShow from './2.event_show';
 import { joinSelector2 } from '../../reducers/joins_selectors'
 import { createJoin, deleteJoin, getJoins } from '../../actions/join_actions'
+import { closeModal, openModal } from '../../actions/modal_actions'
 import {login} from '../../actions/session_actions'
 
 const mapStateToProps = (state, ownProps) => {
@@ -27,7 +28,9 @@ const mapDispatchToProps = (dispatch) => {
         createJoin: ((join) => dispatch(createJoin(join))),
         getJoins: (() => dispatch(getJoins())),
         deleteJoin: (joinId) => dispatch(deleteJoin(joinId)),
-        login: (user) => dispatch(login(user))
+        login: (user) => dispatch(login(user)),
+        closeModal: () => dispatch(closeModal()),
+        openModal: (modal) => dispatch(openModal(modal)),
     })
 }
 
