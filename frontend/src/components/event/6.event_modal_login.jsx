@@ -23,20 +23,29 @@ class EventModalLogin extends React.Component {
         this.props.clearErrors()
     }
 
+    
+    
     update(field) {
         return e => this.setState({ [field]: e.currentTarget.value });
     }
-
+    
     handleSubmit(e) {
         e.preventDefault();
-        let user = {
-            email: this.state.email,
-            password: this.state.password
-        };
-        this.props.login(user, this.props.history)
-            .then(this.props.closeModal())
+            let user = {
+                email: this.state.email,
+                password: this.state.password
+            };
+            this.props.login(user, this.props.history)
     }
-
+    
+    static getDerivedStateFromProps(nextProps, prevState) {
+        if ((nextProps.isAuthenticated === false) && (nextProps.errors !== undefined)) {
+            return ({ errors: nextProps.errors });
+        } else {
+            return window.location.reload()
+        }
+    }
+    
     renderErrors() {
         return (
             <ul>
@@ -55,8 +64,8 @@ class EventModalLogin extends React.Component {
             email: 'DemoUser@gmail.com',
             password: 'DemoUser'
         }
-        this.props.login(user)
-            .then(() => this.props.history.push(this.props.redirectLink))
+        this.props.login(user, this.props.history)
+            .then(this.props.closeModal())
     }
 
     render() {
@@ -93,7 +102,7 @@ class EventModalLogin extends React.Component {
 
                         <button className="submit-button input-field">Login</button>
                         <button className="login-demo-button" onClick={this.handleDemoLogin}>Demo Login</button>
-                        <div className="errors">{this.renderErrors()}</div>
+                        <div className="session-errors">{this.renderErrors()}</div>
                     </div>
                 </form>
                 </div>
