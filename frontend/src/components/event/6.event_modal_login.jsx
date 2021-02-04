@@ -16,6 +16,7 @@ class EventModalLogin extends React.Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.renderErrors = this.renderErrors.bind(this);
+        this.handleDemoLogin = this.handleDemoLogin.bind(this);
     }
 
     componentDidMount() {
@@ -48,10 +49,22 @@ class EventModalLogin extends React.Component {
         );
     }
 
+    handleDemoLogin(e) {
+        e.preventDefault();
+        let user = {
+            email: 'DemoUser@gmail.com',
+            password: 'DemoUser'
+        }
+        this.props.login(user)
+            .then(() => this.props.history.push(this.props.redirectLink))
+    }
+
     render() {
         return (
             <div className="form-container-session-modal">
                 <div id="close-x-modal" onClick={this.props.closeModal}><RiCloseLine /></div>
+                <div className='form-container-inner'>
+
                 <h1>Melting Pot</h1>
 
                 <form onSubmit={this.handleSubmit}>
@@ -65,23 +78,25 @@ class EventModalLogin extends React.Component {
                                 value={this.state.email}
                                 onChange={this.update('email')}
                                 placeholder="Email"
-                            />
+                                />
                         </label>
 
                         <label>Password:&nbsp;&nbsp;
-              <input type="password"
+                            <input type="password"
                                 className="input-field"
                                 value={this.state.password}
                                 onChange={this.update('password')}
                                 placeholder="Password"
-                            />
+                                />
                         </label>
 
 
-                        <input className="submit-button input-field" type="submit" value="Login" />
+                        <button className="submit-button input-field">Login</button>
+                        <button className="login-demo-button" onClick={this.handleDemoLogin}>Demo Login</button>
                         <div className="errors">{this.renderErrors()}</div>
                     </div>
                 </form>
+                </div>
 
                 <br></br>
             </div>
