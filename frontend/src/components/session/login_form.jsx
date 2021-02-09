@@ -51,7 +51,7 @@ class LoginForm extends React.Component {
       password: 'DemoUser'
     }
     this.props.login(user)
-      .then(() => this.props.history.push(this.props.redirectLink))
+      // .then(() => this.props.history.push(this.props.redirectLink))
   }
 
   renderErrors() {

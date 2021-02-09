@@ -16,26 +16,36 @@ class EventModalLogin extends React.Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.renderErrors = this.renderErrors.bind(this);
+        this.handleDemoLogin = this.handleDemoLogin.bind(this);
     }
 
     componentDidMount() {
         this.props.clearErrors()
     }
 
+    
+    
     update(field) {
         return e => this.setState({ [field]: e.currentTarget.value });
     }
-
+    
     handleSubmit(e) {
         e.preventDefault();
-        let user = {
-            email: this.state.email,
-            password: this.state.password
-        };
-        this.props.login(user, this.props.history)
-            .then(this.props.closeModal())
+            let user = {
+                email: this.state.email,
+                password: this.state.password
+            };
+            this.props.login(user, this.props.history)
     }
-
+    
+    static getDerivedStateFromProps(nextProps, prevState) {
+        if ((nextProps.isAuthenticated === false) && (nextProps.errors !== undefined)) {
+            return ({ errors: nextProps.errors });
+        } else {
+            return window.location.reload()
+        }
+    }
+    
     renderErrors() {
         return (
             <ul>
@@ -48,10 +58,22 @@ class EventModalLogin extends React.Component {
         );
     }
 
+    handleDemoLogin(e) {
+        e.preventDefault();
+        let user = {
+            email: 'DemoUser@gmail.com',
+            password: 'DemoUser'
+        }
+        this.props.login(user, this.props.history)
+            .then(this.props.closeModal())
+    }
+
     render() {
         return (
             <div className="form-container-session-modal">
                 <div id="close-x-modal" onClick={this.props.closeModal}><RiCloseLine /></div>
+                <div className='form-container-inner'>
+
                 <h1>Melting Pot</h1>
 
                 <form onSubmit={this.handleSubmit}>
@@ -65,23 +87,25 @@ class EventModalLogin extends React.Component {
                                 value={this.state.email}
                                 onChange={this.update('email')}
                                 placeholder="Email"
-                            />
+                                />
                         </label>
 
                         <label>Password:&nbsp;&nbsp;
-              <input type="password"
+                            <input type="password"
                                 className="input-field"
                                 value={this.state.password}
                                 onChange={this.update('password')}
                                 placeholder="Password"
-                            />
+                                />
                         </label>
 
 
-                        <input className="submit-button input-field" type="submit" value="Login" />
-                        <div className="errors">{this.renderErrors()}</div>
+                        <button className="submit-button input-field">Login</button>
+                        <button className="login-demo-button" onClick={this.handleDemoLogin}>Demo Login</button>
+                        <div className="session-errors">{this.renderErrors()}</div>
                     </div>
                 </form>
+                </div>
 
                 <br></br>
             </div>

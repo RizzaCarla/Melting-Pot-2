@@ -4,13 +4,10 @@ import { connect } from 'react-redux';
 import HomePageModalLoginContainer from '../category-nav/home_page_modal_login_container'
 import EventLoginContainer from '../event/6.event_modal_login_container'
 
-class Modal extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+// class Modal extends React.Component {
+function Modal ({ modal, closeModal}) {
 
-    render (){
-        let {modal } = this.props
+        // let {modal } = this.props
         if (!modal) {
             return null;
         }
@@ -28,13 +25,12 @@ class Modal extends React.Component {
         }
 
        return (
-           <div className="modal-background" onClick={this.props.closeModal}>
+           <div className="modal-background" onClick={closeModal}>
                <div className="modal-child" onClick={e => e.stopPropagation()}>
                    {component}
                </div>
            </div>
        )
-    }
 }
 
 const mapStateToProps = state => ({
